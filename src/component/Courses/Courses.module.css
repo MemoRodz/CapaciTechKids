@@ -1,0 +1,11 @@
+.courses{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-left: 6%;
+    padding-right: 2%;
+    margin: 2%;
+    border: 2px solid rgba(237, 223, 233, 0.113);
+    border-radius: 4px;
+    width: 80%;
+}
