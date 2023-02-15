@@ -7,6 +7,7 @@ function Donate() {
     <h3>Thanks for your donations.</h3>
     <p>Donations are used to pay for the server costs and to keep the site running.</p>
     
+    <div> SIGNIFICATIVO </div>
     
     <button>DONATE</button>
     
