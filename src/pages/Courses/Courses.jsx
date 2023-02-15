@@ -4,27 +4,28 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function Courses() {
-  const [Character, setCharacter] = useState([]) 
+  const [Courses, setCourses] = useState([]) 
  
   useEffect(() => {
     fetch(`http://localhost:3001/courses`)
       .then((response) => response.json())
       .then((char) => {
         
-          setCharacter(char);
+          setCourses(char);
       })
       .catch((err) => {
         window.alert("No hay personajes con ese ID");
       });
-    return setCharacter([]);
+    return setCourses([]);
   }, []);
   
-  console.log(Character);
+
  
 
   return (
     <div className={styles.courses}>
-      {Character.map((c) => {
+      {Courses.map((c,i) => {
+        while (i < 8)
         return (
           <Course
             key={c.id}
@@ -33,10 +34,11 @@ export default function Courses() {
             Category={c.Category}
             Title={c.Title}
             Description={c.Description}
-            score={c.score}
             Start_Date={c.Start_Date}
             End_Date={c.End_Date}
             Duration={c.Duration}
+            Instructor={c.tblUser.Name}
+            Score={c.Score}
             //onClose={() => props.onClose(c.id)}
           />
         );

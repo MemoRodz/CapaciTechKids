@@ -13,7 +13,7 @@
 
 * [Brandon Reyes](https://github.com/Brareyesb15)
 
-* [Fabián Rizzi]()
+* [Fabián Rizzi](https://github.com/Fabian-Rizzi)
 
 * [Guillermo Rodríguez](https://github.com/MemoRodz)
 

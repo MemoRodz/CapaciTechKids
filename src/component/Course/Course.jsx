@@ -3,14 +3,14 @@ import Estrella from '../Estrella/Estrella';
 import style from '../course/Course.module.css'
 export default function Course(props) {
 
-    const {Title, Description, Category,Image,score}=props
+    const {Title, Description, Category,Image,Score}=props
 
     const [isFav, setIsFav] = useState(false);
     //const dispatch = useDispatch();
     //const myFavorites = useSelector((s) => s.myFavorites);
 
 
-    function handleFavorite() {
+    function handleFavorite() { 
         if (isFav) {
         setIsFav(false);
         //dispatch(deleteFavorites(ch.id));
@@ -19,6 +19,7 @@ export default function Course(props) {
         //dispatch(addFavorites(ch));
         }
     }
+
 
 
   return (
@@ -36,7 +37,7 @@ export default function Course(props) {
                 <img className={style.img} src={Image} alt={Image}/>
                 <h3>{Title}</h3>
                 <h4>{Category.slice(" ")}</h4>
-                <Estrella score={score} />
+                <Estrella Score={Score} />
                 <h4>Descripcion: <br/>{Description}</h4>
                 
                 </div>                                          
