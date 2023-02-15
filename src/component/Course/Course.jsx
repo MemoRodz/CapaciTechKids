@@ -1,8 +1,9 @@
 import {useState} from 'react'
+import Estrella from '../Estrella/Estrella';
 import style from '../course/Course.module.css'
 export default function Course(props) {
 
-    const {title,puntucion, desc, categoria,image}=props
+    const {title,puntuacion, desc, categoria,image,score}=props
 
     const [isFav, setIsFav] = useState(false);
     //const dispatch = useDispatch();
@@ -35,7 +36,8 @@ export default function Course(props) {
                 <img className={style.img} src={image} alt={image}/>
                 <h2>{title}</h2>
                 <h2>{categoria}</h2>
-                <h2>{puntucion}</h2>
+                <h2>{puntuacion}</h2>
+                <Estrella score={score} />
                 <h2>{desc}</h2>
                 
                 </div>                                          

@@ -11,7 +11,7 @@ export default function Courses() {
         fecha_inicio:"14-02-2023",
         fecha_fin:"15-02-2023",
         profesor:"Ricardo Menendez",
-        puntuacion:5
+        score:5
     },
     {
         id:2,
@@ -21,7 +21,7 @@ export default function Courses() {
         fecha_inicio:"14-02-2023",
         fecha_fin:"15-02-2023",
         profesor:"Manuel López",
-        puntuacion:4
+        score:4
         
     },
     {
@@ -32,7 +32,7 @@ export default function Courses() {
         fecha_inicio:"13-02-2023",
         fecha_fin:"18-02-2023",
         profesor:"Ricardo Maya",
-        puntuacion:5
+        score:3
         
     },
     ]
@@ -46,6 +46,7 @@ export default function Courses() {
             image={c.image}
             title={c.title}
             desc={c.desc}
+            score={c.score}
             profesor={c.profesor}
             fecha_inicio={c.fecha_inicio}
             fecha_fin={c.fecha_fin}
