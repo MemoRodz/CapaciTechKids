@@ -1,0 +1,9 @@
+.homecard{
+    display: flex;
+    flex-direction: column;
+}
+
+.homecards{
+    display: flex;
+    flex-direction: row;
+}
