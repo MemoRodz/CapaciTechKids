@@ -1,32 +1,21 @@
 
-import {Course, Courses} from './component/index'
-
-import './App.css'
-
-function App() {
-
-
-  return (
-    <div className="App">
-     
-      <Courses/>
-      
-    </div>
-
 import { Routes, Route } from 'react-router-dom'
-import { Home } from './pages/index'
+import { Home, Courses, About } from './pages/index'
+import Layout from './component/Layout/Layout'
 
 function App() {
 
   return (
     <>
+    <Layout>
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/course' element={<h1>cursos</h1>} />
-          <Route path='/detail' element={<h1>detalles</h1>} />
+          <Route path='/course' element={<Courses/>} />
+          <Route path='/about' element={<About/>} />
         </Routes>
       </main>
+    </Layout>
     </>
 
   )
