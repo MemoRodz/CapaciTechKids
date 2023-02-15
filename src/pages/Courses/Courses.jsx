@@ -1,8 +1,51 @@
 import Course from "../../component/Course/Course";
 import styles from "./Courses.module.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Courses() {
-    let curso=
+  const [Character, setCharacter] = useState([]) 
+ 
+  useEffect(() => {
+    fetch(`http://localhost:3001/courses`)
+      .then((response) => response.json())
+      .then((char) => {
+        
+          setCharacter(char);
+      })
+      .catch((err) => {
+        window.alert("No hay personajes con ese ID");
+      });
+    return setCharacter([]);
+  }, []);
+  
+  console.log(Character);
+ 
+
+  return (
+    <div className={styles.courses}>
+      {Character.map((c) => {
+        return (
+          <Course
+            key={c.id}
+            id={c.id}
+            Image={c.Image}
+            Category={c.Category}
+            Title={c.Title}
+            Description={c.Description}
+            score={c.score}
+            Start_Date={c.Start_Date}
+            End_Date={c.End_Date}
+            Duration={c.Duration}
+            //onClose={() => props.onClose(c.id)}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+ /*  let curso=
     [
       {   
           Title: "JavaScript Basics for Beginners",
@@ -84,26 +127,4 @@ export default function Courses() {
           Duration: 7200,
           score:4
       },
-      ]
-  return (
-    <div className={styles.courses}>
-      {curso.map((c) => {
-        return (
-          <Course
-            key={c.id}
-            id={c.id}
-            Image={c.Image}
-            Category={c.Category}
-            Title={c.Title}
-            Description={c.Description}
-            score={c.score}
-            Start_Date={c.Start_Date}
-            End_Date={c.End_Date}
-            Duration={c.Duration}
-            //onClose={() => props.onClose(c.id)}
-          />
-        );
-      })}
-    </div>
-  );
-}
+      ] */ 
