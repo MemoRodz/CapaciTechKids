@@ -3,7 +3,7 @@ import Estrella from '../Estrella/Estrella';
 import style from '../course/Course.module.css'
 export default function Course(props) {
 
-    const {title,puntuacion, desc, categoria,image,score}=props
+    const {Title, Description, Category,Image,score}=props
 
     const [isFav, setIsFav] = useState(false);
     //const dispatch = useDispatch();
@@ -33,12 +33,11 @@ export default function Course(props) {
         </div> 
         
         <div>
-                <img className={style.img} src={image} alt={image}/>
-                <h2>{title}</h2>
-                <h2>{categoria}</h2>
-                <h2>{puntuacion}</h2>
+                <img className={style.img} src={Image} alt={Image}/>
+                <h3>{Title}</h3>
+                <h4>{Category.slice(" ")}</h4>
                 <Estrella score={score} />
-                <h2>{desc}</h2>
+                <h4>Descripcion: <br/>{Description}</h4>
                 
                 </div>                                          
     </div>
