@@ -37,7 +37,7 @@ export default function Course(props) {
                 <img className={style.img} src={Image} alt={Image}/>
                 <h3>{Title}</h3>
                 <h4>{Category.slice(" ")}</h4>
-                <Estrella S core={Score} />
+                <Estrella Score={Score} />
                 <h4>Descripcion: <br/>{Description}</h4>
                 
                 </div>                                          
