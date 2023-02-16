@@ -51,7 +51,8 @@ export default function Course(props) {
                 <h4>Descripcion: <br/>{Description}</h4>
                 <Link to={`/detail/${PK_Course}`}><button>Study</button></Link>
               </div>                                          
-
+        </div>
+      </div>
     </div>
   )
 }
