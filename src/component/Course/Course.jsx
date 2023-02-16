@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 export default function Course(props) {
 
 
-    const {Title, Description, Category,Image,Score,PK_Course}=props
-    console.log(PK_Course)
+  const { Title, Description, Category, Image, Score, PK_Course,Duration } = props
+  console.log(PK_Course)
 
 
   const [isFav, setIsFav] = useState(false);
@@ -29,28 +29,27 @@ export default function Course(props) {
   return (
     <div className={style.cont}>
       <div className={style.left}>
+        <Estrella Score={Score} />
         <img className={style.img} src={Image} alt={Image} />
       </div>
       <div className={style.right}>
+        <div className={style.upbar_card}>
+          <div className={style.heart}>
+          {isFav ? (
+            <button onClick={() => handleFavorite()}>❤️</button>
+          ) : (
+            <button onClick={() => handleFavorite()}>🤍</button>
+          )}
+          </div>
+          <button className={style.bttn} onClick={props.onClose}>X</button>
+        </div>
         <div className={style.inf}>
-          <div className={style.upbar_card}>
-            {isFav ? (
-              <button onClick={() => handleFavorite()}>❤️</button>
-            ) : (
-              <button onClick={() => handleFavorite()}>🤍</button>
-            )}
-
-           <button className={style.bttn} onClick={props.onClose}>X</button>
-        </div> 
-        
-              <div>
-                <img className={style.img} src={Image} alt={Image}/>
-                <h3>{Title}</h3>
-                <h4>{Category.slice(" ")}</h4>
-                <Estrella Score={Score} />
-                <h4>Descripcion: <br/>{Description}</h4>
-                <Link to={`/detail/${PK_Course}`}><button>Study</button></Link>
-              </div>                                          
+          <div>
+            <h3>{Title}</h3>
+            <h2>{Category.slice(" ")}</h2>
+          </div>
+          <p>Duration: {Duration/60} Min.</p>
+          <Link to={`/detail/${PK_Course}`}><button className={style.btn}>Study</button></Link>
         </div>
       </div>
     </div>
