@@ -1,6 +1,6 @@
 
 import { Routes, Route } from 'react-router-dom'
-import { Home, Courses, About, Donate } from './pages/index'
+import { Home, Courses, About, Donate, Create} from './pages/index'
 import Layout from './component/Layout/Layout'
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/course' element={<Courses/>} />
           <Route path='/about' element={<About/>} />
+          <Route path='/create' element={<Create/>} />
           <Route path='/donate' element={<Donate/>} />
         </Routes>
       </main>
