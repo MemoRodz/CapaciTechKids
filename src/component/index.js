@@ -1,3 +1,4 @@
+export { default as LinkButton } from './Buttons/LinkButton/LinkButton';
 export { default as Course } from './Course/Course';
 export { default as Estrella } from './Estrella/Estrella';
 export { default as Footer } from './Layout/Footer/Footer';
