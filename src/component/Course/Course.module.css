@@ -34,15 +34,19 @@
     justify-content: center;
 }
 .inf{
-    color: black;
     padding: 6px;
 }
 
-h1{
-    font-size: 16px;
+h3{
+    font-size: 20px;
+    color: #0583F2;
+}
+span{
+    color: #F25774;
 }
 p{
-    font-size: 14px;
+    color: #21222E;
+    font-size: 12px;
 }
 .upbar_card{
     display: flex;
