@@ -29,7 +29,7 @@ export default function Courses() {
         return (
           <Course
             key={c.id}
-            id={c.id}
+            PK_Course={c.PK_Course}
             Image={c.Image}
             Category={c.Category}
             Title={c.Title}

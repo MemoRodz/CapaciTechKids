@@ -1,17 +1,52 @@
 .cont {
-  
-    border: 3px solid rgba(255, 255, 255, 0.465);
-    width: 30%;
-    border-radius: 6px;
-    padding: 2px;
-    margin: 8px;
-    background-color: rgba(227, 227, 227, 0.877);
-    text-align: center;
-    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 19rem;
+    width: 30rem;
+    margin: 5%;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.left{
+    background-color: rgba(242, 183, 5, 0.877);
+    height: 19rem;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.left .img {
+    width: 80%;
+    border-radius: 3px;
 }
 
-.img {
-    width: 50%;
+.right{
+    width: 65%;
+    height: 19rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.inf{
+    padding: 6px;
+}
+
+h3{
+    font-size: 20px;
+    color: #0583F2;
+}
+span{
+    color: #F25774;
+}
+p{
+    color: #21222E;
+    font-size: 12px;
 }
 .upbar_card{
     display: flex;
@@ -19,5 +54,11 @@
     padding: 2px;
     border-radius: 3px;
     margin: 1px;
-    
+    width: 80%;
+}
+.upbar_card button{
+    color: black;
+    background: none;
+    box-shadow: none;
+    border: none;
 }
