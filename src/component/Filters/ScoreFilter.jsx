@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { setMinScore, filterCourses } from '../../redux/slices/courses.silce'
+import { setMinScore, filterCourses } from '../../redux/slices/coursesSlice'
 
 function ScoreFilter() {
     const minScore = useSelector((state) => state.courses.minScore);
