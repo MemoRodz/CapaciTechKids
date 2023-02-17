@@ -3,11 +3,9 @@ import axios from "axios";
 
 const initialState = {
     categories: [],
-    
 };
 
 export const categoriesSlice = createSlice({
-
     name:"categories",
     initialState,
     reducers:{

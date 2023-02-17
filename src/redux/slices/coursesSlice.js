@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
     courses: [],
-    selectedCategory: "all",
+    selectedCategory: [],
     minScore: 1,
     filteredCourses: [],
 };
@@ -19,25 +19,19 @@ export const coursesSlice = createSlice({
             }
         },
         selectCategory: (state, action) => {
-            state.selectedCategory=action.payload
-            // state.selectedCategory = [...state.filteredCourses.map(category=>{
-            //     if(category.Name===action.selectCategory){
-            //         console.log(">>>>>>>>>",selectCategory);
-            //         return category
-            //     }
-            // })]
+            state.selectedCategory = state.selectedCategory.concat([action.payload])
         },
         setMinScore: (state, action) => {
             state.minScore = action.payload;
         },
         filterCourses: (state) => {
-            state.filteredCourses = state.courses.filter((item) => {
-
-                if (state.selectedCategory === "all" || item.categories === state.selectedCategory) {
-                    return item.Score >= state.minScore;
+            state.filteredCourses = [...state.courses].filter((item) => {
+                if (item.tblCategories.map(c => c.Name).toLocaleString().includes(state.selectedCategory.toLocaleString()) ||
+                    item.tblCategories.map(c => c.Name).toLocaleString().includes(state.selectedCategory.reverse().toLocaleString())) {
+                        return item.Score >= state.minScore
                 }
-                return false;
-            });
+                return false
+            })
         },
         sortByScore: (state, action) => {
             if (action.payload === 'maxMin') {
