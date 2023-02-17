@@ -1,8 +1,38 @@
 .courses{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgb(246, 243, 243);
+    width: 100%;
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter label{
+    margin: 20px;
+    font-size: 20px;    
+    font-weight: bold;
+    color: #0583F2;
+}
+
+.filter input{
+    font-size: 18px;
+}
+.filter select{
+    font-size: 18px;
+}
+
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }

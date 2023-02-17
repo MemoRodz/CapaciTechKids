@@ -27,6 +27,7 @@ export default function Detail() {
   
   return(
       <div className={styles.container}>
+        <div><h1>Hola</h1></div>
             <div className={styles.contaimerTitle}>
                     <h1>{course.Title}</h1>
                     <h2>{course.Categoria}</h2>

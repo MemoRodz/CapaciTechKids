@@ -50,7 +50,6 @@ export default function Course(props) {
           <div>
             <h3>{Title}</h3>
             <h2>{Category.slice(" ")}</h2>
-            <Estrella Score={Score} />
           </div>
           <p>Duration: {Duration/60} Min.</p>
           <Link to={`/detail/${PK_Course}`}><button className={style.btn}>Study</button></Link>

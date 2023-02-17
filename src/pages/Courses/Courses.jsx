@@ -27,8 +27,11 @@ export default function Courses() {
   console.log(arregloCourses);
   return (
     <div className={styles.courses}>
+      <div className={styles.filter}>        
       <CategoryFilter />
       <ScoreFilter />
+      </div>
+      <div className={styles.card}>        
       {Courses.map((c, i) => {
         while (i < 8)
           return (
@@ -48,6 +51,7 @@ export default function Courses() {
             />
           );
       })}
+      </div>
     </div>
   );
 }
