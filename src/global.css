@@ -1,16 +1,25 @@
 /* === Variables === */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --font-clr-primary: #21222E;
+  --font-clr-secondary: #696984;
+  --font-clr-complementary: #979797;
+  
+  --bg-clr-primary: #F5F5FC;
+  --bg-clr-secondary: #9DCCFF;
+  --bg-clr-complementary: #0583F2;
+  
+  --btn-bg-active: #0583F2;
+  --btn-bg-inactive: #E6E6E6;
+  --btn-clr-active: transparent;
+  --btn-clr-inactive: #8a8a8a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body{
+  background-color: var(--bg-clr-primary);
 }

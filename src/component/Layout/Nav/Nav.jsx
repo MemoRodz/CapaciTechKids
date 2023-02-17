@@ -1,21 +1,28 @@
-import React from 'react'
-import styles from './nav.module.css'
-import { Link } from 'react-router-dom'
-function Nav() {
-  return (
+import { NavLink, useLocation } from 'react-router-dom'
+import styles from './Nav.module.css'
 
-    <div className={styles.menu}>
-      <nav>
+function Nav() {
+  const location = useLocation()
+
+
+  let activeStyle = {
+    color: location.pathname === '/' ? 'white' : 'white'
+  }
+
+  let inactiveStyle = {
+    color: location.pathname === '/' ? 'white' : 'white'
+  }
+
+  return (
+    <>
+      <nav className={styles.navbar}>
         <ul>
-          <li><Link to={"/"}>Home</Link></li>
-          <li><Link to={"/course"}>My Course</Link></li>
-          <li><Link to={"/create"}>Create Course</Link></li>
-          <li><Link to={"/donate"}>Donate</Link></li>
-          <li><Link to={"/about"}>About</Link></li>
+          <li><NavLink to={"/"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Home</NavLink></li>
+          <li><NavLink to={"/course"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>My Course</NavLink></li>
+          <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li>
         </ul>
       </nav>
-    </div>
-
+    </>
   )
 }
 
