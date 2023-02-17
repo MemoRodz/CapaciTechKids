@@ -8,8 +8,6 @@ export default function Course(props) {
 
   const { Title, Description, Category, Image, Score, PK_Course,Duration } = props
 
-  console.log(PK_Course)
-
 
   const [isFav, setIsFav] = useState(false);
   //const dispatch = useDispatch();
@@ -49,7 +47,12 @@ export default function Course(props) {
 
           <div>
             <h3>{Title}</h3>
+<<<<<<< HEAD
             <h2>{Category.slice(" ")}</h2>
+=======
+            {/* <h2>{Category.slice(" ")}</h2> */}
+            <Estrella Score={Score} />
+>>>>>>> aa344aac339a619572093c9719d87b7abcb22770
           </div>
           <p>Duration: {Duration/60} Min.</p>
           <Link to={`/detail/${PK_Course}`}><button className={style.btn}>Study</button></Link>

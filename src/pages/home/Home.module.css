@@ -1,9 +1,104 @@
-.homecard{
-    display: flex;
-    flex-direction: column;
+.home{
+    background-color:  brown;
+    text-align: center;
 }
 
-.homecards{
-    display: flex;
-    flex-direction: row;
+.welcome{
+    color: white;
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 100px;
+    margin-block-end: 5px;
+    font-size: 50px;
+}
+.capaci{
+    color: yellow;
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 5px;
+    margin-block-end: 5px;
+    font-size: 50px;
+}
+
+.text{
+    color: white;
+    text-align: left;
+    margin-left: 70px;
+    font-weight:10px;
+    font-size: 13px;
+}
+.login{
+    position:relative; left: -35%;
+    margin-top: 30px;
+    margin-block-end: 20px;
+    background-color: white; 
+    border-radius: 20px;
+    color: gray;
+    padding: 10px 15px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.our{
+    color: dodgerblue;
+    margin-block-end: 5px;
+}
+
+p{
+    margin-top: 0px;
+    color: white;
+    font-size: 12px;
+}
+ 
+.all{
+    color: dodgerblue;
+}
+
+.all span{
+    color: yellow;
+}
+
+p{
+    margin-top: 0px;
+    color: white;
+    font-size: 12px;
+}
+
+.homecard {
+	border: 1px solid rgba(45, 0, 75, 0.489);
+	border-radius: 10px;
+	box-shadow: 2px 2px 40px rgba(31, 0, 66, 0.733);
+	width: 300px;
+	height: 250px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.homecards {
+	width: 90%;
+	height: auto;
+	margin: 30px auto auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-evenly;
+
+}
+
+.study{
+    color:dodgerblue
+}
+
+.study span{
+    color:yellow;
+}
+
+.ult{
+    text-align: center;
 }

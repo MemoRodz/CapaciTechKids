@@ -7,33 +7,52 @@ function Home() {
   return (
     <>
       <div className={styles.home}>
-        <h1>
+        <h1 className={styles.welcome}>
           Welcome to<br />
+        </h1>
+        <h1 className={styles.capaci}>
           CapaciTechKids
         </h1>
-        <h3>
+        <h3 className={styles.text}>
           CapaciTechKids is an interesting<br />
           platform that will teach you in the<br />
           most interactive way
         </h3>
-        <Link to={'/login'}>Join for free</Link>
 
-        <h2>Our success</h2>
+        <h2 className={styles.login}>
+        <Link to={'/login'}>Join for free</Link>
+        </h2>
+
+        <h2 className={styles.our}>Our success</h2>
         <p>Thousands of students are already learning from our platform, which includes<br />
           hundreds of courses that will prepare you for your future.</p>
-        <div className={styles.stats}></div>
-        <h1 >15k+</h1>
-        <div>Students</div>
-        <h1 >75%</h1>
-        <div>Total success</div>
-        <h1 >570</h1>
-        <div>Exam questions</div>
-        <h1 >68</h1>
-        <div>Professors</div>
-        <h1 >16</h1>
-        <div>Modern categories</div>
+          
+        <div className={styles.stats}>
+        <ul>
+          <li>
+            15k+ <br />
+            Students
+          </li>
+          <li>
+            75% <br />
+            Total success 
+          </li>
+          <li> 
+            570 <br />
+            Exam questions 
+          </li>
+          <li> 
+            68 <br />
+            Professors
+          </li>
+          <li>
+            16 <br />
+           Modern categories
+          </li>
+        </ul>
+        </div> 
 
-        <h2>All-In-One Learning Platform</h2>
+        <h2 className={styles.all}>All-In-One <span>Learning Platform</span></h2>
         <p>CapaciTechKids offers the best learning solution for students, while<br />
           giving instructors and teachers an easy way of sharing their knowledge.
         </p>
@@ -68,10 +87,9 @@ function Home() {
           </div>
         </div>
 
-        <div className="">
-          <div className="">
-            <h2>Study new technologies, be a<br />
-              CapaciTechKid!</h2>
+        <div>
+            <h2 className={styles.study}>Study new technologies, be a<br />
+              <span>CapaciTechKid!</span></h2>
             <p>We have the most updated courses, including most<br />
               modern technologies such as web development,online<br />
               business, marketing, interface design and more.
@@ -80,8 +98,11 @@ function Home() {
           </div>
           <img src="" alt="" />
         </div>
-        <Link to={'/course'}>Learn more</Link>
-      </div>
+
+        <div className={styles.ult}>
+          <Link to={'/course'}>Learn more</Link>
+        </div>
+        
     </>
   )
 }

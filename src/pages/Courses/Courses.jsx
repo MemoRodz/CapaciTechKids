@@ -1,57 +1,42 @@
 import Course from "../../component/Course/Course";
 import styles from "./Courses.module.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { CategoryFilter, ScoreFilter } from '../../component/index'
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getAllCourses } from '../../redux/slices/courses.silce'
 
 export default function Courses() {
-  const [Courses, setCourses] = useState([])
-  //getAllCourses()
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    fetch(`http://localhost:3001/courses`)
-      .then((response) => response.json())
-      .then((char) => {
-
-        setCourses(char);
-      })
-      .catch((err) => {
-        //window.alert("No hay personajes con ese ID");
-      });
-    return setCourses([]);
-  }, []);
-
+    dispatch(getAllCourses('http://localhost:3001/courses'))
+  }, [])
 
   const arregloCourses = useSelector(state => state.courses)
-  console.log(arregloCourses);
+
   return (
     <div className={styles.courses}>
       <div className={styles.filter}>        
       <CategoryFilter />
       <ScoreFilter />
-      </div>
-      <div className={styles.card}>        
-      {Courses.map((c, i) => {
-        while (i < 8)
-          return (
-            <Course
-              key={c.id}
-              PK_Course={c.PK_Course}
-              Image={c.Image}
-              Category={c.Category}
-              Title={c.Title}
-              Description={c.Description}
-              Start_Date={c.Start_Date}
-              End_Date={c.End_Date}
-              Duration={c.Duration}
-              Instructor={c.tblUser.Name}
-              Score={c.Score}
-            //onClose={() => props.onClose(c.id)}
-            />
-          );
-      })}
-      </div>
+       {arregloCourses.filteredCourses && arregloCourses.filteredCourses.map((c, i) => (
+        <Course
+          PK_Course={c.PK_Course}
+          key={c.PK_Course}
+          Image={c.Image}
+          //Category={c.Category}
+          Title={c.Title}
+          Description={c.Description}
+          Start_Date={c.Start_Date}
+          End_Date={c.End_Date}
+          Duration={c.Duration}
+          Instructor={c.tblUser.Name}
+          Score={c.Score}
+        //onClose={() => props.onClose(c.id)}
+        />
+      )
+      )} 
+    </div>
     </div>
   );
 }
