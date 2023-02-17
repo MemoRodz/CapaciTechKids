@@ -4,7 +4,7 @@ import axios from "axios";
 const initialState = {
     courses: [],
     selectedCategory: "all",
-    minScore: 6,
+    minScore: 1,
     filteredCourses: [],
 };
 
@@ -19,14 +19,21 @@ export const coursesSlice = createSlice({
             }
         },
         selectCategory: (state, action) => {
-            state.selectedCategory = action.payload;
+            state.selectedCategory=action.payload
+            // state.selectedCategory = [...state.filteredCourses.map(category=>{
+            //     if(category.Name===action.selectCategory){
+            //         console.log(">>>>>>>>>",selectCategory);
+            //         return category
+            //     }
+            // })]
         },
         setMinScore: (state, action) => {
             state.minScore = action.payload;
         },
         filterCourses: (state) => {
             state.filteredCourses = state.courses.filter((item) => {
-                if (state.selectedCategory === "all" || item.category === state.selectedCategory) {
+
+                if (state.selectedCategory === "all" || item.categories === state.selectedCategory) {
                     return item.Score >= state.minScore;
                 }
                 return false;
@@ -69,5 +76,7 @@ export const getAllCourses = (url) => (dispatch) => {
         .then(res => dispatch(setAllCourses(res.data)))
         .catch(err => console.log(err))
 }
+
+
 
 export default coursesSlice.reducer
