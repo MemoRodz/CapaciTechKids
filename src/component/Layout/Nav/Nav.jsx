@@ -6,11 +6,11 @@ function Nav() {
 
 
   let activeStyle = {
-    color: location.pathname === '/' ? 'white' : 'white'
+    color: location.pathname === '/' ? 'black' : 'blue'
   }
 
   let inactiveStyle = {
-    color: location.pathname === '/' ? 'white' : 'white'
+    color: location.pathname === '/' ? 'black' : 'blue'
   }
 
   return (
