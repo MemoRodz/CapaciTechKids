@@ -1,7 +1,10 @@
 import {useState,useEffect} from 'react'
+import {useSelector} from 'react-redux'
 import style from '../Create/Create.module.css'
+import {getAllInstructors} from '../../redux/slices/instructors.slice'
 
 const Create = () => {
+    getAllInstructors('http://localhost:3001/courses/createPost')
     const [formData, setFormData] = useState({
       title: "",
       description: "",
@@ -41,6 +44,9 @@ const Create = () => {
         console.log({...formData,category: selectedCategories})
       }
     };
+
+    // INSTRUCTORES
+    const intructors = useSelector((state) => state.intructors.intructors)
 
     // CATEGORIAS
         const categories = [

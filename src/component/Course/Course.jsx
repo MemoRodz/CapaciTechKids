@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 export default function Course(props) {
 
 
+
   const { Title, Description, Category, Image, Score, PK_Course,Duration } = props
+
   console.log(PK_Course)
 
 
@@ -44,12 +46,15 @@ export default function Course(props) {
           <button className={style.bttn} onClick={props.onClose}>X</button>
         </div>
         <div className={style.inf}>
+
           <div>
             <h3>{Title}</h3>
             <h2>{Category.slice(" ")}</h2>
+            <Estrella Score={Score} />
           </div>
           <p>Duration: {Duration/60} Min.</p>
           <Link to={`/detail/${PK_Course}`}><button className={style.btn}>Study</button></Link>
+
         </div>
       </div>
     </div>

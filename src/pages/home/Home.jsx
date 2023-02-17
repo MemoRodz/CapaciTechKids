@@ -3,7 +3,6 @@ import styles from './Home.module.css'
 import {HiOutlineDocumentText} from 'react-icons/hi'
 import {FaCalendarAlt,FaUsers} from 'react-icons/fa'
 
-
 function Home() {
   return (
     <>
