@@ -2,8 +2,24 @@ import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import {HiOutlineDocumentText} from 'react-icons/hi'
 import {FaCalendarAlt,FaUsers} from 'react-icons/fa'
+ import { useSelector, useDispatch} from "react-redux";
+ import { useEffect } from 'react';
+ import { getAllCourses } from '../../redux/slices/coursesSlice'
+import { getAllCategories } from "../../redux/slices/categoriesSlice";
+import store from "../../redux/store"
 
 function Home() {
+  const dispatch = useDispatch();
+
+    const arregloCourses = useSelector(state => state.courses)
+    useEffect(() => {
+      dispatch(getAllCourses('http://localhost:3001/courses'))
+      dispatch(getAllCategories('http://localhost:3001/categories'))
+    }, [arregloCourses])
+
+    console.log(arregloCourses)
+
+
   return (
     <>
       <div className={styles.home}>
