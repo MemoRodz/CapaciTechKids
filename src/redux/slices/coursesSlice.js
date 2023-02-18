@@ -19,7 +19,7 @@ export const coursesSlice = createSlice({
             }
         },
         selectCategory: (state, action) => {
-            state.selectedCategory = state.selectedCategory.concat([action.payload])
+            state.selectedCategory = action.payload
         },
         setMinScore: (state, action) => {
             state.minScore = action.payload;
