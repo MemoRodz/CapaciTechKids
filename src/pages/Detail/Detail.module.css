@@ -1,0 +1,112 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.heard {
+    position: absolute;
+    width: 1920px;
+    height: 652px;
+    top: 145px;
+    left: 0;
+}
+
+.heard img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%
+}
+
+.opinions {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 1002px;
+    left: 157px;
+    width: 950px;
+    height: 869px;
+}
+
+.opinions .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.opinions .buttons button {
+    width: 200px;
+    height: 63px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    color: white;
+    margin: 0px 20px 83px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+}
+
+.opinions .buttons button:hover {
+    background-color: #0583F2;
+}
+.startbox{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.opinions .ranking {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 950px;
+    height: 764px;
+    background: rgba(157, 204, 255, 0.3);
+    border-radius: 20px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 257px;
+    height: 199px;
+    left: 207px;
+    top: 1052px;
+    background: #FFFFFF;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin: 50px;
+}
+.top h3{
+    color: rgba(0, 0, 0, 0.5);
+}
+.opinions .ranking .start {
+    display: flex;
+}
+
+.fastart {
+    color: #F2B705;
+    height: 22px;
+}
+.start{
+    display: flex;
+    flex-direction: column;
+    margin: 6px 46px;
+}
+
+.detail{
+    position: absolute;
+    background: white;
+    border: solid 30px white;
+    border-radius: 20px;
+    top: 329px;
+    right: 120px;
+
+}
