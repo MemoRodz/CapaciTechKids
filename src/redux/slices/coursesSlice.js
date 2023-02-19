@@ -53,7 +53,9 @@ export const coursesSlice = createSlice({
             }
         },
         resetFilters: (state, action) => {
+            state.selectedCategory = []
             state.filteredCourses = state.courses
+            
             return {
                 ...state
             }

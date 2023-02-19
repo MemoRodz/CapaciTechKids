@@ -1,6 +1,6 @@
 import Course from "../../component/Course/Course";
 import styles from "./Courses.module.css";
-import { CategoryFilter, ScoreFilter } from '../../component/index'
+import { CategoryFilter, ScoreFilter, SortByScore, ResetFilters } from '../../component/index'
 import { useSelector } from "react-redux";
 
 
@@ -13,6 +13,8 @@ export default function Courses() {
       <div className={styles.filters}>
         <CategoryFilter />
         <ScoreFilter />
+        <SortByScore />
+        <ResetFilters />
       </div>
       <div className={styles.courses}>
         {arregloCourses && arregloCourses.map((c, i) => (
