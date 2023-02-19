@@ -1,0 +1,21 @@
+.categoryoptions {
+    margin: 0 0 1rem 0;
+}
+
+.selectedcategories button {
+    margin: .1rem;
+    border-radius: 3px;
+}
+
+.categoryoptions button {
+    margin: .1rem;
+    border-radius: 3px;
+}
+
+.selectedcategories button:hover {
+    cursor: pointer;
+}
+
+.categoryoptions button:hover {
+    cursor: pointer;
+}

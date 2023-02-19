@@ -15,7 +15,6 @@ export const categoriesSlice = createSlice({
             }
         }
     }    
-
 })
 export const { setAllCategories } = categoriesSlice.actions
 
