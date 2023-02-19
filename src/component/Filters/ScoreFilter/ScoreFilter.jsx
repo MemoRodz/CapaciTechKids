@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { setMinScore, filterCourses } from '../../redux/slices/coursesSlice'
+import { setMinScore, filterCourses } from '../../../redux/slices/coursesSlice'
+import styles from './ScoreFilter.module.css'
 
 function ScoreFilter() {
     const minScore = useSelector((state) => state.courses.minScore);
@@ -11,7 +12,7 @@ function ScoreFilter() {
     };
 
     return (
-        <form>
+        <form style={styles.scorefilter}>
             <label htmlFor="score-input">Minimum score:</label>
             <input
                 id="score-input"

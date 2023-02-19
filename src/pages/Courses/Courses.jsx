@@ -1,7 +1,7 @@
 import Course from "../../component/Course/Course";
 import styles from "./Courses.module.css";
 import { CategoryFilter, ScoreFilter } from '../../component/index'
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 export default function Courses() {
@@ -9,27 +9,31 @@ export default function Courses() {
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
 
   return (
-    <div className={styles.courses}>
-      <CategoryFilter />
-      <ScoreFilter />
-       {arregloCourses && arregloCourses.map((c, i) => (
-        <Course
-          PK_Course={c.PK_Course}
-          key={c.PK_Course}
-          Image={c.Image}
-          //Category={c.Category}
-          Title={c.Title}
-          Description={c.Description}
-          Start_Date={c.Start_Date}
-          End_Date={c.End_Date}
-          Duration={c.Duration}
-          Instructor={c.tblUser.Name}
-          Score={c.Score}
-        //onClose={() => props.onClose(c.id)}
-        />
-      )
-      )} 
-    </div>
+    <>
+      <div className={styles.filters}>
+        <CategoryFilter />
+        <ScoreFilter />
+      </div>
+      <div className={styles.courses}>
+        {arregloCourses && arregloCourses.map((c, i) => (
+          <Course
+            PK_Course={c.PK_Course}
+            key={c.PK_Course}
+            Image={c.Image}
+            //Category={c.Category}
+            Title={c.Title}
+            Description={c.Description}
+            Start_Date={c.Start_Date}
+            End_Date={c.End_Date}
+            Duration={c.Duration}
+            Instructor={c.tblUser.Name}
+            Score={c.Score}
+          //onClose={() => props.onClose(c.id)}
+          />
+        )
+        )}
+      </div>
+    </>
   );
 }
 

@@ -1,0 +1,13 @@
+.selectedcategories button{
+    margin: .1rem;
+    border-radius: 3px;
+}
+
+.categoryoptions{
+    margin: 0 0 1rem 0;
+}
+
+.categoryoptions button{
+    margin: .1rem;
+    border-radius: 3px;
+}

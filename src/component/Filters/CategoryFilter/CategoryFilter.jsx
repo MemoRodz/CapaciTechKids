@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { selectCategory, filterCourses } from '../../redux/slices/coursesSlice'
+import { selectCategory, filterCourses } from '../../../redux/slices/coursesSlice'
 import { useState } from 'react';
 import styles from './CategoryFilter.module.css'
 
@@ -25,7 +25,6 @@ function CategoryFilter() {
 
     return (
         <>
-            <h2>Categories</h2>
             <div className={styles.selectedcategories}>
                 {selectedCategories.length > 0 && selectedCategories.map((category) => (
                     <>
@@ -35,6 +34,7 @@ function CategoryFilter() {
                     </>
                 ))}
             </div>
+            <h2>Categories</h2>
             <div className={styles.categoryoptions}>
                 {categories && categories.map((category) => (
                     <>
