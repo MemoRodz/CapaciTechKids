@@ -1,12 +1,20 @@
+import { useSelector, useDispatch } from "react-redux";
+import {useEffect} from 'react'
 import Course from "../../component/Course/Course";
 import styles from "./Courses.module.css";
 import { CategoryFilter, ScoreFilter, SortByScore, ResetFilters } from '../../component/index'
-import { useSelector } from "react-redux";
+import { getAllCourses } from '../../redux/slices/coursesSlice'
+import { getAllCategories } from "../../redux/slices/categoriesSlice";
 
 
 export default function Courses() {
-
+  const dispatch = useDispatch()
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
+
+  useEffect(() => {
+    dispatch(getAllCourses('http://localhost:3001/courses'))
+    dispatch(getAllCategories('http://localhost:3001/categories'))
+  }, [])
 
   return (
     <>

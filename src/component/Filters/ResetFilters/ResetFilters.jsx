@@ -6,7 +6,6 @@ function ResetFilters() {
     const dispatch = useDispatch()
 
     const handleReset = () => {
-        console.log('RESET');
         dispatch(resetFilters())
     }
 
