@@ -1,18 +1,12 @@
 import Course from "../../component/Course/Course";
 import styles from "./Courses.module.css";
-import { useEffect } from "react";
 import { CategoryFilter, ScoreFilter } from '../../component/index'
 import { useSelector, useDispatch } from "react-redux";
-import { getAllCourses } from '../../redux/slices/coursesSlice'
-import { getAllCategories } from "../../redux/slices/categoriesSlice";
-import store from "../../redux/store"
 
 
 export default function Courses() {
-  
 
-  const arregloCourses = useSelector(state => state.courses.courses)
-  console.log(arregloCourses)
+  const arregloCourses = useSelector(state => state.courses.filteredCourses)
 
   return (
     <div className={styles.courses}>

@@ -1,30 +1,23 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCategory, filterCourses } from '../../redux/slices/coursesSlice'
-import { getAllCategories } from '../../redux/slices/categoriesSlice'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import styles from './CategoryFilter.module.css'
 
 function CategoryFilter() {
-    const [selections, setSelections] = useState([]) // local state de las checkboxes
+    const [isToggle, setIsToggle] = useState(false)
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getAllCategories('http://localhost:3001/categories/'))
-    }, [])
+    const selectedCategories = useSelector((state) => state.courses.selectedCategory)
 
-    useEffect(() => {
-        dispatch(selectCategory(selections))
+    const handleAddCategory = (name) => {
+        dispatch(selectCategory(selectedCategories.concat([name])))
         dispatch(filterCourses())
-    }, [selections])
+    }
 
-    const handleChange = (event) => {
-        const { value, checked } = event.target
-        if (checked) {
-            setSelections(((prevValues) => [...prevValues, value]))
-        } else {
-            setSelections(((prevValues) =>
-                prevValues.filter((checkedValue) => checkedValue !== value)))
-        }
-    };
+    const handleRemoveCategories = (name) => {
+        dispatch(selectCategory(selectedCategories.filter(category => category !== name)))
+        dispatch(filterCourses())
+    }
 
     const categories = useSelector((state) => {
         return ["all", ...new Set(state.categories.categories.map((item) => item.Name))];
@@ -33,14 +26,24 @@ function CategoryFilter() {
     return (
         <>
             <h2>Categories</h2>
-            {categories.map((category) => (
-                <div>
-                    <label htmlFor="">{category}</label>
-                    <input type="checkbox"
-                        value={category}
-                        onChange={handleChange} />
-                </div>
-            ))}
+            <div className={styles.selectedcategories}>
+                {selectedCategories.length > 0 && selectedCategories.map((category) => (
+                    <>
+                        <button onClick={() => handleRemoveCategories(category)}>
+                            {category}X
+                        </button>
+                    </>
+                ))}
+            </div>
+            <div className={styles.categoryoptions}>
+                {categories && categories.map((category) => (
+                    <>
+                        <button type='button' onClick={() => handleAddCategory(category)}>
+                            {category}
+                        </button>
+                    </>
+                ))}
+            </div>
         </>
     );
 }
