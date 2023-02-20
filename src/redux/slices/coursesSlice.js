@@ -3,9 +3,9 @@ import axios from "axios";
 
 const initialState = {
     courses: [],
+    filteredCourses: [],
     selectedCategory: [],
     minScore: 1,
-    filteredCourses: [],
 };
 
 export const coursesSlice = createSlice({
@@ -52,10 +52,12 @@ export const coursesSlice = createSlice({
                 }
             }
         },
-        resetFilters: (state, action) => {
-            state.filteredCourses = state.courses
+        resetFilters: (state) => {
             return {
-                ...state
+                ...state,
+                selectedCategory: [],
+                minScore: 1,
+                filteredCourses: state.courses
             }
         }
     }

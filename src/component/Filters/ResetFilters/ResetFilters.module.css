@@ -1,0 +1,10 @@
+.resetbtn{
+    margin-top: 1rem;
+    width: fit-content;
+    padding: 0 .2rem;
+    border-radius: 3px;
+}
+
+.resetbtn:hover{
+    cursor: pointer;
+}

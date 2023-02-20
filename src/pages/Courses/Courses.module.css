@@ -1,8 +1,21 @@
 .courses{
+    min-height: 100vh;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgb(246, 243, 243);
     width: 100%;
+    padding-left: 6rem;
+}
+
+.filters{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 13rem;
+    position: absolute;
+    left: 0;
+    right: 1;
+    padding: 4rem 1.5rem 0 1.5rem;
 }

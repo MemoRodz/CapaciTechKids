@@ -6,11 +6,11 @@ function Nav() {
 
 
   let activeStyle = {
-    color: location.pathname === '/' ? 'white' : 'white'
+    color: location.pathname === '/' ? 'black' : 'blue'
   }
 
   let inactiveStyle = {
-    color: location.pathname === '/' ? 'white' : 'white'
+    color: location.pathname === '/' ? 'black' : 'blue'
   }
 
   return (
@@ -19,7 +19,8 @@ function Nav() {
         <ul>
           <li><NavLink to={"/"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Home</NavLink></li>
           <li><NavLink to={"/course"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>My Course</NavLink></li>
-          <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li>
+          <li><NavLink to={"/create"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Create</NavLink></li>
+          {/* <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li> */}
         </ul>
       </nav>
     </>
