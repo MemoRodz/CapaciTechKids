@@ -1,37 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Create = () => {
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const [formData, setFormData] = useState({
     Title: "",
     Description: "",
-    Start_Date: "",
-    End_Date: "",
-    PK_User: "",
-    Category: "",
-    Image: "",
+    Professor: "",
     Duration: "",
-    Active: "",
-    Score: "",
+    Category: [],
+    Active: true
   });
+  const [data,setData] = useState([])
+  useEffect(() => {
+    const funciona = async() => {
+   const {data} = await axios.get(`http://localhost:3001/users/instructors`)
+
+    setData(data)}
+   funciona()
+  }, [])
+  const categories = useSelector((state) => state.categories.categories);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3001/courses/createPost",
+        "http://localhost:3001/courses/createCourse",
         formData
       );
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  function handleInputChange(e) {
+    const { name, value, type, checked } = e.target;
+  
+    if (type === "checkbox") {
+      setSelectedCategories((prevCategories) =>
+        checked
+          ? [...prevCategories, name]
+          : prevCategories.filter((category) => category !== name)
+      );
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  }
+  
+  useEffect(() => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      Category: selectedCategories,
+    }));
+  }, [selectedCategories]);
+
+  console.log(formData);
 
   return (
     <div>
@@ -57,55 +81,34 @@ const Create = () => {
           />
         </label>
         <br />
-        <label>
-          Start Date:
-          <input
-            type="date"
-            name="Start_Date"
-            value={formData.Start_Date}
-            onChange={handleInputChange}
-          />
-        </label>
+        <label htmlFor="Professor">Instructor's name:</label>
+        <select
+          name="Professor"
+          value={formData.PK_User}
+          onChange={handleInputChange}
+        >
+          <option value="">-- Select an option --</option>
+          {data.map((data) => (
+            <option key={data.PK_User} value={data.PK_User}>
+              {data.Name}
+            </option>
+          ))}
+        </select>
         <br />
-        <label>
-          End Date:
-          <input
-            type="date"
-            name="End_Date"
-            value={formData.End_Date}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          PK User:
-          <input
-            type="number"
-            name="PK_User"
-            value={formData.PK_User}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Category:
-          <input
-            type="text"
-            name="Category"
-            value={formData.Category}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Image:
-          <input
-            type="text"
-            name="Image"
-            value={formData.Image}
-            onChange={handleInputChange}
-          />
-        </label>
+        <label>Categories:</label>
+        <div>
+          {categories.map((category) => (
+            <label key={category.PK_Category}>
+              <input
+                type="checkbox"
+                name={category.Name}
+                checked={selectedCategories.includes(category.Name)}
+                onChange={handleInputChange}
+              />
+              {category.Name}
+            </label>
+          ))}
+        </div>
         <br />
         <label>
           Duration:
@@ -117,27 +120,6 @@ const Create = () => {
           />
         </label>
         <br />
-        <label>
-          Active:
-          <input
-            type="checkbox"
-            name="Active"
-            checked={formData.Active}
-            onChange={(e) =>
-              setFormData({ ...formData, Active: e.target.checked })
-            }
-          />
-        </label>
-        <br />
-        <label>
-          Score:
-          <input
-            type="number"
-            name="Score"
-            value={formData.Score}
-            onChange={handleInputChange}
-          />
-        </label>
         <br />
         <button type="submit">Create Course</button>
       </form>

@@ -10,6 +10,7 @@ import { getAllCategories } from "../../redux/slices/categoriesSlice";
 export default function Courses() {
   const dispatch = useDispatch()
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
+   console.log(arregloCourses)
 
   useEffect(() => {
     dispatch(getAllCourses('http://localhost:3001/courses'))

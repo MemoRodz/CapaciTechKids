@@ -6,6 +6,8 @@ import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
 
 function Home() {
 
+
+
   return (
     <>
       <div className={styles.home}>
