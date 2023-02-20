@@ -19,3 +19,7 @@
 .categoryoptions button:hover {
     cursor: pointer;
 }
+
+.categoryoptions button:disabled {
+    cursor: default;
+}

@@ -38,7 +38,8 @@ function CategoryFilter() {
             <div className={styles.categoryoptions}>
                 {categories && categories.map((category) => (
                     <>
-                        <button type='button' onClick={() => handleAddCategory(category)}>
+                        <button type='button' onClick={() => handleAddCategory(category)}
+                        disabled={selectedCategories.includes(category)}>
                             {category}
                         </button>
                     </>
