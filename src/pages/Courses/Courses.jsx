@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 export default function Courses() {
 
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
+   console.log(arregloCourses)
 
   return (
     <>

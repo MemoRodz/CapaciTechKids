@@ -16,6 +16,8 @@ function Home() {
     dispatch(getAllCategories('http://localhost:3001/categories'))
   }, [arregloCourses])
 
+
+
   return (
     <>
       <div className={styles.home}>
