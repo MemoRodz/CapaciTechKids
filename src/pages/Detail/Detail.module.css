@@ -4,6 +4,7 @@
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
+    background: #FFFFFF;
 }
 
 .heard {
@@ -256,7 +257,10 @@
     font-weight: 700;
     border: none;
 }
-
+.studybutton button:hover{
+    background: #0583f2be;
+    cursor: pointer;
+}
 .x2 {
     display: flex;
     flex-direction: row;
@@ -332,8 +336,93 @@ hr {
 
 .more {
     background: rgba(157, 204, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 1920px;
     height: 1084px;
     position: relative;
     top: -800px;
+}
+.similarcourses{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 1711px;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.card{
+    margin: 0 50px ;
+    background: #FFFFFF;
+    width: 335px;
+    height: 575px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 20px #FFFFFF;
+}
+.card img{
+    width: 335px;
+    height: 239px;
+    position: relative;
+    top: -25px;
+}
+.coursedet{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 355px;
+}
+.similar1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 355px;
+}
+.similar2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 355px;
+}
+.teach{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 329px;
+}
+.teach img{
+    position: relative;
+    top: 5px;
+    width: 44px;
+    height: 44px;
+}
+.cardtitle h1{
+    position: relative;
+    left: -120px;
+    margin: 0;
+    padding: 0;
+}
+.btndetail button{
+    background: #0583F2;
+    color: #FFFFFF;
+    width: 154px;
+    height: 64px;
+    font-size: 20px;
+    border-radius: 80px;
+    border: none;
 }

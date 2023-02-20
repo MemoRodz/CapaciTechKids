@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
 import { useParams } from "react-router-dom";
-import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
+import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
 
 export default function Detail() {
   const { id } = useParams();
@@ -172,10 +172,99 @@ export default function Detail() {
         </div>
       </div>
       <div className={styles.more}>
-
-        <h1>Similar Courses</h1>
-        <div>
-          <h4>aqui van los cursos similares</h4>
+        <div className={styles.similarcourses}>
+          <h1>Similar Courses</h1>
+          <h3>See all</h3>
+        </div>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <img src="..\img\course 01.png" alt="course01" />
+            <div className={styles.coursedet}>
+              <div className={styles.similar1}>
+                <FaThLarge />
+                <h4>categoria</h4>
+              </div>
+              <div className={styles.similar2}>
+                <FaRegClock />
+                <h4>duracion</h4>
+              </div>
+            </div>
+            <div className={styles.cardtitle}><h1>Course</h1></div>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</h3>
+            <div className={styles.teach}>
+              <img src="..\img\image 12.png" alt="perfil" />
+              <h3>profe</h3>
+              <div className={styles.btndetail}>
+                <button>Detail</button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.card}>
+            <img src="..\img\course 02.png" alt="course02" />
+            <div className={styles.coursedet}>
+              <div className={styles.similar1}>
+                <FaThLarge />
+                <h4>categoria</h4>
+              </div>
+              <div className={styles.similar2}>
+                <FaRegClock />
+                <h4>duracion</h4>
+              </div>
+            </div>
+            <div className={styles.cardtitle}><h1>Course</h1></div>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</h3>
+            <div className={styles.teach}>
+              <img src="..\img\image 12.png" alt="perfil" />
+              <h3>profe</h3>
+              <div className={styles.btndetail}>
+                <button>Detail</button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.card}>
+            <img src="..\img\course 03.png" alt="course03" />
+            <div className={styles.coursedet}>
+              <div className={styles.similar1}>
+                <FaThLarge />
+                <h4>categoria</h4>
+              </div>
+              <div className={styles.similar2}>
+                <FaRegClock />
+                <h4>duracion</h4>
+              </div>
+            </div>
+            <div className={styles.cardtitle}><h1>Course</h1></div>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</h3>
+            <div className={styles.teach}>
+              <img src="..\img\image 12.png" alt="perfil" />
+              <h3>profe</h3>
+              <div className={styles.btndetail}>
+                <button>Detail</button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.card}>
+            <img src="..\img\course 04.png" alt="course04" />
+            <div className={styles.coursedet}>
+              <div className={styles.similar1}>
+                <FaThLarge />
+                <h4>categoria</h4>
+              </div>
+              <div className={styles.similar2}>
+                <FaRegClock />
+                <h4>duracion</h4>
+              </div>
+            </div>
+            <div className={styles.cardtitle}><h1>Course</h1></div>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</h3>
+            <div className={styles.teach}>
+              <img src="..\img\image 12.png" alt="perfil" />
+              <h3>profe</h3>
+              <div className={styles.btndetail}>
+                <button>Detail</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
