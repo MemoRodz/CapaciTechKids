@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
 import { useParams } from "react-router-dom";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
 
 export default function Detail() {
   const { id } = useParams();
@@ -31,6 +31,56 @@ export default function Detail() {
       <div className={styles.heard}>
         <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
       </div>
+      <div className={styles.detail}>
+        <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
+        <h1>{course.Title} Title</h1>
+        <div className={styles.studybutton}>
+          <button>Study</button>
+        </div>
+        <hr />
+        <h2>This Course includes</h2>
+        <div className={styles.x2}>
+          <FaBahai />
+          <h4>Free access</h4>
+        </div>
+        <div className={styles.x2}>
+          <FaCamera />
+          <h4>Access on all devices</h4>
+        </div>
+        <div className={styles.x2}>
+          <FaFileAlt />
+          <h4>Certification of completion</h4>
+        </div>
+        <div className={styles.x2}>
+          <FaChartBar />
+          <h4>{course.Modules} Moduls</h4>
+        </div>
+        <hr />
+        <h2>You'll learn</h2>
+        <h4>{course.Description}</h4>
+        <hr />
+        <h2>Share this course</h2>
+        <div className={styles.social}>
+          <div className={styles.tw}>
+            <FaTwitter />
+          </div>
+          <div className={styles.fac}>
+            <FaFacebookF />
+          </div>
+          <div className={styles.you}>
+            <FaYoutube />
+          </div>
+          <div className={styles.ins}>
+            <FaInstagram />
+          </div>
+          <div className={styles.tele}>
+            <FaTelegramPlane />
+          </div>
+          <div className={styles.wsp}>
+            <FaWhatsapp />
+          </div>
+        </div>
+      </div>
       <div className={styles.opinions}>
         <div className={styles.buttons}>
           <button>Overview</button>
@@ -39,70 +89,95 @@ export default function Detail() {
           <button>Overview</button>
         </div>
         <div className={styles.startbox}>
-          <div className={styles.ranking}>
-            <div className={styles.top}>
-              <h1>5 out of 5</h1>
-              <div className={styles.fastart}>
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
+          <div className={styles.point}>
+            <div className={styles.ranking}>
+              <div className={styles.top}>
+                <h1>5 out of 5</h1>
+                <div className={styles.fastart}>
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                </div>
+                <h3>Top Ranting</h3>
               </div>
-              <h3>Top Ranting</h3>
+              <div className={styles.start}>
+                <h3>5 Stars</h3>
+                <div className={styles.progressbar5}><div className={styles.progress5}></div></div>
+                <h3>4 Stars</h3>
+                <div className={styles.progressbar4}><div className={styles.progress4}></div></div>
+                <h3>3 Stars</h3>
+                <div className={styles.progressbar3}><div className={styles.progress3}></div></div>
+                <h3>2 Stars</h3>
+                <div className={styles.progressbar2}><div className={styles.progress2}></div></div>
+                <h3>1 Stars</h3>
+                <div className={styles.progressbar1}><div className={styles.progress1}></div></div>
+              </div>
             </div>
-            <div className={styles.start}>
-              <h3>5 Stars</h3>
-              <div></div>
-              <h3>4 Stars</h3>
-              <h3>3 Stars</h3>
-              <h3>2 Stars</h3>
-              <h3>1 Stars</h3>
+            <div className={styles.comments}>
+              <div className={styles.comment}>
+                <div className={styles.commenttop}>
+                  <div className={styles.userstart}>
+                    <div className={styles.photo}>
+                      <img src="..\img\image 12.png" alt="perfil" />
+                    </div>
+                    <div className={styles.namestart}>
+                      <h1>Rocio</h1>
+                      <div className={styles.userstarts}>
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.time}>
+                    <FaRegClock />
+                    <h4>3 Months</h4>
+                  </div>
+                </div>
+                <div className={styles.commentbotom}><h3>At first I did not realize how valuable this course was, until I made 2 interviews to apply for a job. The first one was delighted by my skill level, and the second one...</h3></div>
+              </div>
+              <div className={styles.hrcomment}>
+                <hr />
+              </div>
+              <div className={styles.comment}>
+                <div className={styles.commenttop}>
+                  <div className={styles.userstart}>
+                    <div className={styles.photo}>
+                      <img src="..\img\image 12.png" alt="perfil" />
+                    </div>
+                    <div className={styles.namestart}>
+                      <h1>Belén</h1>
+                      <div className={styles.userstarts}>
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.time}>
+                    <FaRegClock />
+                    <h4>3 Months</h4>
+                  </div>
+                </div>
+                <div className={styles.commentbotom}><h3>Good course. Short duration with highly concentrated content on it. You must practice on your own to get a good grip on the topics. Would recommend.</h3></div>
+              </div>
             </div>
           </div>
-            <div className={styles.comments}>
-              <h1>comentarios</h1>
-            </div>
         </div>
       </div>
-      <div className={styles.detail}>
-        <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
-        <h1>{course.Title}</h1>
-        <button>Study</button>
-        <hr />
-        <h2>This Course includes</h2>
-        <h4>Free access</h4>
-        <h4>Access on all devices</h4>
-        <h4>Certification of completion</h4>
-        <h4>{course.Modules} Moduls</h4>
-        <hr />
-        <h2>You'll learn</h2>
-        <h4>{course.Description}</h4>
-        <hr />
-        <h2>Share this course</h2>
-      </div>
       <div className={styles.more}>
-        <h2>Similar Courses</h2>
+
+        <h1>Similar Courses</h1>
         <div>
           <h4>aqui van los cursos similares</h4>
         </div>
       </div>
-      <div><h1>Hola</h1></div>
-      <div className={styles.contaimerTitle}>
-        <h1>{course.Title}</h1>
-        <h2>{course.Categoria}</h2>
-      </div>
-      <div className={styles.containerImg}>{course.Image}</div>
-      <div className={styles.containerSummary}>
-        <h2>{course.Instructor}</h2>
-        <h2>{course.Duration}</h2>
-        <h2>{course.Updated}</h2>
-      </div>
-      <div className={styles.containerDescription}>{course.Description}</div>
-      <div className={styles.containerModules}>{course.Modules}</div>
-      {/* <div className={styles.containerBtn}>
-                <Link to={`/detail/${props.id}`}><button>Study</button></Link>
-            </div> */}
     </div>
   )
 }
