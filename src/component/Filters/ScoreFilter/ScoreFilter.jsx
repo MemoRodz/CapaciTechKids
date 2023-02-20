@@ -13,12 +13,14 @@ function ScoreFilter() {
 
     return (
         <form style={styles.scorefilter}>
-            <label htmlFor="score-input">Minimum score:</label>
+            <label htmlFor="score-input">Score:</label>
             <input
                 id="score-input"
-                type="number"
+                type="range"
                 value={minScore}
                 onChange={handleChange}
+                max={5}
+                min={1}
             />
         </form>
     );
