@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
 import { useParams } from "react-router-dom";
 import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
+import{BsGithub,BsLinkedin} from "react-icons/bs"
+import {AiOutlineAppstore,AiOutlineClockCircle} from "react-icons/ai"
 
 export default function Detail() {
   const { id } = useParams();
   const [course, setCourse] = useState([]);
-  console.log(id);
-
+  const starDate= new Date(course.Start_Date)
+  const endDate = new Date(course.End_Date)
+  const diff= (endDate.getFullYear() - starDate.getFullYear())*12+(endDate.getMonth() - starDate.getMonth())
 
   useEffect(() => {
     fetch(`http://localhost:3001/courses/detail/${id}`)

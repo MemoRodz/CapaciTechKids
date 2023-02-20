@@ -3,9 +3,9 @@ import axios from "axios";
 
 const initialState = {
     courses: [],
-    selectedCategory: "all",
-    minScore: 6,
     filteredCourses: [],
+    selectedCategory: [],
+    minScore: 1,
 };
 
 export const coursesSlice = createSlice({
@@ -19,18 +19,19 @@ export const coursesSlice = createSlice({
             }
         },
         selectCategory: (state, action) => {
-            state.selectedCategory = action.payload;
+            state.selectedCategory = action.payload
         },
         setMinScore: (state, action) => {
             state.minScore = action.payload;
         },
         filterCourses: (state) => {
-            state.filteredCourses = state.courses.filter((item) => {
-                if (state.selectedCategory === "all" || item.category === state.selectedCategory) {
-                    return item.Score >= state.minScore;
+            state.filteredCourses = [...state.courses].filter((item) => {
+                if (item.tblCategories.map(c => c.Name).toLocaleString().includes(state.selectedCategory.toLocaleString()) ||
+                    item.tblCategories.map(c => c.Name).toLocaleString().includes(state.selectedCategory.reverse().toLocaleString())) {
+                        return item.Score >= state.minScore
                 }
-                return false;
-            });
+                return false
+            })
         },
         sortByScore: (state, action) => {
             if (action.payload === 'maxMin') {
@@ -51,10 +52,12 @@ export const coursesSlice = createSlice({
                 }
             }
         },
-        resetFilters: (state, action) => {
-            state.filteredCourses = state.courses
+        resetFilters: (state) => {
             return {
-                ...state
+                ...state,
+                selectedCategory: [],
+                minScore: 1,
+                filteredCourses: state.courses
             }
         }
     }
@@ -69,5 +72,7 @@ export const getAllCourses = (url) => (dispatch) => {
         .then(res => dispatch(setAllCourses(res.data)))
         .catch(err => console.log(err))
 }
+
+
 
 export default coursesSlice.reducer

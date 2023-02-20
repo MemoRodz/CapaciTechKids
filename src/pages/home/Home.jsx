@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
-import {HiOutlineDocumentText} from 'react-icons/hi'
-import {FaCalendarAlt,FaUsers} from 'react-icons/fa'
+import { HiOutlineDocumentText } from 'react-icons/hi'
+import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
+
 
 function Home() {
+
+
+
   return (
     <>
       <div className={styles.home}>
@@ -20,37 +24,37 @@ function Home() {
         </h3>
 
         <h2 className={styles.login}>
-        <Link to={'/login'}>Join for free</Link>
+          <Link to={'/login'}>Join for free</Link>
         </h2>
 
         <h2 className={styles.our}>Our success</h2>
         <p>Thousands of students are already learning from our platform, which includes<br />
           hundreds of courses that will prepare you for your future.</p>
-          
+
         <div className={styles.stats}>
-        <ul>
-          <li>
-            15k+ <br />
-            Students
-          </li>
-          <li>
-            75% <br />
-            Total success 
-          </li>
-          <li> 
-            570 <br />
-            Exam questions 
-          </li>
-          <li> 
-            68 <br />
-            Professors
-          </li>
-          <li>
-            16 <br />
-           Modern categories
-          </li>
-        </ul>
-        </div> 
+          <ul>
+            <li>
+              15k+ <br />
+              Students
+            </li>
+            <li>
+              75% <br />
+              Total success
+            </li>
+            <li>
+              570 <br />
+              Exam questions
+            </li>
+            <li>
+              68 <br />
+              Professors
+            </li>
+            <li>
+              16 <br />
+              Modern categories
+            </li>
+          </ul>
+        </div>
 
         <h2 className={styles.all}>All-In-One <span>Learning Platform</span></h2>
         <p>CapaciTechKids offers the best learning solution for students, while<br />
@@ -59,7 +63,7 @@ function Home() {
 
         <div className={styles.homecards}>
           <div className={styles.homecard}>
-            <HiOutlineDocumentText size="3rem" color='white'/>
+            <HiOutlineDocumentText size="3rem" color='white' />
             <h3>Courses, Lectures and<br />
               Exams.</h3>
             <p>Simple and effective way of<br />
@@ -69,7 +73,7 @@ function Home() {
               student.</p>
           </div>
           <div className={styles.homecard}>
-            <FaCalendarAlt size="3rem" color="white"/>
+            <FaCalendarAlt size="3rem" color="white" />
             <h3>Easy Scheduling &<br />
               Attendance Tracking</h3>
             <p>Study from everywhere, everytime.<br />
@@ -78,7 +82,7 @@ function Home() {
               on your time and preferences.</p>
           </div>
           <div className={styles.homecard}>
-            <FaUsers size="3rem" color='white'/>
+            <FaUsers size="3rem" color='white' />
             <h3>Student Tracking</h3>
             <p>Automated emails for<br />
               instructors and students.<br />
@@ -88,21 +92,21 @@ function Home() {
         </div>
 
         <div>
-            <h2 className={styles.study}>Study new technologies, be a<br />
-              <span>CapaciTechKid!</span></h2>
-            <p>We have the most updated courses, including most<br />
-              modern technologies such as web development,online<br />
-              business, marketing, interface design and more.
-            </p>
+          <h2 className={styles.study}>Study new technologies, be a<br />
+            <span>CapaciTechKid!</span></h2>
+          <p>We have the most updated courses, including most<br />
+            modern technologies such as web development,online<br />
+            business, marketing, interface design and more.
+          </p>
 
-          </div>
-          <img src="" alt="" />
         </div>
+        <img src="" alt="" />
+      </div>
 
-        <div className={styles.ult}>
-          <Link to={'/course'}>Learn more</Link>
-        </div>
-        
+      <div className={styles.ult}>
+        <Link to={'/course'}>Learn more</Link>
+      </div>
+
     </>
   )
 }
