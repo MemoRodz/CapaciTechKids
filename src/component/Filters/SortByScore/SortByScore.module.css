@@ -1,0 +1,12 @@
+.sortbtns{
+    margin: 1rem 0 0 0;
+}
+
+.sortbtns button{
+    margin: 0 .3rem;
+    border-radius: 3px;
+}
+
+.sortbtns button:hover{
+    cursor: pointer;
+}

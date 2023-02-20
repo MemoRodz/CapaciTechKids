@@ -28,7 +28,7 @@ function CategoryFilter() {
             <div className={styles.selectedcategories}>
                 {selectedCategories.length > 0 && selectedCategories.map((category) => (
                     <>
-                        <button onClick={() => handleRemoveCategories(category)}>
+                        <button type='button' onClick={() => handleRemoveCategories(category)}>
                             {category}X
                         </button>
                     </>

@@ -20,6 +20,7 @@ function Nav() {
           <li><NavLink to={"/"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Home</NavLink></li>
           <li><NavLink to={"/course"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>My Course</NavLink></li>
           <li><NavLink to={"/create"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Create</NavLink></li>
+          {/* <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li> */}
         </ul>
       </nav>
     </>
