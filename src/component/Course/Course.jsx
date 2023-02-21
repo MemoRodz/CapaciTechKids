@@ -46,7 +46,7 @@ export default function Course(props) {
         <img src="..\img\image 12.png" alt="perfil" />
         <h3>profe</h3>
         <div className={styles.btndetail}>
-          <button>Detail</button>
+          <Link to={`/detail/${PK_Course}`}><button>Detail</button></Link>
         </div>
       </div>
     </div>
