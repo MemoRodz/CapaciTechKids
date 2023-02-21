@@ -5,21 +5,29 @@
 .selectedcategories button {
     margin: .1rem;
     border-radius: 3px;
+    background-color: transparent;
 }
 
 .categoryoptions button {
-    margin: .1rem;
+    margin: .5rem;
     border-radius: 3px;
+    background-color: transparent;
 }
 
 .selectedcategories button:hover {
     cursor: pointer;
+    background-color: grey;
 }
 
 .categoryoptions button:hover {
     cursor: pointer;
+    background-color: grey;
 }
 
 .categoryoptions button:disabled {
     cursor: default;
+}
+
+.categoriestitle{
+    font-size: 1.8rem;
 }
