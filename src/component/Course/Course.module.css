@@ -1,23 +1,86 @@
-.cont {
-  
-    border: 3px solid rgba(255, 255, 255, 0.465);
-    width: 30%;
-    border-radius: 6px;
-    padding: 2px;
-    margin: 8px;
-    background-color: rgba(227, 227, 227, 0.877);
-    text-align: center;
-    color: black;
+.card {
+    margin: 15px;
+    background: #FFFFFF;
+    width: 335px;
+    height: 575px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 40px #FFFFFF;
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.heard {
+    position: relative;
+    width: 1920px;
+    height: 652px;
+    top: 145px;
+    left: 0;
+    z-index: 15;
 }
 
 .img {
-    width: 50%;
+    object-fit: cover;
+    width: 100%;
 }
-.upbar_card{
+
+.heard img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.coursedet {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    padding: 2px;
-    border-radius: 3px;
-    margin: 1px;
-    
+    width: 355px;
+}
+
+.similar1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 355px;
+}
+
+.similar2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 355px;
+}
+
+.teach {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 329px;
+}
+
+.teach img {
+    position: relative;
+    top: 5px;
+    width: 44px;
+    height: 44px;
+}
+
+.btndetail button {
+    background: #0583F2;
+    color: #FFFFFF;
+    width: 154px;
+    height: 64px;
+    font-size: 20px;
+    border-radius: 80px;
+    border: none;
 }

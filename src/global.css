@@ -1,16 +1,35 @@
 /* === Variables === */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-clr-primary: #21222E;
+  --font-clr-secondary: #696984;
+  --font-clr-complementary: #979797;
+  --font-clr-yellow: #F2B705;
+  
+  --bg-clr-primary: #F5F5FC;
+  --bg-clr-secondary: #9DCCFF;
+  --bg-clr-complementary: #0583F2;
+  --bg-clr-yellow: #F2B705;
+  --footer-bg: #252641;
+  
+  --btn-bg-active: #0583F2;
+  --btn-bg-inactive: #E6E6E6;
+  --btn-clr-active: transparent;
+  --btn-clr-inactive: #8a8a8a;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --h1: clamp(1.4rem, 10vw, 4rem);
+  --h2: clamp(1.4rem, 5vw, 2rem);
+  --h3: clamp(1.2rem, 3vw, 1.5rem)
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  background-color: var(--bg-clr-primary);
+  margin: 0;
 }
