@@ -10,12 +10,13 @@ const Estrella = (props)=>{
       if(!score){
           return <BsStar key={star} size="1.5rem" color="#F2B705"/>;
       }
+      if (star === Math.ceil(score)) {
+        return <BsStarHalf key={star} size="1.5rem" color="#F2B705"/>;
+      } 
       if (star <= Math.floor(score)|| star == 1){
         return <BsStarFill key={star} size="1.5rem" color="#F2B705"/>;
       } 
-      if (star === Math.ceil(score)) {
-        return <BsStarHalf key={star} size="1.5rem" color="#F2B705"/>;
-      } else{
+else{
         return <BsStar key={star} size="1.5rem" color="#F2B705"/>;
       }
      
