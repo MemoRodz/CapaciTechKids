@@ -6,54 +6,52 @@ import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
 
 function Home() {
 
-
-
   return (
     <>
       <div className={styles.home}>
-        <h1 className={styles.welcome}>
-          Welcome to<br />
-        </h1>
-        <h1 className={styles.capaci}>
-          CapaciTechKids
-        </h1>
-        <h3 className={styles.text}>
-          CapaciTechKids is an interesting<br />
-          platform that will teach you in the<br />
-          most interactive way
-        </h3>
+        <div className={styles.welcomecard}>
+          <h1 className={styles.welcome}>
+            Welcome to<br />
+          </h1>
+          <h1 className={styles.capaci}>
+            CapaciTechKids
+          </h1>
+          <h3 className={styles.text}>
+            CapaciTechKids is an interesting<br />
+            platform that will teach you in the<br />
+            most interactive way
+          </h3>
 
-        <h2 className={styles.login}>
-          <Link to={'/login'}>Join for free</Link>
-        </h2>
+          <div className={styles.login}>
+            <Link to={'/login'}>Join for free</Link>
+          </div>
+        </div>
 
         <h2 className={styles.our}>Our success</h2>
         <p>Thousands of students are already learning from our platform, which includes<br />
           hundreds of courses that will prepare you for your future.</p>
 
         <div className={styles.stats}>
-          <ul>
-            <li>
-              15k+ <br />
-              Students
-            </li>
-            <li>
-              75% <br />
-              Total success
-            </li>
-            <li>
-              570 <br />
-              Exam questions
-            </li>
-            <li>
-              68 <br />
-              Professors
-            </li>
-            <li>
-              16 <br />
-              Modern categories
-            </li>
-          </ul>
+          <div className={styles.stat}>
+            <h2>15k+</h2> <br />
+            <p>Students</p>
+          </div>
+          <div className={styles.stat}>
+            <h2>75%</h2><br />
+            <p>Total success</p>
+          </div>
+          <div className={styles.stat}>
+            <h2>570</h2><br />
+            <p>Exam questions</p>
+          </div>
+          <div className={styles.stat}>
+            <h2> 68 </h2><br />
+            <p>Professors</p>
+          </div>
+          <div className={styles.stat}>
+            <h2>16</h2><br />
+            <p>Modern categories</p>
+          </div>
         </div>
 
         <h2 className={styles.all}>All-In-One <span>Learning Platform</span></h2>
@@ -63,7 +61,9 @@ function Home() {
 
         <div className={styles.homecards}>
           <div className={styles.homecard}>
-            <HiOutlineDocumentText size="3rem" color='white' />
+            <div className={styles.iconcardbg}>
+              <HiOutlineDocumentText size="3rem" color='white' />
+            </div>
             <h3>Courses, Lectures and<br />
               Exams.</h3>
             <p>Simple and effective way of<br />
@@ -73,7 +73,9 @@ function Home() {
               student.</p>
           </div>
           <div className={styles.homecard}>
-            <FaCalendarAlt size="3rem" color="white" />
+            <div className={styles.iconcardbg}>
+              <FaCalendarAlt size="3rem" color="white" />
+            </div>
             <h3>Easy Scheduling &<br />
               Attendance Tracking</h3>
             <p>Study from everywhere, everytime.<br />
@@ -82,7 +84,9 @@ function Home() {
               on your time and preferences.</p>
           </div>
           <div className={styles.homecard}>
-            <FaUsers size="3rem" color='white' />
+            <div className={styles.iconcardbg}>
+              <FaUsers size="3rem" color='white' />
+            </div>
             <h3>Student Tracking</h3>
             <p>Automated emails for<br />
               instructors and students.<br />
