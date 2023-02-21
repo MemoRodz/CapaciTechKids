@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
-import { useParams,Link } from "react-router-dom";
+import { useParams,Link,useNavigate,useLocation } from "react-router-dom";
 import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
 // import{BsGithub,BsLinkedin} from "react-icons/bs"
 // import {AiOutlineAppstore,AiOutlineClockCircle} from "react-icons/ai"
@@ -14,7 +14,6 @@ export default  function Detail() {
   const [review, setReview] = useState([]);
   const [related,setRelated] = useState([])
   const [relatedLoaded, setRelatedLoaded] = useState(false);
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +54,7 @@ export default  function Detail() {
  return  relatedLoaded ? (
     <div className={styles.container}>
       <div className={styles.heard}>
-        <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
+        <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
       </div>
       <div className={styles.detail}>
         <img src="..\img\Rectangle 77.png" alt="{course.Title}" />

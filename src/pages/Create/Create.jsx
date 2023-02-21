@@ -100,7 +100,7 @@ const Create = () => {
   return (
     <div>
       <div className={styles.heard}>
-        <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
+        <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
       </div>
       <div className={styles.container}>
       <h2>Create a New Course</h2>

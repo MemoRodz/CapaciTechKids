@@ -21,7 +21,7 @@ export default function Courses() {
   return (
     <>
       <div className={styles.heard}>
-        <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
+        <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
       </div>
       <h1 className={styles.coursestitle}>Our Courses</h1>
       <div className={styles.coursescontainer}>
