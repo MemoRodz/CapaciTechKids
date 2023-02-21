@@ -112,12 +112,16 @@ const Create = () => {
           <input
             type="text"
             name="Title"
+            minLength="5"
+            maxLength="100"
+            placeholder="Insert Title"
+            required
             value={formData.Title}
             onChange={handleInputChange}
           />
           </div>
           <div className={styles.errs}>
-          {errors.Title ? <div>{errors.Title}</div> : null}
+          {/* {errors.Title ? <div>{errors.Title}</div> : null} */}
           </div>
           </div>
         </label>
@@ -126,15 +130,14 @@ const Create = () => {
           <div className={styles.labcont}>
           <div className={styles.lab}>
           Description:
-          <input
-            type="text"
-            name="Description"
+          <textarea name="Description" minlength="5" maxlength="200" placeholder="Insert Description"
             value={formData.Description}
             onChange={handleInputChange}
-          />
+            required>
+          </textarea>
           </div>
           <div className={styles.errs}>
-          {errors.Description ? <div>{errors.Description}</div> : null}
+          {/* {errors.Description ? <div>{errors.Description}</div> : null} */}
           </div>            
           </div>
         </label>
@@ -175,7 +178,7 @@ const Create = () => {
             name="Duration"
             value={formData.Duration}
             onChange={handleInputChange}
-            
+            required
           />
         </label>
         <br />
