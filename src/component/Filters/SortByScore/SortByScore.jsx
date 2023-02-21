@@ -16,6 +16,7 @@ function SortByScore() {
     return (
         <>
             <div className={styles.sortbtns}>
+                <h2>Sort by score</h2>
                 <button type='button' onClick={sortMax}>Max score</button>
                 <button type='button' onClick={sortMin}>Min score</button>
             </div>
