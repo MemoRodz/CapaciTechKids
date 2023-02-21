@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import Course from "../../component/Course/Course";
 import styles from "./Courses.module.css";
 import { CategoryFilter, ScoreFilter, SortByScore, ResetFilters } from '../../component/index'
@@ -11,6 +11,7 @@ import { getAllCategories } from "../../redux/slices/categoriesSlice";
 export default function Courses() {
   const dispatch = useDispatch()
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
+  console.log(arregloCourses)
 
   useEffect(() => {
     dispatch(getAllCourses('http://localhost:3001/courses'))
@@ -19,10 +20,16 @@ export default function Courses() {
 
   return (
     <>
+      <div className={styles.heard}>
+        <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
+      </div>
       <div className={styles.filters}>
         <CategoryFilter />
         <SortByScore />
         <ResetFilters />
+      </div>
+      <div>
+        <h1>Our Courses</h1>
       </div>
       <div className={styles.courses}>
         {arregloCourses && arregloCourses.map((c, i) => (
