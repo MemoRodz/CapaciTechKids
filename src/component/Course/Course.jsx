@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Estrella from '../Estrella/Estrella';
 import styles from '../course/Course.module.css'
 import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+
 export default function Course(props) {
 
 
@@ -11,9 +14,23 @@ export default function Course(props) {
 
   console.log(Score);
   const [isFav, setIsFav] = useState(false);
+  const [course,setCourse] = useState({});
+  const [courseLoaded, setCourseLoaded] = useState(false)
   //const dispatch = useDispatch();
   //const myFavorites = useSelector((s) => s.myFavorites);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const curso =  await axios.get(`http://localhost:3001/courses/detail/${PK_Course}`)
+        setCourse(curso.data);
+        setCourseLoaded(true);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   function handleFavorite() {
     if (isFav) {
@@ -25,28 +42,28 @@ export default function Course(props) {
     }
   }
 
+console.log(course)
 
-
-  return (
+  return courseLoaded ? (
     <div className={styles.card}>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
           <FaThLarge />
-          <h4>categoria</h4>
+          <h4>{course.tblCategories[0].Name}</h4>
         </div>
         <div className={styles.similar2}>
           <FaRegClock />
-          <h4>duracion</h4>
+          <h4>{course.Duration/3600}h</h4>
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>
-      <h3>{Description}</h3>
+      <h3>{course.Description}</h3>
       <div className={styles.teach}>
         <img src="..\img\image 12.png" alt="perfil" />
-        <h3>profe</h3>
+        <h3>{course.tblUser.Name}</h3>
         <div className={styles.btndetail}>
-          <Link to={`/detail/${PK_Course}`}><button>Detail</button></Link>
+          <Link to={`/detail/${course.PK_Course}`}><button>Detail</button></Link>
         </div>
       </div>
     </div>
@@ -77,5 +94,5 @@ export default function Course(props) {
 
           </div>
           </div> */
-  )
+  ) : null;
 }
