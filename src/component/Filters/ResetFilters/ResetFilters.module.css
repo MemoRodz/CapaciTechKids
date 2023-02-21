@@ -1,5 +1,5 @@
 .resetbtn{
-    margin-top: 1rem;
+    margin-top: 6.5rem;
     width: fit-content;
     padding: 0 .2rem;
     border-radius: 3px;
@@ -7,4 +7,5 @@
 
 .resetbtn:hover{
     cursor: pointer;
+    background-color: gray;
 }
