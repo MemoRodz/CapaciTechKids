@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import styles from './Create.module.css'
 
 
 export function validate(formData) {
@@ -98,9 +99,15 @@ const Create = () => {
 
   return (
     <div>
+      <div className={styles.heard}>
+        <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
+      </div>
+      <div className={styles.container}>
       <h2>Create a New Course</h2>
       <form onSubmit={handleSubmit}>
         <label>
+          <div className={styles.labcont}>
+          <div className={styles.lab}>
           Title:
           <input
             type="text"
@@ -108,10 +115,16 @@ const Create = () => {
             value={formData.Title}
             onChange={handleInputChange}
           />
+          </div>
+          <div className={styles.errs}>
           {errors.Title ? <div>{errors.Title}</div> : null}
+          </div>
+          </div>
         </label>
         <br />
         <label>
+          <div className={styles.labcont}>
+          <div className={styles.lab}>
           Description:
           <input
             type="text"
@@ -119,7 +132,11 @@ const Create = () => {
             value={formData.Description}
             onChange={handleInputChange}
           />
+          </div>
+          <div className={styles.errs}>
           {errors.Description ? <div>{errors.Description}</div> : null}
+          </div>            
+          </div>
         </label>
         <br />
         <label htmlFor="Professor">Instructor's name:</label>
@@ -137,7 +154,7 @@ const Create = () => {
         </select>
         <br />
         <label>Categories:</label>
-        <div>
+        <div className={styles.cate}>
           {cats.map((category) => (
             <label key={category.PK_Category}>
               <input
@@ -166,6 +183,7 @@ const Create = () => {
         {validacion ? <div>{validacion}</div> : null}
         <button type="submit">Create Course</button>
       </form>
+      </div>
     </div>
   );
 };
