@@ -23,32 +23,32 @@ export default function Courses() {
       <div className={styles.heard}>
         <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
       </div>
-      <div className={styles.filters}>
-        <CategoryFilter />
-        <SortByScore />
-        <ResetFilters />
-      </div>
-      <div>
-        <h1>Our Courses</h1>
-      </div>
-      <div className={styles.courses}>
-        {arregloCourses && arregloCourses.map((c, i) => (
-          <Course
-            PK_Course={c.PK_Course}
-            key={c.PK_Course}
-            Image={c.Image}
-            //Category={c.Category}
-            Title={c.Title}
-            Description={c.Description}
-            Start_Date={c.Start_Date}
-            End_Date={c.End_Date}
-            Duration={c.Duration}
-            Instructor={c.tblUser.Name}
-            Score={c.Score}
-          //onClose={() => props.onClose(c.id)}
-          />
-        )
-        )}
+      <h1 className={styles.coursestitle}>Our Courses</h1>
+      <div className={styles.coursescontainer}>
+        <div className={styles.filters}>
+          <CategoryFilter />
+          <SortByScore />
+          <ResetFilters />
+        </div>
+        <div className={styles.courses}>
+          {arregloCourses && arregloCourses.map((c, i) => (
+            <Course
+              PK_Course={c.PK_Course}
+              key={c.PK_Course}
+              Image={c.Image}
+              //Category={c.Category}
+              Title={c.Title}
+              Description={c.Description}
+              Start_Date={c.Start_Date}
+              End_Date={c.End_Date}
+              Duration={c.Duration}
+              Instructor={c.tblUser.Name}
+              Score={c.Score}
+            //onClose={() => props.onClose(c.id)}
+            />
+          )
+          )}
+        </div>
       </div>
     </>
   );
