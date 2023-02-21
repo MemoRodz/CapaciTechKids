@@ -1,34 +1,69 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+
+export function validate(formData) {
+  let errors = {}
+
+
+  if (formData.Title.length === 0) {errors.Title = "Add a title"}
+  if (formData.Description.length <= 0 ) {errors.Description="add a Description"};
+  if (formData.Duration <= 0) {errors.Duration="add a duration for video"};
+ // if ( typeof formData.Duration !== "number") {errors.Duration = "must be a number"}
+
+
+  return errors;
+}
+
 
 const Create = () => {
+  const navigate = useNavigate()
+  const [cats,setCats] = useState([])
+  const [validacion, setValidacion] = useState("")
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [formData, setFormData] = useState({
     Title: "",
     Description: "",
     Professor: "",
+    Duration: "11111",
+    Category: [],
+    Active: true
+  });
+  const [errors,setErrors] = React.useState ({
+    Title: "Add a Title",
+    Description: "Add a Description",
+    Professor: "",
     Duration: "",
     Category: [],
     Active: true
   });
+  console.log("Errors duracion", errors.Duration)
+
   const [data,setData] = useState([])
   useEffect(() => {
     const funciona = async() => {
    const {data} = await axios.get(`http://localhost:3001/users/instructors`)
-
+   const cats = await axios.get(`http://localhost:3001/categories`)
+    setCats(cats.data)
     setData(data)}
    funciona()
   }, [])
-  const categories = useSelector((state) => state.categories.categories);
+  console.log("CATS",cats)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    for (const [key, value] of Object.entries(errors)) {
+      if (value.length !== 0) setValidacion(value)
+    }
     try {
       const response = await axios.post(
         "http://localhost:3001/courses/createCourse",
         formData
       );
+      navigate('/course')
     } catch (error) {
       console.log(error);
     }
@@ -36,6 +71,9 @@ const Create = () => {
 
   function handleInputChange(e) {
     const { name, value, type, checked } = e.target;
+
+    setErrors(validate({...formData,
+      [name]: value})) 
   
     if (type === "checkbox") {
       setSelectedCategories((prevCategories) =>
@@ -47,6 +85,7 @@ const Create = () => {
       setFormData({ ...formData, [name]: value });
     }
   }
+
   
   useEffect(() => {
     setFormData((prevFormData) => ({
@@ -69,6 +108,7 @@ const Create = () => {
             value={formData.Title}
             onChange={handleInputChange}
           />
+          {errors.Title ? <div>{errors.Title}</div> : null}
         </label>
         <br />
         <label>
@@ -79,6 +119,7 @@ const Create = () => {
             value={formData.Description}
             onChange={handleInputChange}
           />
+          {errors.Description ? <div>{errors.Description}</div> : null}
         </label>
         <br />
         <label htmlFor="Professor">Instructor's name:</label>
@@ -97,7 +138,7 @@ const Create = () => {
         <br />
         <label>Categories:</label>
         <div>
-          {categories.map((category) => (
+          {cats.map((category) => (
             <label key={category.PK_Category}>
               <input
                 type="checkbox"
@@ -113,14 +154,16 @@ const Create = () => {
         <label>
           Duration:
           <input
-            type="number"
+            type="text"
             name="Duration"
             value={formData.Duration}
             onChange={handleInputChange}
+            
           />
         </label>
         <br />
         <br />
+        {validacion ? <div>{validacion}</div> : null}
         <button type="submit">Create Course</button>
       </form>
     </div>
