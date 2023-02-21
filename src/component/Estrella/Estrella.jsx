@@ -8,15 +8,15 @@ const Estrella = (props)=>{
   
     const starIcons = stars.map((star) => {
       if(!score){
-          return <BsStar key={star} size="2rem" color='#f74634'/>;
+          return <BsStar key={star} size="1.5rem" color="#F2B705"/>;
       }
       if (star <= Math.floor(score)|| star == 1){
-        return <BsStarFill key={star} size="2rem" color='#f74634'/>;
+        return <BsStarFill key={star} size="1.5rem" color="#F2B705"/>;
       } 
       if (star === Math.ceil(score)) {
-        return <BsStarHalf key={star} size="2rem" color='#f74634'/>;
+        return <BsStarHalf key={star} size="1.5rem" color="#F2B705"/>;
       } else{
-        return <BsStar key={star} size="2rem" color='#f74634'/>;
+        return <BsStar key={star} size="1.5rem" color="#F2B705"/>;
       }
      
     })
