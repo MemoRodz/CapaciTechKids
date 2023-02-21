@@ -3,13 +3,15 @@
 }
 
 .navbar ul {
+    margin-top: -.2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     list-style: none;
-    padding: 0 4rem;
+    padding: 1.5rem 4rem;
 }
 
 .navbar ul li a{
     text-decoration: none;
+    font-size: var(--h3);
 }

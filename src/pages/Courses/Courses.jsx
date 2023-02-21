@@ -7,10 +7,14 @@ import { getAllCourses } from '../../redux/slices/coursesSlice'
 import { getAllCategories } from "../../redux/slices/categoriesSlice";
 
 
+
 export default function Courses() {
   const dispatch = useDispatch()
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
+<<<<<<< HEAD
   console.log(arregloCourses)
+=======
+>>>>>>> 4c3fddfc371a16351a0bba26c2b4a1c9d627ac4a
 
   useEffect(() => {
     dispatch(getAllCourses('http://localhost:3001/courses'))
@@ -24,7 +28,6 @@ export default function Courses() {
       </div>
       <div className={styles.filters}>
         <CategoryFilter />
-        <ScoreFilter />
         <SortByScore />
         <ResetFilters />
       </div>

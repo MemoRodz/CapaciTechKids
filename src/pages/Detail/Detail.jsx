@@ -1,33 +1,52 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
-import { useParams } from "react-router-dom";
-import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
-import{BsGithub,BsLinkedin} from "react-icons/bs"
-import {AiOutlineAppstore,AiOutlineClockCircle} from "react-icons/ai"
+import { useParams,Link } from "react-router-dom";
+import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
+// import{BsGithub,BsLinkedin} from "react-icons/bs"
+// import {AiOutlineAppstore,AiOutlineClockCircle} from "react-icons/ai"
+import axios from "axios";
+import Estrella from '../../component/Estrella/Estrella'
+import { useSelector } from "react-redux";
 
 export default function Detail() {
   const { id } = useParams();
   const [course, setCourse] = useState([]);
-  const starDate= new Date(course.Start_Date)
-  const endDate = new Date(course.End_Date)
-  const diff= (endDate.getFullYear() - starDate.getFullYear())*12+(endDate.getMonth() - starDate.getMonth())
+  const [review, setReview] = useState([]);
+  
 
   useEffect(() => {
-    fetch(`http://localhost:3001/courses/detail/${id}`)
-      .then((response) => response.json())
-      .then((curso) => {
-        if (curso.Title) {
-          console.log("------>", curso);
-          setCourse(curso);
-        } else {
-          window.alert("No hay cursos con ese ID");
-        }
-      })
-      .catch((err) => {
-        window.alert("No hay cursos con ese ID");
-      });
-    return setCourse([]);
-  }, [id]);
+    const fetchData = async () => {
+      try {
+        const curso =  await axios.get(`http://localhost:3001/courses/detail/${id}`)
+        const reviews = await axios.get(`http://localhost:3001/reviews/related/${id}`)
+        console.log("----->",curso.data);
+        console.log("----->",reviews.data);
+        setCourse(curso.data);
+        setReview(reviews.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+ 
+  function Score(){
+
+    const score = course.Score/2
+   
+    console.log("---> SCORE",score)
+    if(score === null){
+      return 0
+    }
+    if (Math.round(score) === 1){
+      return 1
+    } 
+    if (score === Math.ceil(score)) {
+      return score
+    } else{
+      return score
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -56,7 +75,7 @@ export default function Detail() {
         </div>
         <div className={styles.x2}>
           <FaChartBar />
-          <h4>{course.Modules} Moduls</h4>
+          <h4>{course.Modules} 5 Moduls</h4>
         </div>
         <hr />
         <h2>You'll learn</h2>
@@ -95,14 +114,8 @@ export default function Detail() {
           <div className={styles.point}>
             <div className={styles.ranking}>
               <div className={styles.top}>
-                <h1>5 out of 5</h1>
-                <div className={styles.fastart}>
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                </div>
+                <h1>{Score()} out of 5</h1>
+                <Estrella Score={course.Score/2}/>                                                  
                 <h3>Top Ranting</h3>
               </div>
               <div className={styles.start}>
@@ -119,57 +132,29 @@ export default function Detail() {
               </div>
             </div>
             <div className={styles.comments}>
+              {review.map(e=>
               <div className={styles.comment}>
                 <div className={styles.commenttop}>
                   <div className={styles.userstart}>
                     <div className={styles.photo}>
                       <img src="..\img\image 12.png" alt="perfil" />
                     </div>
-                    <div className={styles.namestart}>
-                      <h1>Rocio</h1>
+                    <div className={styles.namestart}>                      
+                      <h1>{e.tblUser.Name}</h1>
                       <div className={styles.userstarts}>
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
+                        <Estrella Score={e.Score}/>
                       </div>
                     </div>
                   </div>
                   <div className={styles.time}>
                     <FaRegClock />
-                    <h4>3 Months</h4>
+                    <h4>{e.Creation_Date}</h4>
                   </div>
-                </div>
-                <div className={styles.commentbotom}><h3>At first I did not realize how valuable this course was, until I made 2 interviews to apply for a job. The first one was delighted by my skill level, and the second one...</h3></div>
               </div>
-              <div className={styles.hrcomment}>
-                <hr />
+                  <div className={styles.commentbotom}><h3>{e.Comment}</h3></div>
+                  <div className={styles.hrcomment}><hr /></div>
               </div>
-              <div className={styles.comment}>
-                <div className={styles.commenttop}>
-                  <div className={styles.userstart}>
-                    <div className={styles.photo}>
-                      <img src="..\img\image 12.png" alt="perfil" />
-                    </div>
-                    <div className={styles.namestart}>
-                      <h1>Belén</h1>
-                      <div className={styles.userstarts}>
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.time}>
-                    <FaRegClock />
-                    <h4>3 Months</h4>
-                  </div>
-                </div>
-                <div className={styles.commentbotom}><h3>Good course. Short duration with highly concentrated content on it. You must practice on your own to get a good grip on the topics. Would recommend.</h3></div>
-              </div>
+            )}              
             </div>
           </div>
         </div>
@@ -177,26 +162,26 @@ export default function Detail() {
       <div className={styles.more}>
         <div className={styles.similarcourses}>
           <h1>Similar Courses</h1>
-          <h3>See all</h3>
+          <Link to={"/course"}>See all</Link>          
         </div>
         <div className={styles.cards}>
-          <div className={styles.card}>
-            <img src="..\img\course 01.png" alt="course01" />
-            <div className={styles.coursedet}>
-              <div className={styles.similar1}>
-                <FaThLarge />
-                <h4>categoria</h4>
-              </div>
+          <div className={styles.card}>            
+            <img src="..\img\course 01.png" alt="course01" />            
+              <div className={styles.coursedet}>
+                  <div className={styles.similar1}>
+                    <FaThLarge />
+                    <h4>Design</h4>
+                  </div>
               <div className={styles.similar2}>
                 <FaRegClock />
-                <h4>duracion</h4>
+                <h4>{course.Duration/3600}h</h4>
               </div>
             </div>
-            <div className={styles.cardtitle}><h1>Course</h1></div>
+            <div className={styles.cardtitle}><h1>CSS Expert</h1></div>
             <h3>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</h3>
             <div className={styles.teach}>
               <img src="..\img\image 12.png" alt="perfil" />
-              <h3>profe</h3>
+              <h3>Ricardo Ariel Maya</h3>
               <div className={styles.btndetail}>
                 <button>Detail</button>
               </div>
@@ -207,18 +192,18 @@ export default function Detail() {
             <div className={styles.coursedet}>
               <div className={styles.similar1}>
                 <FaThLarge />
-                <h4>categoria</h4>
+                <h4>Design</h4>
               </div>
               <div className={styles.similar2}>
                 <FaRegClock />
-                <h4>duracion</h4>
+                <h4>{course.Duration/3600}h</h4>
               </div>
             </div>
-            <div className={styles.cardtitle}><h1>Course</h1></div>
+            <div className={styles.cardtitle}><h1>Master en CSS</h1></div>
             <h3>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</h3>
             <div className={styles.teach}>
               <img src="..\img\image 12.png" alt="perfil" />
-              <h3>profe</h3>
+              <h3>Ricardo Ariel Maya</h3>
               <div className={styles.btndetail}>
                 <button>Detail</button>
               </div>
@@ -229,18 +214,18 @@ export default function Detail() {
             <div className={styles.coursedet}>
               <div className={styles.similar1}>
                 <FaThLarge />
-                <h4>categoria</h4>
+                <h4>Design</h4>
               </div>
               <div className={styles.similar2}>
                 <FaRegClock />
-                <h4>duracion</h4>
+                <h4>{course.Duration/3600}h</h4>
               </div>
             </div>
-            <div className={styles.cardtitle}><h1>Course</h1></div>
+            <div className={styles.cardtitle}><h1>Figma de 0 a 100</h1></div>
             <h3>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</h3>
             <div className={styles.teach}>
               <img src="..\img\image 12.png" alt="perfil" />
-              <h3>profe</h3>
+              <h3>Fabian Rizzi</h3>
               <div className={styles.btndetail}>
                 <button>Detail</button>
               </div>
@@ -251,18 +236,18 @@ export default function Detail() {
             <div className={styles.coursedet}>
               <div className={styles.similar1}>
                 <FaThLarge />
-                <h4>categoria</h4>
+                <h4>Design</h4>
               </div>
               <div className={styles.similar2}>
                 <FaRegClock />
-                <h4>duracion</h4>
+                <h4>{course.Duration/3600}h</h4>
               </div>
             </div>
-            <div className={styles.cardtitle}><h1>Course</h1></div>
+            <div className={styles.cardtitle}><h1>Master en Figma</h1></div>
             <h3>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</h3>
             <div className={styles.teach}>
               <img src="..\img\image 12.png" alt="perfil" />
-              <h3>profe</h3>
+              <h3>Fabian Rizzi</h3>
               <div className={styles.btndetail}>
                 <button>Detail</button>
               </div>
@@ -273,46 +258,3 @@ export default function Detail() {
     </div>
   )
 }
-
-//   return (
-//     <div className={styles.detail}>
-//       <div className={styles.txt}>
-//         <h1>{course.name}</h1>
-//         <h3>{course.status}</h3>
-//         <p>{course.species}</p>
-//         <p>{course.gender}</p>
-//         <p>{course.origin?.name}</p>
-//       </div>
-//       <img className={styles.imgD} src={course.image} alt={course.name} />
-//     </div>
-//   );
-
-
-
-
-// import React from "react";
-// import styles  from "./Detail.module.css";
-// import { Link } from "react-router-dom";
-
-// export default function Detail(props){
-//     const {title,instructor,duration,updated,description,modules,categoria,image}=props
-//     return(
-//         <div className={styles.container}>
-//             <div className={styles.contaimerTitle}>
-//                 <h1>{title}</h1>
-//                 <h2>{categoria}</h2>
-//             </div>
-//             <div className={styles.containerImg}>{image}</div>
-//             <div className={styles.containerSummary}>
-//                 <h2>{instructor}</h2>
-//                 <h2>{duration}</h2>
-//                 <h2>{updated}</h2>
-//             </div>
-//             <div className={styles.containerDescription}>{description}</div>
-//             <div className={styles.containerModules}>{modules}</div>
-//             <div className={styles.containerBtn}>
-//                 <Link to={`/detail/${props.id}`}><button>Study</button></Link>
-//                 </div>
-//         </div>
-//     )
-// }

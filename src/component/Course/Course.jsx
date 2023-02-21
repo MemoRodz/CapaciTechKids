@@ -69,8 +69,13 @@ export default function Course(props) {
 
           <div>
             <h3>{Title}</h3>
+<<<<<<< HEAD
             
             <Estrella Score={Score / 2} />
+=======
+            {/* <h2>{Category.slice(" ")}</h2> 
+            <Estrella Score={Score/2} />*/}
+>>>>>>> 4c3fddfc371a16351a0bba26c2b4a1c9d627ac4a
           </div>
           <p>Duration: {Duration / 60} Min.</p>
           <Link to={`/detail/${PK_Course}`}><button className={style.btn}>Study</button></Link>
