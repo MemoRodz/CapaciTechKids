@@ -1,8 +1,10 @@
-import React from 'react'
+import styles from './Footer.module.css'
 
 function Footer() {
   return (
-    <div>© 2023 Grupo 07 Cohorte FT33-C </div>
+    <footer className={styles.footer}>
+      <h2>© 2023 Grupo 07 Cohorte FT33-C </h2>
+    </footer>
   )
 }
 

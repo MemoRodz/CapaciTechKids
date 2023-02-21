@@ -1,0 +1,9 @@
+.footer{
+    background-color: var(--footer-bg);
+    
+}
+
+.footer h2{
+    padding: 1rem;
+    color: #ffffff;
+}
