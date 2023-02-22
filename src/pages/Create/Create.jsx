@@ -28,7 +28,7 @@ const Create = () => {
     Title: "",
     Description: "",
     Professor: "",
-    Duration: "11111",
+    Duration: "7200",
     Category: [],
     Active: true
   });
