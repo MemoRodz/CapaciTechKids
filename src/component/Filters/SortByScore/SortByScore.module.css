@@ -2,6 +2,10 @@
     margin: 1rem 0 0 0;
 }
 
+.sortbtns h2{
+    font-size: 1.8rem;
+}
+
 .sortbtns button{
     margin: 0 .3rem;
     border-radius: 3px;
@@ -9,4 +13,5 @@
 
 .sortbtns button:hover{
     cursor: pointer;
+    background-color: gray;
 }

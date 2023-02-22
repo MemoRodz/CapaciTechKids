@@ -1,34 +1,70 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import styles from './Create.module.css'
+
+
+export function validate(formData) {
+  let errors = {}
+
+
+  if (formData.Title.length === 0) {errors.Title = "Add a title"}
+  if (formData.Description.length <= 0 ) {errors.Description="add a Description"};
+  if (formData.Duration <= 0) {errors.Duration="add a duration for video"};
+ // if ( typeof formData.Duration !== "number") {errors.Duration = "must be a number"}
+
+
+  return errors;
+}
+
 
 const Create = () => {
+  const navigate = useNavigate()
+  const [cats,setCats] = useState([])
+  const [validacion, setValidacion] = useState("")
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [formData, setFormData] = useState({
     Title: "",
     Description: "",
     Professor: "",
+    Duration: "11111",
+    Category: [],
+    Active: true
+  });
+  const [errors,setErrors] = React.useState ({
+    Title: "Add a Title",
+    Description: "Add a Description",
+    Professor: "",
     Duration: "",
     Category: [],
     Active: true
   });
+  console.log("Errors duracion", errors.Duration)
+
   const [data,setData] = useState([])
   useEffect(() => {
     const funciona = async() => {
    const {data} = await axios.get(`http://localhost:3001/users/instructors`)
-
+   const cats = await axios.get(`http://localhost:3001/categories`)
+    setCats(cats.data)
     setData(data)}
    funciona()
   }, [])
-  const categories = useSelector((state) => state.categories.categories);
+  console.log("CATS",cats)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    for (const [key, value] of Object.entries(errors)) {
+      if (value.length !== 0) setValidacion(value)
+    }
     try {
       const response = await axios.post(
         "http://localhost:3001/courses/createCourse",
         formData
       );
+      navigate('/course')
     } catch (error) {
       console.log(error);
     }
@@ -36,6 +72,9 @@ const Create = () => {
 
   function handleInputChange(e) {
     const { name, value, type, checked } = e.target;
+
+    setErrors(validate({...formData,
+      [name]: value})) 
   
     if (type === "checkbox") {
       setSelectedCategories((prevCategories) =>
@@ -47,6 +86,7 @@ const Create = () => {
       setFormData({ ...formData, [name]: value });
     }
   }
+
   
   useEffect(() => {
     setFormData((prevFormData) => ({
@@ -59,26 +99,47 @@ const Create = () => {
 
   return (
     <div>
+      <div className={styles.heard}>
+        <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
+      </div>
+      <div className={styles.container}>
       <h2>Create a New Course</h2>
       <form onSubmit={handleSubmit}>
         <label>
+          <div className={styles.labcont}>
+          <div className={styles.lab}>
           Title:
           <input
             type="text"
             name="Title"
+            minLength="5"
+            maxLength="100"
+            placeholder="Insert Title"
+            required
             value={formData.Title}
             onChange={handleInputChange}
           />
+          </div>
+          <div className={styles.errs}>
+          {/* {errors.Title ? <div>{errors.Title}</div> : null} */}
+          </div>
+          </div>
         </label>
         <br />
         <label>
+          <div className={styles.labcont}>
+          <div className={styles.lab}>
           Description:
-          <input
-            type="text"
-            name="Description"
+          <textarea name="Description" minlength="5" maxlength="200" placeholder="Insert Description"
             value={formData.Description}
             onChange={handleInputChange}
-          />
+            required>
+          </textarea>
+          </div>
+          <div className={styles.errs}>
+          {/* {errors.Description ? <div>{errors.Description}</div> : null} */}
+          </div>            
+          </div>
         </label>
         <br />
         <label htmlFor="Professor">Instructor's name:</label>
@@ -96,8 +157,8 @@ const Create = () => {
         </select>
         <br />
         <label>Categories:</label>
-        <div>
-          {categories.map((category) => (
+        <div className={styles.cate}>
+          {cats.map((category) => (
             <label key={category.PK_Category}>
               <input
                 type="checkbox"
@@ -113,16 +174,19 @@ const Create = () => {
         <label>
           Duration:
           <input
-            type="number"
+            type="text"
             name="Duration"
             value={formData.Duration}
             onChange={handleInputChange}
+            required
           />
         </label>
         <br />
         <br />
+        {validacion ? <div>{validacion}</div> : null}
         <button type="submit">Create Course</button>
       </form>
+      </div>
     </div>
   );
 };

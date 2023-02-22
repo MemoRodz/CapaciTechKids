@@ -16,6 +16,11 @@
     z-index: 15;
 }
 
+button {
+    cursor: pointer;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+}
+
 .heard img {
     object-fit: cover;
     width: 100%;
@@ -413,14 +418,14 @@ hr {
 }
 .cardtitle h1{
     position: relative;
-    left: -120px;
+    left: 0px;
     margin: 0;
     padding: 0;
 }
 .btndetail button{
     background: #0583F2;
     color: #FFFFFF;
-    width: 154px;
+    width: 120px;
     height: 64px;
     font-size: 20px;
     border-radius: 80px;

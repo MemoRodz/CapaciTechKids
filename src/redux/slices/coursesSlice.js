@@ -13,9 +13,10 @@ export const coursesSlice = createSlice({
     initialState,
     reducers: {
         setAllCourses: (state, action) => {
-            if (!state.courses.length) {
-                state.courses = state.courses.concat(action.payload)
-                state.filteredCourses = [...state.courses]
+            return {
+                ...state,
+                courses: action.payload,
+                filteredCourses: [...state.courses]
             }
         },
         selectCategory: (state, action) => {
@@ -25,13 +26,11 @@ export const coursesSlice = createSlice({
             state.minScore = action.payload;
         },
         filterCourses: (state) => {
-            state.filteredCourses = [...state.courses].filter((item) => {
-                if (item.tblCategories.map(c => c.Name).toLocaleString().includes(state.selectedCategory.toLocaleString()) ||
-                    item.tblCategories.map(c => c.Name).toLocaleString().includes(state.selectedCategory.reverse().toLocaleString())) {
-                        return item.Score >= state.minScore
-                }
-                return false
-            })
+            state.filteredCourses =  state.courses.filter(course => {      
+                const courseCategories = course.tblCategories.map(category => category.Name) 
+                return state.selectedCategory.every(category => { 
+                  return courseCategories.includes(category)});  
+              });
         },
         sortByScore: (state, action) => {
             if (action.payload === 'maxMin') {

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from './CategoryFilter.module.css'
 
 function CategoryFilter() {
-    //const [isToggle, setIsToggle] = useState(false)
+    const [isToggle, setIsToggle] = useState(false)
     const dispatch = useDispatch();
 
     const selectedCategories = useSelector((state) => state.courses.selectedCategory)
@@ -34,7 +34,7 @@ function CategoryFilter() {
                     </>
                 ))}
             </div>
-            <h2>Categories</h2>
+            <h2 className={styles.categoriestitle}>Categories</h2>
             <div className={styles.categoryoptions}>
                 {categories && categories.map((category) => (
                     <>

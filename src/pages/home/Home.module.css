@@ -1,104 +1,161 @@
-.home{
-    background-color:  rgb(137, 120, 120);
+.home {
+    background-color: var(--bg-clr-primary);
     text-align: center;
 }
 
-.welcome{
-    color: white;
+.home h2 {
+    font-size: var(--h2);
+}
+
+.home h3 {
+    font-size: var(--h3);
+}
+
+.welcomecard {
+    margin: 0 auto 8rem auto;
     text-align: left;
+    width: fit-content;
+}
+
+.welcome {
+    color: var(--font-clr-primary);
     margin-left: 40px;
     margin-top: 100px;
     margin-block-end: 5px;
     font-size: 50px;
 }
-.capaci{
-    color: yellow;
-    text-align: left;
+
+.capaci {
+    color: var(--font-clr-yellow);
     margin-left: 40px;
     margin-top: 5px;
     margin-block-end: 5px;
     font-size: 50px;
 }
 
-.text{
-    color: white;
-    text-align: left;
+.text {
+    color: var(--font-clr-primary);
     margin-left: 70px;
-    font-weight:10px;
+    font-weight: 10px;
     font-size: 13px;
 }
-.login{
-    position:relative; left: -35%;
+
+.login {
     margin-top: 30px;
-    margin-block-end: 20px;
-    background-color: white; 
-    border-radius: 20px;
-    color: gray;
-    padding: 10px 15px; 
-    text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    margin-left: 2rem;
 }
 
-.our{
+.login a {
+    color: #ffffff;
+    background-color: var(--bg-clr-secondary);
+    text-decoration: none;
+    font-size: var(--h3);
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+
+.login a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.our {
     color: dodgerblue;
     margin-block-end: 5px;
+    font-size: var(--h2);
 }
 
-p{
+p {
     margin-top: 0px;
-    color: white;
-    font-size: 12px;
+    color: var(--font-clr-primary);
 }
- 
-.all{
+
+.all {
     color: dodgerblue;
 }
 
-.all span{
-    color: yellow;
-}
-
-p{
-    margin-top: 0px;
-    color: white;
-    font-size: 12px;
+.all span {
+    color: var(--font-clr-yellow);
 }
 
 .homecard {
-	border: 1px solid rgba(45, 0, 75, 0.489);
-	border-radius: 10px;
-	box-shadow: 2px 2px 40px rgba(31, 0, 66, 0.733);
-	width: 300px;
-	height: 250px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	display: flex;
-	flex-direction: column;
-	padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    background-color: #ffffff;
+    width: 300px;
+    height: 250px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .homecards {
-	width: 90%;
-	height: auto;
-	margin: 30px auto auto;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	align-items: flex-start;
-	justify-content: space-evenly;
-
+    width: 90%;
+    height: auto;
+    margin: 30px auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
 }
 
-.study{
-    color:dodgerblue
+.iconcardbg {
+    border-radius: 50%;
+    width: fit-content;
+    margin: 0 auto;
+    padding: .5rem;
+    background-color: var(--bg-clr-complementary);
 }
 
-.study span{
-    color:yellow;
+
+.study {
+    color: dodgerblue;
+    margin-top: 4rem;
 }
 
-.ult{
+.study span {
+    color: var(--font-clr-yellow);
+}
+
+.ult {
     text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ult a:visited {
+    color: var(--font-clr-primary);
+}
+
+.stats {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 4rem 0 4rem 32vw;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: fit-content;
+}
+
+.stat h2 {
+    font-size: var(--h2);
+    background: -webkit-linear-gradient(264deg, rgba(242, 122, 5, 1) 0%, rgba(255, 198, 28, 1) 85%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.stat p {
+    color: var(--font-clr-primary);
+    margin: 0;
+    padding: 0;
 }

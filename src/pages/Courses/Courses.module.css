@@ -1,21 +1,43 @@
-.courses{
-    min-height: 100vh;
+.coursescontainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.courses{
+    display: grid;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: center;
     align-items: center;
-    background: rgb(246, 243, 243);
+}
+
+.coursestitle{
+    text-align: center;
+}
+
+.heard {
+    position: relative;
+    width: 100vw;
+    height: 652px;
+    z-index: 15;
+    margin-bottom: 2rem;
+}
+
+.heard img {
+    object-fit: cover;
     width: 100%;
-    padding-left: 6rem;
+    height: 100%
 }
 
 .filters{
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    width: 13rem;
-    position: absolute;
-    left: 0;
-    right: 1;
-    padding: 4rem 1.5rem 0 1.5rem;
+    width: 16rem;
+    border-right: 2px solid black;
+    padding-right: 2vw;
+}
+
+.filters button{
+    font-size: 1.35rem;
 }
