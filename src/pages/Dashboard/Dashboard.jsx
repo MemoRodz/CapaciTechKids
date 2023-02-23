@@ -1,12 +1,16 @@
-import { Navigate, Route } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { Student, Teacher } from '../index'
 
 function Dashboard() {
+
     return (
         <>
-            <Route path='/' element={<Navigate to={'/dashboard'} />} />
-            <Route path='/student' element={<Student />} />
-            <Route path='/teacher' element={<Teacher />} />
+            <Routes>
+                <Route path='/' element={<Navigate to={'/'} />} />
+                <Route path='/student' element={<Student />} />
+                <Route path='/teacher' element={<Teacher />} />
+                <Route path='*' element={<h2>Not Found</h2>} />
+            </Routes>
         </>
     )
 }
