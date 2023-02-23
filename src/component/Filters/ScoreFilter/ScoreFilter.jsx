@@ -19,7 +19,7 @@ function ScoreFilter() {
                 type="range"
                 value={minScore}
                 onChange={handleChange}
-                max={5}
+                max={10}
                 min={1}
             />
         </form>
