@@ -63,7 +63,7 @@ console.log(course)
         <img src="..\img\image 12.png" alt="perfil" />
         <h3>{course.tblUser.Name}</h3>
         <div className={styles.btndetail}>
-          <Link to={`/detail/${course.PK_Course}`}><button>Detail</button></Link>
+          <Link to={`/detail/${course.PK_Course}`}><button>Detalle</button></Link>
         </div>
       </div>
     </div>
