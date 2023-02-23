@@ -6,6 +6,6 @@ export const LoginButton = () => {
     const { loginWithRedirect, user } = useAuth0();
     console.log(user);
     return <button onClick={() => loginWithRedirect()}>
-        Join for free
+        Ingresa Gratis
     </button>
 };

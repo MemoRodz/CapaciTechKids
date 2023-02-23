@@ -26,7 +26,7 @@ function Home() {
           de la forma más interactiva
           </h3>
           <div className={styles.login}>
-<<<<<<< HEAD
+
             {isAuthenticated ? <>
               <Profile />
               <LogoutButton />
@@ -36,9 +36,7 @@ function Home() {
                 <LoginButton />
               </>
             }
-=======
-            <Link to={'/login'}>Ingresa Gratis</Link>
->>>>>>> b8a0f5eec6eadfdce576cb112f6d2764effab2dc
+
           </div>
         </div>
 

@@ -19,13 +19,13 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/create' element={<Create />} />
             <Route path='/donate' element={<Donate />} />
-<<<<<<< HEAD
+
             {/*<Route path='/login' element={<Login/>} />*/}
-=======
+
             <Route element={<AuthGuard />}>
               <Route path='/dashboard/*' element={<Dashboard />} />
             </Route>
->>>>>>> b8a0f5eec6eadfdce576cb112f6d2764effab2dc
+
           </Routes>
         </main>
       </Layout>
