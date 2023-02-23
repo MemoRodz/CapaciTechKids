@@ -2,9 +2,13 @@ import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
+import { useAuth0 } from '@auth0/auth0-react';
+import { LoginButton, LogoutButton, Profile } from '../../component'
+import { Fragment } from 'react';
 
 
 function Home() {
+  const { isAuthenticated } = useAuth0();
 
   return (
     <>
@@ -21,9 +25,18 @@ function Home() {
           plataforma que te enseñará <br />
           de la forma más interactiva
           </h3>
-
           <div className={styles.login}>
-            <Link to={'/login'}>Ingresa Gratis</Link>
+
+            {isAuthenticated ? <>
+              <Profile />
+              <LogoutButton />
+            </>
+              :
+              <>
+                <LoginButton />
+              </>
+            }
+
           </div>
         </div>
 
