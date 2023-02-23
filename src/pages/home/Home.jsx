@@ -4,11 +4,12 @@ import { HiOutlineDocumentText } from 'react-icons/hi'
 import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
 import { useAuth0 } from '@auth0/auth0-react';
 import { LoginButton, LogoutButton, Profile } from '../../component'
-import { Fragment } from 'react';
 
 
 function Home() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
+
+  user && console.log(user);
 
   return (
     <>
