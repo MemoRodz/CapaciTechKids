@@ -12,7 +12,7 @@ function ResetFilters() {
     return (
         <>
             <button type='button' onClick={handleReset}
-            className={styles.resetbtn}>Reset</button>
+            className={styles.resetbtn}>Remover filtros</button>
         </>
     )
 }
