@@ -1,5 +1,6 @@
 import React from "react";
 import {IoCafeSharp} from 'react-icons/io5'
+import { InlineWidget } from "react-calendly";
 
 function Donate() {
   return (
@@ -20,8 +21,9 @@ function Donate() {
 
           <div className="right_container">
             <h1> Si deseas comentanos tu caso, agendando una cita con nosotros</h1>
-            <IoCafeSharp size="2rem" color="#36b37e"/>  
-            <a href="">Agenda una Cita</a>   
+              {/* <IoCafeSharp size="2rem" color="#36b37e"/>   */}
+            {/* <a href="">Agenda una Cita</a>    */}
+            <InlineWidget url="https://calendly.com/capacitechkids/30min" />
          </div>
         </div>
       </div>
