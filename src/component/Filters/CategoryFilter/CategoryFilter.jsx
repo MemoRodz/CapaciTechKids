@@ -29,12 +29,12 @@ function CategoryFilter() {
                 {selectedCategories.length > 0 && selectedCategories.map((category) => (
                     <>
                         <button type='button' onClick={() => handleRemoveCategories(category)}>
-                            {category}X
+                            {category} X
                         </button>
                     </>
                 ))}
             </div>
-            <h2 className={styles.categoriestitle}>Categories</h2>
+            <h2 className={styles.categoriestitle}>Categorias</h2>
             <div className={styles.categoryoptions}>
                 {categories && categories.map((category) => (
                     <>
