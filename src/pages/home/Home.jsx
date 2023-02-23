@@ -38,7 +38,7 @@ function Home() {
           </div>
           <div className={styles.stat}>
             <h2>75%</h2><br />
-            <p>Logros<br/> Totales</p>
+            <p>Estudiantes egresados<br/> por curso </p>
           </div>
           <div className={styles.stat}>
             <h2>570</h2><br />
@@ -55,8 +55,8 @@ function Home() {
         </div>
 
         <h2 className={styles.all}>Plataforma de aprendizaje <span>Todo en Uno</span></h2>
-        <p>CapaciTechKids ofrece la mejor solución de aprendizaje para los estudiantes, mientras<br />
-        a los profesores una forma sencilla de compartir sus conocimientos.
+        <p>CapaciTechKids ofrece la mejor solución de aprendizaje para los estudiantes, y a su vez<br />
+        provee a los profesores con una plataforma especializada para compartir sus conocimientos.
         </p>
 
         <div className={styles.homecards}>
@@ -64,11 +64,11 @@ function Home() {
             <div className={styles.iconcardbg}>
               <HiOutlineDocumentText size="3rem" color='white' />
             </div>
-            <h3>Cursos, conferencias y
+            <h3>Cursos, módulos y
             <br />Exámenes.</h3>
             <p>Una forma sencilla y eficaz de<br />
             enseñanza. Cada curso se divide<br />
-            en conferencias, e incluye<br />
+            en módulos, e incluye<br />
             exámenes para evaluar al
               estudiante.</p>
           </div>
@@ -79,9 +79,9 @@ function Home() {
             <h3>Programación y<br />
             Seguimiento de asistencia</h3>
             <p>Estudiar desde todas partes, siempre.<br />
-            Tú creas tu propio horario,<br />
-            gestionar sus clases en función<br />
-            en función de su tiempo y sus preferencias.</p>
+            Tú creas tu propio horario.<br />
+            Gestiona tus clases en función<br />
+            de tu tiempo y tus preferencias.</p>
           </div>
           <div className={styles.homecard}>
             <div className={styles.iconcardbg}>
@@ -90,13 +90,13 @@ function Home() {
             <h3>Seguimiento de<br />estudiantes</h3>
             <p>Correos electrónicos automatizados <br />
             para profesores y estudiantes.<br />
-            Mantener informadas a ambas partes
+            Mantenemos informadas a ambas partes
             sobre su progreso.</p>
           </div>
         </div>
 
         <div>
-          <h2 className={styles.study}>Estudiar nuevas tecnologías, es<br />
+          <h2 className={styles.study}>Estudiar nuevas tecnologías, es ser un<br />
             <span>CapaciTechKid!</span></h2>
           <p>Disponemos de los cursos más actualizados, que incluyen<br />
           las tecnologías más modernas, como desarrollo de negocios web,<br />

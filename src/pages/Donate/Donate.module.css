@@ -1,8 +1,8 @@
 .cont{
   display: flex;
   flex-direction: row;
-  
 }
 
-
-  
+.general_container {
+  height: 9000px;
+}

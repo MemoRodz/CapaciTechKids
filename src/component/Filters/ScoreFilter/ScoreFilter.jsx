@@ -13,7 +13,7 @@ function ScoreFilter() {
 
     return (
         <form style={styles.scorefilter}>
-            <label htmlFor="score-input">Score:</label>
+            <label htmlFor="score-input">Puntaje:</label>
             <input
                 id="score-input"
                 type="range"

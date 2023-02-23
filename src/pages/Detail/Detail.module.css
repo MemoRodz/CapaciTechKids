@@ -18,8 +18,10 @@
 
 button {
     cursor: pointer;
-    box-shadow: inset 0px 1px 0px 0px #ffffff;
 }
+
+
+    
 
 .heard img {
     object-fit: cover;
@@ -49,7 +51,7 @@ button {
 }
 
 .opinions .buttons button {
-    width: 150px;
+    width: 200px;
     height: 63px;
     background: rgba(0, 0, 0, 0.1);
     border-radius: 12px;

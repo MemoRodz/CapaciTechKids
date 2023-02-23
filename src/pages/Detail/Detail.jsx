@@ -66,7 +66,7 @@ export default  function Detail() {
         <h2>Este curso incluye</h2>
         <div className={styles.x2}>
           <FaBahai />
-          <h4>Acceso Libre</h4>
+          <h4>Gratis para todo el mundo</h4>
         </div>
         <div className={styles.x2}>
           <FaCamera />
@@ -78,7 +78,7 @@ export default  function Detail() {
         </div>
         <div className={styles.x2}>
           <FaChartBar />
-          <h4>{course.Modules} 5 Modulos</h4>
+          <h4>{course.Modules} 5 Módulos</h4>
         </div>
         <hr />
         <h2>Aprenderás</h2>

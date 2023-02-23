@@ -29,7 +29,7 @@ function CategoryFilter() {
                 {selectedCategories.length > 0 && selectedCategories.map((category) => (
                     <>
                         <button type='button' onClick={() => handleRemoveCategories(category)}>
-                            {category}X
+                            {category} X
                         </button>
                     </>
                 ))}

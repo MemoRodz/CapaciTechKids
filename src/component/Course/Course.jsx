@@ -46,6 +46,7 @@ console.log(course)
 
   return courseLoaded ? (
     <div className={styles.card}>
+      <Link to={`/detail/${course.PK_Course}`}>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
@@ -63,10 +64,14 @@ console.log(course)
         <img src="..\img\image 12.png" alt="perfil" />
         <h3>{course.tblUser.Name}</h3>
         <div className={styles.btndetail}>
-          <Link to={`/detail/${course.PK_Course}`}><button>Detalle</button></Link>
+
         </div>
       </div>
+    </Link>
     </div>
+
+) : null;
+}
 
 
      /* <div className={style.left}>
@@ -94,5 +99,3 @@ console.log(course)
 
           </div>
           </div> */
-  ) : null;
-}
