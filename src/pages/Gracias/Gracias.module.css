@@ -1,0 +1,22 @@
+.cont {
+    width: 30%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left:auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.heard {
+    position: relative;
+    width: 100vw;
+    height: 652px;
+    z-index: 15;
+    margin-bottom: 2rem;
+}
+
+.heard img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%
+}
