@@ -73,5 +73,4 @@ export const getAllCourses = (url) => (dispatch) => {
 }
 
 
-
 export default coursesSlice.reducer
