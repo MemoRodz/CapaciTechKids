@@ -34,7 +34,7 @@ function CategoryFilter() {
                     </>
                 ))}
             </div>
-            <h2 className={styles.categoriestitle}>Categories</h2>
+            <h2 className={styles.categoriestitle}>Categorias</h2>
             <div className={styles.categoryoptions}>
                 {categories && categories.map((category) => (
                     <>

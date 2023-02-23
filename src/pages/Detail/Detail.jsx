@@ -58,33 +58,33 @@ export default  function Detail() {
       </div>
       <div className={styles.detail}>
         <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
-        <h1>{course.Title} Title</h1>
+        <h1>{course.Title} Titulo</h1>
         <div className={styles.studybutton}>
-          <button>Study</button>
+          <button>Empezar</button>
         </div>
         <hr />
-        <h2>This Course includes</h2>
+        <h2>Este curso incluye</h2>
         <div className={styles.x2}>
           <FaBahai />
-          <h4>Free access</h4>
+          <h4>Acceso Libre</h4>
         </div>
         <div className={styles.x2}>
           <FaCamera />
-          <h4>Access on all devices</h4>
+          <h4>Acceso en todos los dispositivos</h4>
         </div>
         <div className={styles.x2}>
           <FaFileAlt />
-          <h4>Certification of completion</h4>
+          <h4>Certificación de Egresado</h4>
         </div>
         <div className={styles.x2}>
           <FaChartBar />
-          <h4>{course.Modules} 5 Moduls</h4>
+          <h4>{course.Modules} 5 Modulos</h4>
         </div>
         <hr />
-        <h2>You'll learn</h2>
+        <h2>Aprenderás</h2>
         <h4>{course.Description}</h4>
         <hr />
-        <h2>Share this course</h2>
+        <h2>Compartir este curso</h2>
         <div className={styles.social}>
           <div className={styles.tw}>
             <FaTwitter />
@@ -108,29 +108,30 @@ export default  function Detail() {
       </div>
       <div className={styles.opinions}>
         <div className={styles.buttons}>
-          <button>Overview</button>
-          <button>Overview</button>
-          <button>Overview</button>
-          <button>Overview</button>
+          <button>M1</button>
+          <button>M2</button>
+          <button>M3</button>
+          <button>M4</button>
+          <button>M5</button>
         </div>
         <div className={styles.startbox}>
           <div className={styles.point}>
             <div className={styles.ranking}>
               <div className={styles.top}>
-                <h1>{Score()} out of 5</h1>
+                <h1>{Score()} de 5</h1>
                 <Estrella Score={course.Score/2}/>                                                  
-                <h3>Top Ranting</h3>
+                <h3>Top Score</h3>
               </div>
               <div className={styles.start}>
-                <h3>5 Stars</h3>
+                <h3>5 ⭐</h3>
                 <div className={styles.progressbar5}><div className={styles.progress5}></div></div>
-                <h3>4 Stars</h3>
+                <h3>4 ⭐</h3>
                 <div className={styles.progressbar4}><div className={styles.progress4}></div></div>
-                <h3>3 Stars</h3>
+                <h3>3 ⭐</h3>
                 <div className={styles.progressbar3}><div className={styles.progress3}></div></div>
-                <h3>2 Stars</h3>
+                <h3>2 ⭐</h3>
                 <div className={styles.progressbar2}><div className={styles.progress2}></div></div>
-                <h3>1 Stars</h3>
+                <h3>1 ⭐</h3>
                 <div className={styles.progressbar1}><div className={styles.progress1}></div></div>
               </div>
             </div>
@@ -164,8 +165,8 @@ export default  function Detail() {
       </div>
       <div className={styles.more}>
         <div className={styles.similarcourses}>
-        <h1>Similar Courses</h1>
-          <Link to={"/course"}>See all</Link>          
+        <h1>Cursos Similares</h1>
+          <Link to={"/course"}>Ver Todos</Link>          
         </div>
         <div className={styles.cards}>  
           <div className={styles.card}>            
@@ -186,7 +187,7 @@ export default  function Detail() {
               <img src="..\img\image 12.png" alt="perfil" />
               <h3>{related[0].tblUser.Name}</h3>
               <div className={styles.btndetail}>
-              <Link to={`/detail/${related[0].PK_Course}`}><button>Detail</button></Link>
+              <Link to={`/detail/${related[0].PK_Course}`}><button>Detalle</button></Link>
               </div>
             </div>
           </div>
@@ -208,7 +209,7 @@ export default  function Detail() {
               <img src="..\img\image 12.png" alt="perfil" />
               <h3>{related[1].tblUser.Name}</h3>
               <div className={styles.btndetail}>
-              <Link to={`/detail/${related[1].PK_Course}`}><button>Detail</button></Link>
+              <Link to={`/detail/${related[1].PK_Course}`}><button>Detalle</button></Link>
               </div>
             </div>
           </div>
@@ -230,7 +231,7 @@ export default  function Detail() {
               <img src="..\img\image 12.png" alt="perfil" />
               <h3>{related[2].tblUser.Name}</h3>
               <div className={styles.btndetail}>
-              <Link to={`/detail/${related[2].PK_Course}`}><button>Detail</button></Link>
+              <Link to={`/detail/${related[2].PK_Course}`}><button>Detalle</button></Link>
               </div>
             </div>
           </div>
@@ -252,7 +253,7 @@ export default  function Detail() {
               <img src="..\img\image 12.png" alt="perfil" />
               <h3>{related[3].tblUser.Name}</h3>
               <div className={styles.btndetail}>
-              <Link to={`/detail/${related[3].PK_Course}`}><button>Detail</button></Link>
+              <Link to={`/detail/${related[3].PK_Course}`}><button>Detalle</button></Link>
               </div>
             </div>
           </div>
