@@ -6,15 +6,11 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import App from './App'
 import './global.css'
 import store from './redux/store'
-const domain = 'dev-nthm3x2u4nohqdcs.us.auth0.com';  //process.env.REACT_APP_AUTH0_DOMAIN;
-const client = '8lHJo8BMdmHtsusB5oP3DZYrk40yGVJi'; //process.env.REACT_APP_AUTH0_CLIENT_ID;
+
 const audience = 'https://dev-nthm3x2u4nohqdcs.us.auth0.com/api/v2/';
 
-/*
-<Auth0Provider domain={doamin} clientId={clientId} authorizationParams={{
-      redirect_uri: window.location.origin,
-    }}>
-*/
+const domain = import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN
+const client = import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
