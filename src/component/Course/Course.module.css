@@ -1,16 +1,27 @@
 .card {
-    margin: 15px;
+    margin: 20px;
     background: #FFFFFF;
     width: 335px;
     height: 575px;
     border-radius: 20px;
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: solid 40px #FFFFFF;
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    text-decoration: none;
 }
+
+a:visited {
+    color: inherit;
+  }
+
+a {
+    display: block;
+}
+
+
 
 .heard {
     position: relative;

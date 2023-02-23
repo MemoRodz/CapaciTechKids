@@ -4,6 +4,8 @@
     justify-content: space-evenly;
 }
 
+
+
 .courses{
     display: grid;
     grid-template-rows: repeat(3, minmax(0, 1fr));

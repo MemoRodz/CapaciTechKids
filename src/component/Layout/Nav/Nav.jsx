@@ -21,10 +21,13 @@ function Nav() {
     <>
       <nav className={styles.navbar} style={navStyle}>
         <ul>
-          <li><NavLink to={"/"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Home</NavLink></li>
-          <li><NavLink to={"/course"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Courses</NavLink></li>
-          <li><NavLink to={"/create"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Create</NavLink></li>
+          <li><NavLink to={"/"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Inicio</NavLink></li>
+          <li><NavLink to={"/course"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Cursos</NavLink></li>
+          <li><NavLink to={"/create"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Crear</NavLink></li>
+          <li><NavLink to={"/donate"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Donaciones</NavLink></li>
+          <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Nosotros</NavLink></li>
           {/* <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li> */}
+          
         </ul>
       </nav>
     </>
