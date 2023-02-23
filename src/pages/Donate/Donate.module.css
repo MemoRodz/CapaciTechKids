@@ -1,8 +1,26 @@
-.cont{
+.general_container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  height: 9000px;
 }
 
-.general_container {
-  height: 9000px;
+.cont {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.left_container {
+  position: relative;
+  left: 10%;
+  width: 40%;
+}
+
+.right_container {
+  position: relative;
+  right: 10%;
+  width: 40%;
+}
+.donate{
+  width: 15px;
 }
