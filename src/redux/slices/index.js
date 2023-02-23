@@ -1,3 +1,5 @@
-export { default as categoriesReducer } from './categoriesSlice';
-export { default as coursesReducer } from './coursesSlice';
-export { default as instructorsReducer } from './instructorsSlice';
+export { default as categoriesSlice } from './categoriesSlice';
+export { default as coursesSlice } from './coursesSlice';
+export * from './index';
+export { default as instructorsSlice } from './instructorsSlice';
+export { default as userSlice } from './userSlice';
