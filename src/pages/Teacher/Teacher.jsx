@@ -2,7 +2,11 @@
 
 function Teacher() {
   return (
-    <div>Teacher</div>
+    <>
+      <div>
+        <h2>Nombre: </h2>
+      </div>
+    </>
   )
 }
 
