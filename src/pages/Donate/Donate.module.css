@@ -7,6 +7,7 @@
 .cont {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -18,9 +19,17 @@
 
 .right_container {
   position: relative;
-  right: 10%;
   width: 40%;
 }
 .donate{
   width: 15px;
+}
+form {
+  border: none;
+  background: #fff;
+  border-radius: 30px;
+  width: 300px;
+}
+form input {
+  border: none;
 }

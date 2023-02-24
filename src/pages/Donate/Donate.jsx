@@ -12,7 +12,7 @@ function Donate() {
            <br/>
            <form action="https://www.sandbox.paypal.com/donate" method="post" target="_top">
               <input type="hidden" name="hosted_button_id" value="8SK456HG7DS6E" />
-              <input type="image" src="https://static.wixstatic.com/media/fc8b62_fcf3ab6295a1433b9a3598c641b8c8c3~mv2.png/v1/fill/w_200,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Donar.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+              <input type="image" src="https://static.wixstatic.com/media/fc8b62_fcf3ab6295a1433b9a3598c641b8c8c3~mv2.png/v1/fill/w_500,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Donar.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
               <img alt="" border="0" src="https://www.sandbox.paypal.com/en_PE/i/scr/pixel.gif" width="1" height="1" />
            </form>
 
@@ -20,9 +20,10 @@ function Donate() {
           </div>        
 
           <div className={styles.right_container}>
-            <h1> Si deseas comentarnos tu caso, agenda una cita con nosotros</h1>
-            
-          <InlineWidget url="https://calendly.com/capacitechkids/30min" style="min-width:320px;height:750px;"/>
+            <h2> Si deseas comentarnos tu caso, agenda una cita con nosotros</h2>
+            <div >              
+              <InlineWidget url="https://calendly.com/capacitechkids/30min" style="min-width:320px;height:750px;"/>
+            </div>
          </div>
         </div>
       </div>
