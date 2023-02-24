@@ -12,8 +12,8 @@ function Donate() {
            <br/>
            <form action="https://www.sandbox.paypal.com/donate" method="post" target="_top">
               <input type="hidden" name="hosted_button_id" value="8SK456HG7DS6E" />
-              <input type="image" src="https://static.wixstatic.com/media/fc8b62_fcf3ab6295a1433b9a3598c641b8c8c3~mv2.png/v1/fill/w_200,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Donar.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-              <img alt="" border="0" src="https://www.sandbox.paypal.com/en_PE/i/scr/pixel.gif" width="1" height="1" />
+              <input className={styles.img_donate} type="image" src="https://i0.wp.com/www.progettoamico.org/wp-content/uploads/2022/07/paypal-donate-button-high-quality-png.png?w=500&ssl=1" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+              <img  alt="" border="0" src="https://www.sandbox.paypal.com/en_PE/i/scr/pixel.gif" width="1" height="1" />
            </form>
 
             <h2>Ayuda a mejorar las habilidades de las futuras generaciones</h2>
