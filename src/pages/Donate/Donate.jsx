@@ -6,9 +6,9 @@ function Donate() {
   return (
           
       <div className={styles.general_container} >
-           <h2>¿Quieres ser parte del cambio? Con tu aporte generas una contribución para brindar educación de calidad con gran impacto en el la futura salida laboral de las niñas, niños y jóvenes que se encuentran en condición de vulnerabilidad en todo Latinoamerica.</h2>
         <div className={styles.cont}>
           <div className={styles.left_container}>           
+           <h2>¿Quieres ser parte del cambio? Con tu aporte generas una contribución para brindar educación de calidad con gran impacto en el la futura salida laboral de las niñas, niños y jóvenes que se encuentran en condición de vulnerabilidad en todo Latinoamerica.</h2>
            <br/>
            <form action="https://www.sandbox.paypal.com/donate" method="post" target="_top">
               <input type="hidden" name="hosted_button_id" value="8SK456HG7DS6E" />
