@@ -103,18 +103,18 @@ const Create = () => {
         <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
       </div>
       <div className={styles.container}>
-      <h2>Create a New Course</h2>
+      <h2>Crear Nuevo Curso</h2>
       <form onSubmit={handleSubmit}>
         <label>
           <div className={styles.labcont}>
           <div className={styles.lab}>
-          Title:
+          Titulo:
           <input
             type="text"
-            name="Title"
+            name="Título"
             minLength="5"
             maxLength="100"
-            placeholder="Insert Title"
+            placeholder="Insertar Título"
             required
             value={formData.Title}
             onChange={handleInputChange}
@@ -129,8 +129,8 @@ const Create = () => {
         <label>
           <div className={styles.labcont}>
           <div className={styles.lab}>
-          Description:
-          <textarea name="Description" minlength="5" maxlength="200" placeholder="Insert Description"
+          Descripción: 
+          <textarea name="Descripcion" minlength="5" maxlength="200" placeholder="Insertar Descripción"
             value={formData.Description}
             onChange={handleInputChange}
             required>
@@ -142,13 +142,13 @@ const Create = () => {
           </div>
         </label>
         <br />
-        <label htmlFor="Professor">Instructor's name:</label>
+        <label htmlFor="Profesor">Profesor: </label>
         <select
-          name="Professor"
+          name="Profesor"
           value={formData.PK_User}
           onChange={handleInputChange}
         >
-          <option value="">-- Select an option --</option>
+          <option value="">-- Selecciona la opción --</option>
           {data.map((data) => (
             <option key={data.PK_User} value={data.PK_User}>
               {data.Name}
@@ -156,7 +156,7 @@ const Create = () => {
           ))}
         </select>
         <br />
-        <label>Categories:</label>
+        <label>Categorias: </label>
         <div className={styles.cate}>
           {cats.map((category) => (
             <label key={category.PK_Category}>
@@ -172,10 +172,10 @@ const Create = () => {
         </div>
         <br />
         <label>
-          Duration:
+          Duración: 
           <input
             type="text"
-            name="Duration"
+            name="Duración"
             value={formData.Duration}
             onChange={handleInputChange}
             required
@@ -184,7 +184,7 @@ const Create = () => {
         <br />
         <br />
         {validacion ? <div>{validacion}</div> : null}
-        <button type="submit">Create Course</button>
+        <button type="submit">Crear Curso</button>
       </form>
       </div>
     </div>

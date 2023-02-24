@@ -1,8 +1,17 @@
 .cont{
   display: flex;
   flex-direction: row;
-  
 }
 
+.img_donate{
+  width: 10px;
+  height: 10px;
+}
 
-  
+.left_container{
+  width: 60%;
+}
+
+.general_container {
+  height: 9000px;
+}
