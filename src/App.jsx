@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Home, Courses, About, Donate, Create, Dashboard } from './pages/index'
+import { Home, Courses, About, Donate, Create, Dashboard,Gracias } from './pages/index'
 import AuthGuard from './guards/authGuard'
 import Layout from './component/Layout/Layout'
 import Detail from './pages/Detail/Detail'
@@ -19,6 +19,8 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/create' element={<Create />} />
             <Route path='/donate' element={<Donate />} />
+            <Route path='/gracias' element={<Gracias />} />
+           
 
             {/*<Route path='/login' element={<Login/>} />*/}
 
