@@ -1,36 +1,83 @@
-import React from "react";
-import { InlineWidget } from "react-calendly";
-import styles from "./Donate.module.css";
+import React, { useState, useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
-function Donate() {
+import CheckoutForm from "./CheckoutForm";
+import "../Donate/Donate.module.css";
+
+// Make sure to call loadStripe outside of a component’s render to avoid
+// recreating the Stripe object on every render.
+// This is your test publishable API key.
+const stripePromise = loadStripe("pk_test_51Me5d3JNDCh84PbthDWekjpKBRvqxc6DhwDZQnzgVM0NiGseIxWgIfoFlGjGcAzfgXhHViOBsaN2ZQnuL6kERigc0008WwkbSo");
+
+export default function Donate() {
+  const [clientSecret, setClientSecret] = useState("");
+
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    fetch("http://localhost:3001/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, []);
+
+  const appearance = {
+    theme: 'stripe',
+  };
+  const options = {
+    clientSecret,
+    appearance,
+  };
+
   return (
-          
-      <div className={styles.general_container} >
-        <div className={styles.cont}>
-          <div className={styles.left_container}>           
-           <h2>¿Quieres ser parte del cambio? Con tu aporte generas una contribución para brindar educación de calidad con gran impacto en el la futura salida laboral de las niñas, niños y jóvenes que se encuentran en condición de vulnerabilidad en todo Latinoamerica.</h2>
-           <br/>
-           <form action="https://www.sandbox.paypal.com/donate" method="post" target="_top">
-              <input type="hidden" name="hosted_button_id" value="8SK456HG7DS6E" />
-              <input type="image" src="https://static.wixstatic.com/media/fc8b62_fcf3ab6295a1433b9a3598c641b8c8c3~mv2.png/v1/fill/w_200,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Donar.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-              <img alt="" border="0" src="https://www.sandbox.paypal.com/en_PE/i/scr/pixel.gif" width="1" height="1" />
-           </form>
-
-            <h2>Ayuda a mejorar las habilidades de las futuras generaciones</h2>
-          </div>        
-
-          <div className={styles.right_container}>
-            <h1> Si deseas comentarnos tu caso, agenda una cita con nosotros</h1>
-            
-          <InlineWidget url="https://calendly.com/capacitechkids/30min" style="min-width:320px;height:750px;"/>
-         </div>
-        </div>
-      </div>
-    
+    <div >
+      {clientSecret && (
+        <Elements options={options} stripe={stripePromise}>
+          <CheckoutForm />
+        </Elements>
+      )}
+    </div>
   );
 }
 
-export default Donate;
+
+
+// import React from "react";
+// import { InlineWidget } from "react-calendly";
+// import styles from "./Donate.module.css";
+
+// function Donate() {
+//   return (
+          
+//       <div className={styles.general_container} >
+//         <div className={styles.cont}>
+//           <div className={styles.left_container}>           
+//            <h2>¿Quieres ser parte del cambio? Con tu aporte generas una contribución para brindar educación de calidad con gran impacto en el la futura salida laboral de las niñas, niños y jóvenes que se encuentran en condición de vulnerabilidad en todo Latinoamerica.</h2>
+//            <br/>
+//            <form action="https://www.sandbox.paypal.com/donate" method="post" target="_top">
+//               <input type="hidden" name="hosted_button_id" value="8SK456HG7DS6E" />
+//               <input type="image" src="https://static.wixstatic.com/media/fc8b62_fcf3ab6295a1433b9a3598c641b8c8c3~mv2.png/v1/fill/w_200,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Donar.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+//               <img alt="" border="0" src="https://www.sandbox.paypal.com/en_PE/i/scr/pixel.gif" width="1" height="1" />
+//            </form>
+
+//             <h2>Ayuda a mejorar las habilidades de las futuras generaciones</h2>
+//           </div>        
+
+//           <div className={styles.right_container}>
+//             <h1> Si deseas comentarnos tu caso, agenda una cita con nosotros</h1>
+            
+//           <InlineWidget url="https://calendly.com/capacitechkids/30min" style="min-width:320px;height:750px;"/>
+//          </div>
+//         </div>
+//       </div>
+    
+//   );
+// }
+
+// export default Donate;
 
 
 // import { loadStripe } from "@stripe/stripe-js";
