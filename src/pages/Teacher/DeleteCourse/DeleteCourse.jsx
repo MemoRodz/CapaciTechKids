@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import styles from './DeleteCourse.module.css'
 import { FaRegClock, FaThLarge } from "react-icons/fa";
 import axios from 'axios';
@@ -7,8 +6,6 @@ import axios from 'axios';
 export default function DeleteCourse(props) {
 
   const { Title, Description, Image, Score, PK_Course, Duration } = props
-
-  const [course, setCourse] = useState({});
 
 
   const handleActivate = async (id) => {

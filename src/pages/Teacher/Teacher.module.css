@@ -1,0 +1,24 @@
+.teacher_container{
+    display: flex;
+    flex-direction: row;
+}
+
+.teacher_courses{
+    display: flex;
+    flex-direction: column;
+}
+
+.teacher_sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 13rem;
+    height: 100%;
+}
+
+.teacher_container a{
+    text-decoration: none;
+    width: fit-content;
+    border-radius: 3px;
+    padding: .2rem .3rem;
+    background-color: var(--btn-bg-active);
+}

@@ -15,8 +15,9 @@ export default function ActiveCourses() {
 
   return (
     <>
-      <div className={styles.coursescontainer}>
-        <div className={styles.courses}>
+      <div className={styles.active_courses_container}>
+        <h2>Active Courses</h2>
+        <div className={styles.active_courses}>
           {activeCourses && activeCourses.map((c, i) => (
             <ActiveCourse {...c} />
           )

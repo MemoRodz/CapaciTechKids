@@ -15,8 +15,9 @@ export default function DeletedCourses() {
 
   return (
     <>
-      <div className={styles.coursescontainer}>
-        <div className={styles.courses}>
+      <div className={styles.deleted_courses_container}>
+        <h2>Deleted Courses</h2>
+        <div className={styles.deleted_courses}>
           {deletedCourses && deletedCourses.map((c, i) => (
             <DeleteCourse {...c} />
           )
