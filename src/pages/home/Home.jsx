@@ -27,8 +27,6 @@ function Home() {
     fetchData();
   }, []);
 
-  console.log("================================>", usuario)
-
   return (
     <>
       <div className={styles.home}>
