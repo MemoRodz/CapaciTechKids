@@ -9,9 +9,12 @@
 }
 
 .left_container{
-  width: 60%;
+  width: 40%;
 }
 
 .general_container {
-  height: 9000px;
+  height: 100%;
+}
+.donar{
+  margin: 0 auto;
 }

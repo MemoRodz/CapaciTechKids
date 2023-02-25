@@ -5,7 +5,7 @@ const Estrella = (props)=>{
     
     const stars = [1, 2, 3, 4, 5];
     const score = props.Score;
-  
+   
     const starIcons = stars.map((star) => {
       if(!score){
           return <BsStar key={star} size="1.5rem" color="#F2B705"/>;
