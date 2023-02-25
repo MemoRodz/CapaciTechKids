@@ -1,25 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
+import { TeacherCoursesContext } from '../../../context/TeacherCoursesContext'
 import DeleteCourse from "../DeleteCourse/DeleteCourse";
 import styles from "./DeletedCourses.module.css";
-import axios from "axios";
 
 
 export default function DeletedCourses() {
-  const [deletedCourses, setDeletedCourses] = useState([])
-
-  useEffect(() => {
-    axios.get('http://localhost:3001/courses/deleted')
-    .then(res => setDeletedCourses(res.data))
-    .catch(err => console.log(err))
-  }, [])
+  const { teacherCourses } = useContext(TeacherCoursesContext)
 
   return (
     <>
       <div className={styles.deleted_courses_container}>
         <h2>Deleted Courses</h2>
         <div className={styles.deleted_courses}>
-          {deletedCourses && deletedCourses.map((c, i) => (
-            <DeleteCourse {...c} />
+          {teacherCourses.deletedCourses && teacherCourses.deletedCourses.map((c, i) => (
+            <DeleteCourse {...c} key={`${c.PK_Course}-deleted`}/>
           )
           )}
         </div>

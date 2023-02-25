@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import styles from './Teacher.module.css'
 import DeletedCourses from './DeletedCourses/DeletedCourses'
 import ActiveCourses from './ActiveCourses/ActiveCourses'
+import { TeacherCoursesProvider } from '../../context/TeacherCoursesContext'
 
 function Teacher() {
 
@@ -13,8 +14,10 @@ function Teacher() {
           <Link to={'/dashboard/teacher/create'} >Crea un curso</Link>
         </div>
         <div className={styles.teacher_courses}>
-          <DeletedCourses />
-          <ActiveCourses />
+          <TeacherCoursesProvider>
+            <DeletedCourses />
+            <ActiveCourses />
+          </TeacherCoursesProvider>
         </div>
       </div>
     </>

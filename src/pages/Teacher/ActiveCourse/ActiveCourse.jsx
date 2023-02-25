@@ -1,15 +1,28 @@
-import { useState, useEffect } from 'react'
+import { useContext } from 'react';
 import styles from './ActiveCourse.module.css'
 import { FaRegClock, FaThLarge } from "react-icons/fa";
+import { TeacherCoursesContext } from '../../../context/TeacherCoursesContext'
 import axios from 'axios';
 
 
 export default function ActiveCourse(props) {
+  const { setTeacherCourses, teacherCourses } = useContext(TeacherCoursesContext)
   const { Title, Description, Image, Score, PK_Course, Duration } = props
 
   const handleDelete = async (id) => {
-    const response = await axios.put(`http://localhost:3001/courses/detail/${id}/delete`)
-    console.log(response);
+    try {
+      const response = await axios.put(`http://localhost:3001/courses/detail/${id}/delete`)
+      console.log(response);
+      const deletedCourses = await axios.get('http://localhost:3001/courses/deleted')
+      const activeCourses = await axios.get('http://localhost:3001/courses/')
+      setTeacherCourses({
+        ...teacherCourses,
+        activeCourses: activeCourses.data,
+        deletedCourses: deletedCourses.data
+      })
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
