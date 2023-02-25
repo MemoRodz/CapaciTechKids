@@ -14,8 +14,6 @@ function Home() {
   const [usuario, setUsuario] = useState({})
 
 
-<<<<<<< HEAD
-=======
   user && console.log(user);
   useEffect(() => {
     const fetchData = async () => {
@@ -29,9 +27,6 @@ function Home() {
     fetchData();
   }, []);
 
-  console.log("================================>", usuario)
-
->>>>>>> 9c7487029a48de05d7b14e9fb1ebf8ac5ed0fe51
   return (
     <>
       <div className={styles.home}>
