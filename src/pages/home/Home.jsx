@@ -4,12 +4,28 @@ import { HiOutlineDocumentText } from 'react-icons/hi'
 import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
 import { useAuth0 } from '@auth0/auth0-react';
 import { LoginButton, LogoutButton, Profile } from '../../component'
+import { useEffect } from 'react';
+import axios from "axios";
+import React, { useState} from "react";
 
 
 function Home() {
   const { isAuthenticated, user } = useAuth0();
+  const [usuario, setUsuario] = useState({})
+
 
   user && console.log(user);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const usua =  await axios.post(`http://localhost:3001/users/registro`,user)
+        setUsuario(usua.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
