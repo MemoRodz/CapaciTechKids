@@ -1,6 +1,7 @@
 .navbar{
     width: 100%;
     background-color: 0583F2;
+    font-size: 20px;
 }
 
 .navbar ul {
@@ -8,6 +9,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     list-style: none;
     padding: 1.5rem 4rem;
 }
