@@ -17,19 +17,13 @@
   width: 40%;
 }
 
-.right_container {
-  position: relative;
+.left_container{
   width: 40%;
 }
-.donate{
-  width: 15px;
+
+.general_container {
+  height: 100%;
 }
-form {
-  border: none;
-  background: #fff;
-  border-radius: 30px;
-  width: 300px;
-}
-form input {
-  border: none;
+.donar{
+  margin: 0 auto;
 }

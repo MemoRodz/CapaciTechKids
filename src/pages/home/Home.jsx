@@ -7,9 +7,9 @@ import { LoginButton, LogoutButton, Profile } from '../../component'
 
 
 function Home() {
- const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
 
- user && console.log(user);
+  user && console.log(user);
 
   return (
     <>
