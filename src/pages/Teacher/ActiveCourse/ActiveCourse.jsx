@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import styles from './ActiveCourse.module.css'
 import { FaRegClock, FaThLarge } from "react-icons/fa";
 import { TeacherCoursesContext } from '../../../context/TeacherCoursesContext'
+import { baseUrl } from '../../../models/baseUrl'
 import axios from 'axios';
 
 
@@ -11,10 +12,10 @@ export default function ActiveCourse(props) {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.put(`http://localhost:3001/courses/detail/${id}/delete`)
+      const response = await axios.put(`${baseUrl}/courses/detail/${id}/delete`)
       console.log(response);
-      const deletedCourses = await axios.get('http://localhost:3001/courses/deleted')
-      const activeCourses = await axios.get('http://localhost:3001/courses/')
+      const deletedCourses = await axios.get(`${baseUrl}/courses/deleted`)
+      const activeCourses = await axios.get(`${baseUrl}/courses/`)
       setTeacherCourses({
         ...teacherCourses,
         activeCourses: activeCourses.data,
