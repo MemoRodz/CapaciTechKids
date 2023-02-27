@@ -22,7 +22,7 @@ export default function Course(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const curso =  await axios.get(`http://localhost:3001/courses/detail/${PK_Course}`)
+        const curso =  await axios.get(`/courses/detail/${PK_Course}`)
         setCourse(curso.data);
         setCourseLoaded(true);
       } catch (error) {

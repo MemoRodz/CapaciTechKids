@@ -13,8 +13,8 @@ export function TeacherCoursesProvider({ children }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const delCourses = await axios.get('http://localhost:3001/courses/deleted')
-                const courses = await axios.get('http://localhost:3001/courses/')
+                const delCourses = await axios.get('courses/deleted')
+                const courses = await axios.get('courses/')
                 setTeacherCourses({
                     ...teacherCoursesInitialState,
                     activeCourses: courses.data,

@@ -18,9 +18,9 @@ export default  function Detail() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const curso =  await axios.get(`http://localhost:3001/courses/detail/${id}`)
-        const reviews = await axios.get(`http://localhost:3001/reviews/related/${id}`)
-        const rela = await axios.get(`http://localhost:3001/categories/co/${id}`)
+        const curso =  await axios.get(`/courses/detail/${id}`)
+        const reviews = await axios.get(`/reviews/related/${id}`)
+        const rela = await axios.get(`/categories/co/${id}`)
         setCourse(curso.data);
         setReview(reviews.data);
         setRelated(rela.data)
@@ -58,7 +58,7 @@ export default  function Detail() {
       </div>
       <div className={styles.detail}>
         <img src={course.Image} alt="{course.Title}" />
-        <h1>{course.Title} Titulo</h1>
+        <h1>{course.Title} </h1>
         <div className={styles.studybutton}>
           <button>Empezar</button>
         </div>
@@ -235,7 +235,7 @@ export default  function Detail() {
               </div>
             </div>
           </div>
-          <div className={styles.card}>
+          {/* <div className={styles.card}>
           <img src={related[3].Image} alt="course01" />            
               <div className={styles.coursedet}>
                   <div className={styles.similar1}>
@@ -256,7 +256,7 @@ export default  function Detail() {
               <Link to={`/detail/${related[3].PK_Course}`}><button>Detalle</button></Link>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
