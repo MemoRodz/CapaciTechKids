@@ -1,13 +1,16 @@
 .navbar{
     width: 100%;
     background-color: 0583F2;
+    font-size: 20px;
 }
 
 .navbar ul {
     margin-top: -.2rem;
+    margin-bottom: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     list-style: none;
     padding: 1.5rem 4rem;
 }
@@ -15,4 +18,13 @@
 .navbar ul li a{
     text-decoration: none;
     font-size: var(--h3);
+}
+.login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+summary{
+    display: flex;
+    cursor: pointer;
 }

@@ -1,36 +1,27 @@
 .card {
-    margin: 20px;
+    margin: 10px;
     background: #FFFFFF;
-    width: 335px;
+    width: 27%;
     height: 575px;
     border-radius: 20px;
     display: block;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: solid 40px #FFFFFF;
+    border: solid 20px #FFFFFF;
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
     text-decoration: none;
 }
 
-a:visited {
-    color: inherit;
-  }
-
 a {
-    display: block;
+    text-decoration: none;
+}
+a:link, a:visited,  a:hover, a:active
+{
+    color: var(--font-clr-primary);
+    text-decoration: none;
 }
 
-
-
-.heard {
-    position: relative;
-    width: 1920px;
-    height: 652px;
-    top: 145px;
-    left: 0;
-    z-index: 15;
-}
 
 .img {
     object-fit: cover;
@@ -52,7 +43,6 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 355px;
 }
 
 .similar1 {
@@ -60,7 +50,6 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    width: 355px;
 }
 
 .similar2 {
@@ -68,7 +57,6 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    width: 355px;
 }
 
 .teach {
@@ -76,7 +64,6 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 329px;
 }
 
 .teach img {

@@ -1,9 +1,44 @@
 import { NavLink, useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import { useAuth0 } from '@auth0/auth0-react';
+import { useLocalStorage } from '../../../hooks/useLocalStorage'
+import { setUserInfo } from '../../../redux/slices/userSlice'
+import { LoginButton, LogoutButton, Profile } from '../../../component'
 import styles from './Nav.module.css'
+import { useEffect } from 'react';
 
 function Nav() {
-  const location = useLocation()
 
+  const { isAuthenticated } = useAuth0();
+
+  const location = useLocation()
+  const { storedUser } = useLocalStorage()
+  const dispatch = useDispatch()
+  const userInfo = useSelector(state => state.user)
+
+  useEffect(()=>{
+    if (storedUser && !userInfo.email) {
+      const fetchData = async () => {
+        try {
+          const response = await axios.post(`http://localhost:3001/users/registro`, storedUser)
+          if (typeof (response.data) !== "string") {
+            dispatch(setUserInfo(response.data))
+            console.log(response.data, '++++')
+          }
+          else {
+            const response = await axios.get(`http://localhost:3001/users/`)
+            const dBUser = response.data.find(ele => ele.Email === storedUser.Email)
+            dispatch(setUserInfo(dBUser))
+            console.log(dBUser, '>>>>')
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchData();
+    }
+  },[storedUser, userInfo.email])
 
   let activeStyle = {
     color: location.pathname === '/' ? 'white' : 'black'
@@ -26,6 +61,26 @@ function Nav() {
           <li><NavLink to={"/donate"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Donaciones</NavLink></li>
           <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Nosotros</NavLink></li>
           {/* <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li> */}
+          {userInfo.userRole && <li><NavLink to={`/dashboard/${userInfo.userRole}`}>Perfil {userInfo.userRole}</NavLink></li>}
+          <div className={styles.login}>
+
+            {isAuthenticated ? <>
+            <div className={styles.acord}>
+              <details className={styles.det}>
+                <summary><Profile /></summary>
+                <LogoutButton />
+              </details>
+            </div>
+              
+              
+            </>
+              :
+              <>
+                <LoginButton />
+              </>
+            }
+
+          </div>
         </ul>
       </nav>
     </>

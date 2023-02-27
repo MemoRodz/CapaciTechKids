@@ -3,9 +3,14 @@ import { Home, Courses, About, Donate, Dashboard, Gracias } from './pages/index'
 import AuthGuard from './guards/authGuard'
 import Layout from './component/Layout/Layout'
 import Detail from './pages/Detail/Detail'
+import { useAuth0 } from '@auth0/auth0-react';
 //import Login from '../'
 
 function App() {
+  const { isAuthenticated, user } = useAuth0();
+  if(isAuthenticated && user){
+    localStorage.setItem("user", JSON.stringify(user))
+  }
 
   return (
     <>

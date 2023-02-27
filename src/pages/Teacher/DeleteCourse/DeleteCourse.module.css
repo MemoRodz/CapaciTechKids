@@ -95,3 +95,15 @@ a {
     border-radius: 80px;
     border: none;
 }
+
+.deleteBtn{
+    background: transparent;
+    font-weight: bold;
+    padding:.5rem .8rem;
+    margin: .2rem;
+    border-radius: 3px;
+}
+
+.deleteBtn:hover{
+    background-color: gray;
+}
