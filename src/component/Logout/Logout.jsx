@@ -4,11 +4,18 @@ import styles from './Logout.module.css'
 
 export const LogoutButton = () => {
     const { logout } = useAuth0();
+
+    const handleClick = () => {
+        logout({ returnTo: window.location.origin })
+        console.log('sali!');
+        window.localStorage.clear()
+    }
+
     return (
         <div className={styles.btnlogout}>
-        <button onClick={() => logout({ returnTo: window.location.origin })}>
+          <button onClick={handleClick}>
             Salir
-        </button>
+          </button>
         </div>
     );
 };
