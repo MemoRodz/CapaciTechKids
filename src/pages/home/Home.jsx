@@ -29,7 +29,7 @@ function Home() {
           </div>
           <div className={styles.kids}>
             <img src="img/kinds.png" alt="kids" />
-            <div className={styles.login}>
+            {/* <div className={styles.login}>
 
               {isAuthenticated ? <>
                 <Profile />
@@ -40,7 +40,7 @@ function Home() {
                   <LoginButton />
                 </>
               }
-            </div>
+            </div> */}
           </div>
 
           <h2 className={styles.our}>Nuestros éxitos</h2>
@@ -120,7 +120,6 @@ function Home() {
             </p>
 
           </div>
-          <img src="" alt="" />
         </div>
 
         <div className={styles.ult}>

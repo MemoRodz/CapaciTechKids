@@ -1,6 +1,7 @@
 .home {
     background-color: var(--bg-clr-primary);
     text-align: center;
+    height: 100%;
 }
 .welc{
     display: flex;
@@ -18,8 +19,6 @@
 }
 
 .welcomecard {
-    display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
     text-align: left;
