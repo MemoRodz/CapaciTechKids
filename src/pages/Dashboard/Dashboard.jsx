@@ -21,8 +21,8 @@ function Dashboard() {
             <Routes>
                 <Route path='/' element={<Navigate to={'/'} />} />
                 <Route path='/student' element={<Student />} />
-                <Route path='/teacher' element={<Teacher />} />
-                <Route path='/teacher/create' element={<Create />} />
+                <Route path='/instructor' element={<Teacher />} />
+                <Route path='/instructor/create' element={<Create />} />
             </Routes>
         </>
     )
