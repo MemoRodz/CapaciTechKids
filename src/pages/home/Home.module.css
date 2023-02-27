@@ -19,12 +19,15 @@
 }
 
 .welcomecard {
+    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
     text-align: left;
     width: 100%;
     background: var(--bg-clr-complementary);
     border-radius: 0 0 100px 100px;
+    padding-top: 10rem;
 }
 
 .welcome {
@@ -35,6 +38,7 @@
 }
 .kids img{
     width: 600px;
+
 }
 .capaci {
     color: var(--font-clr-yellow);
@@ -143,7 +147,7 @@ p {
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin: 4rem 0 4rem 32vw;
+    margin: 4rem 0 4rem 38%;
 }
 
 .stat {
