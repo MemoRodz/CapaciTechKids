@@ -1,27 +1,36 @@
 .card {
-    margin: 10px;
+    margin: 20px;
     background: #FFFFFF;
-    width: 27%;
+    width: 335px;
     height: 575px;
     border-radius: 20px;
     display: block;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: solid 20px #FFFFFF;
+    border: solid 40px #FFFFFF;
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
     text-decoration: none;
 }
 
+a:visited {
+    color: inherit;
+  }
+
 a {
-    text-decoration: none;
-}
-a:link, a:visited,  a:hover, a:active
-{
-    color: var(--font-clr-primary);
-    text-decoration: none;
+    display: block;
 }
 
+
+
+.heard {
+    position: relative;
+    width: 1920px;
+    height: 652px;
+    top: 145px;
+    left: 0;
+    z-index: 15;
+}
 
 .img {
     object-fit: cover;
@@ -43,6 +52,7 @@ a:link, a:visited,  a:hover, a:active
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 355px;
 }
 
 .similar1 {
@@ -50,6 +60,7 @@ a:link, a:visited,  a:hover, a:active
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    width: 355px;
 }
 
 .similar2 {
@@ -57,6 +68,7 @@ a:link, a:visited,  a:hover, a:active
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    width: 355px;
 }
 
 .teach {
@@ -64,6 +76,7 @@ a:link, a:visited,  a:hover, a:active
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 329px;
 }
 
 .teach img {
@@ -81,4 +94,16 @@ a:link, a:visited,  a:hover, a:active
     font-size: 20px;
     border-radius: 80px;
     border: none;
+}
+
+.deleteBtn{
+    background: transparent;
+    font-weight: bold;
+    padding:.5rem .8rem;
+    margin: .2rem;
+    border-radius: 3px;
+}
+
+.deleteBtn:hover{
+    background-color: gray;
 }

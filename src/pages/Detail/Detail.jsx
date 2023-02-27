@@ -54,10 +54,10 @@ export default  function Detail() {
  return  relatedLoaded ? (
     <div className={styles.container}>
       <div className={styles.heard}>
-        <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
+        <img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677262061/CAPACITECHKIDS/images/project/ca3_ixldy5.jpg"  alt="{course.Title}" />
       </div>
       <div className={styles.detail}>
-        <img src="..\img\Rectangle 77.png" alt="{course.Title}" />
+        <img src={course.Image} alt="{course.Title}" />
         <h1>{course.Title} Titulo</h1>
         <div className={styles.studybutton}>
           <button>Empezar</button>
@@ -107,13 +107,13 @@ export default  function Detail() {
         </div>
       </div>
       <div className={styles.opinions}>
-        <div className={styles.buttons}>
+        {/* <div className={styles.buttons}>
           <button>M1</button>
           <button>M2</button>
           <button>M3</button>
           <button>M4</button>
           <button>M5</button>
-        </div>
+        </div> */}
         <div className={styles.startbox}>
           <div className={styles.point}>
             <div className={styles.ranking}>
@@ -170,7 +170,7 @@ export default  function Detail() {
         </div>
         <div className={styles.cards}>  
           <div className={styles.card}>            
-            <img src="..\img\course 02.png" alt="course01" />            
+            <img src={related[0].Image} alt="course01" />            
               <div className={styles.coursedet}>
                   <div className={styles.similar1}>
                     <FaThLarge />
@@ -182,7 +182,7 @@ export default  function Detail() {
               </div>
             </div>
             <div className={styles.cardtitle}><h1>{related[0].Title}</h1></div>
-            <h3>{related[0].Description}</h3>
+
             <div className={styles.teach}>
               <img src="..\img\image 12.png" alt="perfil" />
               <h3>{related[0].tblUser.Name}</h3>
@@ -192,7 +192,7 @@ export default  function Detail() {
             </div>
           </div>
           <div className={styles.card}>
-          <img src="..\img\course 04.png" alt="course01" />            
+          <img src={related[1].Image} alt="course01" />            
               <div className={styles.coursedet}>
                   <div className={styles.similar1}>
                     <FaThLarge />
@@ -204,7 +204,7 @@ export default  function Detail() {
               </div>
             </div>
             <div className={styles.cardtitle}><h1>{related[1].Title}</h1></div>
-            <h3>{related[1].Description}</h3>
+           
             <div className={styles.teach}>
               <img src="..\img\image 12.png" alt="perfil" />
               <h3>{related[1].tblUser.Name}</h3>
@@ -214,7 +214,7 @@ export default  function Detail() {
             </div>
           </div>
           <div className={styles.card}>
-          <img src="..\img\course 01.png" alt="course01" />            
+          <img src={related[2].Image}alt="course01" />            
               <div className={styles.coursedet}>
                   <div className={styles.similar1}>
                     <FaThLarge />
@@ -226,7 +226,7 @@ export default  function Detail() {
               </div>
             </div>
             <div className={styles.cardtitle}><h1>{related[2].Title}</h1></div>
-            <h3>{related[2].Description}</h3>
+         
             <div className={styles.teach}>
               <img src="..\img\image 12.png" alt="perfil" />
               <h3>{related[2].tblUser.Name}</h3>
@@ -236,7 +236,7 @@ export default  function Detail() {
             </div>
           </div>
           <div className={styles.card}>
-          <img src="..\img\course 03.png" alt="course01" />            
+          <img src={related[3].Image} alt="course01" />            
               <div className={styles.coursedet}>
                   <div className={styles.similar1}>
                     <FaThLarge />
@@ -248,7 +248,7 @@ export default  function Detail() {
               </div>
             </div>
             <div className={styles.cardtitle}><h1>{related[3].Title}</h1></div>
-            <h3>{related[3].Description}</h3>
+      
             <div className={styles.teach}>
               <img src="..\img\image 12.png" alt="perfil" />
               <h3>{related[3].tblUser.Name}</h3>

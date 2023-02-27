@@ -1,0 +1,17 @@
+.deleted_courses_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+
+.deleted_courses{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleted_courses_container h2{
+    text-align: center;
+}
