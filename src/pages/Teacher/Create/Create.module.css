@@ -23,6 +23,7 @@
     padding: 14px;
     position: relative;
     top: 10px;
+    min-height: 80vh;
   }
   h1{
     justify-content: center
