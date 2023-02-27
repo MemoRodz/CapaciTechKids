@@ -1,18 +1,20 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import {useDispatch} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
 import styles from './Nav.module.css'
 import { useLocalStorage } from '../../../hooks/useLocalStorage'
 import { setUserInfo } from '../../../redux/slices/userSlice'
+import { useEffect } from 'react'
 
 
 function Nav() {
   const location = useLocation()
   const { storedUser } = useLocalStorage()
   const dispatch = useDispatch()
+  const userInfo = useSelector(state => state.user)
 
-  if(storedUser){
+  if (storedUser && !userInfo.email) {
     const fetchData = async () => {
       try {
         const response = await axios.post(`http://localhost:3001/users/registro`, storedUser)
@@ -55,7 +57,7 @@ function Nav() {
           <li><NavLink to={"/about"} style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>Nosotros</NavLink></li>
           {/* <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li> */}
           <li><NavLink to={"/about"} style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>Nosotros</NavLink></li>
-          <li><NavLink to={"/dashboard/instructor"}>Instructor</NavLink></li>
+          {userInfo.userRole && <li><NavLink to={`/dashboard/${userInfo.userRole}`}>{userInfo.userRole}</NavLink></li>}
         </ul>
       </nav>
     </>
