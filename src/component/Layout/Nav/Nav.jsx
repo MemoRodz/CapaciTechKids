@@ -7,6 +7,7 @@ import { setUserInfo } from '../../../redux/slices/userSlice'
 import { LoginButton, LogoutButton, Profile } from '../../../component'
 import styles from './Nav.module.css'
 import { useEffect } from 'react';
+import {baseUrl} from '../../../models/baseUrl'
 
 function Nav() {
 
@@ -21,13 +22,13 @@ function Nav() {
     if (storedUser && !userInfo.email) {
       const fetchData = async () => {
         try {
-          const response = await axios.post(`http://localhost:3001/users/registro`, storedUser)
+          const response = await axios.post(`${baseUrl}/users/registro`, storedUser)
           if (typeof (response.data) !== "string") {
             dispatch(setUserInfo(response.data))
             console.log(response.data, '++++')
           }
           else {
-            const response = await axios.get(`http://localhost:3001/users/`)
+            const response = await axios.get(`${baseUrl}/users/`)
             const dBUser = response.data.find(ele => ele.Email === storedUser.Email)
             dispatch(setUserInfo(dBUser))
             console.log(dBUser, '>>>>')
