@@ -21,7 +21,7 @@ export default function Courses() {
   return (
     <>
       <div className={styles.heard}>
-        <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
+        <img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677262061/CAPACITECHKIDS/images/project/ca3_ixldy5.jpg" />
       </div>
       <h1 className={styles.coursestitle}>Nuestros Cursos</h1>
       <div className={styles.coursescontainer}>

@@ -1,28 +1,12 @@
 .general_container {
   display: flex;
   flex-direction: column;
-  height: 9000px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
 }
-
-.cont {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.left_container {
-  position: relative;
-  left: 10%;
-  width: 40%;
-}
-
-.left_container{
-  width: 40%;
-}
-
-.general_container {
-  height: 100%;
+.general_container h1{
+  color: var(--bg-clr-complementary);
 }
 .donar{
   margin: 0 auto;

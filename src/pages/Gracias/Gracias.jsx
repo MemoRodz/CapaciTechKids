@@ -5,9 +5,6 @@ import styles from '../Gracias/Gracias.module.css'
 function Gracias() {
   return (
     <div>
-      <div className={styles.heard}>
-        <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
-      </div>
       <div className={styles.cont}>
         <FcDonate size="10rem"/>
         <h1>Gracias por tu donación</h1>
