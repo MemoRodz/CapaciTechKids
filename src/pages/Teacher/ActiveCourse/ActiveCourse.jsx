@@ -27,7 +27,7 @@ export default function ActiveCourse(props) {
 
   return (
     <div className={styles.card}>
-      <button onClick={() => handleDelete(PK_Course)}>x</button>
+      <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
@@ -40,9 +40,8 @@ export default function ActiveCourse(props) {
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>
-      <h3>{Description}</h3>
       <div className={styles.teach}>
-        <img src="..\img\image 12.png" alt="perfil" />
+        {/* <img src="..\img\image 12.png" alt="perfil" /> */}
         {/* <h3>{tblUser.Name}</h3> */}
         <div className={styles.btndetail}>
         </div>
