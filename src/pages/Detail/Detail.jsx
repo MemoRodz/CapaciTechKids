@@ -107,13 +107,13 @@ export default  function Detail() {
         </div>
       </div>
       <div className={styles.opinions}>
-        <div className={styles.buttons}>
+        {/* <div className={styles.buttons}>
           <button>M1</button>
           <button>M2</button>
           <button>M3</button>
           <button>M4</button>
           <button>M5</button>
-        </div>
+        </div> */}
         <div className={styles.startbox}>
           <div className={styles.point}>
             <div className={styles.ranking}>

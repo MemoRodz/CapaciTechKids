@@ -3,25 +3,30 @@
 }
 
 .selectedcategories button {
-    margin: .1rem;
-    border-radius: 3px;
-    background-color: transparent;
+    margin: 10px;
+    border-radius: 20px;
+    font-family: 'Londrina Solid', cursive;
 }
 
 .categoryoptions button {
-    margin: .5rem;
-    border-radius: 3px;
-    background-color: transparent;
+    margin: 10px;
+    height: 50px;
+    border-radius: 20px;
+    background: var(--bg-clr-complementary);
+    color: #fff;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 18px;
+    border: none;
 }
 
 .selectedcategories button:hover {
     cursor: pointer;
-    background-color: grey;
+    background: var(--bg-clr-yellow);
 }
 
 .categoryoptions button:hover {
     cursor: pointer;
-    background-color: grey;
+    background-color: var(--bg-clr-yellow);
 }
 
 .categoryoptions button:disabled {

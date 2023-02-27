@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import styles from './Logout.module.css'
 
 export const LogoutButton = () => {
     const { logout } = useAuth0();
@@ -11,8 +12,10 @@ export const LogoutButton = () => {
     }
 
     return (
-        <button onClick={handleClick}>
+        <div className={styles.btnlogout}>
+          <button onClick={handleClick}>
             Salir
-        </button>
+          </button>
+        </div>
     );
 };

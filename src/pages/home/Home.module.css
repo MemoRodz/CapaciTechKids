@@ -2,6 +2,12 @@
     background-color: var(--bg-clr-primary);
     text-align: center;
 }
+.welc{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
 
 .home h2 {
     font-size: var(--h2);
@@ -12,32 +18,35 @@
 }
 
 .welcomecard {
-    margin: 0 auto 8rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
     text-align: left;
-    width: fit-content;
+    width: 100%;
+    background: var(--bg-clr-complementary);
+    border-radius: 0 0 100px 100px;
 }
 
 .welcome {
     color: var(--font-clr-primary);
-    margin-left: 40px;
     margin-top: 100px;
     margin-block-end: 5px;
     font-size: 50px;
 }
-
+.kids img{
+    width: 600px;
+}
 .capaci {
     color: var(--font-clr-yellow);
-    margin-left: 40px;
     margin-top: 5px;
     margin-block-end: 5px;
     font-size: 50px;
 }
 
 .text {
-    color: var(--font-clr-primary);
-    margin-left: 70px;
-    font-weight: 10px;
-    font-size: 13px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
 }
 
 .login {

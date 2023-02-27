@@ -1,0 +1,13 @@
+.user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--font-clr-yellow);
+}
+.imgUser img{
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

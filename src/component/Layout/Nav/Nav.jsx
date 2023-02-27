@@ -1,14 +1,20 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 import axios from 'axios'
-
-import styles from './Nav.module.css'
+import { useAuth0 } from '@auth0/auth0-react';
 import { useLocalStorage } from '../../../hooks/useLocalStorage'
 import { setUserInfo } from '../../../redux/slices/userSlice'
-import { useEffect } from 'react'
-
+import { LoginButton, LogoutButton, Profile } from '../../../component'
+import styles from './Nav.module.css'
 
 function Nav() {
+
+  const { isAuthenticated, user } = useAuth0();
+
+  user && console.log(user);
+
+
   const location = useLocation()
   const { storedUser } = useLocalStorage()
   const dispatch = useDispatch()
@@ -51,13 +57,32 @@ function Nav() {
     <>
       <nav className={styles.navbar} style={navStyle}>
         <ul>
-          <li><NavLink to={"/"} style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>Inicio</NavLink></li>
-          <li><NavLink to={"/course"} style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>Cursos</NavLink></li>
-          <li><NavLink to={"/donate"} style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>Donaciones</NavLink></li>
-          <li><NavLink to={"/about"} style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>Nosotros</NavLink></li>
+          <li><NavLink to={"/"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Inicio</NavLink></li>
+          <li><NavLink to={"/course"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Cursos</NavLink></li>
+          <li><NavLink to={"/create"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Crear</NavLink></li>
+          <li><NavLink to={"/donate"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Donaciones</NavLink></li>
+          <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Nosotros</NavLink></li>
           {/* <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li> */}
-          <li><NavLink to={"/about"} style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>Nosotros</NavLink></li>
-          {userInfo.userRole && <li><NavLink to={`/dashboard/${userInfo.userRole}`}>{userInfo.userRole}</NavLink></li>}
+          {/*{userInfo.userRole && <li><NavLink to={`/dashboard/${userInfo.userRole}`}>{userInfo.userRole}</NavLink></li>}*/}
+          <div className={styles.login}>
+
+            {isAuthenticated ? <>
+            <div className={styles.acord}>
+              <details className={styles.det}>
+                <summary><Profile /></summary>
+                <LogoutButton />
+              </details>
+            </div>
+              
+              
+            </>
+              :
+              <>
+                <LoginButton />
+              </>
+            }
+
+          </div>
         </ul>
       </nav>
     </>

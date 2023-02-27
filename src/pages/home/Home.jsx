@@ -5,13 +5,18 @@ import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
 import { LoginButton, LogoutButton, Profile } from '../../component'
 import { useAuth0 } from '@auth0/auth0-react'
 
+
 function Home() {
-  const {isAuthenticated} = useAuth0()
+
+function Home() {
+  const {isAuthenticated, user} = useAuth0()
 
   return (
     <>
+    <div className={styles.circle}></div>
       <div className={styles.home}>
         <div className={styles.welcomecard}>
+          <div className={styles.welc}>
           <h1 className={styles.welcome}>
             Bienvenidos a<br />
           </h1>
@@ -23,6 +28,9 @@ function Home() {
             plataforma que te enseñará <br />
             de la forma más interactiva
           </h3>
+          </div>       
+          <div className={styles.kids}>
+            <img src="img/kinds.png" alt="kids" />
           <div className={styles.login}>
 
             {isAuthenticated ? <>

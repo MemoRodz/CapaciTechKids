@@ -7,11 +7,17 @@
 }
 
 .sortbtns button{
-    margin: 0 .3rem;
-    border-radius: 3px;
+    margin: 10px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    background: var(--bg-clr-complementary);
+    color: #fff;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 18px;
 }
 
 .sortbtns button:hover{
     cursor: pointer;
-    background-color: gray;
+    background-color: var(--bg-clr-yellow);
 }
