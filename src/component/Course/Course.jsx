@@ -51,7 +51,9 @@ console.log(course)
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
           <FaThLarge />
-          <h4>{course.tblCategories[0].Name}</h4>
+          {course.tblCategories.map((category) => (
+  <h4 key={category.PK_Category}>{`${category.Name} `}</h4>
+))}
         </div>
         <div className={styles.similar2}>
           <FaRegClock />
@@ -59,7 +61,6 @@ console.log(course)
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>
-      <h3>{course.Description}</h3>
       <div className={styles.teach}>
         <img src="..\img\image 12.png" alt="perfil" />
         <h3>{course.tblUser.Name}</h3>
