@@ -4,7 +4,7 @@ import BuyButtonComponent from "./BuyButtonComponent";
 import styles from "./Donate.module.css";
 
 
-const donateLink = "https://donate.stripe.com/test_cN25lG7Ot7Eh9z25kl"
+const donateLink = "https://donate.stripe.com/test_00g7tO8Sxf6J5iMbIK"
 function Donate() {
   return (
           
