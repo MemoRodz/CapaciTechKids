@@ -12,10 +12,10 @@ export default function DeleteCourse(props) {
 
   const handleActivate = async (id) => {
     try {
-      const response = await axios.put(`http://localhost:3001/courses/detail/${id}/activate`)
+      const response = await axios.put(`/courses/detail/${id}/activate`)
       console.log(response);
-      const activeCourses = await axios.get('http://localhost:3001/courses/')
-      const deletedCourses = await axios.get('http://localhost:3001/courses/deleted')
+      const activeCourses = await axios.get('/courses/')
+      const deletedCourses = await axios.get('/courses/deleted')
       setTeacherCourses({
         deletedCourses: deletedCourses.data,
         activeCourses: activeCourses.data

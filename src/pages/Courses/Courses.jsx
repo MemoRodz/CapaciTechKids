@@ -14,8 +14,8 @@ export default function Courses() {
 
 
   useEffect(() => {
-    dispatch(getAllCourses('http://localhost:3001/courses'))
-    dispatch(getAllCategories('http://localhost:3001/categories'))
+    dispatch(getAllCourses('/courses'))
+    dispatch(getAllCategories('/categories'))
   }, [])
 
   return (

@@ -21,13 +21,13 @@ function Nav() {
     if (storedUser && !userInfo.email) {
       const fetchData = async () => {
         try {
-          const response = await axios.post(`http://localhost:3001/users/registro`, storedUser)
+          const response = await axios.post(`users/registro`, storedUser)
           if (typeof (response.data) !== "string") {
             dispatch(setUserInfo(response.data))
             console.log(response.data, '++++')
           }
           else {
-            const response = await axios.get(`http://localhost:3001/users/`)
+            const response = await axios.get(`users/`)
             const dBUser = response.data.find(ele => ele.Email === storedUser.Email)
             dispatch(setUserInfo(dBUser))
             console.log(dBUser, '>>>>')
