@@ -2,19 +2,21 @@ import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
-import { useAuth0 } from '@auth0/auth0-react';
-import { LoginButton, LogoutButton, Profile } from '../../component'
+//import { useAuth0 } from '@auth0/auth0-react';
+//import { LoginButton, LogoutButton, Profile } from '../../component'
 
 
 function Home() {
-  const { isAuthenticated, user } = useAuth0();
+ /* const { isAuthenticated, user } = useAuth0();
 
-  user && console.log(user);
+  user && console.log(user); */
 
   return (
     <>
+    <div className={styles.circle}></div>
       <div className={styles.home}>
         <div className={styles.welcomecard}>
+          <div className={styles.welc}>
           <h1 className={styles.welcome}>
             Bienvenidos a<br/>
           </h1>
@@ -26,18 +28,9 @@ function Home() {
           plataforma que te enseñará <br />
           de la forma más interactiva
           </h3>
-          <div className={styles.login}>
-
-            {isAuthenticated ? <>
-              <Profile />
-              <LogoutButton />
-            </>
-              :
-              <>
-                <LoginButton />
-              </>
-            }
-
+          </div>       
+          <div className={styles.kids}>
+            <img src="img/kinds.png" alt="kids" />
           </div>
         </div>
 

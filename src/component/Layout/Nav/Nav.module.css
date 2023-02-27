@@ -6,6 +6,7 @@
 
 .navbar ul {
     margin-top: -.2rem;
+    margin-bottom: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -17,4 +18,13 @@
 .navbar ul li a{
     text-decoration: none;
     font-size: var(--h3);
+}
+.login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+summary{
+    display: flex;
+    cursor: pointer;
 }

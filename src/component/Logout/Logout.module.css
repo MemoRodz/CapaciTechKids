@@ -1,0 +1,11 @@
+.btnlogout button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: transparent;
+    width: 100%;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    font-family: 'Londrina Solid', cursive;
+}

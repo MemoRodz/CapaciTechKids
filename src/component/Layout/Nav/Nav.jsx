@@ -38,8 +38,14 @@ function Nav() {
           <div className={styles.login}>
 
             {isAuthenticated ? <>
-              <Profile />
-              <LogoutButton />
+            <div className={styles.acord}>
+              <details className={styles.det}>
+                <summary><Profile /></summary>
+                <LogoutButton />
+              </details>
+            </div>
+              
+              
             </>
               :
               <>
