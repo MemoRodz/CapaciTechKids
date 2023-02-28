@@ -1,0 +1,18 @@
+.admin_container{
+    min-height: 80vh;
+}
+
+.admin_sidebar {
+    position: absolute;
+    left: 0;
+    right: 1;
+    margin-left: .5rem;
+}
+
+.admin_sidebar a {
+    padding: .2rem .3rem;
+    margin: .5rem 0;
+    border: 2px;
+    background-color: var(--btn-bg-active);
+    width: fit-content;
+}

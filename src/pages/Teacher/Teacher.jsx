@@ -1,4 +1,4 @@
-import { Link, Routes, Route, Navigate, useNavigate } from 'react-router-dom'
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'
 import styles from './Teacher.module.css'
 import { TeacherCourses, Create } from '../Teacher/index'
 import { useEffect } from 'react'
