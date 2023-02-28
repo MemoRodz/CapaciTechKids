@@ -1,5 +1,6 @@
 .admin_container{
     min-height: 80vh;
+    text-align: center;
 }
 
 .admin_sidebar {
@@ -15,4 +16,8 @@
     border: 2px;
     background-color: var(--btn-bg-active);
     width: fit-content;
+}
+
+.admin_views_container{
+    
 }
