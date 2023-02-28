@@ -5,7 +5,7 @@ import styles from "./Courses.module.css";
 import { CategoryFilter, ScoreFilter, SortByScore, ResetFilters } from '../../component/index'
 import { getAllCourses } from '../../redux/slices/coursesSlice'
 import { getAllCategories } from "../../redux/slices/categoriesSlice";
-
+import {baseUrl} from '../../models/baseUrl'
 
 
 export default function Courses() {
@@ -14,14 +14,14 @@ export default function Courses() {
 
 
   useEffect(() => {
-    dispatch(getAllCourses('http://localhost:3001/courses'))
-    dispatch(getAllCategories('http://localhost:3001/categories'))
+    dispatch(getAllCourses(`${baseUrl}/courses`))
+    dispatch(getAllCategories(`${baseUrl}/categories`))
   }, [])
 
   return (
     <>
       <div className={styles.heard}>
-        <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
+        <img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677262061/CAPACITECHKIDS/images/project/ca3_ixldy5.jpg" />
       </div>
       <h1 className={styles.coursestitle}>Nuestros Cursos</h1>
       <div className={styles.coursescontainer}>

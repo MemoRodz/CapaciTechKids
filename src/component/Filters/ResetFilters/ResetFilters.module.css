@@ -1,11 +1,16 @@
 .resetbtn{
-    margin-top: 6.5rem;
-    width: fit-content;
-    padding: 0 .2rem;
-    border-radius: 3px;
+    background: var(--bg-clr-complementary);
+    color: #fff;
+    margin: 10px;
+    width: 150px;
+    height: 50px    ;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 18px;
 }
 
 .resetbtn:hover{
     cursor: pointer;
-    background-color: gray;
+    background: var(--bg-clr-yellow);
 }

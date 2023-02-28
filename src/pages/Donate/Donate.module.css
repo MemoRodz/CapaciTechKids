@@ -1,19 +1,12 @@
-.cont{
-  display: flex;
-  flex-direction: row;
-}
-
-.img_donate{
-width: 60%;
-
-}
-
-.left_container{
-  width: 40%;
-}
-
 .general_container {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+.general_container h1{
+  color: var(--bg-clr-complementary);
 }
 .donar{
   margin: 0 auto;

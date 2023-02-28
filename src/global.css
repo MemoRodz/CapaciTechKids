@@ -26,7 +26,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  font-family: 'Montserrat', sans-serif;
+  /*font-family: 'Montserrat', sans-serif; */
+  font-family: 'Londrina Solid', cursive;
 }
 
 body{

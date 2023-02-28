@@ -4,14 +4,15 @@ import BuyButtonComponent from "./BuyButtonComponent";
 import styles from "./Donate.module.css";
 
 
-const donateLink = "https://donate.stripe.com/test_cN25lG7Ot7Eh9z25kl"
+const donateLink = "https://donate.stripe.com/test_00g7tO8Sxf6J5iMbIK"
 function Donate() {
   return (
           
       <div className={styles.general_container} >
         <div className={styles.cont}>
-          <div className={styles.left_container}>           
-           <h2>¿Quieres ser parte del cambio? Con tu aporte generas una contribución para brindar educación de calidad con gran impacto en el la futura salida laboral de las niñas, niños y jóvenes que se encuentran en condición de vulnerabilidad en todo Latinoamerica.</h2>
+          <div className={styles.left_container}>
+            <h1>¿Quieres ser parte del cambio?</h1>          
+           <h2>Con tu aporte generas una contribución para brindar educación de calidad con gran impacto en el la futura salida laboral de las niñas, niños y jóvenes que se encuentran en condición de vulnerabilidad en todo Latinoamerica.</h2>
            <br/>          
            <div className={styles.donar}>
             <BuyButtonComponent />            
