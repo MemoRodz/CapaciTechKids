@@ -18,8 +18,8 @@ function Admin() {
             <div className={styles.admin_container}>
                 <h2>Admin panel</h2>
                 <div className={styles.admin_sidebar}>
-                    <Link to={'/dashboard/advuser/users'}>Usuarios</Link>
-                    <Link to={'/dashboard/advuser/admincourses'}>Admin courses</Link>
+                    <Link to={'/dashboard/advuser/users/students'}>Usuarios</Link>
+                    <Link to={'/dashboard/advuser/admincourses'}>Cursos</Link>
                 </div>
                 <div>
                 <Routes>

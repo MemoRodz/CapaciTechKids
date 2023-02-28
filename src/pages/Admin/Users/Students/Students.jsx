@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@material-ui/core';
-import { TableSortLabel } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
+import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
 
 function Students() {
@@ -39,7 +39,7 @@ const sortData = (data) => {
 
   return (
 <>
-  <h2> Students Table</h2>
+  <h2>Lista de Estudiantes:</h2>
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
