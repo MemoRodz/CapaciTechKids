@@ -16,7 +16,7 @@ export const coursesSlice = createSlice({
             return {
                 ...state,
                 courses: action.payload,
-                filteredCourses: [...state.courses]
+                filteredCourses: [...action.payload]
             }
         },
         selectCategory: (state, action) => {

@@ -1,8 +1,12 @@
-import React from 'react'
+import styles from './AdminCourses.module.css'
 
 function AdminCourses() {
   return (
-    <div>AdminCourses</div>
+    <>
+      <div className={styles.admincourses_container}>
+        <h2>AdminCourses</h2>
+      </div>
+    </>
   )
 }
 

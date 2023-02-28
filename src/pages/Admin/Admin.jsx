@@ -23,7 +23,7 @@ function Admin() {
                 </div>
                 <Routes>
                     <Route path='/' element={<h2>Admin Home</h2>}></Route>
-                    <Route path='/users' element={<Users />}></Route>
+                    <Route path='/users/*' element={<Users />}></Route>
                     <Route path='/admincourses' element={<AdminCourses />}></Route>
                     <Route path='*' element={<h2>Not Found</h2>} />
                 </Routes>
