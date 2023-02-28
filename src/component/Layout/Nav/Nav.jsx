@@ -62,8 +62,9 @@ function Nav() {
           <li><NavLink to={"/donate"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Donaciones</NavLink></li>
           <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>Nosotros</NavLink></li>
           {/* <li><NavLink to={"/about"} style={({isActive}) => isActive ? activeStyle : inactiveStyle}>About</NavLink></li> */}
-          {userInfo.userRole && <li><NavLink to={`/dashboard/${userInfo.userRole}`}>Perfil {userInfo.userRole}</NavLink></li>}
+          {userInfo.userRole && <li><NavLink to={`/dashboard/${userInfo.userRole}`}>Panel</NavLink></li>}
           <div className={styles.login}>
+
 
             {isAuthenticated ? <>
             <div className={styles.acord}>
