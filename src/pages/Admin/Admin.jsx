@@ -21,14 +21,12 @@ function Admin() {
                     <Link to={'/dashboard/advuser/users'}>Usuarios</Link>
                     <Link to={'/dashboard/advuser/admincourses'}>Admin courses</Link>
                 </div>
-                <div className={styles.admin_views_container}>
-                    <Routes>
-                        <Route path='/' element={<h2>Admin Home</h2>}></Route>
-                        <Route path='/users/*' element={<Users />}></Route>
-                        <Route path='/admincourses' element={<AdminCourses />}></Route>
-                        <Route path='*' element={<h2>Not Found</h2>} />
-                    </Routes>
-                </div>
+                <Routes>
+                    <Route path='/' element={<h2>Admin Home</h2>}></Route>
+                    <Route path='/users/*' element={<Users />}></Route>
+                    <Route path='/admincourses' element={<AdminCourses />}></Route>
+                    <Route path='*' element={<h2>Not Found</h2>} />
+                </Routes>
             </div>
         </>
     )
