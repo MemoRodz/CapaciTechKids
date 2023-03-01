@@ -17,6 +17,8 @@ function Nav() {
   const dispatch = useDispatch()
   const userInfo = useSelector(state => state.user)
 
+console.log("USER",userInfo)
+
   useEffect(() => {
     if (storedUser && !userInfo.email) {
       const fetchData = async () => {

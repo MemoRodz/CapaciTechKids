@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 function Teacher() {
   const navigate = useNavigate()
   const userInfo = useSelector(state => state.user)
+  console.log(userInfo)
 
   useEffect(() => {
     if (userInfo.userRole !== 'instructor') {
