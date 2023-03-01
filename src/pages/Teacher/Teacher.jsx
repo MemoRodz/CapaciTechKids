@@ -9,8 +9,9 @@ function Teacher() {
   const userInfo = useSelector(state => state.user)
   console.log(userInfo)
 
-  useEffect(() => {
-    if (userInfo.userRole !== 'instructor') {
+
+  useEffect(()=>{
+    if(userInfo.userRole !== 'instructor'){
       navigate('/')
     }
   }, [])

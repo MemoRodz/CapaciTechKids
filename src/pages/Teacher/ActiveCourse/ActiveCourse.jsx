@@ -4,6 +4,7 @@ import { FaRegClock, FaThLarge } from "react-icons/fa";
 import { TeacherCoursesContext } from '../../../context/TeacherCoursesContext'
 import { baseUrl } from '../../../models/baseUrl'
 import axios from 'axios';
+import { usuario } from '../../../component/Layout/Nav/Nav';
 
 
 export default function ActiveCourse(props) {
@@ -14,8 +15,8 @@ export default function ActiveCourse(props) {
     try {
       const response = await axios.put(`${baseUrl}/courses/detail/${id}/delete`)
       console.log(response);
-      const deletedCourses = await axios.get(`${baseUrl}/courses/deleted`)
-      const activeCourses = await axios.get(`${baseUrl}/courses/`)
+      const deletedCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
+      const activeCourses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
       setTeacherCourses({
         ...teacherCourses,
         activeCourses: activeCourses.data,
