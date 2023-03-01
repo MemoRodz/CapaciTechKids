@@ -8,6 +8,8 @@ function Teacher() {
   const navigate = useNavigate()
   const userInfo = useSelector(state => state.user)
 
+  
+
   useEffect(()=>{
     if(userInfo.userRole !== 'instructor'){
       navigate('/')

@@ -9,6 +9,8 @@ import styles from './Nav.module.css'
 import { useEffect } from 'react';
 import { baseUrl } from '../../../models/baseUrl'
 
+export let usuario = ""
+
 function Nav() {
 
   const { isAuthenticated } = useAuth0();
@@ -16,6 +18,7 @@ function Nav() {
   const { storedUser } = useLocalStorage()
   const dispatch = useDispatch()
   const userInfo = useSelector(state => state.user)
+  
 
   useEffect(() => {
     if (storedUser && !userInfo.email) {
@@ -24,6 +27,7 @@ function Nav() {
           const response = await axios.post(`${baseUrl}/users/registro`, storedUser)
           if (typeof (response.data) !== "string") {
             dispatch(setUserInfo(response.data))
+            usuario = response.data.PK_User;
             console.log(response.data, '++++')
           }
           else {
@@ -75,5 +79,6 @@ function Nav() {
     </>
   )
 }
+
 
 export default Nav
