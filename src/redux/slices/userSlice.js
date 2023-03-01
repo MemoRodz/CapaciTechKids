@@ -17,6 +17,7 @@ export const userSlice = createSlice({
         setUserInfo: (state, action) => {
             if (action.payload) {
                 const { Name, UserType, Email, Image, PK_User} = action.payload
+
                 return {
                     ...state,
                     isLogged: true,
@@ -25,6 +26,7 @@ export const userSlice = createSlice({
                     Email: Email,
                     Image : Image,
                     ID: PK_User
+
                 }
             }
         },
