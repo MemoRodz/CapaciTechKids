@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from './Create.module.css'
-
+import { baseUrl } from '../../../models/baseUrl'
+import SubiendoImagenes from '../../../component/Upload/Upload'
 
 export function validate(formData) {
   let errors = {}
@@ -41,8 +42,9 @@ const Create = () => {
   const [data, setData] = useState([])
   useEffect(() => {
     const funciona = async () => {
-      const { data } = await axios.get(`http://localhost:3001/users/instructors`)
-      const cats = await axios.get(`http://localhost:3001/categories`)
+      const { data } = await axios.get(`${baseUrl}/users/instructors`)
+      const cats = await axios.get(`${baseUrl}/categories`)
+      console.log(cats.data);
       setCats(cats.data)
       setData(data)
     }
@@ -58,7 +60,7 @@ const Create = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3001/courses/createCourse",
+        `${baseUrl}/courses/createCourse`,
         formData
       );
       navigate('/course')
@@ -124,6 +126,9 @@ const Create = () => {
               </div>
             </div>
           </label>
+          <div>
+            <SubiendoImagenes />
+          </div>
           <br />
           <label>
             <div className={styles.labcont}>

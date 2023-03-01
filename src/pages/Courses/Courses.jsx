@@ -5,17 +5,17 @@ import styles from "./Courses.module.css";
 import { CategoryFilter, ScoreFilter, SortByScore, ResetFilters } from '../../component/index'
 import { getAllCourses } from '../../redux/slices/coursesSlice'
 import { getAllCategories } from "../../redux/slices/categoriesSlice";
-
+import {baseUrl} from '../../models/baseUrl'
 
 
 export default function Courses() {
   const dispatch = useDispatch()
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
-
+ console.log("Hola",arregloCourses)
 
   useEffect(() => {
-    dispatch(getAllCourses('http://localhost:3001/courses'))
-    dispatch(getAllCategories('http://localhost:3001/categories'))
+    dispatch(getAllCourses(`${baseUrl}/courses`))
+    dispatch(getAllCategories(`${baseUrl}/categories`))
   }, [])
 
   return (

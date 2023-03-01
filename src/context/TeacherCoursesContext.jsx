@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect, createContext } from 'react'
+import { baseUrl } from '../models/baseUrl'
+import { usuario } from '../component/Layout/Nav/Nav'
 
 export const TeacherCoursesContext = createContext()
 
@@ -13,8 +15,8 @@ export function TeacherCoursesProvider({ children }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const delCourses = await axios.get('http://localhost:3001/courses/deleted')
-                const courses = await axios.get('http://localhost:3001/courses/')
+                const delCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
+                const courses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
                 setTeacherCourses({
                     ...teacherCoursesInitialState,
                     activeCourses: courses.data,
@@ -28,8 +30,8 @@ export function TeacherCoursesProvider({ children }) {
     }, [])
 
     return (
-    <TeacherCoursesContext.Provider value={{teacherCourses, setTeacherCourses}}>
-        {children}
-    </TeacherCoursesContext.Provider>
+        <TeacherCoursesContext.Provider value={{ teacherCourses, setTeacherCourses }}>
+            {children}
+        </TeacherCoursesContext.Provider>
     )
 }

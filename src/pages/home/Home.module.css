@@ -23,7 +23,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
-    text-align: left;
+    text-align: left;   
     width: 100%;
     background: var(--bg-clr-complementary);
     border-radius: 0 0 100px 100px;

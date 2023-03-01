@@ -1,4 +1,5 @@
 .teacher_container{
+    min-height: 80vh;
     display: flex;
     flex-direction: row;
 }
@@ -22,4 +23,8 @@
     margin: 1.5rem .5rem;
     padding: .2rem .3rem;
     background-color: var(--btn-bg-active);
+}
+
+.teacher_views{
+    margin-top: 5rem;
 }
