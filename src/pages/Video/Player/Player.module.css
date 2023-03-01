@@ -1,0 +1,7 @@
+.player{
+    display: flex;
+    flex-direction: row;
+}
+.reproductor h2{
+   margin-left: 300px;
+}

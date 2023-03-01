@@ -1,5 +1,6 @@
 export { default as About } from './About/About';
 export { default as AdminCourses } from './Admin/AdminCourses/AdminCourses';
+export { default as Admins } from './Admin/Users/Admins/Admins';
 export { default as BannedUsers } from './Admin/Users/BannedUsers/BannedUsers';
 export { default as Instructors } from './Admin/Users/Instructors/Instructors';
 export { default as Students } from './Admin/Users/Students/Students';
@@ -19,5 +20,6 @@ export { default as DeleteCourse } from './Teacher/DeleteCourse/DeleteCourse';
 export { default as DeletedCourses } from './Teacher/DeletedCourses/DeletedCourses';
 export { default as TeacherCourses } from './Teacher/TeacherCourses/TeacherCourses';
 export * from './Teacher';
+export { default as Player } from './Video/Player/Player';
+export { default as Sidebar } from './Video/Sidebar/Sidebar';
 export { default as Home } from './home/Home';
-export * from './index';
