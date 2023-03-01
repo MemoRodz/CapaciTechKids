@@ -1,0 +1,27 @@
+.users_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.users_options{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.users_options a{
+    margin: 0 3.5rem;
+    padding: .2rem .3rem;
+    border: 2px;
+    color: #ffffff;
+    background-color: var(--btn-bg-active);
+    width: fit-content;
+}
+
+.users_options a:hover{
+    cursor: pointer;
+}
+
+.users_table{
+    margin: 0 auto;
+}
