@@ -25,6 +25,8 @@
     "react-pro-sidebar": "^1.0.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
+    "react-scripts": "^5.0.1",
+    "reactstrap": "^9.1.6",
     "stripe": "^11.12.0"
   },
   "devDependencies": {
