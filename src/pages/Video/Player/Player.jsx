@@ -11,6 +11,7 @@ function Player() {
       setCurrentModule(currentModule + 1);
     
     }
+    
 
   return (  
     <div className={styles.player}>
@@ -21,7 +22,7 @@ function Player() {
             <h2>Titulo del Módulo 1</h2>
             <h3>Descripción del Módulo 1</h3>
             <ReactPlayer 
-              url='https://www.youtube.com/watch?v=Ur-7KhSxEOo'
+              url='https://youtu.be/Ur-7KhSxEOo'
               //url='https://youtu.be/Ur-7KhSxEOo' 
               controls
               //  / > 

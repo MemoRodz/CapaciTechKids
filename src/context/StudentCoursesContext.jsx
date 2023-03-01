@@ -15,7 +15,7 @@ export function StudentCoursesProvider({ children }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const studentCourses = await axios.get(`${baseUrl}/courses/`)
+                const studentCourses = await axios.get(`${baseUrl}/courses/`) // esta url deberia traer los courses del student pasando su userId
                 setStudentCourses({
                     ...studentCoursesInitialState,
                     myCourses: studentCourses.data
@@ -28,7 +28,7 @@ export function StudentCoursesProvider({ children }) {
     }, [])
 
     return (
-        <StudentCoursesContext.Provider>
+        <StudentCoursesContext.Provider value={{ studentCourses, setStudentCourses }}>
             {children}
         </StudentCoursesContext.Provider>
     )

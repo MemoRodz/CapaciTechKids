@@ -17,7 +17,7 @@ function Student() {
 
   return (
     <>
-      <div className={styles.student_profile}>
+      <div className={styles.student_container}>
         <div className={styles.student_sidebar}>
           <Link to={'/dashboard/student/'}>Mi perfil</Link>
           <Link to={'/dashboard/student/courses'}>Mis cursos</Link>
