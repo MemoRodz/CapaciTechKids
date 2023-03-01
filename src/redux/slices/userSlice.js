@@ -4,8 +4,10 @@ import axios from "axios";
 const initialState = {
     isLogged: false,
     userRole: '',
-    userName: '',
-    email: '',
+    Name: '',
+    Email: '',
+    Image : "",
+    ID: ""
 }
 
 export const userSlice = createSlice({
@@ -14,13 +16,15 @@ export const userSlice = createSlice({
     reducers: {
         setUserInfo: (state, action) => {
             if (action.payload) {
-                const { name, UserType, email, picture } = action.payload
+                const { Name, UserType, Email, Image, PK_User} = action.payload
                 return {
                     ...state,
                     isLogged: true,
                     userRole: UserType.toLowerCase(),
-                    userName: name,
-                    email: email
+                    Name: Name,
+                    Email: Email,
+                    Image : Image,
+                    ID: PK_User
                 }
             }
         },

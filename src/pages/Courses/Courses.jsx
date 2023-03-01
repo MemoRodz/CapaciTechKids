@@ -11,7 +11,7 @@ import {baseUrl} from '../../models/baseUrl'
 export default function Courses() {
   const dispatch = useDispatch()
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
-
+ console.log("Hola",arregloCourses)
 
   useEffect(() => {
     dispatch(getAllCourses(`${baseUrl}/courses`))
