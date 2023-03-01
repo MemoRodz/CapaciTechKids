@@ -3,22 +3,22 @@ import { useState, useEffect, createContext } from 'react'
 import { baseUrl } from '../models/baseUrl'
 import { usuario } from '../component/Layout/Nav/Nav'
 
-export const TeacherCoursesContext = createContext()
+export const AdvUserCoursesContext = createContext()
 
-export function TeacherCoursesProvider({ children }) {
-    const teacherCoursesInitialState = {
+export function AdvUserCoursesProvider({ children }) {
+    const advUserCoursesInitialState = {
         activeCourses: [],
         deletedCourses: []
     }
-    const [teacherCourses, setTeacherCourses] = useState(teacherCoursesInitialState)
+    const [advUserCourses, setAdvUserCourses] = useState(advUserCoursesInitialState)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const delCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
-                const courses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
-                setTeacherCourses({
-                    ...teacherCoursesInitialState,
+                const delCourses = await axios.get(`${baseUrl}/courses/deleted`)
+                const courses = await axios.get(`${baseUrl}/courses`)
+                setAdvUserCourses({
+                    ...advUserCoursesInitialState,
                     activeCourses: courses.data,
                     deletedCourses: delCourses.data
                 })
