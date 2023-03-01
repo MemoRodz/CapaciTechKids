@@ -31,3 +31,6 @@ dist-ssr
 .env.test.local
 .env.production.local
 .env
+
+# package-lock.json
+package-lock.json
