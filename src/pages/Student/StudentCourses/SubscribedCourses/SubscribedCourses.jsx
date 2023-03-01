@@ -9,9 +9,9 @@ function SubscribedCourses() {
 
     return (
         <>
-            {courses && courses.map((c) => (
+            {courses ? courses.map((c) => (
                 <StudentCourse {...c} />
-            ))}
+            )) : <h2>No estas subscrito a un curso</h2>}
         </>
     )
 }
