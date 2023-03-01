@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Routes, Route, Link } from "react-router-dom"
+
+import styles from './Student.module.css'
+import { StudentProfile, StudentCourses } from './index'
 
 function Student() {
   const navigate = useNavigate()
@@ -14,7 +17,16 @@ function Student() {
 
   return (
     <>
-      <h2>Student</h2>
+      <div className={styles.student_profile}>
+        <div className={styles.student_sidebar}>
+          <Link to={'/dashboard/student/'}>Mi perfil</Link>
+          <Link to={'/dashboard/student/courses'}>Mis cursos</Link>
+        </div>
+        <Routes>
+          <Route path='/' element={<StudentProfile />}></Route>
+          <Route path='/courses' element={<StudentCourses />}></Route>
+        </Routes>
+      </div>
     </>
   )
 }

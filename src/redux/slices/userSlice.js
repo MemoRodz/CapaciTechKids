@@ -6,6 +6,7 @@ const initialState = {
     userRole: '',
     userName: '',
     email: '',
+    userId: '',
 }
 
 export const userSlice = createSlice({
@@ -14,13 +15,14 @@ export const userSlice = createSlice({
     reducers: {
         setUserInfo: (state, action) => {
             if (action.payload) {
-                const { name, UserType, email, picture } = action.payload
+                const { Name, UserType, Email, picture, PK_User } = action.payload
                 return {
                     ...state,
                     isLogged: true,
                     userRole: UserType.toLowerCase(),
-                    userName: name,
-                    email: email
+                    userName: Name,
+                    email: Email,
+                    userId: PK_User,
                 }
             }
         },
