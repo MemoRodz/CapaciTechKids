@@ -47,6 +47,7 @@ export default function Detail() {
       return score
     }
   }
+  console.log(id)
 
 
   return relatedLoaded ? (
@@ -58,7 +59,7 @@ export default function Detail() {
         <img src={course.Image} alt="{course.Title}" />
         <h1>{course.Title} Titulo</h1>
         <div className={styles.studybutton}>
-          <button>Empezar</button>
+          <Link to={`/player/${course.PK_Course}`}><button>Empezar</button></Link>
         </div>
         <hr />
         <h2>Este curso incluye</h2>
