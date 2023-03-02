@@ -24,7 +24,8 @@ function App() {
             <Route path="/detail/:id" element={<Detail />} />
             <Route path='/about' element={<About />} />
             <Route path='/donate' element={<Donate />} />
-            <Route path='/gracias' element={<Gracias />} />            
+            <Route path='/gracias' element={<Gracias />} /> 
+            <Route path = "/player/:id" element ={<Player />}  />        
               <Route path='/player' element={
                 <ProSidebarProvider>
                   <Player />
