@@ -1,24 +1,24 @@
 import axios from 'axios'
 import { useState, useEffect, createContext } from 'react'
 import { baseUrl } from '../models/baseUrl'
-import { usuario } from '../component/Layout/Nav/Nav'
+// import { usuario } from '../component/Layout/Nav/Nav'
 
-export const AdvUserCoursesContext = createContext()
+export const AdminCoursesContext = createContext()
 
-export function AdvUserCoursesProvider({ children }) {
-    const advUserCoursesInitialState = {
+export function AdminCoursesProvider({ children }) {
+    const adminCoursesInitialState = {
         activeCourses: [],
         deletedCourses: []
     }
-    const [advUserCourses, setAdvUserCourses] = useState(advUserCoursesInitialState)
+    const [adminCourses, setAdminCourses] = useState(adminCoursesInitialState)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const delCourses = await axios.get(`${baseUrl}/courses/deleted`)
                 const courses = await axios.get(`${baseUrl}/courses`)
-                setAdvUserCourses({
-                    ...advUserCoursesInitialState,
+                setAdminCourses({
+                    ...adminCoursesInitialState,
                     activeCourses: courses.data,
                     deletedCourses: delCourses.data
                 })
@@ -30,8 +30,8 @@ export function AdvUserCoursesProvider({ children }) {
     }, [])
 
     return (
-        <TeacherCoursesContext.Provider value={{ teacherCourses, setTeacherCourses }}>
+        <AdminCoursesContext.Provider value={{ adminCourses, setAdminCourses }}>
             {children}
-        </TeacherCoursesContext.Provider>
+        </AdminCoursesContext.Provider>
     )
 }

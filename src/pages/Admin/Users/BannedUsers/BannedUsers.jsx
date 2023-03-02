@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
+import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
 
@@ -12,8 +12,6 @@ function BannedUsers() {
   useEffect(() => {
     async function fetchBannedUsers() {
       const response = await axios.get('http://localhost:3001/users/bannedusers');
-      // const data = await response.json();
-    //   console.log(response.data)
       setBannedUsers(response.data);
     }
     fetchBannedUsers();
@@ -24,6 +22,14 @@ const handleSort = (column) => {
   setOrder(isAsc ? 'desc' : 'asc');
   setOrderBy(column);
 }
+
+const handleToggle = async (event, banneduser) => {
+  const isChecked = event.target.checked;
+  const apiEndpoint = isChecked ? `/users/${banneduser.PK_User}/activate` : `/users/${banneduser.PK_User}/delete`;
+  await axios.get(`http://localhost:3001${apiEndpoint}`);
+  const updatedBannedUsers = await axios.get('http://localhost:3001/users/bannedusers');
+  setBannedUsers(updatedBannedUsers.data);
+};
 
 const sortData = (data) => {
   const sortedData = data.sort((a,b) => {
@@ -75,7 +81,9 @@ const sortData = (data) => {
               <TableCell>{bannedUser.Name}</TableCell>
               <TableCell>{bannedUser.Email}</TableCell>
               <TableCell>{bannedUser.Register_Date}</TableCell>
-              <TableCell>{bannedUser.Active.toString()}</TableCell>
+              <TableCell>
+  <Switch defaultChecked={bannedUser.Active} onChange={(e) => handleToggle(e, bannedUser)} />
+</TableCell>
               <TableCell><Checkbox/></TableCell>
             </TableRow>
           ))}

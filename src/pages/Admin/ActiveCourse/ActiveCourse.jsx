@@ -1,25 +1,26 @@
-import styles from './DeleteCourse.module.css'
-import { FaRegClock, FaThLarge } from "react-icons/fa";
-import { TeacherCoursesContext } from '../../../context/TeacherCoursesContext'
-import axios from 'axios';
 import { useContext } from 'react';
+import styles from './ActiveCourse.module.css'
+import { FaRegClock, FaThLarge } from "react-icons/fa";
+import { AdminCoursesContext } from '../../../context/AdminCoursesContext'
 import { baseUrl } from '../../../models/baseUrl'
+import axios from 'axios';
 import { usuario } from '../../../component/Layout/Nav/Nav';
 
-export default function DeleteCourse(props) {
-  const { setTeacherCourses, teacherCourses } = useContext(TeacherCoursesContext)
+
+export default function ActiveCourse(props) {
+  const { setAdminCourses, adminCourses } = useContext(AdminCoursesContext)
   const { Title, Description, Image, Score, PK_Course, Duration } = props
 
-
-  const handleActivate = async (id) => {
+  const handleDelete = async (id) => {
     try {
-      const response = await axios.put(`${baseUrl}/courses/detail/${id}/activate`)
+      const response = await axios.put(`${baseUrl}/courses/detail/${id}/delete`)
       console.log(response);
-      const activeCourses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
-      const deletedCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
-      setTeacherCourses({
-        deletedCourses: deletedCourses.data,
-        activeCourses: activeCourses.data
+      const deletedCourses = await axios.get(`${baseUrl}/courses/deleted`)
+      const activeCourses = await axios.get(`${baseUrl}/courses`)
+      setAdminCourses({
+        ...adminCourses,
+        activeCourses: activeCourses.data,
+        deletedCourses: deletedCourses.data
       })
     } catch (error) {
       console.log(error);
@@ -28,7 +29,7 @@ export default function DeleteCourse(props) {
 
   return (
     <div className={styles.card}>
-      <button onClick={() => handleActivate(PK_Course)} className={styles.deleteBtn}>x</button>
+      <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         <div className={styles.similar1}>

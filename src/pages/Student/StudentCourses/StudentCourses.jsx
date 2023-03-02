@@ -1,8 +1,14 @@
 import styles from './StudentCourses.module.css'
+import { StudentCoursesProvider } from '../../../context/StudentCoursesContext'
+import { SubscribedCourses } from '../index'
 
 function StudentCourses() {
   return (
-    <h2>StudentCourses</h2>
+    <>
+      <StudentCoursesProvider>
+        <SubscribedCourses />
+      </StudentCoursesProvider>
+    </>
   )
 }
 
