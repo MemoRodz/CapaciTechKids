@@ -110,7 +110,7 @@ function About() {
         </div>
       </div>
     <hr />
-    <div style={{ width: "50%", backgroundColor: "lightgrey", margin: "0 auto", padding: "10px" }}>
+    <div style={{ width: "40%", backgroundColor: "lightgrey", margin: "0 auto", padding: "10px" }}>
                     <h1>Contáctanos</h1>
                     <hr />
                     <form onSubmit={enviarEmail}>
@@ -133,7 +133,7 @@ function About() {
                         <div className="form-group">
                             <label><b>Mensaje: </b></label>
                             <textarea type="text" style= {{
-                                width: "316px",
+                                width: "338px",
                                 height: "210px",
                             }} id="mensaje" name="mensaje"></textarea>
                         </div>
