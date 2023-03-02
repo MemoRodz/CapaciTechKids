@@ -1,0 +1,16 @@
+.active_courses_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.active_courses{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.active_courses_container h2{
+    text-align: center;
+}
