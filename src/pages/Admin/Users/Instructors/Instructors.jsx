@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
+import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
 
@@ -24,6 +24,14 @@ const handleSort = (column) => {
   setOrder(isAsc ? 'desc' : 'asc');
   setOrderBy(column);
 }
+
+const handleToggle = async (event, instructor) => {
+  const isChecked = event.target.checked;
+  const apiEndpoint = isChecked ? `/users/${instructor.PK_User}/activate` : `/users/${instructor.PK_User}/delete`;
+  await axios.get(`http://localhost:3001${apiEndpoint}`);
+  const updatedInstructors = await axios.get('http://localhost:3001/users/instructors');
+  setInstructors(updatedInstructors.data);
+};
 
 const sortData = (data) => {
   const sortedData = data.sort((a,b) => {
@@ -75,7 +83,9 @@ const sortData = (data) => {
               <TableCell>{instructor.Name}</TableCell>
               <TableCell>{instructor.Email}</TableCell>
               <TableCell>{instructor.Register_Date}</TableCell>
-              <TableCell>{instructor.Active.toString()}</TableCell>
+              <TableCell>
+  <Switch defaultChecked={instructor.Active} onChange={(e) => handleToggle(e, instructor)} />
+</TableCell>
               <TableCell><Checkbox/></TableCell>
             </TableRow>
           ))}
