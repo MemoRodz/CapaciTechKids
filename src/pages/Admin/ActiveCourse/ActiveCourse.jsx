@@ -38,7 +38,7 @@ export default function ActiveCourse(props) {
         </div>
         <div className={styles.similar2}>
           <FaRegClock />
-          <h4>{Duration / 3600}h</h4>
+          <h4> {Duration} Min.</h4>
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>
