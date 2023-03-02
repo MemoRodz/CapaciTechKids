@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
+import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
 
@@ -24,6 +24,14 @@ const handleSort = (column) => {
   setOrder(isAsc ? 'desc' : 'asc');
   setOrderBy(column);
 }
+
+const handleToggle = async (event, advUser) => {
+  const isChecked = event.target.checked;
+  const apiEndpoint = isChecked ? `/users/${advUser.PK_User}/activate` : `/users/${advUser.PK_User}/delete`;
+  await axios.get(`http://localhost:3001${apiEndpoint}`);
+  const updatedAdvUser = await axios.get('http://localhost:3001/users/advusers');
+  setAdvUsers(updatedAdvUser.data);
+};
 
 const sortData = (data) => {
   const sortedData = data.sort((a,b) => {
@@ -75,7 +83,9 @@ const sortData = (data) => {
               <TableCell>{advUser.Name}</TableCell>
               <TableCell>{advUser.Email}</TableCell>
               <TableCell>{advUser.Register_Date}</TableCell>
-              <TableCell>{advUser.Active.toString()}</TableCell>
+              <TableCell>
+  <Switch defaultChecked={advUser.Active} onChange={(e) => handleToggle(e, advUser)} />
+</TableCell>
               <TableCell><Checkbox/></TableCell>
             </TableRow>
           ))}
