@@ -6,3 +6,7 @@ export { default as BannedUsers } from './Users/BannedUsers/BannedUsers';
 export { default as Instructors } from './Users/Instructors/Instructors';
 export { default as Students } from './Users/Students/Students';
 export { default as Users } from './Users/Users';
+export { default as ActiveCourse } from './ActiveCourse/ActiveCourse';
+export { default as ActiveCourses } from './ActiveCourses/ActiveCourses';
+export { default as DeleteCourse } from './DeleteCourse/DeleteCourse';
+export { default as DeletedCourses } from './DeletedCourses/DeletedCourses';
