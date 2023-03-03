@@ -1,89 +1,78 @@
-import React, { useState } from 'react';
-import Sidebar from "../Sidebar/Sidebar";
+import { useState, useEffect } from 'react';
+import { FaLock,FaLockOpen } from 'react-icons/fa';
 import styles from "../Player/Player.module.css"
 import ReactPlayer from 'react-player/youtube'
+import {baseUrl} from '../../../models/baseUrl'
+import {useParams} from 'react-router-dom'
+import axios from 'axios';
+import ReviewForm from "../Review's form/review"
 
 function Player() {
-  const [currentModule, setCurrentModule] = useState(1);
 
-  const handleNextModule = () => {
+  const { id } = useParams();  
+  const [actives, setActives] = useState([])
+  const [index, setIndex] = useState(1)
+  const [showReview, setShowReview] = useState(false);
+  
+  console.log(id)
     
-      setCurrentModule(currentModule + 1);
-    
+  const handleNext = () => {
+    setIndex(index + 1)
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(`${baseUrl}/courses/lectures/${id}`);
+        const module2 = response.data.map(m => ({ ...m, isActive: false }));
+        let newArr = module2.map(m => {
+          if(m.NoVideo <= index){
+            return {
+              ...m,
+              isActive: true
+            }
+          }
+          return m
+        })
+        setActives(newArr)
+        index === actives.length? setShowReview(true): null;
+      } catch (error) {
+        console.log(error);
+      }
     }
-    
+    fetchData();
+  }, [index])
+  
+  console.log(index,actives.length,showReview)  
+  
 
   return (  
-    <div className={styles.player}>
-      <Sidebar setCurrentModule={setCurrentModule}/>
-      <main className={styles.reproductor}>
-        {currentModule === 1 && 
-          <div >
-            <h2>Titulo del Módulo 1</h2>
-            <h3>Descripción del Módulo 1</h3>
-            <ReactPlayer 
-              url='https://youtu.be/Ur-7KhSxEOo'
-              //url='https://youtu.be/Ur-7KhSxEOo' 
-              controls
-              //  / > 
-              playing
-              volume={1}
-            />
-            <button onClick={handleNextModule}>Siguiente</button>
-          </div>
-        }
-        {currentModule === 2 && 
-          <div >
-            <h2>Titulo del Módulo 2</h2>
-            <h3>Descripción del Módulo 2</h3>
-            <ReactPlayer 
-              url='https://youtu.be/Ur-7KhSxEOo' 
-              playing 
-              volume={1}
-            />
-            <button onClick={handleNextModule}>Siguiente</button>
-          </div>
-        }
-        {currentModule === 3 && 
-          <div >
-            <h2>Titulo del Módulo 3</h2>
-            <h3>Descripción del Módulo 3</h3>
-            <ReactPlayer 
-              url='https://youtu.be/Ur-7KhSxEOo' 
-              playing 
-              volume={1}
-            />
-            <button onClick={handleNextModule}>Siguiente</button>
-          </div>
-        }
-        {currentModule === 4 && 
-          <div >
-            <h2>Titulo del Módulo 4</h2>
-            <h3>Descripción del Módulo 4</h3>
-            <ReactPlayer 
-              url='https://youtu.be/Ur-7KhSxEOo' 
-              playing 
-              volume={1}
-            />
-            <button onClick={handleNextModule}>Siguiente</button>
-          </div>
-        }
-        {currentModule === 5 && 
-          <div >
-            <h2>Titulo del Módulo 5</h2>
-            <h3>Descripción del Módulo 5</h3>
-            <ReactPlayer 
-              url='https://youtu.be/Ur-7KhSxEOo' 
-              playing 
-              volume={1}
-            />
-            <Link to="/player">Deja un Comentario</Link>
-          </div>
-        }
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      
+      <div >
+      {actives && actives.map(m => (
+        <>
 
-      </main>        
+          <h3>{m.Title} {m.isActive ? <FaLockOpen/>: <FaLock/>}</h3>
+        
+        </>
+      ))}       
+      <button onClick={handleNext} disabled={index > actives.length}>Siguiente</button>
     </div>
-  )
-}
+    <div >
+        {actives && actives.map(m => (
+          <div>
+            {index===m.NoVideo?(
+              <ReactPlayer controls url={m.Video}/>
+            ) : null}
+          </div>
+        ))}  
+        {showReview ? (
+        <ReviewForm id={id}/>
+      ): null}    
+      </div>
+    </div>
+  );
+};
 
 export default Player;

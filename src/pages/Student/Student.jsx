@@ -22,10 +22,12 @@ function Student() {
           <Link to={'/dashboard/student/'}>Mi perfil</Link>
           <Link to={'/dashboard/student/courses'}>Mis cursos</Link>
         </div>
-        <Routes>
-          <Route path='/' element={<StudentProfile />}></Route>
-          <Route path='/courses' element={<StudentCourses />}></Route>
-        </Routes>
+        <div className={styles.student_views}>
+          <Routes>
+            <Route path='/' element={<StudentProfile />}></Route>
+            <Route path='/courses' element={<StudentCourses />}></Route>
+          </Routes>
+        </div>
       </div>
     </>
   )

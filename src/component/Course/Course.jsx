@@ -12,12 +12,9 @@ export default function Course(props) {
 
   const { Title, Description, Category, Image, Score, PK_Course, Duration } = props
 
-  console.log(Score);
   const [isFav, setIsFav] = useState(false);
   const [course,setCourse] = useState({});
   const [courseLoaded, setCourseLoaded] = useState(false)
-  //const dispatch = useDispatch();
-  //const myFavorites = useSelector((s) => s.myFavorites);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,8 +38,6 @@ export default function Course(props) {
       //dispatch(addFavorites(ch));
     }
   }
-
-console.log(course)
 
   return courseLoaded ? (
     <div className={styles.card}>
@@ -73,30 +68,3 @@ console.log(course)
 
 ) : null;
 }
-
-
-     /* <div className={style.left}>
-      </div>
-      <div className={style.right}>
-        <div className={style.upbar_card}>
-          <div className={style.heart}>
-            {isFav ? (
-              <button onClick={() => handleFavorite()}>❤️</button>
-            ) : (
-              <button onClick={() => handleFavorite()}>🤍</button>
-            )}
-          </div>
-          <button className={style.bttn} onClick={props.onClose}>X</button>
-        </div>
-        <div className={style.inf}>
-
-          <div>
-            <h3>{Title}</h3>
-            
-            <Estrella Score={Score / 2} />
-          </div>
-          <p>Duration: {Duration / 60} Min.</p>
-          <Link to={`/detail/${PK_Course}`}><button className={style.btn}>Study</button></Link>
-
-          </div>
-          </div> */
