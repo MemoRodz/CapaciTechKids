@@ -5,20 +5,17 @@ import ReactPlayer from 'react-player/youtube'
 import {baseUrl} from '../../../models/baseUrl'
 import {useParams} from 'react-router-dom'
 import axios from 'axios';
+import ReviewForm from "../Review's form/review"
 
 function Player() {
 
   const { id } = useParams();  
   const [actives, setActives] = useState([])
   const [index, setIndex] = useState(1)
- 
-  // const modules = [
-  //   { id: 1, title: 'Module 1', videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-  //   { id: 2, title: 'Module 2', videoUrl: 'https://www.youtube.com/watch?v=2Z4m4lnjxkY' },
-  //   { id: 3, title: 'Module 3', videoUrl: 'https://www.youtube.com/watch?v=9Deg7VrpHbM' },
-  // ];
-  // const module2 = modules.map(m => ({ ...m, isActive: false }))
- 
+  const [showReview, setShowReview] = useState(false);
+  
+  console.log(id)
+    
   const handleNext = () => {
     setIndex(index + 1)
   }
@@ -38,13 +35,15 @@ function Player() {
           return m
         })
         setActives(newArr)
+        index === actives.length? setShowReview(true): null;
       } catch (error) {
         console.log(error);
       }
     }
     fetchData();
-  }, [id,index])
+  }, [index])
   
+  console.log(index,actives.length,showReview)  
   
 
   return (  
@@ -58,7 +57,7 @@ function Player() {
         
         </>
       ))}       
-      <button onClick={handleNext} disabled={index > actives.length-1}>Siguiente</button>
+      <button onClick={handleNext} disabled={index > actives.length}>Siguiente</button>
     </div>
     <div >
         {actives && actives.map(m => (
@@ -66,9 +65,11 @@ function Player() {
             {index===m.NoVideo?(
               <ReactPlayer controls url={m.Video}/>
             ) : null}
-       
           </div>
-        ))}      
+        ))}  
+        {showReview ? (
+        <ReviewForm id={id}/>
+      ): null}    
       </div>
     </div>
   );
