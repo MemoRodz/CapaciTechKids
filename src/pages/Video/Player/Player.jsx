@@ -14,6 +14,7 @@ function Player() {
   const [index, setIndex] = useState(1)
   const [showReview, setShowReview] = useState(false);
   
+  console.log(id)
     
   const handleNext = () => {
     setIndex(index + 1)
