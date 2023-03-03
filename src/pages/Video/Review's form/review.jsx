@@ -1,6 +1,7 @@
 import React from "react";
 import {useSelector} from 'react-redux'
-import axios from "axios";
+import axios from "axios"
+import {baseUrl} from '../../../models/baseUrl'
 
 
 
@@ -23,7 +24,7 @@ const ReviewForm = (id) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("http://localhost:3001/reviews", userData)
+    axios.post(`${baseUrl}/reviews`, userData)
  }
 
 

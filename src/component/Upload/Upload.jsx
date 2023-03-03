@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Container, FormGroup, Input } from 'reactstrap';
 import styles from './Upload.module.css'
-
-const SubiendoImagenes = (props) => {
+const SubiendoImagenes = ({setImageProp}) => {
 
     const [image, setImage] = useState("");
     const [loading, setLoading] = useState(false);
@@ -25,9 +24,9 @@ const SubiendoImagenes = (props) => {
         const file = await res.json();
         console.log(file.url)
         setImage(file.secure_url)
-        setLoading(false)
+        setImageProp(file.secure_url); // Aquí se llama a setImageProp en lugar de setImage
+        setLoading(false);
     }
-
     return (
         <div>
             <Container style={{ textAlign: "center" }}>
