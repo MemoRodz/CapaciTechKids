@@ -13,10 +13,8 @@ export const Profile = () => {
     return (
         isAuthenticated && (
             <div className={styles.user}>
-                <div className={styles.imgUser} ><img src={user.picture} alt={user.name} /></div>                
-                 <h2>{user.name}</h2>
-               {/* <p>Email: {user.email}</p>
-                <p>Authentication Code: {user.sub}</p> */}
+                <div className={styles.imgUser} ><img src={user.picture ? user.picture : "Image not found"} alt={user.name} /></div>
+                <h2>{user.name ? user.name : "Name?"}</h2>
             </div>
         )
     )

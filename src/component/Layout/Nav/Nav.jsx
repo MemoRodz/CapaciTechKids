@@ -18,9 +18,6 @@ function Nav() {
   const { storedUser } = useLocalStorage()
   const dispatch = useDispatch()
   const userInfo = useSelector(state => state.user)
-  
-
-console.log("USER",userInfo)
 
   useEffect(() => {
     if (storedUser && !userInfo.email) {
@@ -30,13 +27,11 @@ console.log("USER",userInfo)
           if (typeof (response.data) !== "string") {
             dispatch(setUserInfo(response.data))
             usuario = response.data.PK_User;
-            console.log(response.data, '++++')
           }
           else {
             const response = await axios.get(`${baseUrl}/users/`)
             const dBUser = response.data.find(ele => ele.Email === storedUser.Email)
             dispatch(setUserInfo(dBUser))
-            console.log(dBUser, '>>>>')
           }
         } catch (error) {
           console.error(error);

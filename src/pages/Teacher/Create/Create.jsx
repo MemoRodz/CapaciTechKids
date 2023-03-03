@@ -112,11 +112,11 @@ const Create = () => {
                 Titulo:
                 <input
                   type="text"
-                  name="Título"
+                  name="Title"
                   minLength="5"
                   maxLength="100"
                   placeholder="Insertar Título"
-                  required
+                 
                   value={formData.Title}
                   onChange={handleInputChange}
                 />
@@ -134,10 +134,10 @@ const Create = () => {
             <div className={styles.labcont}>
               <div className={styles.lab}>
                 Descripción:
-                <textarea name="Descripcion" minlength="5" maxlength="200" placeholder="Insertar Descripción"
+                <textarea name="Description" minlength="5" maxlength="200" placeholder="Insertar Descripción"
                   value={formData.Description}
                   onChange={handleInputChange}
-                  required>
+                  >
                 </textarea>
               </div>
               <div className={styles.errs}>
@@ -148,7 +148,7 @@ const Create = () => {
           <br />
           <label htmlFor="Profesor">Profesor: </label>
           <select
-            name="Profesor"
+            name="Professor"
             value={formData.PK_User}
             onChange={handleInputChange}
           >
@@ -178,8 +178,8 @@ const Create = () => {
           <label>
             Duración:
             <input
-              type="text"
-              name="Duración"
+              type="number"
+              name="Duration"
               value={formData.Duration}
               onChange={handleInputChange}
               required

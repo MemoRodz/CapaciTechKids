@@ -25,6 +25,7 @@
     top: 10px;
     min-height: 80vh;
   }
+
   h1{
     justify-content: center
   }
@@ -118,4 +119,12 @@
 
   select{
     font-size: 18px;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+  }
+  
+  input[type=number] {
+    -moz-appearance: textfield;
   }

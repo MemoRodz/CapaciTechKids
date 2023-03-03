@@ -2,21 +2,22 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from 'react'
 import Course from "../../component/Course/Course";
 import styles from "./Courses.module.css";
-import { CategoryFilter, ScoreFilter, SortByScore, ResetFilters } from '../../component/index'
-import { getAllCourses } from '../../redux/slices/coursesSlice'
+import { CategoryFilter, SortByScore, ResetFilters } from '../../component/index'
 import { getAllCategories } from "../../redux/slices/categoriesSlice";
-import {baseUrl} from '../../models/baseUrl'
+import { setAllCourses } from '../../redux/slices/coursesSlice'
+import { baseUrl } from '../../models/baseUrl'
+import { useCourses } from "../../hooks/useCourses";
 
 
 export default function Courses() {
   const dispatch = useDispatch()
-  const arregloCourses = useSelector(state => state.courses.filteredCourses)
- console.log("Hola",arregloCourses)
-
+  const { isError, isLoading, data } = useCourses()
   useEffect(() => {
-    dispatch(getAllCourses(`${baseUrl}/courses`))
     dispatch(getAllCategories(`${baseUrl}/categories`))
-  }, [])
+    data && dispatch(setAllCourses(data))  // dispatch(getAllCourses(`${baseUrl}/courses`)) <== esta es la implementacion vieja
+  }, [data])
+
+  const arregloCourses = useSelector(state => state.courses.filteredCourses)
 
   return (
     <>

@@ -47,6 +47,7 @@ export default function Detail() {
       return score
     }
   }
+  console.log(id)
 
 
   return relatedLoaded ? (
@@ -55,9 +56,11 @@ export default function Detail() {
         <h1> </h1>
        {/*<img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677262061/CAPACITECHKIDS/images/project/ca3_ixldy5.jpg" alt="{course.Title}" />*/}
       </div>
+
       <div className={styles.leftandringh}>
         <div className={styles.opinions}>
           {/* <div className={styles.buttons}>
+
           <button>M1</button>
           <button>M2</button>
           <button>M3</button>
@@ -117,7 +120,7 @@ export default function Detail() {
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title} Titulo</h1>
           <div className={styles.studybutton}>
-            <Link to={'/player'}>Empezar</Link>
+            <Link to={`/player/${course.PK_Course}`}><button>Empezar</button></Link>
           </div>
           <hr />
           <h2>Este curso incluye</h2>
