@@ -1,0 +1,25 @@
+.student_container{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.student_container a{
+    text-decoration: none;
+    width: fit-content;
+    border-radius: 3px;
+    margin: 1.5rem .5rem;
+    padding: .2rem .3rem;
+    background-color: var(--btn-bg-active);
+}
+
+.student_sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 13rem;
+    height: 100%;
+}
+
+.student_views{
+    margin-top: 5rem;
+}
