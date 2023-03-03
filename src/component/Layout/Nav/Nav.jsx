@@ -53,7 +53,6 @@ function Nav() {
           {userInfo.userRole && <li><NavLink to={`/dashboard/${userInfo.userRole}`}>Panel</NavLink></li>}
           <div className={styles.login}>
 
-
             {isAuthenticated ? <>
               <div className={styles.acord}>
                 <details className={styles.det}>
@@ -61,7 +60,6 @@ function Nav() {
                   <LogoutButton />
                 </details>
               </div>
-
 
             </>
               :
