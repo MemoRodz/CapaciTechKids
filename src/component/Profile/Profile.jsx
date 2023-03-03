@@ -1,9 +1,11 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import styles from '../Profile/Profile.module.css'
+import { useSelector } from "react-redux";
 
 export const Profile = () => {
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const user = useSelector(state => state.user) 
+    const { isAuthenticated, isLoading } = useAuth0();
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -13,10 +15,8 @@ export const Profile = () => {
     return (
         isAuthenticated && (
             <div className={styles.user}>
-                <div className={styles.imgUser} ><img src={user.picture} alt={user.name} /></div>                
-                 <h2>{user.name}</h2>
-               {/* <p>Email: {user.email}</p>
-                <p>Authentication Code: {user.sub}</p> */}
+                <div className={styles.imgUser} ><img src={user.Image ? user.Image : "Image not found"} alt={user.Name} /></div>
+                <h2>{user.Name ? user.Name : "Name?"}</h2>
             </div>
         )
     )

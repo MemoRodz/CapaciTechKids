@@ -2,7 +2,9 @@ import { useContext } from 'react';
 import styles from './ActiveCourse.module.css'
 import { FaRegClock, FaThLarge } from "react-icons/fa";
 import { TeacherCoursesContext } from '../../../context/TeacherCoursesContext'
+import { baseUrl } from '../../../models/baseUrl'
 import axios from 'axios';
+import { usuario } from '../../../component/Layout/Nav/Nav';
 
 
 export default function ActiveCourse(props) {
@@ -11,10 +13,11 @@ export default function ActiveCourse(props) {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.put(`/courses/detail/${id}/delete`)
+      const response = await axios.put(`${baseUrl}/courses/detail/${id}/delete`)
       console.log(response);
-      const deletedCourses = await axios.get('/courses/deleted')
-      const activeCourses = await axios.get('/courses/')
+      const deletedCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
+      const activeCourses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
+
       setTeacherCourses({
         ...teacherCourses,
         activeCourses: activeCourses.data,
@@ -36,7 +39,7 @@ export default function ActiveCourse(props) {
         </div>
         <div className={styles.similar2}>
           <FaRegClock />
-          <h4>{Duration / 3600}h</h4>
+          <h4> {Duration} Min.</h4>
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>

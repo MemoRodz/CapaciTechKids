@@ -1,0 +1,109 @@
+.card {
+    margin: 20px;
+    background: #FFFFFF;
+    width: 335px;
+    height: 575px;
+    border-radius: 20px;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 40px #FFFFFF;
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+  }
+
+a {
+    display: block;
+}
+
+
+
+.heard {
+    position: relative;
+    width: 1920px;
+    height: 652px;
+    top: 145px;
+    left: 0;
+    z-index: 15;
+}
+
+.img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.heard img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.coursedet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 355px;
+}
+
+.similar1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 355px;
+}
+
+.similar2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 355px;
+}
+
+.teach {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 329px;
+}
+
+.teach img {
+    position: relative;
+    top: 5px;
+    width: 44px;
+    height: 44px;
+}
+
+.btndetail button {
+    background: #0583F2;
+    color: #FFFFFF;
+    width: 154px;
+    height: 64px;
+    font-size: 20px;
+    border-radius: 80px;
+    border: none;
+}
+
+.activeBtn{
+    background: transparent;
+    font-weight: bold;
+    padding:.5rem .8rem;
+    margin: .2rem;
+    border-radius: 3px;
+}
+
+.activeBtn:hover{
+    background-color: gray;
+}

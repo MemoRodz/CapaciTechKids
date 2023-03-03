@@ -26,8 +26,12 @@ dist-ssr
 *.sw?
 
 # Local Settings
+.env
 .env.local  
 .env.development.local
 .env.test.local
 .env.production.local
-.env
+
+
+# package-lock.json
+package-lock.json

@@ -12,12 +12,9 @@ export default function Course(props) {
 
   const { Title, Description, Category, Image, Score, PK_Course, Duration } = props
 
-  console.log(Score);
   const [isFav, setIsFav] = useState(false);
   const [course,setCourse] = useState({});
   const [courseLoaded, setCourseLoaded] = useState(false)
-  //const dispatch = useDispatch();
-  //const myFavorites = useSelector((s) => s.myFavorites);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,8 +39,6 @@ export default function Course(props) {
     }
   }
 
-console.log(course)
-
   return courseLoaded ? (
     <div className={styles.card}>
       <Link to={`/detail/${course.PK_Course}`}>
@@ -57,7 +52,7 @@ console.log(course)
         </div>
         <div className={styles.similar2}>
           <FaRegClock />
-          <h4>{course.Duration/3600}h</h4>
+          <h4> {course.Duration} Min.</h4>
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>
@@ -65,7 +60,7 @@ console.log(course)
         <img src="..\img\image 12.png" alt="perfil" />
         <h3>{course.tblUser.Name}</h3>
         <div className={styles.btndetail}>
-
+          <Link to={`/detail/${course.PK_Course}`}><button>Detail</button></Link>
         </div>
       </div>
     </Link>
@@ -73,30 +68,3 @@ console.log(course)
 
 ) : null;
 }
-
-
-     /* <div className={style.left}>
-      </div>
-      <div className={style.right}>
-        <div className={style.upbar_card}>
-          <div className={style.heart}>
-            {isFav ? (
-              <button onClick={() => handleFavorite()}>❤️</button>
-            ) : (
-              <button onClick={() => handleFavorite()}>🤍</button>
-            )}
-          </div>
-          <button className={style.bttn} onClick={props.onClose}>X</button>
-        </div>
-        <div className={style.inf}>
-
-          <div>
-            <h3>{Title}</h3>
-            
-            <Estrella Score={Score / 2} />
-          </div>
-          <p>Duration: {Duration / 60} Min.</p>
-          <Link to={`/detail/${PK_Course}`}><button className={style.btn}>Study</button></Link>
-
-          </div>
-          </div> */

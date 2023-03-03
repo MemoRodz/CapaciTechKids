@@ -3,7 +3,8 @@ import { FaRegClock, FaThLarge } from "react-icons/fa";
 import { TeacherCoursesContext } from '../../../context/TeacherCoursesContext'
 import axios from 'axios';
 import { useContext } from 'react';
-
+import { baseUrl } from '../../../models/baseUrl'
+import { usuario } from '../../../component/Layout/Nav/Nav';
 
 export default function DeleteCourse(props) {
   const { setTeacherCourses, teacherCourses } = useContext(TeacherCoursesContext)
@@ -12,10 +13,11 @@ export default function DeleteCourse(props) {
 
   const handleActivate = async (id) => {
     try {
-      const response = await axios.put(`/courses/detail/${id}/activate`)
+      const response = await axios.put(`${baseUrl}/courses/detail/${id}/activate`)
       console.log(response);
-      const activeCourses = await axios.get('/courses/')
-      const deletedCourses = await axios.get('/courses/deleted')
+      const activeCourses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
+      const deletedCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
+
       setTeacherCourses({
         deletedCourses: deletedCourses.data,
         activeCourses: activeCourses.data
@@ -36,7 +38,7 @@ export default function DeleteCourse(props) {
         </div>
         <div className={styles.similar2}>
           <FaRegClock />
-          <h4>{Duration / 3600}h</h4>
+          <h4> {Duration} Min.</h4>
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>
