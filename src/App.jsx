@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Home, Courses, About, Donate, Dashboard, Gracias, Player } from './pages/index'
+import { Home, Courses, About, Donate, Dashboard, Gracias, Player, EditCourse } from './pages/index'
 import AuthGuard from './guards/authGuard'
 import Layout from './component/Layout/Layout'
 import Detail from './pages/Detail/Detail'
@@ -33,6 +33,7 @@ function App() {
             {/*<Route path='/login' element={<Login/>} />*/}
             <Route element={<AuthGuard />}>
               <Route path='/dashboard/*' element={<Dashboard />} />
+              <Route path='/edit/detail/:id' element={<EditCourse />} />
             </Route>
 
           </Routes>
