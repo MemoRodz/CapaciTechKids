@@ -74,8 +74,8 @@ function About() {
     try {
       console.log(`Service: ${serviceEmail}, Template: ${templateContactUs}, userId: ${userId}`);
       emailjs.sendForm(serviceEmail, templateContactUs, e.target, userId).then(res => {
-        setFormData(formDataInitialState);
         swal("¡Gracias por tu comentario!", "¡Espera nuestra respuesta!", "success");
+        setFormData(formDataInitialState);
         console.log(res);
       })
     } catch (error) {
@@ -248,6 +248,7 @@ function About() {
               id="mensaje"
               name="mensaje"
               placeholder='Deja tu mensaje de hasta 1,500 caracteres.'
+              required
               value={text} onChange={handleTextChange}
             />
             <p>{text.length}/1500</p>
