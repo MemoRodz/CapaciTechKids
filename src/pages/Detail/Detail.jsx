@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
 import { useParams, Link } from "react-router-dom";
-import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
+import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
 import axios from "axios";
 import Estrella from '../../component/Estrella/Estrella'
+import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
 
 export default function Detail() {
@@ -30,6 +31,7 @@ export default function Detail() {
     fetchData();
   }, []);
   console.log("Related", related)
+
   function Score() {
 
     const score = course.Score / 2
@@ -173,94 +175,8 @@ export default function Detail() {
           <Link to={"/course"}>Ver Todos</Link>
         </div>
         <div className={styles.cards}>
-          <div className={styles.card}>
-            <img src={related[0].Image} alt="course01" />
-            <div className={styles.coursedet}>
-              <div className={styles.similar1}>
-                <FaThLarge />
-                <h4>{related[0].tblCategories[0].Name}</h4>
-              </div>
-              <div className={styles.similar2}>
-                <FaRegClock />
-                <h4>{related[0].Duration / 3600}h</h4>
-              </div>
-            </div>
-            <div className={styles.cardtitle}><h1>{related[0].Title}</h1></div>
-
-            <div className={styles.teach}>
-              <img src="..\img\image 12.png" alt="perfil" />
-              <h3>{related[0].tblUser.Name}</h3>
-              <div className={styles.btndetail}>
-                <Link to={`/detail/${related[0].PK_Course}`}><button>Detalle</button></Link>
-              </div>
-            </div>
-          </div>
-          <div className={styles.card}>
-            <img src={related[1].Image} alt="course01" />
-            <div className={styles.coursedet}>
-              <div className={styles.similar1}>
-                <FaThLarge />
-                <h4>{related[1].tblCategories[0].Name}</h4>
-              </div>
-              <div className={styles.similar2}>
-                <FaRegClock />
-                <h4>{related[1].Duration / 3600}h</h4>
-              </div>
-            </div>
-            <div className={styles.cardtitle}><h1>{related[1].Title}</h1></div>
-
-            <div className={styles.teach}>
-              <img src="..\img\image 12.png" alt="perfil" />
-              <h3>{related[1].tblUser.Name}</h3>
-              <div className={styles.btndetail}>
-                <Link to={`/detail/${related[1].PK_Course}`}><button>Detalle</button></Link>
-              </div>
-            </div>
-          </div>
-          <div className={styles.card}>
-            <img src={related[2].Image} alt="course01" />
-            <div className={styles.coursedet}>
-              <div className={styles.similar1}>
-                <FaThLarge />
-                <h4>{related[2].tblCategories[0].Name}</h4>
-              </div>
-              <div className={styles.similar2}>
-                <FaRegClock />
-                <h4>{related[2].Duration / 3600}h</h4>
-              </div>
-            </div>
-            <div className={styles.cardtitle}><h1>{related[2].Title}</h1></div>
-
-            <div className={styles.teach}>
-              <img src="..\img\image 12.png" alt="perfil" />
-              <h3>{related[2].tblUser.Name}</h3>
-              <div className={styles.btndetail}>
-                <Link to={`/detail/${related[2].PK_Course}`}><button>Detalle</button></Link>
-              </div>
-            </div>
-          </div>
-          <div className={styles.card}>
-            <img src={related[3].Image} alt="course01" />
-            <div className={styles.coursedet}>
-              <div className={styles.similar1}>
-                <FaThLarge />
-                <h4>{related[3].tblCategories[0].Name}</h4>
-              </div>
-              <div className={styles.similar2}>
-                <FaRegClock />
-                <h4>{related[3].Duration / 3600}h</h4>
-              </div>
-            </div>
-            <div className={styles.cardtitle}><h1>{related[3].Title}</h1></div>
-
-            <div className={styles.teach}>
-              <img src="..\img\image 12.png" alt="perfil" />
-              <h3>{related[3].tblUser.Name}</h3>
-              <div className={styles.btndetail}>
-                <Link to={`/detail/${related[3].PK_Course}`}><button>Detalle</button></Link>
-              </div>
-            </div>
-          </div>
+        {related && related.length <= 4 ? related.map(e => <DetailCard {...e}/>) : 
+            related && related.slice(0, 4).map(e => <DetailCard {...e}/>)}
         </div>
       </div>
     </div>
