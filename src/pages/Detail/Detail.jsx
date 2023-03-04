@@ -20,6 +20,7 @@ export default function Detail() {
         const curso = await axios.get(`${baseUrl}/courses/detail/${id}`)
         const reviews = await axios.get(`${baseUrl}/reviews/related/${id}`)
         const rela = await axios.get(`${baseUrl}/categories/co/${id}`)
+
         setCourse(curso.data);
         setReview(reviews.data);
         setRelated(rela.data)
@@ -55,8 +56,10 @@ export default function Detail() {
   return relatedLoaded ? (
     <div className={styles.container}>
       <div className={styles.heard}>
+
         <h1> </h1>
        {/*<img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677262061/CAPACITECHKIDS/images/project/ca3_ixldy5.jpg" alt="{course.Title}" />*/}
+
       </div>
 
       <div className={styles.leftandringh}>
