@@ -52,6 +52,13 @@ function StudentProfile() {
                     type="text"
                     value={userData.Name} 
                     onChange={handleChange}></input>
+                    <br></br>
+                    <label>Agrega tu nuevo email:</label>
+                 <input   
+                    name="Email" 
+                    type="text"
+                    value={userData.Email} 
+                    onChange={handleChange}></input>
     
                     <br></br>
                 <label>Agrega tu nueva imagen: </label>
