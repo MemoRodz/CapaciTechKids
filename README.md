@@ -4,12 +4,12 @@
 
 * Diagrama entidad Relación:
 <br/>
-    <img  src='./img/Version 00.jpeg' height='100px'>
+    <img  src='./img/E-R Diagram CapaciTech Kids Ver 01_1.svg' height='100px'>
 
 
 # Colaboradores del proyecto:
 
-* [Agustin Cristobo](https://github.com/Fr33yr)
+* [Agustin Cristobo](https://github.com/Fr33yr) 
 
 * [Brandon Reyes](https://github.com/Brareyesb15)
 
