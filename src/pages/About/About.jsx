@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../About/About.module.css'
 import { FaGithub } from "react-icons/fa";
 import emailjs from 'emailjs-com';
+import swal from 'sweetalert';
 
 const serviceEmail = import.meta.env.VITE_EMAILJS_SERVICE;
 const templateContactUs = import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACTUS;
@@ -13,9 +14,10 @@ function About() {
     e.preventDefault();
     console.log("Correo: ", e.target.email.value);
     emailjs.sendForm(serviceEmail, templateContactUs, e.target, userId).then(res => {
-        console.log(res);
+      swal("¡Gracias por tu comentario!", "¡Espera nuestra respuesta!", "success");
+      console.log(res);
     })
-}
+  }
 
   return (
     <div className={styles.about}>
@@ -109,37 +111,37 @@ function About() {
           </a>
         </div>
       </div>
-    <hr />
-    <div style={{ width: "40%", backgroundColor: "lightgrey", margin: "0 auto", padding: "10px" }}>
-                    <h1>Contáctanos</h1>
-                    <hr />
-                    <form onSubmit={enviarEmail}>
-                        <div >
-                            <div >
-                                <label><b>Nombre: </b></label>
-                                <input type="text" style= {{
-                                    width: "316px",
-                                    height: "30px",
-                                }} id="nombre" name="nombre" />
-                            </div>
-                            <div >
-                                <label><b>Email: </b></label>
-                                <input type="text" style= {{
-                                    width: "316px",
-                                    height: "30px",
-                                }} id="email" name="email" />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <label><b>Mensaje: </b></label>
-                            <textarea type="text" style= {{
-                                width: "338px",
-                                height: "210px",
-                            }} id="mensaje" name="mensaje"></textarea>
-                        </div>
-                        <button type="submit" style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}>Enviar Correo</button>
-                    </form>
-                </div>
+      <hr />
+      <div style={{ width: "40%", backgroundColor: "lightgrey", margin: "0 auto", padding: "10px" }}>
+        <h1>Contáctanos</h1>
+        <hr />
+        <form onSubmit={enviarEmail}>
+          <div >
+            <div >
+              <label><b>Nombre: </b></label>
+              <input type="text" style={{
+                width: "316px",
+                height: "30px",
+              }} id="nombre" name="nombre" />
+            </div>
+            <div >
+              <label><b>Email: </b></label>
+              <input type="text" style={{
+                width: "316px",
+                height: "30px",
+              }} id="email" name="email" />
+            </div>
+          </div>
+          <div className="form-group">
+            <label><b>Mensaje: </b></label>
+            <textarea type="text" style={{
+              width: "338px",
+              height: "210px",
+            }} id="mensaje" name="mensaje"></textarea>
+          </div>
+          <button type="submit" style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}>Enviar Correo</button>
+        </form>
+      </div>
     </div>
   )
 }
