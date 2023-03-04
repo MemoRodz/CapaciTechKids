@@ -13,11 +13,13 @@ export let usuario = ""
 
 function Nav() {
 
+
   const { isAuthenticated } = useAuth0();
 
   const { storedUser } = useLocalStorage()
   const dispatch = useDispatch()
   const userInfo = useSelector(state => state.user)
+ 
 
   useEffect(() => {
     if (storedUser && !userInfo.email) {
@@ -25,10 +27,12 @@ function Nav() {
         try {
           const response = await axios.post(`${baseUrl}/users/registro`, storedUser)
           if (typeof (response.data) !== "string") {
+           
             dispatch(setUserInfo(response.data))
             usuario = response.data.PK_User;
           }
           else {
+   
             const response = await axios.get(`${baseUrl}/users/`)
             const dBUser = response.data.find(ele => ele.Email === storedUser.Email)
             dispatch(setUserInfo(dBUser))
