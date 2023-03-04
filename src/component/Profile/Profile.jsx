@@ -12,7 +12,7 @@ export const Profile = () => {
     useEffect(() => {
         console.log("El estado de user ha cambiado", user);
         
-    }, [user]);
+    }, [user.Name]);
 
     if (isLoading) {
         return <div>Loading...</div>;

@@ -13,37 +13,29 @@ export let usuario = ""
 
 function Nav() {
 
-
   const { isAuthenticated } = useAuth0();
 
   const { storedUser } = useLocalStorage()
   const dispatch = useDispatch()
   const userInfo = useSelector(state => state.user)
- 
+  console.log("cambio en nav",userInfo)
 
   useEffect(() => {
-    if (storedUser && !userInfo.email) {
+    if (storedUser) {
       const fetchData = async () => {
         try {
           const response = await axios.post(`${baseUrl}/users/registro`, storedUser)
-          if (typeof (response.data) !== "string") {
-           
             dispatch(setUserInfo(response.data))
             usuario = response.data.PK_User;
-          }
-          else {
-   
-            const response = await axios.get(`${baseUrl}/users/`)
-            const dBUser = response.data.find(ele => ele.Email === storedUser.Email)
-            dispatch(setUserInfo(dBUser))
-          }
+       
         } catch (error) {
           console.error(error);
         }
       };
       fetchData();
     }
-  }, [storedUser, userInfo.email])
+  }, [storedUser])
+
 
   return (
     <>

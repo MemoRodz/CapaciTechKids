@@ -7,6 +7,7 @@ import axios from 'axios'
 import { setUserInfo } from '../../../redux/slices/userSlice'
 import { useDispatch } from 'react-redux'
 
+
 function StudentProfile() {
     const userInfo = useSelector(state => state.user)
     const dispatch = useDispatch()
@@ -39,8 +40,9 @@ function StudentProfile() {
                 setUpdatedUserData(userData);
                 setShowForm(false);
             const fetchData = async () => {
-                    const response = axios.get(`http://localhost:3001/users/${userInfo.ID}`)
-                     dispatch(setUserInfo(response.data))}
+                    const response = await axios.get(`${baseUrl}/users/${userInfo.ID}`)
+                    console.log("dentro de fetchdata",response.data)
+                     dispatch(setUserInfo(response.data))} // Aqui preguntarle a Agus que si lo está haciendo. 
                      fetchData()
             })
             .catch(error => {
