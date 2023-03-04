@@ -264,7 +264,7 @@ export default function Detail() {
                 <Link to={`/detail/${related[3].PK_Course}`}><button>Detalle</button></Link>
               </div>
             </div>
-          </div> */}
+          </div> 
         </div>
       </div>
     </div>
