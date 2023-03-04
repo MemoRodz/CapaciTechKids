@@ -7,16 +7,21 @@ import axios from 'axios'
 
 function StudentProfile() {
     const userInfo = useSelector(state => state.user)
-    console.log(userInfo)
-    const [image, setImage] = useState(""); 
+ 
     const [showForm, setShowForm] = useState(false);
     const [userData, setUserData] = useState({ 
         Name : "",
-        Image : image,
+        Image : "",
         PK_User : userInfo.ID,
         Email: ""
     });
 
+    function cambiarImagen(img) {
+        
+        setUserData({...userData, Image : img})
+        
+    }
+    console.log("Ahoraaaaaaaaaaaaaaaaaa",userData)
 
     function handleChange(e) {
         setUserData({...userData, [e.target.name]: e.target.value});
@@ -51,10 +56,10 @@ function StudentProfile() {
                     <br></br>
                 <label>Agrega tu nueva imagen: </label>
                 <div>
-                <SubiendoImagenes setImageProp={setImage} />
+                <SubiendoImagenes cambiarImagen={cambiarImagen} />
                 </div>
                     <br></br>
-                  <button type="submit">Enviar reseña</button>
+                  <button type="submit">Enviar cambios</button>
                   </form>
             )}
             </div>

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 export const Profile = () => {
     const user = useSelector(state => state.user) 
     const { isAuthenticated, isLoading } = useAuth0();
+    console.log(user)   
 
     if (isLoading) {
         return <div>Loading...</div>;
