@@ -8,13 +8,13 @@ import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs"
 
 const ReviewForm = ({ id, setIsSend }) => {
   const userInfo = useSelector((state) => state.user);
-
-  const [userData, setUserData] = React.useState({
+  const userDataInitialState = {
     Score: 0,
     Comment: "",
     PK_Course: id.id,
     PK_User: userInfo.ID,
-  });
+  }
+  const [userData, setUserData] = React.useState(userDataInitialState);
 
   function handleChange(e) {
     setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -27,9 +27,10 @@ const ReviewForm = ({ id, setIsSend }) => {
       title: "Review enviada",
       text: "Gracias por tu comentario",
       icon: "success",
-      buttons: "cerrar"
+      buttons: "Cerrar"
     })
     setIsSend(true)
+    setUserData(userDataInitialState)
   }
 
 
@@ -64,13 +65,15 @@ const ReviewForm = ({ id, setIsSend }) => {
         </div>
         <br></br>
         <label>Comentarios: </label>
-        <input
+        <textarea
           autoComplete="false"
           name="Comment"
+          cols="50"
+          rows="10"
           placeholder="Escribe tus comentarios sobre el curso..."
-          type="textarea"
+          required
           value={userData.Comment}
-          onChange={handleChange}></input>
+          onChange={handleChange}></textarea>
         <br></br>
         <button type="submit">Enviar Reseña</button>
       </form>
