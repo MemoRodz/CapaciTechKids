@@ -39,7 +39,7 @@ function Nav() {
       };
       fetchData();
     }
-  }, [storedUser, userInfo.email])
+  }, [storedUser, userInfo])
 
   return (
     <>
