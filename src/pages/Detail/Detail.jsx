@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
 import axios from "axios";
 import Estrella from '../../component/Estrella/Estrella'
@@ -13,6 +13,7 @@ export default function Detail() {
   const [review, setReview] = useState([]);
   const [related, setRelated] = useState([])
   const [relatedLoaded, setRelatedLoaded] = useState(false);
+  const { pathname } = useLocation()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,8 +31,7 @@ export default function Detail() {
       }
     };
     fetchData();
-  }, []);
-  console.log("Related", related)
+  }, [pathname]);
 
   function Score() {
 
@@ -58,7 +58,7 @@ export default function Detail() {
       <div className={styles.heard}>
 
         <h1> </h1>
-       {/*<img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677262061/CAPACITECHKIDS/images/project/ca3_ixldy5.jpg" alt="{course.Title}" />*/}
+        {/*<img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677262061/CAPACITECHKIDS/images/project/ca3_ixldy5.jpg" alt="{course.Title}" />*/}
 
       </div>
 
@@ -178,8 +178,8 @@ export default function Detail() {
           <Link to={"/course"}>Ver Todos</Link>
         </div>
         <div className={styles.cards}>
-        {related && related.length <= 4 ? related.map(e => <DetailCard {...e}/>) : 
-            related && related.slice(0, 4).map(e => <DetailCard {...e}/>)}
+          {related && related.length <= 4 ? related.map(e => <DetailCard {...e} />) :
+            related && related.slice(0, 4).map(e => <DetailCard {...e} />)}
         </div>
       </div>
     </div>
