@@ -17,6 +17,7 @@ export function TeacherCoursesProvider({ children }) {
             try {
                 const delCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
                 const courses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
+
                 setTeacherCourses({
                     ...teacherCoursesInitialState,
                     activeCourses: courses.data,
