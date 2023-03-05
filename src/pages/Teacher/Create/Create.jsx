@@ -30,6 +30,7 @@ const Create = () => {
     Duration: 30,
     Category: [],
     Active: true,
+    Image: ""
   };
   const navigate = useNavigate();
   const [cats, setCats] = useState([]);
@@ -43,15 +44,14 @@ const Create = () => {
     Duration: "",
     Category: [],
     Active: true,
+    Image: ""
   });
-  console.log("Errors duracion", errors.Duration);
-
+ 
   const [data, setData] = useState([]);
   useEffect(() => {
     const funciona = async () => {
       const { data } = await axios.get(`${baseUrl}/users/instructors`);
       const cats = await axios.get(`${baseUrl}/categories`);
-      console.log(cats.data);
       setCats(cats.data);
       setData(data);
     };
@@ -112,6 +112,10 @@ const Create = () => {
 
   console.log(formData);
 
+  function cambiarImagen(img) {
+    setFormData({...formData, Image : img})
+}
+
   return (
     <>
       {/* <div className={styles.heard}>
@@ -141,7 +145,7 @@ const Create = () => {
             </div>
           </label>
           <div>
-            <SubiendoImagenes />
+          <SubiendoImagenes cambiarImagen={cambiarImagen} />
           </div>
           <br />
           <label>
