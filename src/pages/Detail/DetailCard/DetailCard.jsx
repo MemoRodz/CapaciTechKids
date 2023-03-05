@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./DetailCard.module.css";
 import { Link } from 'react-router-dom'
 import { FaRegClock, FaThLarge } from "react-icons/fa";
@@ -14,6 +14,11 @@ function DetailCard({
 }) 
 {
   console.log(tblCategories)
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={styles.card}>
       <Link to={`/detail/${PK_Course}`}>
