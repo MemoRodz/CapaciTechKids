@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./DetailCard.module.css";
-import {Link} from 'react-router-dom'
-import {FaRegClock, FaThLarge } from "react-icons/fa";
+import { Link } from 'react-router-dom'
+import { FaRegClock, FaThLarge } from "react-icons/fa";
 
 function DetailCard({
   Image,
@@ -12,8 +12,8 @@ function DetailCard({
   PK_Course,
 }) {
   return (
-    <Link to={`/detail/${PK_Course}`}>
-      <div className={styles.card}>
+    <div className={styles.card}>
+      <Link to={`/detail/${PK_Course}`}>
         <img src={Image} alt="course01" />
         <div className={styles.coursedet}>
           <div className={styles.similar1}>
@@ -33,8 +33,8 @@ function DetailCard({
           <img src="..\img\image 12.png" alt="perfil" />
           <h3>{tblUser.Name}</h3>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 

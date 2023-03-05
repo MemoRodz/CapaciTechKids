@@ -135,7 +135,7 @@ export default function Detail() {
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title} Titulo</h1>
           <div className={styles.studybutton}>
-            <Link to={`/player/${course.PK_Course}`}><button>Empezar</button></Link>
+            <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
           </div>
           <hr />
           <h2>Este curso incluye</h2>
