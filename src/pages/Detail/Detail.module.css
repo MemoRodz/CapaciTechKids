@@ -268,11 +268,13 @@ button {
     background-color: #0583F2;
     height: 63px;
     border-radius: 12px;
-    color: white;
     margin: 0px 20px 20px 20px;
     font-size: 20px;
     font-weight: 700;
     border: none;
+}
+.studybutton a{
+    color: white;
 }
 
 .studybutton:hover {
