@@ -11,7 +11,6 @@ function DetailCard({
   Title,
   PK_Course,
 }) {
-    console.log(">>>>>>>IMAGEN>>>>>",Image);
   return (
     <Link to={`/detail/${PK_Course}`}>
       <div className={styles.card}>
