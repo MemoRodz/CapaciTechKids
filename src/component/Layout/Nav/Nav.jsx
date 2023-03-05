@@ -30,13 +30,11 @@ function Nav() {
           if (typeof (response.data) !== "string") {
             dispatch(setUserInfo(response.data))
             usuario = response.data.PK_User;
-            console.log(response.data, '++++')
           }
           else {
             const response = await axios.get(`${baseUrl}/users/`)
             const dBUser = response.data.find(ele => ele.Email === storedUser.Email)
             dispatch(setUserInfo(dBUser))
-            console.log(dBUser, '>>>>')
           }
         } catch (error) {
           console.error(error);
