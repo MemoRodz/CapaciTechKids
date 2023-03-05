@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 .general_container {
   display: flex;
   flex-direction: column;
@@ -10,4 +14,5 @@
 }
 .donar{
   margin: 0 auto;
+  text-align: center;
 }

@@ -4,7 +4,7 @@ import Estrella from '../Estrella/Estrella';
 import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar,
    FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane,
     FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link,  } from 'react-router-dom';
 import axios from 'axios';
 import { baseUrl } from '../../models/baseUrl';
 
@@ -61,9 +61,9 @@ export default function Course(props) {
       <div className={styles.teach}>
         <img src="..\img\image 12.png" alt="perfil" />
         <h3>{course.tblUser.Name}</h3>
-        <div className={styles.btndetail}>
+        {/* <div className={styles.btndetail}>
           <Link to={`/detail/${course.PK_Course}`}></Link>
-        </div>
+        </div> */}
       </div>
     </Link>
     </div>

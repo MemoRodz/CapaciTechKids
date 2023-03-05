@@ -5,6 +5,7 @@ import Layout from './component/Layout/Layout'
 import Detail from './pages/Detail/Detail'
 import { useAuth0 } from '@auth0/auth0-react';
 import {  ProSidebarProvider} from "react-pro-sidebar";
+import DetailCard from './pages/Detail/DetailCard/DetailCard'
 //import Login from '../'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path='*' element={<h2>Not Found</h2>} />
             <Route path='/course' element={<Courses />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/detail/:id" element={<DetailCard />} />
             <Route path='/about' element={<About />} />
             <Route path='/donate' element={<Donate />} />
             <Route path='/gracias' element={<Gracias />} /> 
