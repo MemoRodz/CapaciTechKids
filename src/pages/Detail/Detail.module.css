@@ -268,11 +268,13 @@ button {
     background-color: #0583F2;
     height: 63px;
     border-radius: 12px;
-    color: white;
     margin: 0px 20px 20px 20px;
     font-size: 20px;
     font-weight: 700;
     border: none;
+}
+.studybutton a{
+    color: white;
 }
 
 .studybutton:hover {
@@ -376,80 +378,4 @@ hr {
     align-items: center;
     justify-content: center;
     width: 60%;
-}
-
-.card {
-    margin: 0 2%;
-    background: #FFFFFF;
-    width: 30%;
-    height: 60vh;
-    border-radius: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    border: solid 20px #FFFFFF;
-}
-
-.card img {
-    width: 100%;
-    position: relative;
-    top: -2%;
-}
-
-.coursedet {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.similar1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 355px;
-}
-
-.similar2 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    width: 355px;
-}
-
-.teach {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.teach img {
-    position: relative;
-    top: 5px;
-    width: 44px;
-    height: 44px;
-}
-
-.cardtitle h1 {
-    position: relative;
-    left: 0px;
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
-}
-
-.btndetail button {
-    background: #0583F2;
-    color: #FFFFFF;
-    width: 120px;
-    height: 64px;
-    font-size: 20px;
-    border-radius: 80px;
-    border: none;
 }

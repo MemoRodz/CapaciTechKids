@@ -17,6 +17,7 @@ export default function DeleteCourse(props) {
       console.log(response);
       const activeCourses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
       const deletedCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
+
       setTeacherCourses({
         deletedCourses: deletedCourses.data,
         activeCourses: activeCourses.data
