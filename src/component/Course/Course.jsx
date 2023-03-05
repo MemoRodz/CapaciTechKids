@@ -6,6 +6,7 @@ import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar,
     FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { baseUrl } from '../../models/baseUrl';
 
 
 export default function Course(props) {
@@ -19,7 +20,7 @@ export default function Course(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const curso =  await axios.get(`/courses/detail/${PK_Course}`)
+        const curso =  await axios.get(`${baseUrl}/courses/detail/${PK_Course}`)
         setCourse(curso.data);
         setCourseLoaded(true);
       } catch (error) {
@@ -27,7 +28,7 @@ export default function Course(props) {
       }
     };
     fetchData();
-  }, []);
+  }, [PK_Course]);
 
   function handleFavorite() {
     if (isFav) {
@@ -53,7 +54,7 @@ export default function Course(props) {
         </div>
         <div className={styles.similar2}>
           <FaRegClock />
-          <h4> {course.Duration} Min.</h4>
+          <h4>{course.Duration} Min.</h4>
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>
