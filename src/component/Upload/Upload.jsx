@@ -39,7 +39,6 @@ const SubiendoImagenes = ({cambiarImagen}) => {
                             name="file"
                             placeholder='Sube tu imagen aqui'
                             onChange={uploadImage}
-                            required
                         />
                     </div>
                 </FormGroup>

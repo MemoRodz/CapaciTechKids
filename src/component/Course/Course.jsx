@@ -6,6 +6,7 @@ import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar,
     FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { baseUrl } from '../../models/baseUrl';
 
 
 export default function Course(props) {
@@ -19,7 +20,8 @@ export default function Course(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const curso =  await axios.get(`/courses/detail/${PK_Course}`)
+        const curso =  await axios.get(`${baseUrl}/courses/detail/${PK_Course}`)
+        console.log(curso.data)
         setCourse(curso.data);
         setCourseLoaded(true);
       } catch (error) {
@@ -42,7 +44,7 @@ export default function Course(props) {
   return courseLoaded ? (
     <div className={styles.card}>
       <Link to={`/detail/${course.PK_Course}`}>
-      <img className={styles.img} src={Image} alt={Image} />
+      <img className={styles.img} src={course.Image} alt={Image} />
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
           <FaThLarge />
