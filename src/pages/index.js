@@ -24,3 +24,4 @@ export * from './Teacher';
 export { default as Player } from './Video/Player/Player';
 export { default as Sidebar } from './Video/Sidebar/Sidebar';
 export { default as Home } from './home/Home';
+export { default as EditCourse } from './EditCourse/EditCourse';

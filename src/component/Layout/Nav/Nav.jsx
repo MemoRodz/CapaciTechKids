@@ -9,6 +9,7 @@ import styles from './Nav.module.css'
 import { useEffect, useState } from 'react';
 import { baseUrl } from '../../../models/baseUrl'
 import { FaBars, FaTimes } from 'react-icons/fa';
+import userSlice from '../../../redux/slices/userSlice';
 export let usuario = ""
 
 function Nav() {
@@ -18,10 +19,10 @@ function Nav() {
   const { storedUser } = useLocalStorage()
   const dispatch = useDispatch()
   const userInfo = useSelector(state => state.user)
-  console.log("cambio en nav",userInfo)
+  // console.log("cambio en nav",userInfo)
 
 
-  console.log("USER", userInfo)
+  // console.log("USER", userInfo)
 
   useEffect(() => {
     if (storedUser) {
@@ -29,7 +30,8 @@ function Nav() {
         try {
           const response = await axios.post(`${baseUrl}/users/registro`, storedUser)
             dispatch(setUserInfo(response.data))
-            usuario = response.data.PK_User;
+            // usuario = response.data.PK_User;
+            usuario = userInfo.ID;
        
         } catch (error) {
           console.error(error);

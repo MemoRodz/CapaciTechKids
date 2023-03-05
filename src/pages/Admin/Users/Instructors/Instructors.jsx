@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
+import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, NativeSelect } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
 
@@ -33,6 +33,15 @@ const handleToggle = async (event, instructor) => {
   setInstructors(updatedInstructors.data);
 };
 
+  const handleUserType = async (event, instructor) => {
+    const newUserType = event.target.value;
+    await axios.put(`http://localhost:3001/users/putusers`, { PK_User:instructor.PK_User, UserType: newUserType })
+    const updatedInstructors = await axios.get('http://localhost:3001/users/instructors');
+    setInstructors(updatedInstructors.data);
+  };
+
+
+
 const sortData = (data) => {
   const sortedData = data.sort((a,b) => {
       if (order === 'asc') {
@@ -54,7 +63,7 @@ const sortData = (data) => {
           <TableRow>
             <TableCell>
               <TableSortLabel active={orderBy === 'Name'} direction={orderBy === 'Name' ? order : 'asc'} onClick={() => handleSort('Name')}>
-                Name
+                Nombre
               </TableSortLabel>
             </TableCell>
             <TableCell>
@@ -64,16 +73,16 @@ const sortData = (data) => {
             </TableCell>
             <TableCell>
               <TableSortLabel active={orderBy === 'Register_Date'} direction={orderBy === 'Register_Date' ? order : 'asc'} onClick={() => handleSort('Register_Date')}>
-                Register Date
+                Fecha de Registro
               </TableSortLabel>
             </TableCell>
             <TableCell>
               <TableSortLabel active={orderBy === 'Active'} direction={orderBy === 'Active' ? order : 'asc'} onClick={() => handleSort('Active')}>
-                Active
+                Activo
               </TableSortLabel>
             </TableCell>
             <TableCell>
-              Edit
+              Editar Rol
             </TableCell>
           </TableRow>
         </TableHead>
@@ -86,7 +95,10 @@ const sortData = (data) => {
               <TableCell>
   <Switch defaultChecked={instructor.Active} onChange={(e) => handleToggle(e, instructor)} />
 </TableCell>
-              <TableCell><Checkbox/></TableCell>
+              <TableCell><NativeSelect defaultValue={"Instructor"} onChange={(e) => handleUserType(e, instructor)}>    
+                <option value={"Student"}>Student</option>
+                <option value={"Instructor"}>Instructor</option>
+                <option value={"AdvUser"}>AdvUser</option></NativeSelect></TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -10,7 +10,7 @@ export const Profile = () => {
     console.log(user)   
 
     useEffect(() => {
-        console.log("El estado de user ha cambiado", user);
+        // console.log("El estado de user ha cambiado", user);
         
     }, [user.Name]);
 
