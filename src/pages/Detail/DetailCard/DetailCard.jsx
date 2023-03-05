@@ -3,6 +3,7 @@ import styles from "./DetailCard.module.css";
 import { Link } from 'react-router-dom'
 import { FaRegClock, FaThLarge } from "react-icons/fa";
 
+
 function DetailCard({
   Image,
   tblUser,
@@ -10,7 +11,9 @@ function DetailCard({
   Duration,
   Title,
   PK_Course,
-}) {
+}) 
+{
+  console.log(tblCategories)
   return (
     <div className={styles.card}>
       <Link to={`/detail/${PK_Course}`}>
@@ -18,7 +21,7 @@ function DetailCard({
         <div className={styles.coursedet}>
           <div className={styles.similar1}>
             <FaThLarge />
-            <h4>{tblCategories.Name}</h4>
+            <h4>{tblCategories[0].Name}</h4>
           </div>
           <div className={styles.similar2}>
             <FaRegClock />
