@@ -53,6 +53,16 @@ export default function Detail() {
   console.log(id)
 
 
+    const handleFBClick = () => {
+      window.open(`http://www.facebook.com/sharer.php?u=https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
+    };
+
+    const handleWSPClick = () => {
+      window.open(`https://api.whatsapp.com/send?text=¡Echa un vistazo a esta página web! https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
+    };
+
+    
+
   return relatedLoaded ? (
     <div className={styles.container}>
       <div className={styles.heard}>
@@ -151,23 +161,13 @@ export default function Detail() {
           <hr />
           <h2>Compartir este curso</h2>
           <div className={styles.social}>
-            <div className={styles.tw}>
-              <FaTwitter />
-            </div>
+            
             <div className={styles.fac}>
-              <FaFacebookF />
-            </div>
-            <div className={styles.you}>
-              <FaYoutube />
-            </div>
-            <div className={styles.ins}>
-              <FaInstagram />
-            </div>
-            <div className={styles.tele}>
-              <FaTelegramPlane />
-            </div>
+              <FaFacebookF target="_blank" onClick={handleFBClick} />
+            </div>     
+            
             <div className={styles.wsp}>
-              <FaWhatsapp />
+              <FaWhatsapp target="_blank" onClick={handleWSPClick}/>  
             </div>
           </div>
         </div>
@@ -184,4 +184,4 @@ export default function Detail() {
       </div>
     </div>
   ) : null;
-} 
+}
