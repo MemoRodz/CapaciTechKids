@@ -19,7 +19,7 @@ export default function Course(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const curso =  await axios.get(`http://localhost:3001/courses/detail/${PK_Course}`)
+        const curso =  await axios.get(`/courses/detail/${PK_Course}`)
         setCourse(curso.data);
         setCourseLoaded(true);
       } catch (error) {
@@ -42,12 +42,13 @@ export default function Course(props) {
   return courseLoaded ? (
     <div className={styles.card}>
       <Link to={`/detail/${course.PK_Course}`}>
+      <div className={styles.imagen}></div>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
           <FaThLarge />
           {course.tblCategories.map((category) => (
-  <h4 key={category.PK_Category}>{`${category.Name} `}</h4>
+  <h4 key={category.PK_Category}>{`${category.Name} `} </h4>
 ))}
         </div>
         <div className={styles.similar2}>
@@ -60,7 +61,7 @@ export default function Course(props) {
         <img src="..\img\image 12.png" alt="perfil" />
         <h3>{course.tblUser.Name}</h3>
         <div className={styles.btndetail}>
-          <Link to={`/detail/${course.PK_Course}`}><button>Detail</button></Link>
+          <Link to={`/detail/${course.PK_Course}`}></Link>
         </div>
       </div>
     </Link>

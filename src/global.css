@@ -30,6 +30,10 @@
   font-family: 'Londrina Solid', cursive;
 }
 
+main{
+  min-height: 90vh;
+}
+
 body{
   background-color: var(--bg-clr-primary);
   margin: 0;

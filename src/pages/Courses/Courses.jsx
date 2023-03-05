@@ -19,6 +19,7 @@ export default function Courses() {
 
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
 
+
   return (
     <>
       <div className={styles.heard}>

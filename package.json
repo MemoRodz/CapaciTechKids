@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host --",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -29,6 +29,7 @@
     "react-scripts": "^5.0.1",
     "reactstrap": "^9.1.6",
     "stripe": "^11.12.0",
+    "sweetalert": "^2.1.2",
     "swr": "^2.0.4"
   },
   "devDependencies": {
