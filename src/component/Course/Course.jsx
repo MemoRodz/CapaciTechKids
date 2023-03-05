@@ -21,7 +21,6 @@ export default function Course(props) {
     const fetchData = async () => {
       try {
         const curso =  await axios.get(`${baseUrl}/courses/detail/${PK_Course}`)
-        console.log(curso.data)
         setCourse(curso.data);
         setCourseLoaded(true);
       } catch (error) {
@@ -29,7 +28,7 @@ export default function Course(props) {
       }
     };
     fetchData();
-  }, []);
+  }, [PK_Course]);
 
   function handleFavorite() {
     if (isFav) {
@@ -44,7 +43,7 @@ export default function Course(props) {
   return courseLoaded ? (
     <div className={styles.card}>
       <Link to={`/detail/${course.PK_Course}`}>
-      <img className={styles.img} src={course.Image} alt={Image} />
+      <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
           <FaThLarge />
@@ -54,7 +53,7 @@ export default function Course(props) {
         </div>
         <div className={styles.similar2}>
           <FaRegClock />
-          <h4> {course.Duration} Min.</h4>
+          <h4>{course.Duration} Min.</h4>
         </div>
       </div>
       <div className={styles.cardtit}><h1>{Title}</h1></div>
