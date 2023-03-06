@@ -19,7 +19,7 @@ function Nav() {
   const { storedUser } = useLocalStorage()
   const dispatch = useDispatch()
   const userInfo = useSelector(state => state.user)
-  // console.log("cambio en nav",userInfo)
+  usuario = userInfo.ID;
 
   useEffect(() => {
     if (storedUser) {
