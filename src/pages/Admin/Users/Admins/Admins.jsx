@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
+import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, NativeSelect} from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
 
@@ -31,6 +31,13 @@ const handleToggle = async (event, advUser) => {
   await axios.get(`http://localhost:3001${apiEndpoint}`);
   const updatedAdvUser = await axios.get('http://localhost:3001/users/advusers');
   setAdvUsers(updatedAdvUser.data);
+};
+
+const handleUserType = async (event, advUser) => {
+  const newUserType = event.target.value;
+  await axios.put(`http://localhost:3001/users/putusers`, { PK_User:advUser.PK_User, UserType: newUserType })
+  const updatedAdvUsers = await axios.get('http://localhost:3001/users/advUsers');
+  setAdvUsers(updatedAdvUsers.data);
 };
 
 const sortData = (data) => {
@@ -86,7 +93,10 @@ const sortData = (data) => {
               <TableCell>
   <Switch defaultChecked={advUser.Active} onChange={(e) => handleToggle(e, advUser)} />
 </TableCell>
-              <TableCell><Checkbox/></TableCell>
+<TableCell><NativeSelect defaultValue={"AdvUser"} onChange={(e) => handleUserType(e, advUser)}>    
+                <option value={"Student"}>Student</option>
+                <option value={"Instructor"}>Instructor</option>
+                <option value={"AdvUser"}>AdvUser</option></NativeSelect></TableCell>
             </TableRow>
           ))}
         </TableBody>

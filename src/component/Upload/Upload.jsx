@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Container, FormGroup, Input } from 'reactstrap';
 import styles from './Upload.module.css'
-const SubiendoImagenes = ({setImageProp}) => {
+
+const SubiendoImagenes = ({cambiarImagen}) => {
 
     const [image, setImage] = useState("");
     const [loading, setLoading] = useState(false);
@@ -22,21 +23,21 @@ const SubiendoImagenes = ({setImageProp}) => {
 
         )
         const file = await res.json();
-        console.log(file.url)
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",file.url)
         setImage(file.secure_url)
-        setImageProp(file.secure_url); // Aquí se llama a setImageProp en lugar de setImage
+        cambiarImagen(file.secure_url); // Aquí se llama a setImageProp en lugar de setImage
         setLoading(false);
     }
     return (
         <div>
             <Container style={{ textAlign: "center" }}>
                 <FormGroup>
-                    {loading ? (<h3>cargando imagenes</h3>) : (<img src={image} style={{ width: "300px" }} />)}
+                    {loading ? (<h3>Cargando Imagenes</h3>) : (<img src={image} style={{ width: "300px" }} />)}
                     <div className={styles.inp}>
                         <Input
                             type="file"
                             name="file"
-                            placeholder='Sube tu imagen aqui'
+                            placeholder='Sube tu Imagen Aqui'
                             onChange={uploadImage}
                         />
                     </div>

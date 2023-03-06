@@ -1,21 +1,21 @@
 import React from "react";
-
+import swal from 'sweetalert'
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { baseUrl } from "../../../models/baseUrl";
-import {BsStarFill,BsStarHalf,BsStar} from "react-icons/bs"
+import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs"
 
 
-const ReviewForm = (id) => {
+const ReviewForm = ({ id, setIsSend }) => {
   const userInfo = useSelector((state) => state.user);
- 
-  console.log(userInfo);
-  const [userData, setUserData] = React.useState({
+  console.log(id)
+  const userDataInitialState = {
     Score: 0,
     Comment: "",
-    PK_Course: id.id,
+    PK_Course: id,
     PK_User: userInfo.ID,
-  });
+  }
+  const [userData, setUserData] = React.useState(userDataInitialState);
 
   function handleChange(e) {
     setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -23,16 +23,24 @@ const ReviewForm = (id) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post(`${baseUrl}/reviews`, userData);
+    axios.post(`${baseUrl}/reviews`, userData)
+    swal({
+      title: "Review enviada",
+      text: "Gracias por tu comentario",
+      icon: "success",
+      buttons: "Cerrar"
+    })
+    setIsSend(true)
+    setUserData(userDataInitialState)
   }
 
 
-  function handleStar(index){
-  const newScore = userData.Score === index+1 ? 0 : index + 1
-  setUserData({
-    ...userData,
-    Score : newScore
-  })
+  function handleStar(index) {
+    const newScore = userData.Score === index + 1 ? 0 : index + 1
+    setUserData({
+      ...userData,
+      Score: newScore
+    })
 
   }
 
@@ -45,25 +53,29 @@ const ReviewForm = (id) => {
             .fill()
             .map((v, i) => 1 + i)
             .map((item, index) => (
-              <button style={{background:'transparent'}}
+              <button style={{ background: 'transparent' }}
                 key={`dificulty-button-${index}`}
                 name="Score"
                 type="button"
-                onClick={() =>handleStar(index)                
+                onClick={() => handleStar(index)
                 }>
-                {userData.Score > index? <BsStarFill size="2rem" color="#f2b705"/> : <BsStar size="2rem" color="#f2b705"/>}     
-               
+                {userData.Score > index ? <BsStarFill size="2rem" color="#f2b705" /> : <BsStar size="2rem" color="#f2b705" />}
+
               </button>
             ))}
         </div>
         <br></br>
         <label>Comentarios: </label>
-        <input
+        <textarea
+          style={{padding:"5px"}}
+          autoComplete="false"
           name="Comment"
+          cols="50"
+          rows="10"
           placeholder="Escribe tus comentarios sobre el curso..."
-          type="textarea"
+          required
           value={userData.Comment}
-          onChange={handleChange}></input>
+          onChange={handleChange}></textarea>
         <br></br>
         <button type="submit">Enviar Reseña</button>
       </form>

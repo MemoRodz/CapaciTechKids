@@ -51,7 +51,7 @@
   
   form input {
     display: block;
-    width: 100%;
+    width: 50px;
     margin: 10px;
     padding: 8px;
     font-size: 16px;
@@ -97,7 +97,8 @@
   }
   .cate{
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
+    flex-wrap: wrap;
   }
   .errs{
     display: flex;
@@ -109,6 +110,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
+  }
+  .lab input{
+    width: 510px;
+  }
+  .lab textarea{
+    margin-left: 20px;
+    padding: 6px;
   }
   .labcont{
     display: flex;
