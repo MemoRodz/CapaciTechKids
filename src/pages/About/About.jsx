@@ -121,7 +121,7 @@ function About() {
 
       <div className={styles.devs}>
         <div className={styles.dev}>
-          <a href="https://github.com/Fr33yr">
+          <a href="https://github.com/Fr33yr" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
             <h1>Agustin Cristobo</h1>
             <h2>frase</h2>
@@ -132,7 +132,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/Brareyesb15">
+          <a href="https://github.com/Brareyesb15" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
             <h1>Brandon Reyes</h1>
             <h2>frase</h2>
@@ -143,7 +143,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/Fabian-Rizzi">
+          <a href="https://github.com/Fabian-Rizzi" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
             <h1>Fabian Rizzi</h1>
             <h2>frase</h2>
@@ -154,7 +154,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/MemoRodz">
+          <a href="https://github.com/MemoRodz" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
             <h1>Guillermo Rodriguez</h1>
             <h2>frase</h2>
@@ -165,7 +165,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/Randyvangz">
+          <a href="https://github.com/Randyvangz" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253943/CAPACITECHKIDS/images/project/AV11.png" alt="" />
             <h1>Randy Gutierrez</h1>
             <h2>frase</h2>
@@ -176,7 +176,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/Rickymayita">
+          <a href="https://github.com/Rickymayita" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
             <h1>Ricardo maya</h1>
             <h2>frase</h2>
@@ -187,7 +187,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/SandroMalca">
+          <a href="https://github.com/SandroMalca" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
             <h1>Sandro Malca</h1>
             <h2>frase</h2>
