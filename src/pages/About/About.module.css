@@ -65,3 +65,7 @@
 .dev h2{
      color: var(--font-clr-primary);
 }
+
+@media screen and (max-width: 768px) {
+     
+}
