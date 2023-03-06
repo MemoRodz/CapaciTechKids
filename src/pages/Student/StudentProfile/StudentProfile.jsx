@@ -44,6 +44,8 @@ function StudentProfile() {
                     console.log("dentro de fetchdata",response.data)
                      dispatch(setUserInfo(response.data))} // Aqui preguntarle a Agus que si lo está haciendo. 
                      fetchData()
+                    //aca hay que vaciar los inputs
+                    alert("Has modificado tu perfil satisfactoriamente")
             })
             .catch(error => {
                 console.log(error);
@@ -59,19 +61,21 @@ function StudentProfile() {
     }, [updatedUserData]);
 
     return (
-        <div>
+        <div className={styles.editprofile}>
             {/* <div className={styles.student_profile}>
                 <img src={userInfo.Image ? userInfo.Image : "Image Not Found"} alt="profile-image" height={200} width={200} />
                 <h2>{userInfo.Name ? userInfo.Name : "Name?"}</h2>
             </div> */}
-            <button onClick={handleButtonClick}>Edit Profile</button>
+            {/* <button onClick={handleButtonClick}>Edit Profile</button> */}
             <div>
-                {showForm && (
+                {/* {showForm && ( */}
                     <form onSubmit={handleSubmit}>
                         <label>Agrega tu nuevo nombre:</label>
                         <input   
+                            style={{width:"500px"}} 
                             name="Name" 
                             type="text"
+                            
                             value={userData.Name} 
                             onChange={handleChange}></input>
                         <br></br>
@@ -82,7 +86,7 @@ function StudentProfile() {
                         <br></br>
                         <button type="submit">Enviar cambios</button>
                     </form>
-                )}
+                {/* )} */}
             </div>
         </div>
     )
