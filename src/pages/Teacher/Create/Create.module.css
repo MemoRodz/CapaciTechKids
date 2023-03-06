@@ -112,10 +112,11 @@
     align-items: baseline;
   }
   .lab input{
-    width: 500px;
+    width: 510px;
   }
   .lab textarea{
     margin-left: 20px;
+    padding: 6px;
   }
   .labcont{
     display: flex;

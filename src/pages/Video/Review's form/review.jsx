@@ -67,6 +67,7 @@ const ReviewForm = ({ id, setIsSend }) => {
         <br></br>
         <label>Comentarios: </label>
         <textarea
+          style={{padding:"5px"}}
           autoComplete="false"
           name="Comment"
           cols="50"

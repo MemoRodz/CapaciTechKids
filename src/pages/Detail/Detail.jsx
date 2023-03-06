@@ -3,9 +3,11 @@ import styles from "./Detail.module.css";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
 import axios from "axios";
+import { LoginButton} from '../../component/Login/Login'
 import Estrella from '../../component/Estrella/Estrella'
 import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
+import { useSelector } from "react-redux";
 
 export default function Detail() {
   const { id } = useParams();
@@ -14,6 +16,7 @@ export default function Detail() {
   const [related, setRelated] = useState([])
   const [relatedLoaded, setRelatedLoaded] = useState(false);
   const { pathname } = useLocation()
+  const userInfo = useSelector(state=>state.user)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -138,9 +141,14 @@ export default function Detail() {
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title} Titulo</h1>
-          <div className={styles.studybutton}>
-            <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
-          </div>
+          {userInfo.isLogged?
+            <div className={styles.studybutton}>
+              <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
+            </div>
+            :
+            <div className={styles.loginbtn}>
+              <LoginButton/>
+            </div>}
           <hr />
           <h2>Este curso incluye</h2>
           <div className={styles.x2}>
