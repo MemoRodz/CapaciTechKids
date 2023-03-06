@@ -1,7 +1,9 @@
+
 .teacher_container{
     min-height: 80vh;
     display: flex;
     flex-direction: row;
+    margin: auto;
 }
  
 .teacher_courses{
@@ -26,5 +28,5 @@
 }
 
 .teacher_views{
-    margin-top: 5rem;
+
 }
