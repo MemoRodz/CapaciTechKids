@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
-import { baseUrl } from '../../models/baseUrl';
+import { baseUrl } from '../../../../models/baseUrl';
 
 function Students() {
   const [students, setStudents] = useState([]);
