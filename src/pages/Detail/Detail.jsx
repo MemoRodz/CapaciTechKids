@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
 import { useParams, Link, useLocation } from "react-router-dom";
-import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
+import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaFacebookF, FaWhatsapp, FaRegClock } from "react-icons/fa";
 import axios from "axios";
 import { LoginButton} from '../../component/Login/Login'
 import Estrella from '../../component/Estrella/Estrella'
@@ -100,7 +100,7 @@ export default function Detail() {
                   <Estrella Score={course.Score / 2} />
                   <h3>Top Score</h3>
                 </div>
-                <div className={styles.start}>
+                {/* <div className={styles.start}>
                   <h3>5 ⭐</h3>
                   <div className={styles.progressbar5}><div className={styles.progress5}></div></div>
                   <h3>4 ⭐</h3>
@@ -111,7 +111,7 @@ export default function Detail() {
                   <div className={styles.progressbar2}><div className={styles.progress2}></div></div>
                   <h3>1 ⭐</h3>
                   <div className={styles.progressbar1}><div className={styles.progress1}></div></div>
-                </div>
+                </div> */}
               </div>
               <div className={styles.comments}>
                 {review.map(e =>
@@ -144,10 +144,7 @@ export default function Detail() {
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
-          <div className={styles.studybutton} onClick={coursexstudent}>
-            <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
-          </div>
-          <h1>{course.Title} Titulo</h1>
+         
           {userInfo.isLogged?
             <div className={styles.studybutton}>
               <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
