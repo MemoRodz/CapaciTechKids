@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, NativeSelect} from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
-import { baseUrl } from '../../models/baseUrl';
+import { baseUrl } from '../../../../models/baseUrl';
 
 function AdvUsers() {
 
