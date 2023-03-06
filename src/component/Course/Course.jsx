@@ -64,9 +64,9 @@ export default function Course(props) {
         <img src="..\img\image 12.png" alt="perfil" />
 
         <h3>{course.tblUsers[0].Name}</h3>
-        <div className={styles.btndetail}>
+        {/* <div className={styles.btndetail}>
           <Link to={`/detail/${course.PK_Course}`}><button>Detail</button></Link>
-        </div>
+        </div> */}
 
       </div>
     </Link>
