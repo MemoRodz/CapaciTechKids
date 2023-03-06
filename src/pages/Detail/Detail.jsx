@@ -6,6 +6,7 @@ import axios from "axios";
 import Estrella from '../../component/Estrella/Estrella'
 import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
+import { useSelector } from "react-redux";
 
 export default function Detail() {
   const { id } = useParams();
@@ -14,6 +15,7 @@ export default function Detail() {
   const [related, setRelated] = useState([])
   const [relatedLoaded, setRelatedLoaded] = useState(false);
   const { pathname } = useLocation()
+  const userInfo = useSelector(state => state.user)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,7 +66,11 @@ export default function Detail() {
     const handleWSPClick = () => {
       window.open(`https://api.whatsapp.com/send?text=¡Echa un vistazo a esta página web! https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
     };
-
+    const coursexstudent = () => {
+      console.log("entramos al botonsito")
+      console.log("dentro del botonsoto",id,userInfo.ID)
+      axios.post(`${baseUrl}/courses/coursexstudent?course=${id}&student=${userInfo.ID}`)
+    }
     
 
   return relatedLoaded ? (
@@ -137,8 +143,8 @@ export default function Detail() {
         </div>
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
-          <h1>{course.Title} Titulo</h1>
-          <div className={styles.studybutton}>
+          <h1>{course.Title}</h1>
+          <div className={styles.studybutton} onClick={coursexstudent}>
             <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
           </div>
           <hr />
@@ -157,7 +163,7 @@ export default function Detail() {
           </div>
           <div className={styles.x2}>
             <FaChartBar />
-            <h4>{course.Modules} 5 Módulos</h4>
+            <h4>{course.Modules} Varios Módulos</h4>
           </div>
           <hr />
           <h2>Aprenderás</h2>
