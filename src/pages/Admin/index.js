@@ -5,6 +5,7 @@ export { default as AdminCourses } from './AdminCourses/AdminCourses';
 export { default as AdminProfile } from './AdminProfile/AdminProfile';
 export { default as DeleteCourse } from './DeleteCourse/DeleteCourse';
 export { default as DeletedCourses } from './DeletedCourses/DeletedCourses';
+export { default as NotificationAdmin } from './NotificationAdmin/NotificationAdmin';
 export { default as Admins } from './Users/Admins/Admins';
 export { default as BannedUsers } from './Users/BannedUsers/BannedUsers';
 export { default as Instructors } from './Users/Instructors/Instructors';
