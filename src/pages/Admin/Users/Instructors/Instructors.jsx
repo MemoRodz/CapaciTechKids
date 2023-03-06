@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, NativeSelect } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
+import { baseUrl } from '../../models/baseUrl';
 
 function Instructors() {
 
@@ -11,7 +12,7 @@ function Instructors() {
 
   useEffect(() => {
     async function fetchInstructors() {
-      const response = await axios.get('http://localhost:3001/users/instructors');
+      const response = await axios.get(`${baseUrl}/users/instructors`);
       // const data = await response.json();
       // console.log(response.data)
       setInstructors(response.data);
@@ -28,15 +29,15 @@ const handleSort = (column) => {
 const handleToggle = async (event, instructor) => {
   const isChecked = event.target.checked;
   const apiEndpoint = isChecked ? `/users/${instructor.PK_User}/activate` : `/users/${instructor.PK_User}/delete`;
-  await axios.get(`http://localhost:3001${apiEndpoint}`);
-  const updatedInstructors = await axios.get('http://localhost:3001/users/instructors');
+  await axios.get(`${baseUrl}/${apiEndpoint}`);
+  const updatedInstructors = await axios.get(`${baseUrl}/users/instructors`);
   setInstructors(updatedInstructors.data);
 };
 
   const handleUserType = async (event, instructor) => {
     const newUserType = event.target.value;
-    await axios.put(`http://localhost:3001/users/putusers`, { PK_User:instructor.PK_User, UserType: newUserType })
-    const updatedInstructors = await axios.get('http://localhost:3001/users/instructors');
+    await axios.put(`${baseUrl}/users/putusers`, { PK_User:instructor.PK_User, UserType: newUserType })
+    const updatedInstructors = await axios.get(`${baseUrl}/users/instructors`);
     setInstructors(updatedInstructors.data);
   };
 
