@@ -3,6 +3,7 @@ import styles from "./Detail.module.css";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
 import axios from "axios";
+import { LoginButton} from '../../component/Login/Login'
 import Estrella from '../../component/Estrella/Estrella'
 import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
@@ -15,7 +16,11 @@ export default function Detail() {
   const [related, setRelated] = useState([])
   const [relatedLoaded, setRelatedLoaded] = useState(false);
   const { pathname } = useLocation()
+<<<<<<< HEAD
   const userInfo = useSelector(state => state.user)
+=======
+  const userInfo = useSelector(state=>state.user)
+>>>>>>> 050a7280cb07bbc3da3f4edb2a20c2d63f156118
 
   useEffect(() => {
     const fetchData = async () => {
@@ -143,10 +148,22 @@ export default function Detail() {
         </div>
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
+<<<<<<< HEAD
           <h1>{course.Title}</h1>
           <div className={styles.studybutton} onClick={coursexstudent}>
             <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
           </div>
+=======
+          <h1>{course.Title} Titulo</h1>
+          {userInfo.isLogged?
+            <div className={styles.studybutton}>
+              <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
+            </div>
+            :
+            <div className={styles.loginbtn}>
+              <LoginButton/>
+            </div>}
+>>>>>>> 050a7280cb07bbc3da3f4edb2a20c2d63f156118
           <hr />
           <h2>Este curso incluye</h2>
           <div className={styles.x2}>

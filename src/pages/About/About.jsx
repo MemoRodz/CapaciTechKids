@@ -241,13 +241,12 @@ function About() {
           </div>
           <div className="form-group">
             <label><b>Mensaje: </b></label>
-            <textarea type="text" style={{
-              width: "338px",
-              height: "210px",
-            }}
+            <textarea type="text" style={{padding:"6px"}}
               id="mensaje"
               name="mensaje"
-              placeholder='Deja tu mensaje de hasta 1,500 caracteres.'
+              rows="10"
+              cols="70"
+              placeholder='Deja tu mensaje'
               required
               value={text} onChange={handleTextChange}
             />
