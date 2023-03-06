@@ -121,8 +121,8 @@ const Create = () => {
       {/* <div className={styles.heard}>
         <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
       </div> */}
-      <div className={styles.container}>
         <h2>Crear Nuevo Curso</h2>
+      <div className={styles.container}>
         <form onSubmit={handleSubmit}>
           <label>
             <div className={styles.labcont}>

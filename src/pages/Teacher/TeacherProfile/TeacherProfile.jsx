@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './TeacherPRofile.module.css'
@@ -42,7 +41,7 @@ function TeacherProfile() {
                 setShowForm(false);
             const fetchData = async () => {
                     const response = await axios.get(`${baseUrl}/users/${userInfo.ID}`)
-                    console.log("dentro de fetchdata",response.data)
+                    // console.log("dentro de fetchdata",response.data)
                      dispatch(setUserInfo(response.data))} // Aqui preguntarle a Agus que si lo está haciendo. 
                      fetchData()
             })
@@ -60,14 +59,15 @@ function TeacherProfile() {
     }, [updatedUserData]);
 
     return (
-        <div>
+        <div className={styles.editprofile}>
             {/* <div className={styles.student_profile}>
                 <img src={userInfo.Image ? userInfo.Image : "Image Not Found"} alt="profile-image" height={200} width={200} />
                 <h2>{userInfo.Name ? userInfo.Name : "Name?"}</h2>
             </div> */}
-            <button onClick={handleButtonClick}>Edit Profile</button>
+            {/* <button onClick={handleButtonClick}>Edit Profile</button> */}
             <div>
-                {showForm && (
+                {/* {showForm && ( */}
+                
                     <form onSubmit={handleSubmit}>
                         <div>
                         <label>Agrega tu nuevo nombre:</label>
@@ -87,7 +87,7 @@ function TeacherProfile() {
                         <br></br>
                         <button type="submit">Enviar cambios</button>
                     </form>
-                )}
+                {/* )} */}
             </div>
         </div>
     )

@@ -12,6 +12,7 @@ function Dashboard() {
                 <Route path='/advuser/*' element={<Admin/>}/>
                 <Route path='*' element={<h2>Not Found</h2>}/>
             </Routes>
+            
         </>
     )
 }
