@@ -5,6 +5,8 @@ import { TeacherCoursesContext } from '../../../context/TeacherCoursesContext'
 import { baseUrl } from '../../../models/baseUrl'
 import axios from 'axios';
 import { usuario } from '../../../component/Layout/Nav/Nav';
+import { Link } from 'react-router-dom';
+
 
 
 export default function ActiveCourse(props) {
@@ -28,9 +30,31 @@ export default function ActiveCourse(props) {
     }
   }
 
+
+  const handleEdit = async (id) => {
+    try {
+      const response = await axios.put(`${baseUrl}/courses/detail/${id}/delete`)
+      console.log(response);
+      const deletedCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
+      const activeCourses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
+      setTeacherCourses({
+        ...teacherCourses,
+        activeCourses: activeCourses.data,
+        deletedCourses: deletedCourses.data
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className={styles.card}>
       <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
+      <Link to={`../../../edit/detail/${PK_Course}`}>
+      {/* <button onClick={() => handleEdit(PK_Course)} className={styles.editBtn}>EDIT</button> */}
+      <button className={styles.editBtn}>EDIT</button>
+      </Link>
+      <Link to={`../../../detail/${PK_Course}`}>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
@@ -49,6 +73,7 @@ export default function ActiveCourse(props) {
         <div className={styles.btndetail}>
         </div>
       </div>
+      </Link>
     </div>
   )
 }

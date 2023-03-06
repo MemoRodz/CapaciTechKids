@@ -30,6 +30,7 @@ const Create = () => {
     Duration: 30,
     Category: [],
     Active: true,
+    Image: ""
   };
   const navigate = useNavigate();
   const [cats, setCats] = useState([]);
@@ -43,15 +44,14 @@ const Create = () => {
     Duration: "",
     Category: [],
     Active: true,
+    Image: ""
   });
-  console.log("Errors duracion", errors.Duration);
-
+ 
   const [data, setData] = useState([]);
   useEffect(() => {
     const funciona = async () => {
       const { data } = await axios.get(`${baseUrl}/users/instructors`);
       const cats = await axios.get(`${baseUrl}/categories`);
-      console.log(cats.data);
       setCats(cats.data);
       setData(data);
     };
@@ -112,13 +112,17 @@ const Create = () => {
 
   console.log(formData);
 
+  function cambiarImagen(img) {
+    setFormData({...formData, Image : img})
+}
+
   return (
     <>
       {/* <div className={styles.heard}>
         <img src="..\img\Rectangle 77big.png" alt="{course.Title}" />
       </div> */}
-      <div className={styles.container}>
         <h2>Crear Nuevo Curso</h2>
+      <div className={styles.container}>
         <form onSubmit={handleSubmit}>
           <label>
             <div className={styles.labcont}>
@@ -141,7 +145,7 @@ const Create = () => {
             </div>
           </label>
           <div>
-            <SubiendoImagenes />
+          <SubiendoImagenes cambiarImagen={cambiarImagen} />
           </div>
           <br />
           <label>
@@ -151,14 +155,14 @@ const Create = () => {
                 <textarea
                   name="Description"
                   minlength="5"
-                  maxlength="200"
+                  maxlength="500"
                   placeholder="Insertar Descripción"
                   value={formData.Description}
                   onChange={handleInputChange}
                   rows="10"
-                  cols="50"
-                  required></textarea>
-              </div>
+                  cols="65"
+                  required></textarea>                  
+              </div>              
               <div className={styles.errs}>
                 {/* {errors.Description ? <div>{errors.Description}</div> : null} */}
               </div>

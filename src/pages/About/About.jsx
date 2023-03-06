@@ -37,7 +37,7 @@ export function validate(formData) {
     console.log(error);
   }
 }
-
+  
 function About() {
 
   // console.log('RegexMail: ', correoValidate);
@@ -104,20 +104,25 @@ function About() {
 
   return (
     <div className={styles.about}>
+      <br />
       <h1>Nosotros Somos</h1>
+      <br />
       <h2>Mision</h2>
+      <br />
       <h3>Concentramos nuestros esfuerzos en:<br />
 
         1. Mejorar este proyecto en infraestructura educativa, para aumentar la cobertura, el acceso y la asistencia con mejores habilidades técnicas para el aprendizaje.<br />
 
         2. Desarrollar proyectos que incentiven en los procesos de enseñanza y aprendizaje trabajando de la mano con los docentes para incrementar las expectativas educativas y laborales.</h3>
 
+<br />
       <h2>Visión</h2>
+      <br />
       <h3>Queremos que la próxima generación de latinoamericanos vea en la educación como un vehículo de cambio para soñar, construir y cumplir su proyecto de vida. </h3>
-
+<br />
       <div className={styles.devs}>
         <div className={styles.dev}>
-          <a href="https://github.com/Fr33yr">
+          <a href="https://github.com/Fr33yr" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
             <h1>Agustin Cristobo</h1>
             <h2>frase</h2>
@@ -128,7 +133,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/Brareyesb15">
+          <a href="https://github.com/Brareyesb15" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
             <h1>Brandon Reyes</h1>
             <h2>frase</h2>
@@ -139,7 +144,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/Fabian-Rizzi">
+          <a href="https://github.com/Fabian-Rizzi" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
             <h1>Fabian Rizzi</h1>
             <h2>frase</h2>
@@ -150,7 +155,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/MemoRodz">
+          <a href="https://github.com/MemoRodz" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
             <h1>Guillermo Rodriguez</h1>
             <h2>frase</h2>
@@ -161,7 +166,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/Randyvangz">
+          <a href="https://github.com/Randyvangz" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253943/CAPACITECHKIDS/images/project/AV11.png" alt="" />
             <h1>Randy Gutierrez</h1>
             <h2>frase</h2>
@@ -172,7 +177,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/Rickymayita">
+          <a href="https://github.com/Rickymayita" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
             <h1>Ricardo maya</h1>
             <h2>frase</h2>
@@ -183,7 +188,7 @@ function About() {
           </a>
         </div>
         <div className={styles.dev}>
-          <a href="https://github.com/SandroMalca">
+          <a href="https://github.com/SandroMalca" target="_blank">
             <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
             <h1>Sandro Malca</h1>
             <h2>frase</h2>
@@ -236,13 +241,12 @@ function About() {
           </div>
           <div className="form-group">
             <label><b>Mensaje: </b></label>
-            <textarea type="text" style={{
-              width: "338px",
-              height: "210px",
-            }}
+            <textarea type="text" style={{padding:"6px"}}
               id="mensaje"
               name="mensaje"
-              placeholder='Deja tu mensaje de hasta 1,500 caracteres.'
+              rows="10"
+              cols="70"
+              placeholder='Deja tu mensaje'
               required
               value={formData.mensaje} onChange={handleInputChange}
             />

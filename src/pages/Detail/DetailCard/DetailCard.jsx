@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./DetailCard.module.css";
 import { Link } from 'react-router-dom'
 import { FaRegClock, FaThLarge } from "react-icons/fa";
 
+
 function DetailCard({
   Image,
-  tblUser,
+  tblUsers,
   tblCategories,
   Duration,
   Title,
   PK_Course,
-}) {
+}) 
+{
+  console.log(tblCategories)
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={styles.card}>
       <Link to={`/detail/${PK_Course}`}>
@@ -18,7 +26,7 @@ function DetailCard({
         <div className={styles.coursedet}>
           <div className={styles.similar1}>
             <FaThLarge />
-            <h4>{tblCategories.Name}</h4>
+            <h4>{tblCategories[0].Name}</h4>
           </div>
           <div className={styles.similar2}>
             <FaRegClock />
@@ -31,7 +39,7 @@ function DetailCard({
 
         <div className={styles.teach}>
           <img src="..\img\image 12.png" alt="perfil" />
-          <h3>{tblUser.Name}</h3>
+          <h3>{tblUsers[0].Name}</h3>
         </div>
       </Link>
     </div>

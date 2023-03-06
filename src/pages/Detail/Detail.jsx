@@ -3,9 +3,11 @@ import styles from "./Detail.module.css";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
 import axios from "axios";
+import { LoginButton} from '../../component/Login/Login'
 import Estrella from '../../component/Estrella/Estrella'
 import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
+import { useSelector } from "react-redux";
 
 export default function Detail() {
   const { id } = useParams();
@@ -14,6 +16,8 @@ export default function Detail() {
   const [related, setRelated] = useState([])
   const [relatedLoaded, setRelatedLoaded] = useState(false);
   const { pathname } = useLocation()
+
+  const userInfo = useSelector(state => state.user)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,12 +30,16 @@ export default function Detail() {
         setReview(reviews.data);
         setRelated(rela.data)
         setRelatedLoaded(true);
+        window.scrollTo(0, 0);
+
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
   }, [pathname]);
+
+
 
   function Score() {
 
@@ -60,7 +68,9 @@ export default function Detail() {
     const handleWSPClick = () => {
       window.open(`https://api.whatsapp.com/send?text=¡Echa un vistazo a esta página web! https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
     };
-
+    const coursexstudent = () => {
+      axios.post(`${baseUrl}/courses/coursexstudent?course=${id}&student=${userInfo.ID}`)
+    }
     
 
   return relatedLoaded ? (
@@ -133,10 +143,19 @@ export default function Detail() {
         </div>
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
-          <h1>{course.Title} Titulo</h1>
-          <div className={styles.studybutton}>
+          <h1>{course.Title}</h1>
+          <div className={styles.studybutton} onClick={coursexstudent}>
             <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
           </div>
+          <h1>{course.Title} Titulo</h1>
+          {userInfo.isLogged?
+            <div className={styles.studybutton}>
+              <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
+            </div>
+            :
+            <div className={styles.loginbtn}>
+              <LoginButton/>
+            </div>}
           <hr />
           <h2>Este curso incluye</h2>
           <div className={styles.x2}>
@@ -153,7 +172,7 @@ export default function Detail() {
           </div>
           <div className={styles.x2}>
             <FaChartBar />
-            <h4>{course.Modules} 5 Módulos</h4>
+            <h4>{course.Modules} Varios Módulos</h4>
           </div>
           <hr />
           <h2>Aprenderás</h2>

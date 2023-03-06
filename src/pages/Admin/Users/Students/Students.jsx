@@ -8,7 +8,8 @@ import {
   TableRow,
   Paper,
   Checkbox,
-  Switch
+  Switch,
+  NativeSelect
 } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
@@ -39,6 +40,15 @@ function Students() {
     const updatedStudents = await axios.get('http://localhost:3001/users/students');
     setStudents(updatedStudents.data);
   };
+
+  const handleUserType = async (event, student) => {
+    const newUserType = event.target.value;
+    await axios.put(`http://localhost:3001/users/putusers`, { PK_User:student.PK_User, UserType: newUserType })
+    const updatedStudents = await axios.get('http://localhost:3001/users/students');
+    setStudents(updatedStudents.data);
+  };
+
+
 
   const sortData = (data) => {
     const sortedData = data.sort((a, b) => {
@@ -92,7 +102,10 @@ function Students() {
               <TableCell>
   <Switch defaultChecked={student.Active} onChange={(e) => handleToggle(e, student)} />
 </TableCell>
-              <TableCell><Checkbox/></TableCell>
+              <TableCell><NativeSelect defaultValue={"Student"} onChange={(e) => handleUserType(e, student)}>    
+                <option value={"Student"}>Student</option>
+                <option value={"Instructor"}>Instructor</option>
+                <option value={"AdvUser"}>AdvUser</option></NativeSelect></TableCell>
             </TableRow>
           ))}
         </TableBody>

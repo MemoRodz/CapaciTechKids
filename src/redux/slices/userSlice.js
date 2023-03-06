@@ -41,16 +41,16 @@ export const userSlice = createSlice({
 
 export const { setUserInfo } = userSlice.actions
 
-export const getUserInfo = (url, email) => (dispatch) => {
-    axios.get(url)
-        .then(res => dispatch(setUserInfo(res.data.find(ele => ele.Email === email))))
-        .catch(err => console.log(err))
-}
+// export const getUserInfo = (url, email) => (dispatch) => {
+//     axios.get(url)
+//         .then(res => dispatch(setUserInfo(res.data.find(ele => ele.Email === email))))
+//         .catch(err => console.log(err))
+// }
 
-export const createUser = (url, user) => (dispatch) => {
-    axios.post(url, user)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-}
+// export const createUser = (url, user) => (dispatch) => {
+//     axios.post(url, user)
+//         .then(res => console.log(res))
+//         .catch(err => console.log(err))
+// }
 
 export default userSlice.reducer

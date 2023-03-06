@@ -2,7 +2,7 @@
     margin: 10px;
     background: #FFFFFF;
     width: 27%;
-    height: 575px;
+    height: 30em;
     border-radius: 20px;
     display: block;
     flex-direction: column;
@@ -35,8 +35,11 @@ a:link, a:visited,  a:hover, a:active
 }
 
 .card img {
-    width: 100%;
-    height: 300px;
+        /* width: 100%;
+        height: 300px;
+        */
+        width: 100%;
+        height: 18rem;
 }
 
 .coursedet {

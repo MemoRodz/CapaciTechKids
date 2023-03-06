@@ -70,9 +70,6 @@ const sortData = (data) => {
                 Active
               </TableSortLabel>
             </TableCell>
-            <TableCell>
-              Edit
-            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -84,7 +81,7 @@ const sortData = (data) => {
               <TableCell>
   <Switch defaultChecked={bannedUser.Active} onChange={(e) => handleToggle(e, bannedUser)} />
 </TableCell>
-              <TableCell><Checkbox/></TableCell>
+
             </TableRow>
           ))}
         </TableBody>

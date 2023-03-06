@@ -32,14 +32,13 @@ const SubiendoImagenes = ({cambiarImagen}) => {
         <div>
             <Container style={{ textAlign: "center" }}>
                 <FormGroup>
-                    {loading ? (<h3>cargando imagenes</h3>) : (<img src={image} style={{ width: "300px" }} />)}
+                    {loading ? (<h3>Cargando Imagenes</h3>) : (<img src={image} style={{ width: "300px" }} />)}
                     <div className={styles.inp}>
                         <Input
                             type="file"
                             name="file"
-                            placeholder='Sube tu imagen aqui'
+                            placeholder='Sube tu Imagen Aqui'
                             onChange={uploadImage}
-                            required
                         />
                     </div>
                 </FormGroup>
