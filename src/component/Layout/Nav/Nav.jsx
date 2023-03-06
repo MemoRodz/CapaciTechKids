@@ -62,7 +62,7 @@ function Nav() {
                 {showMenu ? <FaTimes /> : <FaBars />}
               </div>
               <ul className={showMenu ? styles.menuItemsActive : styles.menuItems}>
-                <li><NavLink to={"/"} onClick={handleToggleMenu} className={styles.active}>Inicio</NavLink></li>
+                <li><NavLink to={"/"} onClick={handleToggleMenu}>Inicio</NavLink></li>
                 <li><NavLink to={"/course"} onClick={handleToggleMenu} >Cursos</NavLink></li>
                 <li><NavLink to={"/donate"} onClick={handleToggleMenu} >Donaciones</NavLink></li>
                 <li><NavLink to={"/about"} onClick={handleToggleMenu} >Nosotros</NavLink></li>
