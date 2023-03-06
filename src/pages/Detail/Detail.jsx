@@ -8,7 +8,6 @@ import Estrella from '../../component/Estrella/Estrella'
 import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
 import { useSelector } from "react-redux";
-import { useSelector } from "react-redux";
 
 export default function Detail() {
   const { id } = useParams();
