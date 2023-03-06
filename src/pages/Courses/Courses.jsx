@@ -18,7 +18,7 @@ export default function Courses() {
   }, [data])
 
   const arregloCourses = useSelector(state => state.courses.filteredCourses)
-
+ 
 
   return (
     <>
@@ -34,20 +34,7 @@ export default function Courses() {
         </div>
         <div className={styles.courses}>
           {arregloCourses && arregloCourses.map((c, i) => (
-            <Course
-              PK_Course={c.PK_Course}
-              key={c.PK_Course}
-              Image={c.Image}
-              //Category={c.Category}
-              Title={c.Title}
-              Description={c.Description}
-              Start_Date={c.Start_Date}
-              End_Date={c.End_Date}
-              Duration={c.Duration}
-              Instructor={c.tblUser.Name}
-              Score={c.Score}
-            //onClose={() => props.onClose(c.id)}
-            />
+            <Course PK_Course={c.PK_Course} />
           )
           )}
         </div>
