@@ -2,7 +2,7 @@
     margin: 10px;
     background: #FFFFFF;
     width: 27%;
-    height: 575px;
+    height: 30em;
     border-radius: 20px;
     display: block;
     flex-direction: column;
@@ -23,9 +23,9 @@ a:link, a:visited,  a:hover, a:active
 }
 
 
+
 .img {
-    object-fit: cover;
-    width: 100%;
+    object-fit:contain;
 }
 
 .heard img {
@@ -35,7 +35,8 @@ a:link, a:visited,  a:hover, a:active
 }
 
 .card img {
-    object-fit: cover;
+    width: 100%;
+    height: 300px;
 }
 
 .coursedet {
@@ -52,11 +53,19 @@ a:link, a:visited,  a:hover, a:active
     justify-content: flex-start;
 }
 
+.similar1 h4{
+    margin: 0 4px;
+}
+
 .similar2 {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+}
+
+.cardtit h1{
+    font-size: 26px;
 }
 
 .teach {

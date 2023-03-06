@@ -8,23 +8,12 @@
 }
 
 .heard {
-    padding: 0 50px;
-    background-image: url("https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677262061/CAPACITECHKIDS/images/project/ca3_ixldy5.jpg");
-    height: 70vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-.heard img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-.leftandringh {
-    display: flex;
-    flex-direction: row;
-    width: 95%;
+    position: relative;
+    width: 1920px;
+    height: 652px;
+    top: 145px;
+    left: 0;
+    z-index: 15;
 }
 
 button {
@@ -32,6 +21,11 @@ button {
 }
 
 
+.heard img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%
+}
 
 .opinions {
     position: relative;
@@ -39,12 +33,11 @@ button {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 60%;
+    top: -900px;
+    left: -400px;
+    width: 950px;
     height: 869px;
     z-index: 18;
-    background: rgba(157, 204, 255, 0.3);
-    border-radius: 5%;
-    margin-top: 5%;
 }
 
 .opinions .buttons {
@@ -75,14 +68,14 @@ button {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
 .point {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 950px;
     height: 764px;
+    background: rgba(157, 204, 255, 0.3);
     border-radius: 20px;
 }
 
@@ -98,12 +91,12 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 257px;
     height: 199px;
     background: #FFFFFF;
     color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    margin: 5%;
+    margin: 50px;
 }
 
 .top h3 {
@@ -122,8 +115,7 @@ button {
 .start {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: 5%;
+    margin: 50px 45px;
 }
 
 .start h3 {
@@ -135,6 +127,7 @@ button {
 .progressbar3,
 .progressbar2,
 .progressbar1 {
+    width: 432px;
     height: 8px;
     background: #d9d9d9;
     border-radius: 5px;
@@ -178,6 +171,7 @@ button {
 .comments {
     display: flex;
     flex-direction: column;
+    width: 850px;
     margin-left: 50px;
 }
 
@@ -208,23 +202,19 @@ button {
     display: flex;
     flex-direction: column;
 }
-
-.time {
+.time{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-
-.time h4 {
+.time h4{
     margin: 10px;
 }
-
-.hrcomment hr {
-    width: 95%;
-    margin: 3% 0;
+.hrcomment hr{
+    width: 840px;
+    margin: 24px 0;
 }
-
 .namestart h1 {
     color: #000;
     font-size: 20px;
@@ -239,7 +229,7 @@ button {
 
 .detail {
     display: flex;
-    width: 30%;
+    width: 500px;
     flex-direction: column;
     align-content: center;
     align-items: stretch;
@@ -248,12 +238,12 @@ button {
     border: solid 30px white;
     border-radius: 20px;
     top: -200px;
+    left: 600px;
     z-index: 22;
-    margin-left: 5%;
 }
 
 .detail h1 {
-    font-size: 35px;
+    font-size: 45px;
 }
 
 .detail h2 {
@@ -261,27 +251,21 @@ button {
     font-size: 30px;
 }
 
-.studybutton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.studybutton button {
     background-color: #0583F2;
+    width: 443px;
     height: 63px;
     border-radius: 12px;
+    color: white;
     margin: 0px 20px 20px 20px;
     font-size: 20px;
     font-weight: 700;
     border: none;
 }
-.studybutton a{
-    color: white;
-}
-
-.studybutton:hover {
+.studybutton button:hover{
     background: #0583f2be;
     cursor: pointer;
 }
-
 .x2 {
     display: flex;
     flex-direction: row;
@@ -361,21 +345,89 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 1920px;
+    height: 1084px;
+    position: relative;
+    top: -800px;
 }
-
-.similarcourses {
+.similarcourses{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 1711px;
 }
-
-.cards {
+.cards{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 100%;
+}
+.card{
+    margin: 0 50px ;
+    background: #FFFFFF;
+    width: 335px;
+    height: 575px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 20px #FFFFFF;
+}
+.card img{
+    width: 335px;
+    height: 239px;
+    position: relative;
+    top: -25px;
+}
+.coursedet{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 355px;
+}
+.similar1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 355px;
+}
+.similar2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 355px;
+}
+.teach{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 329px;
+}
+.teach img{
+    position: relative;
+    top: 5px;
+    width: 44px;
+    height: 44px;
+}
+.cardtitle h1{
+    position: relative;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+}
+.btndetail button{
+    background: #0583F2;
+    color: #FFFFFF;
+    width: 120px;
+    height: 64px;
+    font-size: 20px;
+    border-radius: 80px;
+    border: none;
 }

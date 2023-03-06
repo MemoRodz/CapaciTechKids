@@ -12,11 +12,14 @@ function Donate() {
         <div className={styles.cont}>
           <div className={styles.left_container}>
             <h1>¿Quieres ser parte del cambio?</h1>          
-           <h2>Con tu aporte generas una contribución para brindar educación de calidad con gran impacto en el la futura salida laboral de las niñas, niños y jóvenes que se encuentran en condición de vulnerabilidad en todo Latinoamerica.</h2>
+           <h2>Con tu aporte generas una contribución para brindar educación de calidad con gran impacto en la futura salida laboral de niños y jóvenes que se encuentran en condición de vulnerabilidad en todo Latinoamérica.</h2>
            <br/>          
+           <br />
            <div className={styles.donar}>
             <BuyButtonComponent />            
             </div>        
+            <br />
+            <br />
             <h2>Ayuda a mejorar las habilidades de las futuras generaciones</h2>
           </div>        
 
