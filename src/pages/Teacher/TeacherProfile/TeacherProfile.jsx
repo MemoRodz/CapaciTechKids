@@ -44,6 +44,8 @@ function TeacherProfile() {
                     // console.log("dentro de fetchdata",response.data)
                      dispatch(setUserInfo(response.data))} // Aqui preguntarle a Agus que si lo está haciendo. 
                      fetchData()
+                    //aca hay que vaciar los inputs
+                     alert("Has modificado tu perfil satisfactoriamente")
             })
             .catch(error => {
                 console.log(error);
