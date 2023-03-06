@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
+import { baseUrl } from '../../models/baseUrl';
 
 function BannedUsers() {
 
@@ -11,7 +12,7 @@ function BannedUsers() {
 
   useEffect(() => {
     async function fetchBannedUsers() {
-      const response = await axios.get('http://localhost:3001/users/bannedusers');
+      const response = await axios.get(`${baseUrl}/users/bannedusers`);
       setBannedUsers(response.data);
     }
     fetchBannedUsers();
@@ -26,8 +27,8 @@ const handleSort = (column) => {
 const handleToggle = async (event, banneduser) => {
   const isChecked = event.target.checked;
   const apiEndpoint = isChecked ? `/users/${banneduser.PK_User}/activate` : `/users/${banneduser.PK_User}/delete`;
-  await axios.get(`http://localhost:3001${apiEndpoint}`);
-  const updatedBannedUsers = await axios.get('http://localhost:3001/users/bannedusers');
+  await axios.get(`${baseUrl}/${apiEndpoint}`);
+  const updatedBannedUsers = await axios.get(`${baseUrl}/users/bannedusers`);
   setBannedUsers(updatedBannedUsers.data);
 };
 
