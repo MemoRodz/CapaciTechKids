@@ -12,34 +12,30 @@ const correoValidate = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i; //import.met
 export function validate(formData) {
 
   let errors = {};
-  // console.log('Objeto formData: ', formData);
-  // console.log('Regex: ', (correoValidate.test(formData.email)))
-  if (formData.nombre.length <= 0) {
-    // console.log('Nombre vacío: ', formData.nombre.length)
-    errors.nombre = 'El nombre no debe estar vacío.';
+  try {
+    console.log(`validate ==> Nombre: ${formData.nombre.length}, Email: ${formData.email.length}, Mensaje: ${formData.mensaje.length}`);
+    if (formData.nombre.length <= 0) {
+      errors.nombre = 'El nombre no debe estar vacío.';
+    }
+    else if (formData.nombre.length < 6) {
+      errors.nombre = 'El nombre debe ser de al menos 6 caracteres.';
+    }
+    else if (formData.nombre.length > 25) {
+      errors.nombre = 'El nombre debe ser de máximo 25 caracteres.';
+    }
+    else if (!correoValidate.test(formData.email)) {
+      errors.email = 'El correo debe ser correo electrónico válido.';
+    }
+    else if (formData.mensaje.length === 0) {
+      errors.mensaje = 'El mensaje no debe estar vacío.';
+    }
+    else if (formData.mensaje.length > 1500) {
+      errors.mensaje = 'El mensaje supera el máximo de 1,500 caracteres.';
+    }
+    return errors;
+  } catch (error) {
+    console.log(error);
   }
-  else if (formData.nombre.length < 6) {
-    // console.log('Nombre largo mínimo: ', formData.nombre.length)
-    errors.nombre = 'El nombre debe ser de al menos 6 caracteres.';
-  }
-  else if (formData.nombre.length > 25) {
-    // console.log('Nombre largo máximo: ', formData.nombre.length)
-    errors.nombre = 'El nombre debe ser de máximo 25 caracteres.';
-  }
-  else if (!correoValidate.test(formData.email)) {
-    // console.log('Validar correo:', formData.email)
-    errors.email = 'El correo debe ser correo electrónico válido.';
-  }
-  else if (formData.mensaje.length === 0) {
-    // console.log('Mensaje largo mínimo: ', formData.mensaje.length)
-    errors.mensaje = 'El mensaje no debe estar vacío.';
-  }
-  else if (formData.mensaje.length > 1500) {
-    // console.log('Mensaje largo máximo: ', formData.mensaje.length)
-    errors.mensaje = 'El mensaje supera el máximo de 1,500 caracteres.';
-  }
-  // console.log('Que tiene errors: ', errors);
-  return errors;
 }
   
 function About() {
@@ -62,7 +58,10 @@ function About() {
   const [text, setText] = React.useState("");
 
   function handleTextChange(e) {
+    // console.log(e.target.value);
     setText(e.target.value);
+    // console.log(`Este es el TARGET: ${e.target} y este es el VALUE: ${e.target.value}`);
+    console.log(`handleTextChange ==> Target.name: ${e.target.name}, Target.value: ${e.target.value}`);
   }
 
   function handleSubmit(e) {
@@ -85,26 +84,23 @@ function About() {
 
   function handleInputChange(e) {
     const { name, value } = e.target;
-    setErrors(
-      validate({
+    //console.log(`Este es el KEY: ${e.target.key} y este es el VALUE: ${e.target.value}`);
+    try {
+      setErrors(
+        validate({
+          ...formData,
+          [name]: value,
+        })
+      );
+      setFormData({
         ...formData,
-        [name]: value,
-      })
-    );
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+        [name]: value
+      });
+      console.log(`handleInputChange ==> NAME: ${e.target.name}, VALUE: ${e.target.value}, LENGTH: ${e.target.value.length}`);
+    } catch (error) {
+      console.log(error);
+    }
   }
-
-  // function enviarEmail(e) {
-  //   e.preventDefault();
-  //   console.log("Correo: ", e.target.email.value);
-  //   emailjs.sendForm(serviceEmail, templateContactUs, e.target, userId).then(res => {
-  //     swal("¡Gracias por tu comentario!", "¡Espera nuestra respuesta!", "success");
-  //     console.log(res);
-  //   })
-  // }
 
   return (
     <div className={styles.about}>
@@ -206,7 +202,6 @@ function About() {
       <hr />
       <div style={{ width: "40%", backgroundColor: "lightgrey", margin: "0 auto", padding: "10px" }}>
         <h1>Contáctanos</h1>
-        <hr />
         <form onSubmit={(e) => {
           handleSubmit(e);
         }}>
@@ -229,7 +224,7 @@ function About() {
               {errors.nombre ? <div>{errors.nombre}</div> : null}
             </div>
             <div >
-              <label><b>Email: </b></label>
+              <label><b>Correo electrónico: </b></label>
               <input type="text" style={{
                 width: "316px",
                 height: "30px",
@@ -253,15 +248,14 @@ function About() {
               cols="70"
               placeholder='Deja tu mensaje'
               required
-              value={text} onChange={handleTextChange}
+              value={formData.mensaje} onChange={handleInputChange}
             />
-            <p>{text.length}/1500</p>
-            
+            <p>{formData.mensaje.length}/1500</p>
           </div>
           {validacion ? <div>{validacion}</div> : null}
-          <button type="submit" 
-          style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
-          disabled={Object.keys(validate).length}
+          <button type="submit"
+            style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
+            disabled={Object.keys(validate).length}
           >Enviar comentario</button>
         </form>
       </div>

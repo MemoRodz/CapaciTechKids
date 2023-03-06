@@ -21,9 +21,6 @@ function Nav() {
   const userInfo = useSelector(state => state.user)
   // console.log("cambio en nav",userInfo)
 
-
-  // console.log("USER", userInfo)
-
   useEffect(() => {
     if (storedUser) {
       const fetchData = async () => {
