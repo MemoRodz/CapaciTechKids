@@ -17,6 +17,7 @@
     font-family: 'Londrina Solid', cursive;
     font-size: 18px;
     border: none;
+    padding: 0.2rem 0.6rem;
 }
 
 .selectedcategories button:hover {
