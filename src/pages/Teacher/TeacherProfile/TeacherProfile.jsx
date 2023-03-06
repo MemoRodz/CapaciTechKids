@@ -69,12 +69,16 @@ function TeacherProfile() {
             <div>
                 {showForm && (
                     <form onSubmit={handleSubmit}>
+                        <div>
                         <label>Agrega tu nuevo nombre:</label>
-                        <input   
-                            name="Name" 
-                            type="text"
-                            value={userData.Name} 
-                            onChange={handleChange}></input>
+                            <input  
+                                style={{width:"500px"}} 
+                                name="Name" 
+                                type="text"
+                                placeholder='Ingrese su nuevo nombre'
+                                value={userData.Name} 
+                                onChange={handleChange}></input>
+                        </div>
                         <br></br>
                         <label>Agrega tu nueva imagen: </label>
                         <div>

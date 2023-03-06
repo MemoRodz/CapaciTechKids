@@ -155,14 +155,14 @@ const Create = () => {
                 <textarea
                   name="Description"
                   minlength="5"
-                  maxlength="200"
+                  maxlength="500"
                   placeholder="Insertar Descripción"
                   value={formData.Description}
                   onChange={handleInputChange}
                   rows="10"
-                  cols="50"
-                  required></textarea>
-              </div>
+                  cols="65"
+                  required></textarea>                  
+              </div>              
               <div className={styles.errs}>
                 {/* {errors.Description ? <div>{errors.Description}</div> : null} */}
               </div>
