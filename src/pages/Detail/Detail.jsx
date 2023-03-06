@@ -26,12 +26,16 @@ export default function Detail() {
         setReview(reviews.data);
         setRelated(rela.data)
         setRelatedLoaded(true);
+        window.scrollTo(0, 0);
+
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
   }, [pathname]);
+
+
 
   function Score() {
 
