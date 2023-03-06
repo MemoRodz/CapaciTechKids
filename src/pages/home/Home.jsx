@@ -50,24 +50,25 @@ function Home() {
 
         <div className={styles.stats}>
           <div className={styles.stat}>
-            <h2>15k+</h2> <br />
+            <h2>15k+</h2>
             <p>Estudiantes</p>
           </div>
           <div className={styles.stat}>
-            <h2>75%</h2><br />
+            <h2>75%</h2>
             <p>Estudiantes egresados<br /> por curso </p>
           </div>
           <div className={styles.stat}>
-            <h2>570</h2><br />
+            <h2>570</h2>
             <p>Pruebas</p>
           </div>
           <div className={styles.stat}>
-            <h2> 68 </h2><br />
+            <h2> 68 </h2>
             <p>Profesores</p>
           </div>
           <div className={styles.stat}>
-            <h2>10</h2><br />
-            <p>Modernas<br /> Categorias</p>
+            <h2>10</h2>
+            <p>Modernas </p>
+            <p>Categorias</p>
           </div>
         </div>
 

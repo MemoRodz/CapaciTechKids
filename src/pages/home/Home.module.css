@@ -3,7 +3,8 @@
     text-align: center;
     height: 100%;
 }
-.welc{
+
+.welc {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -23,11 +24,12 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
-    text-align: left;   
+    text-align: left;
     width: 100%;
     background: var(--bg-clr-complementary);
     border-radius: 0 0 100px 100px;
-    padding-top: 10rem;
+    padding-top: 1rem;
+    margin-bottom: 20px;
 }
 
 .welcome {
@@ -36,10 +38,11 @@
     margin-block-end: 5px;
     font-size: 50px;
 }
-.kids img{
-    width: 600px;
 
+.kids img {
+    width: 600px;
 }
+
 .capaci {
     color: var(--font-clr-yellow);
     margin-top: 5px;
@@ -147,7 +150,7 @@ p {
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin: 4rem 0 4rem 38%;
+    justify-content: center;
 }
 
 .stat {
@@ -170,4 +173,82 @@ p {
     color: var(--font-clr-primary);
     margin: 0;
     padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .welcomecard {
+        border-radius: 0 0 50px 50px;
+        padding-top: 1rem;
+    }
+
+    .kids img {
+        margin: 20px 20px 0 0;
+        width: 150px;
+    }
+
+    .welcome {
+        margin: 20px 0 0 15px;
+        font-size: 20px;
+    }
+
+    .capaci {
+        margin: 0 0 5px 15px;
+        font-size: 20px;
+    }
+
+    .welc h3 {
+        font-size: 13px;
+        margin-left: 15px;
+    }
+
+    .our {
+        margin-top: 15px;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+    }
+
+    .stat {
+        margin: 12px;
+    }
+
+    .stat h2 {
+        font-size: var(--h2);
+        background: -webkit-linear-gradient(264deg, rgba(242, 122, 5, 1) 0%, rgba(255, 198, 28, 1) 85%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+        padding: 0;
+    }
+
+    .stat p {
+        color: var(--font-clr-primary);
+        margin: 0;
+        padding: 0;
+    }
+
+    .all {
+        margin-bottom: 15px;
+    }
+
+    .home p {
+        font-size: 14px;
+        margin: 8px;
+    }
+
+    .homecard {
+        width: 250px;
+        height: 210px;
+    }
+
+    .iconcardbg {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+    }
+    .iconcardbg svg{
+        width: 30px;
+    }
+
 }
