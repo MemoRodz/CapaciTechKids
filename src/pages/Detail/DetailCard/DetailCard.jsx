@@ -5,7 +5,7 @@ import {FaRegClock, FaThLarge } from "react-icons/fa";
 
 function DetailCard({
   Image,
-  tblUser,
+  tblUsers,
   tblCategories,
   Duration,
   Title,
@@ -31,7 +31,7 @@ function DetailCard({
 
         <div className={styles.teach}>
           <img src="..\img\image 12.png" alt="perfil" />
-          <h3>{tblUser.Name}</h3>
+          <h3>{tblUsers[0].Name}</h3>
         </div>
       </div>
     </Link>

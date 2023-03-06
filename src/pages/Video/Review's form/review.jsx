@@ -8,10 +8,11 @@ import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs"
 
 const ReviewForm = ({ id, setIsSend }) => {
   const userInfo = useSelector((state) => state.user);
+  console.log(id)
   const userDataInitialState = {
     Score: 0,
     Comment: "",
-    PK_Course: id.id,
+    PK_Course: id,
     PK_User: userInfo.ID,
   }
   const [userData, setUserData] = React.useState(userDataInitialState);
