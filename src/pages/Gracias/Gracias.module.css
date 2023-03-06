@@ -2,7 +2,26 @@
     width: 30%;
     margin-top: 100px;
     margin-bottom: 100px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .cont {
+        margin: 50px auto;
+    }
+
+    .cont h1 {
+        font-size: 30px;
+    }
+
+    .cont h2 {
+        font-size: 20px;
+    }
+    .donate {
+        width: 300px;
+        display: flex;
+    }
 }
