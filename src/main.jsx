@@ -9,7 +9,6 @@ import store from './redux/store'
 import axios from 'axios';
 
 const audience = 'https://dev-nthm3x2u4nohqdcs.us.auth0.com/api/v2/';
-
 const domain = import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN
 const client = import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID
 // axios.defaults.baseURL = 'https://capacitechkidsback-production-2437.up.railway.app'
