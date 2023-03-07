@@ -150,7 +150,7 @@ export default function Detail() {
          
           {userInfo.isLogged?
             <div className={styles.studybutton}>
-              <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
+              <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>Empezar</Link>
             </div>
             :
             <div className={styles.loginbtn}>
