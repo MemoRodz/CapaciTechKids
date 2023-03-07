@@ -1,9 +1,7 @@
 import { useState,useEffect } from 'react'
 import styles from './Course.module.css'
 import Estrella from '../Estrella/Estrella';
-import { FaStar, FaBahai, FaCamera, FaFileAlt, FaChartBar,
-   FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane,
-    FaWhatsapp, FaRegClock, FaThLarge } from "react-icons/fa";
+import { FaRegClock, FaThLarge } from "react-icons/fa";
 import { Link,  } from 'react-router-dom';
 import axios from 'axios';
 import { baseUrl } from '../../models/baseUrl';
