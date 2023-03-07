@@ -55,14 +55,14 @@ function About() {
     mensaje: "",
   });
 
-  const [text, setText] = React.useState("");
+  // const [text, setText] = React.useState("");
 
-  function handleTextChange(e) {
-    // console.log(e.target.value);
-    setText(e.target.value);
-    // console.log(`Este es el TARGET: ${e.target} y este es el VALUE: ${e.target.value}`);
-    console.log(`handleTextChange ==> Target.name: ${e.target.name}, Target.value: ${e.target.value}`);
-  }
+  // function handleTextChange(e) {
+  //   // console.log(e.target.value);
+  //   setText(e.target.value);
+  //   // console.log(`Este es el TARGET: ${e.target} y este es el VALUE: ${e.target.value}`);
+  //   console.log(`handleTextChange ==> Target.name: ${e.target.name}, Target.value: ${e.target.value}`);
+  // }
 
   function handleSubmit(e) {
     e.preventDefault();
