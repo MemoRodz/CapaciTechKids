@@ -7,11 +7,11 @@ import {
     TableHead,
     TableRow,
     Paper,
-    Checkbox,
-    Switch
+    Checkbox
 } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
+import emailjs from 'emailjs-com';
 import swal from 'sweetalert';
 import { baseUrl } from '../../../models/baseUrl';
 import styles from './NotificationAdmin.module.css'
@@ -25,7 +25,7 @@ function NotificaAdmin() {
     const [students, setStudents] = useState([]);
     const [orderBy, setOrderBy] = useState('Name');
     const [order, setOrder] = useState('asc');
-    
+
     useEffect(() => {
         async function fetchStudents() {
             const response = await axios.get(`${baseUrl}/users/students`);
@@ -34,23 +34,22 @@ function NotificaAdmin() {
         fetchStudents();
     }, []);
 
+    /*
+Para probar sobre correos de Administradores
+    */
+const [advUsers, setAdvUsers] = useState([]);   
+useEffect(() => {
+    async function fetchAdvUsers() {
+      const response = await axios.get('http://localhost:3001/users/advusers');
+      setAdvUsers(response.data);
+    }
+    fetchAdvUsers();
+  }, []);
     const handleSort = (column) => {
         const isAsc = orderBy === column && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
         setOrderBy(column);
     };
-
-
-    const emailList = [];
-    
-    // const handleToggle = async (event, student) => {
-    //     const isChecked = event.target.checked;
-    //     // const apiEndpoint = isChecked ? `/users/${student.PK_User}/activate` : `/users/${student.PK_User}/delete`;
-    //     // await axios.get(`http://localhost:3001${apiEndpoint}`);
-    //     // const updatedStudents = await axios.get('http://localhost:3001/users/students');
-    //     // setStudents(updatedStudents.data);
-
-    // };
 
     const sortData = (data) => {
         const sortedData = data.sort((a, b) => {
@@ -63,7 +62,7 @@ function NotificaAdmin() {
         return sortedData;
     };
 
-    //Formulario para envio de notifcaciones
+    //Formulario para envio de notificaciones
     const formDataInitialState = {
         asunto: "",
         mensaje: "",
@@ -75,13 +74,16 @@ function NotificaAdmin() {
         asunto: "",
         mensaje: "",
     });
+
+    const [emailList, setEmailList] = useState([])
+
     const fieldsEmail = {
         email: "",
+        asunto: "",
         mensaje: "",
     }
     function validate(formData) {
         let errores = {};
-        // let result =false;
         try {
             if (formData.asunto.length === 0) {
                 errores.asunto = 'El asunto del comunicado no puede estar vacío.';
@@ -103,50 +105,62 @@ function NotificaAdmin() {
 
     let activeSendMsg = false;
     let activeSendUsr = false;
-    // const [text, setText] = React.useState("");
-
-    // function handleTextChange(e) {
-    //     setText(e.target.value);
-    // }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log("Ya en submit, mensaje: ", e.target.mensaje.value);
-        console.log("En submit, emailList: ", emailList);
 
         try {
+            let correos = '';
+            if (emailList.length !== 0) {
+                emailList.forEach(email => {
+                    if (emailList.length === 1) {
+                        correos = email;
+                    } else {
+                        correos = correos + ',' + email;
+                    }
+                });
+            }
+            fieldsEmail.email = correos;
+            fieldsEmail.mensaje = e.target.mensaje.value;
+            fieldsEmail.asunto = e.target.asunto.value;
 
-            console.log(`Service: ${serviceEmail}, Template: ${templateComunicado}, userId: ${userId}, e.target: ${e.target}`);
-            console.log(fieldsEmail);
-            // emailjs.sendForm(serviceEmail, templateContactUs, e.target, userId).then(res => {
-            //     swal("¡Gracias por tu comentario!", "¡Espera nuestra respuesta!", "success");
-            //     setFormData(formDataInitialState);
-            //     console.log(res);
-            // })
-            //             emailjs.send(serviceEmail, templateComunicado, fieldsEmail, userId)
-            //                 .then(function (response) {
-            //     swal("Noficación enviada", "¡Los alumnos ya están notificados!", "success");
-            //     setFormData(formDataInitialState);
-            //                     console.log('VAMOO!', response.status, response.text);
-            //                 }, function (error) {
-            //                     console.log('Qué pasó?...', error);
-            //                 });
+            emailjs.send(serviceEmail, templateComunicado, fieldsEmail, userId)
+                .then(function (response) {
+                    swal("Noficación enviada", "¡Los alumnos ya están notificados!", "success");
+                    setFormData(formDataInitialState);
+                    console.log('VAMOO!', response.status, response.text);
+                }, function (error) {
+                    console.log('Qué pasó?...', error);
+                });
+
         } catch (error) {
             console.log(error);
         }
     };
 
-    function handleCheck(e) {
-        if (emailList.includes(e)) {
-            let index = emailList.indexOf(e);
-            emailList.splice(index, 1);
-        } else {
-            emailList.push(e);
-        }
+    // function handleCheck(e) {
+    //     console.log("Qué es e: ", e);
+    //     if (emailList.includes(e)) {
+    //         let index = emailList.indexOf(e);
+    //         emailList.splice(index, 1);
+    //     } else {
+    //         emailList.push(e);
+    //     }
+    //     fieldsEmail.email = emailList;
+    //     if (emailList.length !== 0) activeSendUsr = true;
+    //     console.log('En el Check, emailList:', emailList);
+    // }
 
-        if (emailList.length !== 0) activeSendUsr = true;
-        console.log('emailList:', emailList);
+    function handleCheck(e) {
+        let value = e.target.value
+        if (e.target.checked) {
+            setEmailList([...emailList, value])
+        } else {
+            setEmailList(emailList.filter((val) => val !== value))
+        }
+        console.log('En handleCheck:', emailList);
     }
+
 
     function handleInputChange(e) {
         const { name, value } = e.target;
@@ -199,20 +213,26 @@ function NotificaAdmin() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {sortData(students).map((student) => (
+                                {sortData(advUsers).map((student) => (
                                     <TableRow key={student.PK_User}>
                                         <TableCell>{student.Name}</TableCell>
                                         <TableCell>{student.Email}</TableCell>
                                         <TableCell>
                                             <p>{student.Active ? 'Sí' : 'No'}</p>
                                         </TableCell>
-                                        <TableCell><Checkbox onChange={(e) => handleCheck(student.Email)} /></TableCell>
+                                        <TableCell>
+                                            <Checkbox
+                                                value={student.Email}
+                                                checked={emailList.includes(student.Email)}
+                                                onChange={(e) => handleCheck(e)} />
+                                        </TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
                     <div >
+                        <br />
                         <label><b>Asunto a notificar: </b></label>
                         <input type="text" style={{
                             width: "316px",
@@ -228,6 +248,7 @@ function NotificaAdmin() {
                             onChange={handleInputChange}
                         />
                     </div>
+                    <br />
                     <div className="form-group">
                         <label><b>Mensaje: </b></label>
                         <textarea type="text" style={{
