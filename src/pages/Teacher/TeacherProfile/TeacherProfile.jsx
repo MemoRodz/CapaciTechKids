@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import styles from './TeacherPRofile.module.css'
+import styles from './TeacherProfile.module.css'
 import SubiendoImagenes from '../../../component/Upload/Upload'
 import {baseUrl} from '../../../models/baseUrl'
 import axios from 'axios'
