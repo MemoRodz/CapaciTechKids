@@ -49,7 +49,7 @@ const sortData = (data) => {
         return a[orderBy] < b[orderBy] ? -1 : 1;
       } else {
         return a[orderBy] > b[orderBy] ? -1 : 1;
-      }
+              }
     });
     return sortedData;
   };
