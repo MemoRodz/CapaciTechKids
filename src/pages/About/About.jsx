@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../About/About.module.css'
+import Button from '../../component/Buttons/Button/Button'
 import { FaGithub } from "react-icons/fa";
 import emailjs from 'emailjs-com';
 import swal from 'sweetalert';
@@ -253,6 +254,7 @@ function About() {
           >Enviar comentario</button>
         </form>
       </div>
+      <Button />
     </div>
   )
 }
