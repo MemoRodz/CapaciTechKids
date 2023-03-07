@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Detail.module.css";
 import { useParams, Link, useLocation } from "react-router-dom";
-import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaTwitter, FaFacebookF, FaYoutube, FaInstagram, FaTelegramPlane, FaWhatsapp, FaRegClock } from "react-icons/fa";
+import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaFacebookF, FaWhatsapp, FaRegClock } from "react-icons/fa";
 import axios from "axios";
 import { LoginButton} from '../../component/Login/Login'
 import Estrella from '../../component/Estrella/Estrella'
@@ -14,6 +14,7 @@ export default function Detail() {
   const [course, setCourse] = useState([]);
   const [review, setReview] = useState([]);
   const [related, setRelated] = useState([])
+  const [average, setAverage] = useState([])  
   const [relatedLoaded, setRelatedLoaded] = useState(false);
   const { pathname } = useLocation()
 
@@ -25,13 +26,15 @@ export default function Detail() {
         const curso = await axios.get(`${baseUrl}/courses/detail/${id}`)
         const reviews = await axios.get(`${baseUrl}/reviews/related/${id}`)
         const rela = await axios.get(`${baseUrl}/categories/co/${id}`)
+        const avg = await axios.get(`${baseUrl}/reviews/avg/related/${id}`)
 
         setCourse(curso.data);
         setReview(reviews.data);
-        setRelated(rela.data)
+        setRelated(rela.data);
+        setAverage(avg.data);
         setRelatedLoaded(true);
         window.scrollTo(0, 0);
-
+        console.log(">>>>>>>>",average);
       } catch (error) {
         console.error(error);
       }
@@ -43,7 +46,7 @@ export default function Detail() {
 
   function Score() {
 
-    const score = course.Score / 2
+    const score = average.Score / 2
 
     console.log("---> SCORE", score)
     if (score === null) {
@@ -58,7 +61,7 @@ export default function Detail() {
       return score
     }
   }
-  console.log(id)
+  
 
 
     const handleFBClick = () => {
@@ -98,9 +101,9 @@ export default function Detail() {
                 <div className={styles.top}>
                   <h1>{Score()} de 5</h1>
                   <Estrella Score={course.Score / 2} />
-                  <h3>Top Score</h3>
+                  <h3>Average Score</h3>
                 </div>
-                <div className={styles.start}>
+                {/* <div className={styles.start}>
                   <h3>5 ⭐</h3>
                   <div className={styles.progressbar5}><div className={styles.progress5}></div></div>
                   <h3>4 ⭐</h3>
@@ -111,7 +114,7 @@ export default function Detail() {
                   <div className={styles.progressbar2}><div className={styles.progress2}></div></div>
                   <h3>1 ⭐</h3>
                   <div className={styles.progressbar1}><div className={styles.progress1}></div></div>
-                </div>
+                </div> */}
               </div>
               <div className={styles.comments}>
                 {review.map(e =>
@@ -144,10 +147,7 @@ export default function Detail() {
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
-          <div className={styles.studybutton} onClick={coursexstudent}>
-            <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
-          </div>
-          <h1>{course.Title} Titulo</h1>
+         
           {userInfo.isLogged?
             <div className={styles.studybutton}>
               <Link to={`/player/${course.PK_Course}`}>Empezar</Link>
