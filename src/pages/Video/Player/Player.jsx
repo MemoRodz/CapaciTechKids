@@ -6,6 +6,7 @@ import { baseUrl } from '../../../models/baseUrl'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import ReviewForm from "../Review's form/review"
+import { useSelector } from 'react-redux';
 
 function Player() {
   const { id } = useParams();
@@ -13,7 +14,13 @@ function Player() {
   const [index, setIndex] = useState(1)
   const [allViewed, setAllViewed] = useState(false) // controla si llego al ultimo video
   const [isSend, setIsSend] = useState(false) // controla si se a enviado una review
+  const userInfo = useSelector(state => state.user)
 
+  const userLecture = async(id) => {
+    console.log("me ejecuté? ")
+    const res = await axios.post(`${baseUrl}/users/userslectures?lecture=${id}&student=${userInfo.ID}`)
+    console.log(res)
+  }
   const handleNext = () => {
     setIndex(index + 1)
     if (index === actives.length - 1) setAllViewed(true)
@@ -38,13 +45,15 @@ function Player() {
           return m
         })
         setActives(newArr)
+    userLecture(actives[0].PK_Lecture)
       } catch (error) {
         console.log(error);
       }
     }
     fetchData();
   }, [index])
-
+  
+  console.log("Holaaaa", actives)
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -57,7 +66,9 @@ function Player() {
           </>
         ))}
         <button onClick={handlePrev} disabled={index < 2}>Anterior</button>
-        <button onClick={handleNext} disabled={index > actives.length}>Siguiente</button>
+        <button onClick={() => {
+handleNext();
+}} disabled={index > actives.length}>Siguiente</button>
       </div>
       <div >
         {actives && actives.map(m => (

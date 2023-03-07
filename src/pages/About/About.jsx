@@ -37,7 +37,7 @@ export function validate(formData) {
     console.log(error);
   }
 }
-  
+
 function About() {
 
   // console.log('RegexMail: ', correoValidate);
@@ -55,14 +55,14 @@ function About() {
     mensaje: "",
   });
 
-  const [text, setText] = React.useState("");
+  // const [text, setText] = React.useState("");
 
-  function handleTextChange(e) {
-    // console.log(e.target.value);
-    setText(e.target.value);
-    // console.log(`Este es el TARGET: ${e.target} y este es el VALUE: ${e.target.value}`);
-    console.log(`handleTextChange ==> Target.name: ${e.target.name}, Target.value: ${e.target.value}`);
-  }
+  // function handleTextChange(e) {
+  //   // console.log(e.target.value);
+  //   setText(e.target.value);
+  //   // console.log(`Este es el TARGET: ${e.target} y este es el VALUE: ${e.target.value}`);
+  //   console.log(`handleTextChange ==> Target.name: ${e.target.name}, Target.value: ${e.target.value}`);
+  // }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -115,11 +115,11 @@ function About() {
 
         2. Desarrollar proyectos que incentiven en los procesos de enseñanza y aprendizaje trabajando de la mano con los docentes para incrementar las expectativas educativas y laborales.</h3>
 
-<br />
+      <br />
       <h2>Visión</h2>
       <br />
       <h3>Queremos que la próxima generación de latinoamericanos vea en la educación como un vehículo de cambio para soñar, construir y cumplir su proyecto de vida. </h3>
-<br />
+      <br />
       <div className={styles.devs}>
         <div className={styles.dev}>
           <a href="https://github.com/Fr33yr" target="_blank">
@@ -200,7 +200,7 @@ function About() {
         </div>
       </div>
       <hr />
-      <div style={{ width: "40%", backgroundColor: "lightgrey", margin: "0 auto", padding: "10px" }}>
+      <div className={styles.contactanos}>
         <h1>Contáctanos</h1>
         <form onSubmit={(e) => {
           handleSubmit(e);
@@ -208,13 +208,10 @@ function About() {
           <div >
             <div >
               <label><b>Nombre: </b></label>
-              <input type="text" style={{
-                width: "316px",
-                height: "30px",
-              }}
+              <input
                 id="nombre"
                 name="nombre"
-                minLength='6'
+                minLength='3'
                 maxLength='25'
                 placeholder='Tu nombre.'
                 required
@@ -225,10 +222,7 @@ function About() {
             </div>
             <div >
               <label><b>Correo electrónico: </b></label>
-              <input type="text" style={{
-                width: "316px",
-                height: "30px",
-              }}
+              <input type="text"
                 id="email"
                 name="email"
                 placeholder='Introduce un correo electrónico válido.'
@@ -241,7 +235,7 @@ function About() {
           </div>
           <div className="form-group">
             <label><b>Mensaje: </b></label>
-            <textarea type="text" style={{padding:"6px"}}
+            <textarea type="text"
               id="mensaje"
               name="mensaje"
               rows="10"

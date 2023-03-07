@@ -30,13 +30,20 @@ const Create = () => {
     Duration: 30,
     Category: [],
     Active: true,
-    Image: ""
+    Image: "",
+    Videos: []
   };
   const navigate = useNavigate();
   const [cats, setCats] = useState([]);
   const [validacion, setValidacion] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [formData, setFormData] = useState(formDataInitialState);
+
+  const [videos,setVideos] = useState({
+    video : "",
+    titulo : "",
+    descripcion : ""
+  })
   const [errors, setErrors] = React.useState({
     Title: "Agrega un titulo",
     Description: "Agrega una descripcion",
@@ -44,7 +51,8 @@ const Create = () => {
     Duration: "",
     Category: [],
     Active: true,
-    Image: ""
+    Image: "",
+    Videos: []
   });
  
   const [data, setData] = useState([]);
@@ -92,6 +100,8 @@ const Create = () => {
       })
     );
 
+    
+
     if (type === "checkbox") {
       setSelectedCategories((prevCategories) =>
         checked
@@ -101,6 +111,12 @@ const Create = () => {
     } else {
       setFormData({ ...formData, [name]: value });
     }
+  }
+
+  const handleVideo = (e) => {
+    const {name,value} = e.target
+    setVideos({...videos, [name]: value 
+    });
   }
 
   useEffect(() => {
@@ -115,6 +131,19 @@ const Create = () => {
   function cambiarImagen(img) {
     setFormData({...formData, Image : img})
 }
+
+const handleAddVideo = () => {
+  console.log("entre a handle")
+  setFormData(prevFormData => ({
+    ...prevFormData,
+    Videos: [...prevFormData.Videos, videos]
+  }))
+  setVideos({
+    video : "",
+    titulo : "",
+    descripcion : ""
+  }) 
+};
 
   return (
     <>
@@ -210,7 +239,40 @@ const Create = () => {
               required
             />
           </label>
-          <br />
+          <label>Videos: (puedes agregar varios videos)</label>
+          <label>
+  Nombre del video:
+  <input
+    type="text"
+    name="titulo"
+    value={videos.titulo}
+    onChange={handleVideo}
+  />
+</label>
+
+<label>
+  Descripción del video:
+  <textarea
+    name="descripcion"
+    value={videos.descripcion}
+    onChange={handleVideo}
+  />
+</label>
+
+<label>
+  URL del video:
+  <input
+    type="text"
+    name="video"
+    value={videos.video}
+    onChange={handleVideo}
+  />
+</label>
+
+
+<button type="button" onClick={handleAddVideo} > 
+  Agregar video
+</button> 
           <br />
           {validacion ? <div>{validacion}</div> : null}
           <button type="submit" disabled={Object.keys(validate).length}>Crear Curso</button>

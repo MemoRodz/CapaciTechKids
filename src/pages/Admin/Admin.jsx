@@ -21,14 +21,14 @@ function Admin() {
                     <Link to={'/dashboard/advuser'}>Mi perfil</Link>
                     <Link to={'/dashboard/advuser/users/students'}>Usuarios</Link>
                     <Link to={'/dashboard/advuser/admincourses'}>Cursos</Link>
-                    <Link to={'/advuser/notificaadmin'}>Aviso a Estudiantes</Link>
+                    <Link to={'/dashboard/advuser/notificaadmin'}>Aviso a Estudiantes</Link>
                 </div>
                 <div>
                     <Routes>
                         <Route path='/' element={<AdminProfile />}></Route>
                         <Route path='/users/*' element={<Users />}></Route>
                         <Route path='/admincourses' element={<AdminCourses />}></Route>
-                        <Route path='/notificationadmin' element={<NotificationAdmin />}></Route>
+                        <Route path='/notificaadmin' element={<NotificationAdmin />}></Route>
                         <Route path='*' element={<h2>Not Found</h2>} />
                     </Routes>
                 </div>
