@@ -6,7 +6,7 @@ import {baseUrl} from '../../../models/baseUrl'
 import axios from 'axios'
 import { setUserInfo } from '../../../redux/slices/userSlice'
 import { useDispatch } from 'react-redux'
-
+import swal from 'sweetalert'
 
 function TeacherProfile() {
     const userInfo = useSelector(state => state.user)
@@ -45,7 +45,11 @@ function TeacherProfile() {
                      dispatch(setUserInfo(response.data))} // Aqui preguntarle a Agus que si lo está haciendo. 
                      fetchData()
                     //aca hay que vaciar los inputs
-                     alert("Has modificado tu perfil satisfactoriamente")
+                    swal({
+                        title: "Has modificado tu perfil satisfactoriamente",
+                        icon: "success",
+                        button: "Cerrar",
+                      });
             })
             .catch(error => {
                 console.log(error);

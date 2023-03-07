@@ -7,6 +7,7 @@
     box-sizing: border-box;
 }
 
+
 nav {
     width: 100%;
     background: #0583F2;
@@ -19,7 +20,21 @@ nav {
 }
 
 .logo img {
-    width: 50px;
+    width: 55px;
+
+}
+
+.logo img:hover{
+    width: 60px;
+    
+}
+
+.logocontainer {
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 }
 
 .toggle {
@@ -42,7 +57,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover,
-header nav ul li a.active {
+header nav ul li a:active {
     border-bottom: solid 3px var(--font-clr-yellow);
 }
 
@@ -106,3 +121,18 @@ summary {
         }
     }
 }
+
+
+ul li .pregunta  { 
+
+
+line-height: 1.5em;
+
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+width: 100%;
+align-items: center;
+
+}
+
