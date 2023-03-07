@@ -1,56 +1,96 @@
-.botonera{
-   position: relative;
-   width: 200px;
-   margin: auto;
-   height: 66px;
+.btn{
+    position: relative;
+    display: inline-block;
 }
-.botonera .btn{
-    width: 200px;
-    height: 66px;
-    background: #458dda;
+.btn:hover::before,
+.btn:hover::after{
+    left: 100px;
+    opacity: 0;
+}
+.btn:hover .btntext::before,
+.btn:hover .btntext::after{
+    background: var(--font-clr-yellow);
+}
+
+.btn:hover .btntext::before{
+    width: 100%;
+}
+
+.btn:hover .btntext {
+    top: -10px;
     color: #fff;
-    border: none;
-    outline: none;
-    text-transform: uppercase;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    border-radius: 6px;
-    cursor: pointer;
-
-    -moz-box-shadow: 0 15px 40px rgba(0, 145, 255, 0.5);
-    -webkit-box-shadow: 0 15px 40px rgba(0, 145, 255, 0.5);
-    box-shadow: 0 15px 40px rgba(0, 145, 255, 0.5);
-}
-.botonera .btn:hover{
-    background: var(--bg-clr-complementary);
+    box-shadow: 0 6px 0 0 rgb(136, 115, 31);
+    transition: all 0.5s ease 0.5s;
 }
 
-.botonera .btn:active{
-    transform: scale(0.9);
+.btn:active .btntext{
+    top: -7px;
+    transition: all 0.1s ease 0;
+    box-shadow: 0 2px 0 0 rgb(136, 115, 31);
 }
-.botonera .particulesCircle{
+
+.btn::before,
+.btn::after{
+    content: '';
     position: absolute;
-    background: var(--bg-clr-yellow);
-    width: 45px;
-    height: 45px;
-    top: 10px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--font-clr-yellow);
+    top: -10px;
     left: 50%;
-    margin-left: -15px;
-    border-radius: 50%;    
+    z-index: 1;
+    margin-left: -40px;
+    transition: all 0.8s;
 }
 
-@keyframes particules1{
-    from{
-
-    }
-    to{
-        left: -2px;
-        top: 215px;
-        transform: scale(0);
-    }
+.btn::before{
+    animation: rotate 20s infinite linear;
+}
+.btn::after{
+    animation: rotate 25s infinite linear;
 }
 
-.botonera .particulesCircle:nth-of-type(1){
-    animation: paticules1 1.5s 0.025s;
+.btntext{
+    position: relative;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+    transition: all  1s ease 0s;
+    top: 0;
+    overflow: hidden;
+}
+.btntext::before,
+.btntext::after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: var(--bg-clr-complementary);
+    transition: all 0.8s;
+}
+.btntext::before{
+    left: 0;
+    z-index: 2;
+}
+.btntext::after{
+    right: 0;
+}
+.btntext span{
+    position: relative;
+    z-index: 5;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }

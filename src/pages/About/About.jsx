@@ -254,7 +254,6 @@ function About() {
           >Enviar comentario</button>
         </form>
       </div>
-      <Button />
     </div>
   )
 }
