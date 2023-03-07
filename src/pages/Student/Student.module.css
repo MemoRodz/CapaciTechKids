@@ -22,4 +22,8 @@
 
 .student_views{
     margin-top: 5rem;
+    flex-direction: row;
+    width: 80%;
+    
+
 }

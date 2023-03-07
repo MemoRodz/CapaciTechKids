@@ -17,8 +17,7 @@ export function TeacherCoursesProvider({ children }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // usuario = userInfo.ID;
-                // console.log("ooooooooooooo", usuario)
+
                 const delCourses = await axios.get(`${baseUrl}/courses/deleted/fromuser/${usuario}`)
                 const courses = await axios.get(`${baseUrl}/courses/fromuser/${usuario}`)
 

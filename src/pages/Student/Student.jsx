@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux'
 import { useNavigate, Routes, Route, Link } from "react-router-dom"
 
 import styles from './Student.module.css'
-import { StudentProfile, StudentCourses } from './index'
+import { StudentProfile, StudentCourses, SubscribedCourses } from './index'
+import { StudentCoursesProvider } from '../../context/StudentCoursesContext'
 
 function Student() {
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ function Student() {
 
   return (
     <>
+     <StudentCoursesProvider>
       <div className={styles.student_container}>
         <div className={styles.student_sidebar}>
           <Link to={'/dashboard/student/'}>Mi perfil</Link>
@@ -25,10 +27,11 @@ function Student() {
         <div className={styles.student_views}>
           <Routes>
             <Route path='/' element={<StudentProfile />}></Route>
-            <Route path='/courses' element={<StudentCourses />}></Route>
+            <Route path='/courses' element={<SubscribedCourses />}></Route>
           </Routes>
         </div>
       </div>
+      </StudentCoursesProvider>
     </>
   )
 }
