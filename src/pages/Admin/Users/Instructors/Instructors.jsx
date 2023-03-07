@@ -29,7 +29,7 @@ const handleSort = (column) => {
 const handleToggle = async (event, instructor) => {
   const isChecked = event.target.checked;
   const apiEndpoint = isChecked ? `/users/${instructor.PK_User}/activate` : `/users/${instructor.PK_User}/delete`;
-  await axios.get(`${baseUrl}/${apiEndpoint}`);
+  await axios.put(`${baseUrl}${apiEndpoint}`);
   const updatedInstructors = await axios.get(`${baseUrl}/users/instructors`);
   setInstructors(updatedInstructors.data);
 };

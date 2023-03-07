@@ -37,7 +37,7 @@ function Students() {
   const handleToggle = async (event, student) => {
     const isChecked = event.target.checked;
     const apiEndpoint = isChecked ? `/users/${student.PK_User}/activate` : `/users/${student.PK_User}/delete`;
-  await axios.get(`${baseUrl}/${apiEndpoint}`);
+    await axios.put(`${baseUrl}${apiEndpoint}`);
     const updatedStudents = await axios.get(`${baseUrl}/users/students`);
     setStudents(updatedStudents.data);
   };

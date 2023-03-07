@@ -27,7 +27,7 @@ const handleSort = (column) => {
 const handleToggle = async (event, banneduser) => {
   const isChecked = event.target.checked;
   const apiEndpoint = isChecked ? `/users/${banneduser.PK_User}/activate` : `/users/${banneduser.PK_User}/delete`;
-  await axios.get(`${baseUrl}/${apiEndpoint}`);
+  await axios.put(`${baseUrl}${apiEndpoint}`);
   const updatedBannedUsers = await axios.get(`${baseUrl}/users/bannedusers`);
   setBannedUsers(updatedBannedUsers.data);
 };
