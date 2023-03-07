@@ -1,0 +1,96 @@
+.card {
+    margin: 10px;
+    background: #FFFFFF;
+    width: 27%;
+    height: 30em;
+    border-radius: 20px;
+    display: inline-block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: solid 20px #FFFFFF;
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+a:link, a:visited,  a:hover, a:active
+{
+    color: var(--font-clr-primary);
+    text-decoration: none;
+}
+
+
+
+.img {
+    object-fit:contain;
+}
+
+.heard img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.card img {
+        /* width: 100%;
+        height: 300px;
+        */
+        width: 100%;
+        height: 18rem;
+}
+
+.coursedet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.similar1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.similar1 h4{
+    margin: 0 4px;
+}
+
+.similar2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cardtit h1{
+    font-size: 26px;
+}
+
+.teach {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teach img {
+    position: relative;
+    top: 5px;
+    width: 44px;
+    height: 44px;
+}
+
+.btndetail button {
+    background: #0583F2;
+    color: #FFFFFF;
+    width: 154px;
+    height: 64px;
+    font-size: 20px;
+    border-radius: 80px;
+    border: none;
+}

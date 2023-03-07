@@ -2,24 +2,30 @@ import axios from "axios";
 import { useState, useEffect, createContext } from 'react'
 import { useSelector } from "react-redux";
 import { baseUrl } from '../models/baseUrl'
+import { usuario } from "../component/Layout/Nav/Nav";
 
 export const StudentCoursesContext = createContext()
 
 export function StudentCoursesProvider({ children }) {
+    const userId = useSelector(state => state.user.userId)
     const studentCoursesInitialState = {
-        myCourses: []
+        myCourses: [],
+
     }
     const [studentCourses, setStudentCourses] = useState(studentCoursesInitialState)
-    const userId = useSelector(state => state.user.userId)
+
+
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const studentCourses = await axios.get(`${baseUrl}/courses/`) // esta url deberia traer los courses del student pasando su userId
+                const studCourses = await axios.get(`${baseUrl}/users/user/${usuario}`) // esta url deberia traer los courses del student pasando su userId
+                console.log("22222222222222", studCourses.data.tblCourses)
                 setStudentCourses({
                     ...studentCoursesInitialState,
-                    myCourses: studentCourses.data
+                    myCourses: studCourses.data.tblCourses,
                 })
+                // console.log(myCourses)
             } catch (error) {
                 console.log(error)
             }
