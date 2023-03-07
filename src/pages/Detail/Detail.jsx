@@ -14,6 +14,7 @@ export default function Detail() {
   const [course, setCourse] = useState([]);
   const [review, setReview] = useState([]);
   const [related, setRelated] = useState([])
+  const [average, setAverage] = useState([])  
   const [relatedLoaded, setRelatedLoaded] = useState(false);
   const { pathname } = useLocation()
 
@@ -25,13 +26,15 @@ export default function Detail() {
         const curso = await axios.get(`${baseUrl}/courses/detail/${id}`)
         const reviews = await axios.get(`${baseUrl}/reviews/related/${id}`)
         const rela = await axios.get(`${baseUrl}/categories/co/${id}`)
+        const avg = await axios.get(`${baseUrl}/reviews/avg/related/${id}`)
 
         setCourse(curso.data);
         setReview(reviews.data);
-        setRelated(rela.data)
+        setRelated(rela.data);
+        setAverage(avg.data);
         setRelatedLoaded(true);
         window.scrollTo(0, 0);
-
+        console.log(">>>>>>>>",average);
       } catch (error) {
         console.error(error);
       }
@@ -43,7 +46,7 @@ export default function Detail() {
 
   function Score() {
 
-    const score = course.Score / 2
+    const score = average.Score / 2
 
     console.log("---> SCORE", score)
     if (score === null) {
@@ -58,7 +61,7 @@ export default function Detail() {
       return score
     }
   }
-  console.log(id)
+  
 
 
     const handleFBClick = () => {
@@ -98,7 +101,7 @@ export default function Detail() {
                 <div className={styles.top}>
                   <h1>{Score()} de 5</h1>
                   <Estrella Score={course.Score / 2} />
-                  <h3>Top Score</h3>
+                  <h3>Average Score</h3>
                 </div>
                 {/* <div className={styles.start}>
                   <h3>5 ⭐</h3>
