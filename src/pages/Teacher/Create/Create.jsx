@@ -5,6 +5,7 @@ import styles from "./Create.module.css";
 import { baseUrl } from "../../../models/baseUrl";
 import SubiendoImagenes from "../../../component/Upload/Upload";
 import swal from "sweetalert";
+import { useSelector } from "react-redux";
 
 export function validate(formData) {
   let errors = {};
@@ -23,10 +24,12 @@ export function validate(formData) {
 }
 
 const Create = () => {
+  const userInfo = useSelector(state => state.user)
+
   const formDataInitialState = {
     Title: "",
     Description: "",
-    Professor: "",
+    Professor: userInfo.ID,
     Duration: 30,
     Category: [],
     Active: true,
@@ -47,7 +50,7 @@ const Create = () => {
   const [errors, setErrors] = React.useState({
     Title: "Agrega un titulo",
     Description: "Agrega una descripcion",
-    Professor: "",
+    Professor: userInfo.ID,
     Duration: "",
     Category: [],
     Active: true,
@@ -198,19 +201,6 @@ const handleAddVideo = (e) => {
               </div>
             </div>
           </label>
-          <br />
-          <label htmlFor="Profesor">Profesor: </label>
-          <select
-            name="Professor"
-            value={formData.PK_User}
-            onChange={handleInputChange}>
-            <option value="">-- Selecciona la opción --</option>
-            {data.map((data) => (
-              <option key={data.PK_User} value={data.PK_User}>
-                {data.Name}
-              </option>
-            ))}
-          </select>
           <br />
           <label>Categorias: </label>
           <div className={styles.cate}>
