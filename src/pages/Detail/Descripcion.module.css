@@ -1,3 +1,4 @@
+
 .opinions {
     position: relative;
     display: flex;
@@ -5,9 +6,23 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 60%;
-    height: 869px;
+    height: fit-content;
+    padding-bottom: 2rem;
     z-index: 18;
     background: rgba(157, 204, 255, 0.3);
     border-radius: 5%;
     margin-top: 5%;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.opinions h2{
+    padding-top: 1rem;
+    margin: 0 auto ;
+}
+
+.opinions h4{
+    margin: 0 auto ;
+    padding-top: 1.5rem;
+    width: 80%;
 }

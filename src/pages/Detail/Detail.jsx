@@ -174,8 +174,6 @@ export default function Detail() {
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
 
-
-
           {userInfo.isLogged ?
             <>
               {userInfo.userRole !== "instructor" &&
@@ -191,6 +189,7 @@ export default function Detail() {
                   <LoginButton />
                 </div>
               }
+
             </>
           }
           <br />
