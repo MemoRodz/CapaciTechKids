@@ -3,7 +3,7 @@ import styles from "./Detail.module.css";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { FaBahai, FaCamera, FaFileAlt, FaChartBar, FaFacebookF, FaWhatsapp, FaRegClock } from "react-icons/fa";
 import axios from "axios";
-import { LoginButton} from '../../component/Login/Login'
+import { LoginButton } from '../../component/Login/Login'
 import Estrella from '../../component/Estrella/Estrella'
 import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
@@ -16,10 +16,10 @@ export default function Detail() {
   const [course, setCourse] = useState([]);
   const [review, setReview] = useState([]);
   const [related, setRelated] = useState([])
-  const [average, setAverage] = useState([])  
+  const [average, setAverage] = useState([])
   const [relatedLoaded, setRelatedLoaded] = useState(false);
-  const [desc,setDesc] = useState()
-  
+  const [desc, setDesc] = useState()
+
 
   const { pathname } = useLocation()
 
@@ -39,7 +39,9 @@ export default function Detail() {
         setAverage(avg.data.average_score);
         setRelatedLoaded(true);
         window.scrollTo(0, 0);
+
         // console.log(">>>>>>>>",course);
+
       } catch (error) {
         console.error(error);
       }
@@ -66,24 +68,24 @@ export default function Detail() {
       return score
     }
   }
-  
 
 
-    const handleFBClick = () => {
-      window.open(`http://www.facebook.com/sharer.php?u=https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
-    };
 
-    const handleWSPClick = () => {
-      window.open(`https://api.whatsapp.com/send?text=¡Echa un vistazo a esta página web! https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
-    };
-    const coursexstudent = () => {
-      axios.post(`${baseUrl}/courses/coursexstudent?course=${id}&student=${userInfo.ID}`)
-    }
-    const handleDesc = (e) => {
-      setDesc(e.target.name)
-    
-    }
-   
+  const handleFBClick = () => {
+    window.open(`http://www.facebook.com/sharer.php?u=https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
+  };
+
+  const handleWSPClick = () => {
+    window.open(`https://api.whatsapp.com/send?text=¡Echa un vistazo a esta página web! https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
+  };
+  const coursexstudent = () => {
+    axios.post(`${baseUrl}/courses/coursexstudent?course=${id}&student=${userInfo.ID}`)
+  }
+  const handleDesc = (e) => {
+    setDesc(e.target.name)
+
+  }
+
 
   return relatedLoaded ? (
     <div className={styles.container}>
@@ -98,16 +100,16 @@ export default function Detail() {
         <div className={styles.opinions}>
           <div className={styles.buttons}>
 
-          <button name="Descripcion" onClick={handleDesc}>Descripción</button>
-          <button name="Reseñas" onClick={handleDesc}>Reseñas</button>
+            <button name="Descripcion" onClick={handleDesc}>Descripción</button>
+            <button name="Reseñas" onClick={handleDesc}>Reseñas</button>
           </div>
-          { !desc ? <Descripcion/> : null}
-          {desc==="Descripcion"? <Descripcion/> : null}
-          {desc==="Reseñas"?                            
-          <div className={styles.comments}>
-              
+          {!desc ? <Descripcion /> : null}
+          {desc === "Descripcion" ? <Descripcion /> : null}
+          {desc === "Reseñas" ?
+            <div className={styles.comments}>
+
               <div className={styles.startbox}>
-               <div className={styles.point}>
+                <div className={styles.point}>
                   <div className={styles.ranking}>
                     <div className={styles.top}>
                       <h1>{Score()} de 5</h1>
@@ -116,42 +118,42 @@ export default function Detail() {
                     </div>
                   </div>
                   {review.map(e =>
-                  <div className={styles.comment}>
-                    <div className={styles.commenttop}>
-                      <div className={styles.userstart}>
-                        <div className={styles.photo}>
-                          <img src="..\img\image 12.png" alt="perfil" />
-                        </div>
-                        <div className={styles.namestart}>
-                          <h1>{e.tblUser.Name}</h1>
-                          <div className={styles.userstarts}>
-                            <Estrella Score={e.Score} />
+                    <div className={styles.comment}>
+                      <div className={styles.commenttop}>
+                        <div className={styles.userstart}>
+                          <div className={styles.photo}>
+                            <img src="..\img\image 12.png" alt="perfil" />
+                          </div>
+                          <div className={styles.namestart}>
+                            <h1>{e.tblUser.Name}</h1>
+                            <div className={styles.userstarts}>
+                              <Estrella Score={e.Score} />
+                            </div>
                           </div>
                         </div>
+                        <div className={styles.time}>
+                          <FaRegClock />
+                          <h4>{e.Creation_Date}</h4>
+                        </div>
                       </div>
-                      <div className={styles.time}>
-                        <FaRegClock />
-                        <h4>{e.Creation_Date}</h4>
-                      </div>
+                      <div className={styles.commentbotom}><h3>{e.Comment}</h3></div>
+                      <div className={styles.hrcomment}><hr /></div>
                     </div>
-                    <div className={styles.commentbotom}><h3>{e.Comment}</h3></div>
-                    <div className={styles.hrcomment}><hr /></div>
-                  </div>
-                )}
+                  )}
                 </div>
               </div>
-                
-              </div>
-          : null }
-          </div>
-          
-          {/* <button>M2</button>
+
+            </div>
+            : null}
+        </div>
+
+        {/* <button>M2</button>
           <button>M3</button>
           <button>M4</button>
           <button>M5</button> */}
-         
-          
-                {/* <div className={styles.start}>
+
+
+        {/* <div className={styles.start}>
                   <h3>5 ⭐</h3>
                   <div className={styles.progressbar5}><div className={styles.progress5}></div></div>
                   <h3>4 ⭐</h3>
@@ -162,21 +164,25 @@ export default function Detail() {
                   <div className={styles.progressbar2}><div className={styles.progress2}></div></div>
                   <h3>1 ⭐</h3>
                   <div className={styles.progressbar1}><div className={styles.progress1}></div></div>
-                </div> */}            
-        
-        
+                </div> */}
+
+
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
-         
-          {userInfo.isLogged?
-            <div className={styles.studybutton}>
-              <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>Empezar</Link>
-            </div>
+          {userInfo.isLogged ?
+            <>
+              {<div className={styles.studybutton}>
+                <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>Empezar</Link>
+              </div> && userInfo.userRole !== "instructor"}
+            </>
             :
-            <div className={styles.loginbtn}>
-              <LoginButton/>
-            </div>}
+            <>
+              {<div className={styles.loginbtn}>
+                <LoginButton />
+              </div> && userInfo.userRole !== "instructor"}
+            </>
+          }
           <br />
           <hr />
           <br />
@@ -203,13 +209,13 @@ export default function Detail() {
           <br />
           <h2>Compartir este curso</h2>
           <div className={styles.social}>
-            
+
             <div className={styles.fac}>
               <FaFacebookF target="_blank" onClick={handleFBClick} />
-            </div>     
-            
+            </div>
+
             <div className={styles.wsp}>
-              <FaWhatsapp target="_blank" onClick={handleWSPClick}/>  
+              <FaWhatsapp target="_blank" onClick={handleWSPClick} />
             </div>
           </div>
         </div>
