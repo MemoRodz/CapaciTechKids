@@ -132,7 +132,8 @@ const Create = () => {
     setFormData({...formData, Image : img})
 }
 
-const handleAddVideo = () => {
+const handleAddVideo = (e) => {
+  e.preventDefault()
   console.log("entre a handle")
   setFormData(prevFormData => ({
     ...prevFormData,
@@ -245,6 +246,7 @@ const handleAddVideo = () => {
   <input
     type="text"
     name="titulo"
+    style={{width: "500px"}}
     value={videos.titulo}
     onChange={handleVideo}
   />
@@ -256,21 +258,25 @@ const handleAddVideo = () => {
     name="descripcion"
     value={videos.descripcion}
     onChange={handleVideo}
+    cols="60"
+    rows="10"
   />
 </label>
 
 <label>
   URL del video:
   <input
-    type="text"
+    type="url"
+    pattern="https://.*"
     name="video"
+    style={{width: "500px"}}
     value={videos.video}
     onChange={handleVideo}
   />
 </label>
 
 
-<button type="button" onClick={handleAddVideo} > 
+<button type="button" onClick={(e)=>handleAddVideo(e)} > 
   Agregar video
 </button> 
           <br />

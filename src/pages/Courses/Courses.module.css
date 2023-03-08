@@ -45,3 +45,34 @@
     font-size: 1.35rem;
 }
 
+@media screen and (max-width: 768px) {
+    .heard {
+        position: relative;
+        width: 100vw;
+        height: 200px;
+        z-index: 15;
+        margin-bottom: 2rem;
+    }
+    .coursescontainer{
+        display:block;
+        flex-direction:initial;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .filters{
+        display: inline;
+    }
+    .filters button{
+        height: 30px;
+        font-size: 1rem;
+    }
+    .courses{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}
+
