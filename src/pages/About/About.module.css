@@ -37,8 +37,9 @@
 }
 
 .imgDev {
-     width: 100px;
+     width: fit-content;
      height: 100px;
+     border-radius: 5rem;
 }
 
 .gitUser {
@@ -70,6 +71,8 @@
 
 .dev h2 {
      color: var(--font-clr-primary);
+     width: 70%;
+     justify-content: center;
 }
 
 .contactanos {
