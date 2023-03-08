@@ -120,7 +120,7 @@ export default function Detail() {
                       <h3>Average Score</h3>
                     </div>
                   </div>
-                  {review.map((e,i) => i<2? 
+                  {review.map((e,i) => i<4? 
                     <div className={styles.comment}>
                       <div className={styles.commenttop}>
                         <div className={styles.userstart}>
