@@ -120,7 +120,7 @@ export default function Detail() {
                       <h3>Average Score</h3>
                     </div>
                   </div>
-                  {review.map(e =>
+                  {review.map((e,i) => i<2? 
                     <div className={styles.comment}>
                       <div className={styles.commenttop}>
                         <div className={styles.userstart}>
@@ -141,7 +141,7 @@ export default function Detail() {
                       </div>
                       <div className={styles.commentbotom}><h3>{e.Comment}</h3></div>
                       <div className={styles.hrcomment}><hr /></div>
-                    </div>
+                    </div>:null
                   )}
                 </div>
               </div>
@@ -173,7 +173,8 @@ export default function Detail() {
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
-
+                <br />
+                <br />
           {userInfo.isLogged ?
             <>
               {userInfo.userRole !== "instructor" &&
