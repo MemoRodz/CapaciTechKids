@@ -6,12 +6,10 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import App from './App'
 import './global.css'
 import store from './redux/store'
-import axios from 'axios';
 
 
-const audience = import.meta.env.VITE_REACT_APP_AUTH0_AUDIENCE;
+export const audience = import.meta.env.VITE_REACT_APP_AUTH0_AUDIENCE;
 export const apiKey = import.meta.env.VITE_REACT_APP_OPENAI_API_KEY
-
 const domain = import.meta.env.VITE_REACT_APP_AUTH0_DOMAIN
 const client = import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID
 
