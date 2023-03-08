@@ -29,7 +29,7 @@ const handleSort = (column) => {
 const handleToggle = async (event, advUser) => {
   const isChecked = event.target.checked;
   const apiEndpoint = isChecked ? `/users/${advUser.PK_User}/activate` : `/users/${advUser.PK_User}/delete`;
-  await axios.get(`${baseUrl}${apiEndpoint}`);
+  await axios.put(`${baseUrl}${apiEndpoint}`);
   const updatedAdvUser = await axios.get(`${baseUrl}/users/advusers`);
   setAdvUsers(updatedAdvUser.data);
 };
