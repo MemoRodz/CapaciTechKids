@@ -46,12 +46,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .heard img {
+        display: none;
+    }
     .heard {
-        position: relative;
-        width: 100vw;
-        height: 200px;
-        z-index: 15;
-        margin-bottom: 2rem;
+        height: 10px;
     }
     .coursescontainer{
         display:block;

@@ -120,6 +120,21 @@ summary {
             transform: translateY(0);
         }
     }
+    .logo img{
+        width: 30px;
+    }
+
+    .logocontainer{
+        margin: 3px;
+    }
+    
+    ul li .pregunta{
+        font-size: 16px;
+    }
+     nav{
+        padding: 0;
+        justify-content: space-around;
+    }
 }
 
 
