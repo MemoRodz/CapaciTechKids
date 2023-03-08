@@ -74,6 +74,7 @@ export default function Detail() {
 
 
 
+
   const handleFBClick = () => {
     window.open(`http://www.facebook.com/sharer.php?u=https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
   };
@@ -82,7 +83,7 @@ export default function Detail() {
     window.open(`https://api.whatsapp.com/send?text=¡Echa un vistazo a esta página web! https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
   };
   const coursexstudent = () => {
-    axios.post(`${baseUrl}/courses/coursexstudent?course=${id}&student=${userInfo.ID}`)
+    axios.post(`${baseUrl}/courses/coursexstudent2?course=${id}&student=${userInfo.ID}`)
   }
   const handleDesc = (e) => {
     setDesc(e.target.name)
