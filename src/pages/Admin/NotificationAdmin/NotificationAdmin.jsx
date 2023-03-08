@@ -234,12 +234,13 @@ Para probar sobre correos de Administradores
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <div >
+                    <div className={styles.camposmsj}>
                         <br />
                         <label><b>Asunto a notificar: </b></label>
                         <input type="text" style={{
                             width: "316px",
                             height: "30px",
+                            margin: "auto",
                         }}
                             id="asunto"
                             name="asunto"
