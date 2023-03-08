@@ -6,6 +6,29 @@
      margin-left: 20px;
      width: 95%;
 }
+.cont{
+     display: inline-flex;
+     margin-bottom: 5rem;
+     margin-top: 5rem;
+
+}
+
+.nosotros{
+     margin-top: 5rem;
+     width: 60%;
+}
+
+.nosotros h1 h2{
+     width: 30%;
+     text-align: center;
+}
+
+.nosotros h3 {
+     width: 80%;
+     margin-left: 10%;
+     justify-content: center;
+     align-items: center;
+}
 
 .about h1 {
      color: var(--bg-clr-complementary);
@@ -81,12 +104,11 @@
      align-items: center;
      background: var(--bg-clr-secondary);
      border-radius: 30px;
-     margin-top: 40px;
      border: none;
 }
 
 .contactanos input {
-     width: 72%;
+     width: 80%;
      margin-left: 10%;
 }
 
@@ -97,6 +119,10 @@
 
 .contactanos form {
      border: none;
+}
+
+.contactanos h1{
+     margin-top: 3rem;
 }
 
 
