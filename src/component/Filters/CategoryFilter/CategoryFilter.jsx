@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectCategory, filterCourses } from '../../../redux/slices/coursesSlice'
 import { useState } from 'react';
 import styles from './CategoryFilter.module.css'
+import Button from '../../Buttons/Button/Button'
 
 function CategoryFilter() {
     //const [isToggle, setIsToggle] = useState(false)
@@ -35,11 +36,12 @@ function CategoryFilter() {
                 ))}
             </div>
             <h2 className={styles.categoriestitle}>Categorias</h2>
+
             <div className={styles.categoryoptions}>
                 {categories && categories.map((category) => (
                     <>
                         <button type='button' onClick={() => handleAddCategory(category)}
-                        disabled={selectedCategories.includes(category)}>
+                            disabled={selectedCategories.includes(category)}>
                             {category}
                         </button>
                     </>
