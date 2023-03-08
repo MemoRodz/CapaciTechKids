@@ -1,0 +1,13 @@
+.opinions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 60%;
+    height: 869px;
+    z-index: 18;
+    background: rgba(157, 204, 255, 0.3);
+    border-radius: 5%;
+    margin-top: 5%;
+}
