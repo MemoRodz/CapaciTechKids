@@ -51,9 +51,16 @@ function Nav() {
       <header>
         <div className={styles.navcontainer}>
           <nav className={styles.navbar} >
+            <div className={styles.logocontainer}>
             <div className={styles.logo}>
-              <NavLink to={"/"} ><img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677858290/CAPACITECHKIDS/images/project/app4pvg49uoozghx4diy.png" alt="logo" /></NavLink>
+              <NavLink to={"/pregunta"}  ><img src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677858290/CAPACITECHKIDS/images/project/app4pvg49uoozghx4diy.png" alt="logo" /></NavLink>
             </div>
+            <ul>
+                <li className={styles.asdasd}><NavLink to={"/pregunta"} className={styles.pregunta} onClick={handleToggleMenu}>PREGUNTALE A NUESTRO PROFESOR!</NavLink></li>
+                </ul>
+            </div>
+            <div>
+                </div>
             <div className={styles.menu}>
               <div className={styles.toggle} onClick={handleToggleMenu}>
                 {showMenu ? <FaTimes /> : <FaBars />}
