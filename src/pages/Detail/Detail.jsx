@@ -9,6 +9,7 @@ import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
 import { useSelector } from "react-redux";
 import Descripcion from "./Descripcion";
+import Button from '../../component/Buttons/Button/Button'
 
 
 export default function Detail() {
@@ -170,12 +171,14 @@ export default function Detail() {
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
-          {userInfo.isLogged ?
-            <>
-              {<div className={styles.studybutton}>
-                <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>Empezar</Link>
-              </div> && userInfo.userRole !== "instructor"}
-            </>
+
+         
+          
+          {userInfo.isLogged?
+            <div className={styles.studybutton}>
+              <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>{<Button msj={'Empezar'} />}</Link>
+            </div>
+
             :
             <>
               {<div className={styles.loginbtn}>
