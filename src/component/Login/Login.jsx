@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth0, User } from '@auth0/auth0-react';
-import {audience} from '../../main'
 import styles from './Login.module.css'
+import {audience} from '../../main'
 
 export const LoginButton = () => {
     const [error, setError] = useState(null);
