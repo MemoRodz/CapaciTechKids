@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import styles from '../About/About.module.css'
 import Button from '../../component/Buttons/Button/Button'
 import { FaGithub } from "react-icons/fa";
@@ -42,6 +42,15 @@ export function validate(formData) {
 function About() {
 
   // console.log('RegexMail: ', correoValidate);
+  const inputNombre = useRef(null);
+  const nombreValue = inputNombre.current;
+  const inputEmail = useRef(null);
+  const emailValue = inputEmail.current;
+  const inputMensaje = useRef(null);
+  const mensajeValue = inputMensaje.current;
+
+  // const emailValue = frmRefs.current.email.value;
+  // const mensajeValue = frmRefs.current.mensaje.value;
 
   const formDataInitialState = {
     nombre: "",
@@ -65,6 +74,30 @@ function About() {
   //   console.log(`handleTextChange ==> Target.name: ${e.target.name}, Target.value: ${e.target.value}`);
   // }
 
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    //console.log(`Este es el KEY: ${e.target.key} y este es el VALUE: ${e.target.value}`);
+    try {
+      console.log(`Ref de nombre: ${nombreValue}, value email: ${emailValue}, value mensaje: ${mensajeValue}`);
+      console.log(`Ref de nombre: `, nombreValue);
+      // console.log(`nombre: ${nombreValue}, email: ${emailValue}, mensaje: ${mensajeValue}`);
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+      setErrors(
+        validate({
+          ...formData,
+          [name]: value,
+        })
+      );
+
+      // console.log(`handleInputChange ==> NAME: ${e.target.name}, VALUE: ${e.target.value}, LENGTH: ${e.target.value.length}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
     // console.log("Ya en submit, correo: ", e.target.email.value);
@@ -72,6 +105,7 @@ function About() {
       if (value.length !== 0) setValidacion(value);
     }
     try {
+
       console.log(`Service: ${serviceEmail}, Template: ${templateContactUs}, userId: ${userId}`);
       emailjs.sendForm(serviceEmail, templateContactUs, e.target, userId).then(res => {
         swal("¡Gracias por tu comentario!", "¡Espera nuestra respuesta!", "success");
@@ -82,26 +116,6 @@ function About() {
       console.log(error);
     }
   };
-
-  function handleInputChange(e) {
-    const { name, value } = e.target;
-    //console.log(`Este es el KEY: ${e.target.key} y este es el VALUE: ${e.target.value}`);
-    try {
-      setErrors(
-        validate({
-          ...formData,
-          [name]: value,
-        })
-      );
-      setFormData({
-        ...formData,
-        [name]: value
-      });
-      console.log(`handleInputChange ==> NAME: ${e.target.name}, VALUE: ${e.target.value}, LENGTH: ${e.target.value.length}`);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <div className={styles.about}>
@@ -124,9 +138,12 @@ function About() {
       <div className={styles.devs}>
         <div className={styles.dev}>
           <a href="https://github.com/Fr33yr" target="_blank">
-            <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
+            <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/75025925?v=4" alt="" />
             <h1>Agustin Cristobo</h1>
-            <h2>frase</h2>
+            <h2>"La educación es la llave maestra para desbloquear el mundo, una oportunidad para descubrir y desarrollar el potencial único de cada individuo." <br /> Michelle Obama</h2>
+            <br />
+            <br />
+            <br />
             <div className={styles.gitUser}>
               <div className={styles.git}><FaGithub /></div>
               <h3>Fr33yr</h3>
@@ -135,9 +152,12 @@ function About() {
         </div>
         <div className={styles.dev}>
           <a href="https://github.com/Brareyesb15" target="_blank">
-            <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
+            <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/116505799?v=4" alt="" />
             <h1>Brandon Reyes</h1>
-            <h2>frase</h2>
+            <h2>"La educación es el pasaporte hacia el futuro, porque el mañana pertenece a aquellos que se preparan hoy." <br /> Malcolm X</h2>
+            <br />
+            <br />
+            <br />
             <div className={styles.gitUser}>
               <div className={styles.git}><FaGithub /></div>
               <h3>Brareyesb15</h3>
@@ -146,9 +166,11 @@ function About() {
         </div>
         <div className={styles.dev}>
           <a href="https://github.com/Fabian-Rizzi" target="_blank">
-            <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV13.png" alt="" />
+            <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/82421798?v=4" alt="" />
             <h1>Fabian Rizzi</h1>
-            <h2>frase</h2>
+            <h3 style={{color:"black", width:"70%"}}>"Es innegable que día tras día nuestra sociedad está más interconectada digitalmente. Por eso creo que la habilidad para navegar, adaptarse, y prosperar en un ambiente digital va a ser un aspecto clave para el éxito de las futuras generaciones."</h3>
+            <br />
+            <br />
             <div className={styles.gitUser}>
               <div className={styles.git}><FaGithub /></div>
               <h3>Fabian-Rizzi</h3>
@@ -157,9 +179,12 @@ function About() {
         </div>
         <div className={styles.dev}>
           <a href="https://github.com/MemoRodz" target="_blank">
-            <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
+            <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/33233688?v=4" alt="" />
             <h1>Guillermo Rodriguez</h1>
-            <h2>frase</h2>
+            <h2>"La imaginación es la Fuerza más Creativa del Universo"<br /> Albert Einstein.</h2>
+            <br />
+            <br />
+            <br />
             <div className={styles.gitUser}>
               <div className={styles.git}><FaGithub /></div>
               <h3>MemoRodz</h3>
@@ -168,9 +193,12 @@ function About() {
         </div>
         <div className={styles.dev}>
           <a href="https://github.com/Randyvangz" target="_blank">
-            <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253943/CAPACITECHKIDS/images/project/AV11.png" alt="" />
+            <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/29136447?v=4" alt="" />
             <h1>Randy Gutierrez</h1>
-            <h2>frase</h2>
+            <h2>"La función de un buen software es hacer que lo complejo aparente ser simple"</h2>
+            <br />
+            <br />
+            <br />
             <div className={styles.gitUser}>
               <div className={styles.git}><FaGithub /></div>
               <h3>Randyvangz</h3>
@@ -179,9 +207,12 @@ function About() {
         </div>
         <div className={styles.dev}>
           <a href="https://github.com/Rickymayita" target="_blank">
-            <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
-            <h1>Ricardo maya</h1>
-            <h2>frase</h2>
+            <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/93308674?v=4" alt="" />
+            <h1>Ricardo Maya</h1>
+            <h2>"Invirtiendo para que el futuro mejor no sea solo un sueño"</h2>
+            <br />
+            <br />
+            <br />
             <div className={styles.gitUser}>
               <div className={styles.git}><FaGithub /></div>
               <h3>Rickymayita</h3>
@@ -190,9 +221,12 @@ function About() {
         </div>
         <div className={styles.dev}>
           <a href="https://github.com/SandroMalca" target="_blank">
-            <img className={styles.imgDev} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1677253944/CAPACITECHKIDS/images/project/AV14.png" alt="" />
+            <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/116411042?s=400&u=5ccb4d11ac3b3063dffe22a812999a675931e1a5&v=4" alt="" />
             <h1>Sandro Malca</h1>
-            <h2>frase</h2>
+            <h2>"Recuerda que cada habilidad que aprendás, te puede servir en el futuro"</h2>
+            <br />
+            <br />
+            <br />
             <div className={styles.gitUser}>
               <div className={styles.git}><FaGithub /></div>
               <h3>SandroMalca</h3>
@@ -203,7 +237,7 @@ function About() {
       <hr />
       <div className={styles.contactanos}>
         <h1>Contáctanos</h1>
-        <form onSubmit={(e) => {
+        <form name='frmContactUs' onSubmit={(e) => {
           handleSubmit(e);
         }}>
           <div >
@@ -215,11 +249,12 @@ function About() {
                 minLength='3'
                 maxLength='25'
                 placeholder='Tu nombre.'
+                ref={inputNombre}
                 required
                 value={formData.nombre}
                 onChange={handleInputChange}
               />
-              {errors.nombre ? <div>{errors.nombre}</div> : null}
+              <p>{errors.nombre}</p>
             </div>
             <div >
               <label><b>Correo electrónico: </b></label>
@@ -227,11 +262,12 @@ function About() {
                 id="email"
                 name="email"
                 placeholder='Introduce un correo electrónico válido.'
+                ref={inputEmail}
                 required
                 value={formData.email}
                 onChange={handleInputChange}
               />
-              {errors.email ? <div>{errors.email}</div> : null}
+              <p>{errors.email}</p>
             </div>
           </div>
           <div className="form-group">
@@ -241,17 +277,19 @@ function About() {
               name="mensaje"
               rows="10"
               cols="70"
-              placeholder='Deja tu mensaje'
+              placeholder='Deja tu mensaje.'
+              ref={inputMensaje}
               required
               value={formData.mensaje} onChange={handleInputChange}
             />
             <p>{formData.mensaje.length}/1500</p>
           </div>
-          {validacion ? <div>{validacion}</div> : null}
+          <p>{errors.mensaje}</p>
           <button type="submit"
             style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
             disabled={Object.keys(validate).length}
           >Enviar comentario</button>
+          
         </form>
       </div>
     </div>

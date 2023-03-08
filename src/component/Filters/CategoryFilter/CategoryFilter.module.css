@@ -4,14 +4,16 @@
 
 .selectedcategories button {
     margin: 10px;
-    border-radius: 20px;
+    background: var(--bg-clr-yellow);
     font-family: 'Londrina Solid', cursive;
+    padding: 10px;
+    color: #fff;
+    border: none;
 }
-
 .categoryoptions button {
+    position: relative;
     margin: 10px;
-    height: 50px;
-    border-radius: 20px;
+    height: 55px;
     background: var(--bg-clr-complementary);
     color: #fff;
     font-family: 'Londrina Solid', cursive;

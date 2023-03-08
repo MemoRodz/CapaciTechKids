@@ -1,7 +1,120 @@
-.player{
+.conten {
     display: flex;
     flex-direction: row;
 }
-.reproductor h2{
-   margin-left: 300px;
+
+.sidebar {
+    width: 40%;
+    border: solid 1px var(--font-clr-complementary);
+}
+
+.sidebar h3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 5px;
+    border-bottom: solid 1px var(--font-clr-complementary);
+}
+
+.botenera {
+    margin: 30px 0;
+}
+
+.botenera button {
+    background: var(--bg-clr-complementary);
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+    border: none;
+}
+
+.botenera button:hover {
+    background: var(--bg-clr-yellow);
+}
+
+.botenera button:disabled {
+    background: var(--btn-clr-inactive);
+    cursor: none;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+    background: var(--bg-clr-yellow);
+    color: #fff;
+}
+
+.sidebar svg {
+    color: var(--bg-clr-complementary);
+    margin: 10px;
+}
+
+.repro {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.player {
+    display: flex;
+    flex-direction: row;
+}
+
+.reproductor h2 {
+    margin-left: 300px;
+}
+
+@media screen and (max-width: 768px) {
+    .conten {
+        flex-direction: column-reverse;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar h3 {
+        flex-direction: row;
+        padding: 10px 5px;
+        font-size: 18px;
+    }
+
+    .botenera {
+        margin: 10px 0;
+    }
+
+    .botenera button {
+        height: 50px;
+        margin: 5px;
+    }
+
+    .contenido {
+        height: 40px;
+    }
+    .contenido h1{
+        font-size: 22px;
+    }
+
+    .playerWrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 320px;
+        height: 200px;
+        margin: 20px;
+    }
+
+    .playerWrapper iframe {
+        width: 320px;
+        height: 200px;
+    }
 }

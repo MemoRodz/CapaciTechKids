@@ -17,8 +17,8 @@ export default function Courses() {
     data && dispatch(setAllCourses(data))  // dispatch(getAllCourses(`${baseUrl}/courses`)) <== esta es la implementacion vieja
   }, [data])
 
-  const arregloCourses = useSelector(state => state.courses.filteredCourses)
- 
+  const arregloCourses = useSelector(state => state.courses)
+
 
   return (
     <>
@@ -33,10 +33,20 @@ export default function Courses() {
           <ResetFilters />
         </div>
         <div className={styles.courses}>
-          {arregloCourses && arregloCourses.map((c, i) => (
+          {isLoading ?
+            <>
+              <h2 className={styles.cargandocourses}>Cargando...</h2>
+            </> : ""
+          }
+          {arregloCourses.selectedCategory.length && !arregloCourses.filteredCourses.length ?
+            <>
+              <h2 className={styles.cursosnoencontrados}>No se encontraron cursos con esos filtros.</h2>
+            </> :
+            ""
+          }
+          {arregloCourses.filteredCourses && arregloCourses.filteredCourses.map((c, i) => (
             <Course PK_Course={c.PK_Course} />
-          )
-          )}
+          ))}
         </div>
       </div>
     </>

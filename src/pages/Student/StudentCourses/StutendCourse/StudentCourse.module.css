@@ -94,3 +94,14 @@ a:link, a:visited,  a:hover, a:active
     border-radius: 80px;
     border: none;
 }
+
+
+
+.linkcard:link,
+.linkcard:visited,
+.linkcard:hover,
+.linkcard:active {
+    color: var(--font-clr-primary);
+    text-decoration: none;
+    background-color: white;
+}

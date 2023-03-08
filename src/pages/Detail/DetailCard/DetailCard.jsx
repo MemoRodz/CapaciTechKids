@@ -13,7 +13,7 @@ function DetailCard({
   PK_Course,
 }) 
 {
-  console.log(tblCategories)
+  // console.log(tblCategories)
 
   useEffect(() => {
     window.scrollTo(0, 0);

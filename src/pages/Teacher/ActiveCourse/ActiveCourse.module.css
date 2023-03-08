@@ -2,7 +2,7 @@
     margin: 20px;
     background: #FFFFFF;
     width: 335px;
-    height: 575px;
+    height: 500px;
     border-radius: 20px;
     display: block;
     flex-direction: column;
@@ -14,15 +14,15 @@
 }
 
 a:visited {
-    
+
     color: inherit;
-  }
+}
 
 a {
     display: block;
 }
 
-.cardtit{
+.cardtit {
     width: 100px;
 }
 
@@ -74,8 +74,8 @@ a {
     width: fit-content;
 }
 
-.similar2 h4{
-    
+.similar2 h4 {
+
 }
 
 .teach {
@@ -103,14 +103,30 @@ a {
     border: none;
 }
 
-.activeBtn{
+.activeBtn {
     background: transparent;
     font-weight: bold;
-    padding:.5rem .8rem;
+    padding: .5rem .8rem;
     margin: .2rem;
     border-radius: 3px;
 }
 
-.activeBtn:hover{
+.activeBtn:hover {
     background-color: gray;
+}
+
+.editBtn {
+    background: #0583F2;
+    color: #FFFFFF;
+    width: 50px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 9px;
+    border: none;
+}
+.btnX{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
 }
