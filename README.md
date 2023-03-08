@@ -30,7 +30,7 @@
 
 <hr />
 
-## Mision
+## Misión
 
 Concentramos nuestros esfuerzos en:
 1. Mejorar este proyecto en infraestructura educativa, para aumentar la cobertura, el acceso y la asistencia con mejores habilidades técnicas para el aprendizaje.

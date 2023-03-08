@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import styles from '../About/About.module.css'
+import Button from '../../component/Buttons/Button/Button'
 import { FaGithub } from "react-icons/fa";
 import emailjs from 'emailjs-com';
 import swal from 'sweetalert';
@@ -41,6 +42,15 @@ export function validate(formData) {
 function About() {
 
   // console.log('RegexMail: ', correoValidate);
+  const inputNombre = useRef(null);
+  const nombreValue = inputNombre.current;
+  const inputEmail = useRef(null);
+  const emailValue = inputEmail.current;
+  const inputMensaje = useRef(null);
+  const mensajeValue = inputMensaje.current;
+
+  // const emailValue = frmRefs.current.email.value;
+  // const mensajeValue = frmRefs.current.mensaje.value;
 
   const formDataInitialState = {
     nombre: "",
@@ -64,6 +74,30 @@ function About() {
   //   console.log(`handleTextChange ==> Target.name: ${e.target.name}, Target.value: ${e.target.value}`);
   // }
 
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    //console.log(`Este es el KEY: ${e.target.key} y este es el VALUE: ${e.target.value}`);
+    try {
+      console.log(`Ref de nombre: ${nombreValue}, value email: ${emailValue}, value mensaje: ${mensajeValue}`);
+      console.log(`Ref de nombre: `, nombreValue);
+      // console.log(`nombre: ${nombreValue}, email: ${emailValue}, mensaje: ${mensajeValue}`);
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+      setErrors(
+        validate({
+          ...formData,
+          [name]: value,
+        })
+      );
+
+      // console.log(`handleInputChange ==> NAME: ${e.target.name}, VALUE: ${e.target.value}, LENGTH: ${e.target.value.length}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
     // console.log("Ya en submit, correo: ", e.target.email.value);
@@ -71,6 +105,7 @@ function About() {
       if (value.length !== 0) setValidacion(value);
     }
     try {
+
       console.log(`Service: ${serviceEmail}, Template: ${templateContactUs}, userId: ${userId}`);
       emailjs.sendForm(serviceEmail, templateContactUs, e.target, userId).then(res => {
         swal("¡Gracias por tu comentario!", "¡Espera nuestra respuesta!", "success");
@@ -81,26 +116,6 @@ function About() {
       console.log(error);
     }
   };
-
-  function handleInputChange(e) {
-    const { name, value } = e.target;
-    //console.log(`Este es el KEY: ${e.target.key} y este es el VALUE: ${e.target.value}`);
-    try {
-      setErrors(
-        validate({
-          ...formData,
-          [name]: value,
-        })
-      );
-      setFormData({
-        ...formData,
-        [name]: value
-      });
-      console.log(`handleInputChange ==> NAME: ${e.target.name}, VALUE: ${e.target.value}, LENGTH: ${e.target.value.length}`);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <div className={styles.about}>
@@ -202,7 +217,7 @@ function About() {
       <hr />
       <div className={styles.contactanos}>
         <h1>Contáctanos</h1>
-        <form onSubmit={(e) => {
+        <form name='frmContactUs' onSubmit={(e) => {
           handleSubmit(e);
         }}>
           <div >
@@ -214,11 +229,12 @@ function About() {
                 minLength='3'
                 maxLength='25'
                 placeholder='Tu nombre.'
+                ref={inputNombre}
                 required
                 value={formData.nombre}
                 onChange={handleInputChange}
               />
-              {errors.nombre ? <div>{errors.nombre}</div> : null}
+              <p>{errors.nombre}</p>
             </div>
             <div >
               <label><b>Correo electrónico: </b></label>
@@ -226,11 +242,12 @@ function About() {
                 id="email"
                 name="email"
                 placeholder='Introduce un correo electrónico válido.'
+                ref={inputEmail}
                 required
                 value={formData.email}
                 onChange={handleInputChange}
               />
-              {errors.email ? <div>{errors.email}</div> : null}
+              <p>{errors.email}</p>
             </div>
           </div>
           <div className="form-group">
@@ -240,17 +257,19 @@ function About() {
               name="mensaje"
               rows="10"
               cols="70"
-              placeholder='Deja tu mensaje'
+              placeholder='Deja tu mensaje.'
+              ref={inputMensaje}
               required
               value={formData.mensaje} onChange={handleInputChange}
             />
             <p>{formData.mensaje.length}/1500</p>
           </div>
-          {validacion ? <div>{validacion}</div> : null}
+          <p>{errors.mensaje}</p>
           <button type="submit"
             style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
             disabled={Object.keys(validate).length}
           >Enviar comentario</button>
+          
         </form>
       </div>
     </div>

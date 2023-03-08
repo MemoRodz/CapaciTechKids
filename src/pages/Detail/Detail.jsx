@@ -8,6 +8,8 @@ import Estrella from '../../component/Estrella/Estrella'
 import DetailCard from '../Detail/DetailCard/DetailCard'
 import { baseUrl } from '../../models/baseUrl'
 import { useSelector } from "react-redux";
+import Descripcion from "./Descripcion";
+
 
 export default function Detail() {
   const { id } = useParams();
@@ -16,6 +18,9 @@ export default function Detail() {
   const [related, setRelated] = useState([])
   const [average, setAverage] = useState([])  
   const [relatedLoaded, setRelatedLoaded] = useState(false);
+  const [desc,setDesc] = useState()
+  
+
   const { pathname } = useLocation()
 
   const userInfo = useSelector(state => state.user)
@@ -34,7 +39,7 @@ export default function Detail() {
         setAverage(avg.data);
         setRelatedLoaded(true);
         window.scrollTo(0, 0);
-        console.log(">>>>>>>>",average);
+        console.log(">>>>>>>>",course);
       } catch (error) {
         console.error(error);
       }
@@ -74,7 +79,11 @@ export default function Detail() {
     const coursexstudent = () => {
       axios.post(`${baseUrl}/courses/coursexstudent?course=${id}&student=${userInfo.ID}`)
     }
+    const handleDesc = (e) => {
+      setDesc(e.target.name)
     
+    }
+   
 
   return relatedLoaded ? (
     <div className={styles.container}>
@@ -87,37 +96,26 @@ export default function Detail() {
 
       <div className={styles.leftandringh}>
         <div className={styles.opinions}>
-          {/* <div className={styles.buttons}>
+          <div className={styles.buttons}>
 
-          <button>M1</button>
-          <button>M2</button>
-          <button>M3</button>
-          <button>M4</button>
-          <button>M5</button>
-        </div> */}
-          <div className={styles.startbox}>
-            <div className={styles.point}>
-              <div className={styles.ranking}>
-                <div className={styles.top}>
-                  <h1>{Score()} de 5</h1>
-                  <Estrella Score={course.Score / 2} />
-                  <h3>Average Score</h3>
-                </div>
-                {/* <div className={styles.start}>
-                  <h3>5 ⭐</h3>
-                  <div className={styles.progressbar5}><div className={styles.progress5}></div></div>
-                  <h3>4 ⭐</h3>
-                  <div className={styles.progressbar4}><div className={styles.progress4}></div></div>
-                  <h3>3 ⭐</h3>
-                  <div className={styles.progressbar3}><div className={styles.progress3}></div></div>
-                  <h3>2 ⭐</h3>
-                  <div className={styles.progressbar2}><div className={styles.progress2}></div></div>
-                  <h3>1 ⭐</h3>
-                  <div className={styles.progressbar1}><div className={styles.progress1}></div></div>
-                </div> */}
-              </div>
-              <div className={styles.comments}>
-                {review.map(e =>
+          <button name="Descripcion" onClick={handleDesc}>Descripción</button>
+          <button name="Reseñas" onClick={handleDesc}>Reseñas</button>
+          </div>
+          { !desc ? <Descripcion/> : null}
+          {desc==="Descripcion"? <Descripcion/> : null}
+          {desc==="Reseñas"?                            
+          <div className={styles.comments}>
+              
+              <div className={styles.startbox}>
+               <div className={styles.point}>
+                  <div className={styles.ranking}>
+                    <div className={styles.top}>
+                      <h1>{Score()} de 5</h1>
+                      <Estrella Score={course.Score / 2} />
+                      <h3>Average Score</h3>
+                    </div>
+                  </div>
+                  {review.map(e =>
                   <div className={styles.comment}>
                     <div className={styles.commenttop}>
                       <div className={styles.userstart}>
@@ -140,10 +138,33 @@ export default function Detail() {
                     <div className={styles.hrcomment}><hr /></div>
                   </div>
                 )}
+                </div>
               </div>
-            </div>
+                
+              </div>
+          : null }
           </div>
-        </div>
+          
+          {/* <button>M2</button>
+          <button>M3</button>
+          <button>M4</button>
+          <button>M5</button> */}
+         
+          
+                {/* <div className={styles.start}>
+                  <h3>5 ⭐</h3>
+                  <div className={styles.progressbar5}><div className={styles.progress5}></div></div>
+                  <h3>4 ⭐</h3>
+                  <div className={styles.progressbar4}><div className={styles.progress4}></div></div>
+                  <h3>3 ⭐</h3>
+                  <div className={styles.progressbar3}><div className={styles.progress3}></div></div>
+                  <h3>2 ⭐</h3>
+                  <div className={styles.progressbar2}><div className={styles.progress2}></div></div>
+                  <h3>1 ⭐</h3>
+                  <div className={styles.progressbar1}><div className={styles.progress1}></div></div>
+                </div> */}            
+        
+        
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
@@ -156,8 +177,11 @@ export default function Detail() {
             <div className={styles.loginbtn}>
               <LoginButton/>
             </div>}
+          <br />
           <hr />
+          <br />
           <h2>Este curso incluye</h2>
+          <br />
           <div className={styles.x2}>
             <FaBahai />
             <h4>Gratis para todo el mundo</h4>
@@ -174,10 +198,9 @@ export default function Detail() {
             <FaChartBar />
             <h4>{course.Modules} Varios Módulos</h4>
           </div>
+          <br />
           <hr />
-          <h2>Aprenderás</h2>
-          <h4>{course.Description}</h4>
-          <hr />
+          <br />
           <h2>Compartir este curso</h2>
           <div className={styles.social}>
             

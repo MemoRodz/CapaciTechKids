@@ -38,6 +38,7 @@ export default function Course(props) {
       //dispatch(addFavorites(ch));
     }
   }
+  console.log(course)
 
   return courseLoaded ? (
     <div className={styles.card}>
@@ -59,7 +60,7 @@ export default function Course(props) {
       </div>
       <div className={styles.cardtit}><h1>{course.Title}</h1></div>
       <div className={styles.teach}>
-        <img src="..\img\image 12.png" alt="perfil" />
+        <img src={course.tblUsers.find(a => a.PK_User === course.PK_User).Image} alt="perfil" />
 
         <h3>{course.tblUsers[0].Name}</h3>
         {/* <div className={styles.btndetail}>
