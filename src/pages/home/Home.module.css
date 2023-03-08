@@ -38,6 +38,9 @@
     margin-block-end: 5px;
     font-size: 50px;
 }
+.welcome:hover{
+    color:#ffffff;
+}
 
 .kids img {
     width: 600px;
@@ -48,6 +51,26 @@
     margin-top: 5px;
     margin-block-end: 5px;
     font-size: 50px;
+    /*animation: glitch 5s infinite;*/
+}
+.capaci:hover {
+    color: #ffffff;
+}
+
+@keyframes glitch {
+    0%{
+        text-shadow: #ffffff
+        0px 0px, var(--font-clr-yellow) 0px 0px;
+    }
+    50%{
+        text-shadow: #ffffff
+        -3px 0px, blue 0px 0px;
+    }
+    100%{
+        text-shadow: #ffffff
+        3px 0px, blue 0px 0px;
+    }
+    
 }
 
 .text {
