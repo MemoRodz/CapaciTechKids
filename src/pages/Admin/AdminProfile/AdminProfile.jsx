@@ -6,6 +6,7 @@ import axios from 'axios'
 import { setUserInfo } from '../../../redux/slices/userSlice'
 import { useDispatch } from 'react-redux'
 import styles from './AdminProfile.module.css'
+import swal from 'sweetalert'
 
 function AdminProfile() {
   const userInfo = useSelector(state => state.user)
@@ -45,7 +46,11 @@ function AdminProfile() {
                      dispatch(setUserInfo(response.data))} // Aqui preguntarle a Agus que si lo está haciendo. 
                      fetchData()
                     //aca hay que vaciar los inputs
-                     alert("Has modificado tu perfil satisfactoriamente")
+                    swal({
+                        title: "Has modificado tu perfil satisfactoriamente",
+                        icon: "success",
+                        button: "Cerrar",
+                      });
             })
             .catch(error => {
                 console.log(error);
