@@ -54,7 +54,7 @@ export default function Detail() {
 
   function Score() {
     
-    const score = average / 2
+    const score = average 
 
     // console.log("---> SCORE", score)
     if (score === null) {
