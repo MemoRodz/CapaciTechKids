@@ -1,7 +1,7 @@
 // import Head from "next/head";
 import { useState } from "react";
 import styles from "./AIProfessor.module.css";
-import { Configuration, OpenAIApi } from "openai"
+// import { Configuration, OpenAIApi } from "openai"
 import { apiKey } from "../../main";
 
 
