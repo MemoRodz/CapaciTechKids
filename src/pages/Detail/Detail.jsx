@@ -53,7 +53,7 @@ export default function Detail() {
 
 
   function Score() {
-    
+
     const score = average / 2
 
     // console.log("---> SCORE", score)
@@ -172,18 +172,23 @@ export default function Detail() {
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
 
-         
-          
-          {userInfo.isLogged?
-            <div className={styles.studybutton}>
-              <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>{<Button msj={'Empezar'} />}</Link>
-            </div>
 
+
+          {userInfo.isLogged ?
+            <>
+              {userInfo.userRole !== "instructor" &&
+                <div className={styles.studybutton}>
+                  <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>{<Button msj={'Empezar'} />}</Link>
+                </div>
+              }
+            </>
             :
             <>
-              {<div className={styles.loginbtn}>
-                <LoginButton />
-              </div> && userInfo.userRole !== "instructor"}
+              {userInfo.userRole !== "instructor" &&
+                <div className={styles.loginbtn}>
+                  <LoginButton />
+                </div>
+              }
             </>
           }
           <br />
