@@ -131,6 +131,7 @@ Para probar sobre correos de Administradores
                 .then(function (response) {
                     swal("Noficación enviada", "¡Los alumnos ya están notificados!", "success");
                     setFormData(formDataInitialState);
+                    e.target.reset;
                     console.log('VAMOO!', response.status, response.text);
                 }, function (error) {
                     console.log('Qué pasó?...', error);
@@ -251,6 +252,7 @@ Para probar sobre correos de Administradores
                             value={formData.asunto}
                             onChange={handleInputChange}
                         />
+                        <p>{errors.asunto}</p>
                     </div>
                     <br />
                     <div className="form-group">
@@ -268,7 +270,7 @@ Para probar sobre correos de Administradores
                         <p>{formData.mensaje.length}/1500</p>
 
                     </div>
-                    {validacion ? <div>{validacion}</div> : null}
+                    <p>{errors.mensaje}</p>
                     <button type="submit"
                         style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
                         disabled={(activeSendMsg || activeSendUsr) ? (activeSendMsg && activeSendUsr) : (activeSendMsg && activeSendUsr)}
