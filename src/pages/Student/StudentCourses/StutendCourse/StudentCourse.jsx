@@ -6,7 +6,7 @@ function StudentCourse(course) {
 
     return (
         <div className={styles.card}>
-      <Link to={`/detail/${course.PK_Course}`}>
+      <Link className={styles.linkcard} to={`/detail/${course.PK_Course}`}>
 
       <img className={styles.img} src={course.Image} alt={course.Image} />
 
