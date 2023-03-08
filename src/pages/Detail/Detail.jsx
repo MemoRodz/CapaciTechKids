@@ -54,7 +54,9 @@ export default function Detail() {
 
   function Score() {
 
-    const score = average / 2
+    
+    let score = average
+     score = Math.round(score * 10) / 10
 
     // console.log("---> SCORE", score)
     if (score === null) {
@@ -114,7 +116,7 @@ export default function Detail() {
                   <div className={styles.ranking}>
                     <div className={styles.top}>
                       <h1>{Score()} de 5</h1>
-                      <Estrella Score={average / 2} />
+                      <Estrella Score={average} />
                       <h3>Average Score</h3>
                     </div>
                   </div>
