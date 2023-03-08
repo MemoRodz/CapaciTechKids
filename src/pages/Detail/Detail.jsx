@@ -32,14 +32,14 @@ export default function Detail() {
         const reviews = await axios.get(`${baseUrl}/reviews/related/${id}`)
         const rela = await axios.get(`${baseUrl}/categories/co/${id}`)
         const avg = await axios.get(`${baseUrl}/reviews/avg/related/${id}`)
-
+        // console.log(avg.data.Score)
         setCourse(curso.data);
         setReview(reviews.data);
         setRelated(rela.data);
-        setAverage(avg.data);
+        setAverage(avg.data.average_score);
         setRelatedLoaded(true);
         window.scrollTo(0, 0);
-        console.log(">>>>>>>>",course);
+        // console.log(">>>>>>>>",course);
       } catch (error) {
         console.error(error);
       }
@@ -50,10 +50,10 @@ export default function Detail() {
 
 
   function Score() {
+    
+    const score = average / 2
 
-    const score = average.Score / 2
-
-    console.log("---> SCORE", score)
+    // console.log("---> SCORE", score)
     if (score === null) {
       return 0
     }
@@ -111,7 +111,7 @@ export default function Detail() {
                   <div className={styles.ranking}>
                     <div className={styles.top}>
                       <h1>{Score()} de 5</h1>
-                      <Estrella Score={course.Score / 2} />
+                      <Estrella Score={average / 2} />
                       <h3>Average Score</h3>
                     </div>
                   </div>
