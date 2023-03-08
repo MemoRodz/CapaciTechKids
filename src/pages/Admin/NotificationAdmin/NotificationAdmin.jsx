@@ -92,8 +92,6 @@ Para probar sobre correos de Administradores
                 errores.asunto = 'El asunto del comunicado no puede estar vacío.';
             } else if (formData.asunto.length > 75) {
                 errores.asunto = 'El asunto no puede superar los 75 caracteres.'
-            } else if (formData.asunto.length < 10) {
-                errores.asunto = 'El asunto debe ser mayor a 10 caracteres.'
             } else if (formData.mensaje.length === 0) {
                 errores.mensaje = 'El mensaje no debe estar vacío.';
             } else if (formData.mensaje.length > 1500) {
@@ -236,16 +234,16 @@ Para probar sobre correos de Administradores
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <div >
+                    <div className={styles.camposmsj}>
                         <br />
                         <label><b>Asunto a notificar: </b></label>
                         <input type="text" style={{
                             width: "316px",
                             height: "30px",
+                            margin: "auto",
                         }}
                             id="asunto"
                             name="asunto"
-                            minLength='10'
                             maxLength='75'
                             placeholder='Asunto.'
                             required

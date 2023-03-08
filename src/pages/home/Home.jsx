@@ -123,8 +123,8 @@ function Home() {
 
         </div>
 
-        <div className={styles.ult}>
-          <Link to={'/course'}>Más información</Link>
+        <div >
+          <Link className={styles.ult} to={'/course'}>Ver Cursos</Link>
         </div>
 
       </div>

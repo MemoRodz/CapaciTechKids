@@ -39,20 +39,22 @@ button {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 60%;
-    height: 869px;
+    width: 50%;
+    height: fit-content;
+    padding-bottom: 2rem;
     z-index: 18;
     background: rgba(157, 204, 255, 0.3);
     border-radius: 5%;
     margin-top: 5%;
+    margin-bottom: 2rem;
 }
 
 .opinions .buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-
+    align-items:flex-start;
+    margin: 2rem auto 0;
 }
 
 .opinions .buttons button {
@@ -75,22 +77,24 @@ button {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    
 }
 
 .point {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 764px;
+    height:fit-content;
     border-radius: 20px;
 }
 
 .opinions .ranking {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    margin: 0 auto;
 }
 
 .top {
@@ -99,11 +103,11 @@ button {
     justify-content: center;
     align-items: center;
     width: 30%;
-    height: 199px;
+    height: 150px;
     background: #FFFFFF;
     color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    margin: 5%;
+    margin: 0 auto;
 }
 
 .top h3 {
@@ -179,6 +183,9 @@ button {
     display: flex;
     flex-direction: column;
     margin-left: 50px;
+    margin: 0 auto;
+    width: fit-content;
+    
 }
 
 .commenttop {
@@ -186,6 +193,7 @@ button {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-top: 2rem;
 }
 
 .userstart {
@@ -265,6 +273,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #0583F2;
     height: 63px;
     border-radius: 12px;
     margin: 0px 20px 20px 20px;
@@ -277,6 +286,7 @@ button {
 }
 
 .studybutton:hover {
+    background: #0583f2be;
     cursor: pointer;
 }
 
@@ -380,3 +390,4 @@ hr {
 .loginbtn{
     margin: 1rem 1rem;
 }
+

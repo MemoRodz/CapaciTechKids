@@ -53,7 +53,7 @@ export default function Detail() {
 
 
   function Score() {
-     let score = average
+    let score = average
      score = Math.round(score * 10) / 10
 
     // console.log("---> SCORE", score)
@@ -72,6 +72,7 @@ export default function Detail() {
 
 
 
+
   const handleFBClick = () => {
     window.open(`http://www.facebook.com/sharer.php?u=https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
   };
@@ -80,7 +81,7 @@ export default function Detail() {
     window.open(`https://api.whatsapp.com/send?text=¡Echa un vistazo a esta página web! https://capacitechkids-production-fe31.up.railway.app/detail/${course.PK_Course}`);
   };
   const coursexstudent = () => {
-    axios.post(`${baseUrl}/courses/coursexstudent?course=${id}&student=${userInfo.ID}`)
+    axios.post(`${baseUrl}/courses/coursexstudent2?course=${id}&student=${userInfo.ID}`)
   }
   const handleDesc = (e) => {
     setDesc(e.target.name)
@@ -118,7 +119,7 @@ export default function Detail() {
                       <h3>Average Score</h3>
                     </div>
                   </div>
-                  {review.map(e =>
+                  {review.map((e,i) => i<4? 
                     <div className={styles.comment}>
                       <div className={styles.commenttop}>
                         <div className={styles.userstart}>
@@ -139,7 +140,7 @@ export default function Detail() {
                       </div>
                       <div className={styles.commentbotom}><h3>{e.Comment}</h3></div>
                       <div className={styles.hrcomment}><hr /></div>
-                    </div>
+                    </div>:null
                   )}
                 </div>
               </div>
@@ -171,19 +172,24 @@ export default function Detail() {
         <div className={styles.detail}>
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
-
-         
-          
-          {userInfo.isLogged?
-            <div className={styles.studybutton}>
-              <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>{<Button msj={'Empezar'} />}</Link>
-            </div>
-
+                <br />
+                <br />
+          {userInfo.isLogged ?
+            <>
+              {userInfo.userRole !== "instructor" &&
+                <div className={styles.studybutton}>
+                  <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>{<Button msj={'Empezar'} />}</Link>
+                </div>
+              }
+            </>
             :
             <>
-              {<div className={styles.loginbtn}>
-                <LoginButton />
-              </div> && userInfo.userRole !== "instructor"}
+              {userInfo.userRole !== "instructor" &&
+                <div className={styles.loginbtn}>
+                  <LoginButton />
+                </div>
+              }
+
             </>
           }
           <br />

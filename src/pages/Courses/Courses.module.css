@@ -15,6 +15,14 @@
     width: 100%;
 }
 
+.courses .cursosnoencontrados{
+    margin: 0 auto;
+}
+
+.courses .cargandocourses{
+    margin: 0 auto;
+}
+
 .coursestitle{
     text-align: center;
 }
