@@ -49,11 +49,13 @@ export default function ActiveCourse(props) {
 
   return (
     <div className={styles.card}>
-      <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
+      <div className={styles.btnX}>
+        <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
       <Link to={`../../../edit/detail/${PK_Course}`}>
         {/* <button onClick={() => handleEdit(PK_Course)} className={styles.editBtn}>EDIT</button> */}
         <button className={styles.editBtn}>EDIT</button>
       </Link>
+      </div>
       <Link to={`../../../detail/${PK_Course}`} style={{width: "250px"}}>
         <img className={styles.img} src={Image} alt={Image} />
         <div className={styles.coursedet}>
