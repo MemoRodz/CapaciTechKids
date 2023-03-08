@@ -37,20 +37,23 @@ function NotificaAdmin() {
     /*
 Para probar sobre correos de Administradores
     */
-const [advUsers, setAdvUsers] = useState([]);   
-useEffect(() => {
-    async function fetchAdvUsers() {
-      const response = await axios.get('http://localhost:3001/users/advusers');
-      setAdvUsers(response.data);
-    }
-    fetchAdvUsers();
-  }, []);
+/*   
+    const [advUsers, setAdvUsers] = useState([]);
+    useEffect(() => {
+        async function fetchAdvUsers() {
+            const response = await axios.get(`${baseUrl}/users/advusers`);
+            setAdvUsers(response.data);
+        }
+        fetchAdvUsers();
+    }, []);
+*/
     const handleSort = (column) => {
         const isAsc = orderBy === column && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
         setOrderBy(column);
     };
 
+    //Para ordenar columna de la tabla
     const sortData = (data) => {
         const sortedData = data.sort((a, b) => {
             if (order === 'asc') {
@@ -128,6 +131,7 @@ useEffect(() => {
                 .then(function (response) {
                     swal("Noficación enviada", "¡Los alumnos ya están notificados!", "success");
                     setFormData(formDataInitialState);
+                    e.target.reset;
                     console.log('VAMOO!', response.status, response.text);
                 }, function (error) {
                     console.log('Qué pasó?...', error);
@@ -164,18 +168,19 @@ useEffect(() => {
 
     function handleInputChange(e) {
         const { name, value } = e.target;
-        console.log(`name: ${name}, value: ${value}`);
-        console.log('Que estamos validando:', validacion);
+        // console.log(`name: ${name}, value: ${value}`);
+        // console.log('Que estamos validando:', validacion);
+        setFormData({
+            ...formData,
+            [name]: value
+        });
         setErrors(
             validate({
                 ...formData,
                 [name]: value,
             })
         );
-        setFormData({
-            ...formData,
-            [name]: value
-        });
+
         for (const [key, value] of Object.entries(errors)) {
             if (value.length !== 0) setValidacion(value);
         }
@@ -213,7 +218,7 @@ useEffect(() => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {sortData(advUsers).map((student) => (
+                                {sortData(students).map((student) => (
                                     <TableRow key={student.PK_User}>
                                         <TableCell>{student.Name}</TableCell>
                                         <TableCell>{student.Email}</TableCell>
@@ -247,6 +252,7 @@ useEffect(() => {
                             value={formData.asunto}
                             onChange={handleInputChange}
                         />
+                        <p>{errors.asunto}</p>
                     </div>
                     <br />
                     <div className="form-group">
@@ -264,7 +270,7 @@ useEffect(() => {
                         <p>{formData.mensaje.length}/1500</p>
 
                     </div>
-                    {validacion ? <div>{validacion}</div> : null}
+                    <p>{errors.mensaje}</p>
                     <button type="submit"
                         style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
                         disabled={(activeSendMsg || activeSendUsr) ? (activeSendMsg && activeSendUsr) : (activeSendMsg && activeSendUsr)}
