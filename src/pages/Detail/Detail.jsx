@@ -53,9 +53,11 @@ export default function Detail() {
 
 
   function Score() {
+
     
     let score = average
      score = Math.round(score * 10) / 10
+
     // console.log("---> SCORE", score)
     if (score === null) {
       return 0
@@ -172,18 +174,23 @@ export default function Detail() {
           <img src={course.Image} alt="{course.Title}" />
           <h1>{course.Title}</h1>
 
-         
-          
-          {userInfo.isLogged?
-            <div className={styles.studybutton}>
-              <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>{<Button msj={'Empezar'} />}</Link>
-            </div>
 
+
+          {userInfo.isLogged ?
+            <>
+              {userInfo.userRole !== "instructor" &&
+                <div className={styles.studybutton}>
+                  <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>{<Button msj={'Empezar'} />}</Link>
+                </div>
+              }
+            </>
             :
             <>
-              {<div className={styles.loginbtn}>
-                <LoginButton />
-              </div> && userInfo.userRole !== "instructor"}
+              {userInfo.userRole !== "instructor" &&
+                <div className={styles.loginbtn}>
+                  <LoginButton />
+                </div>
+              }
             </>
           }
           <br />
