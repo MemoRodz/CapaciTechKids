@@ -1,32 +1,33 @@
-
-.teacher_container{
+.teacher_container {
     min-height: 80vh;
     display: flex;
     flex-direction: row;
     margin: auto;
 }
- 
-.teacher_courses{
+
+.teacher_courses {
     display: flex;
     flex-direction: column;
 }
 
-.teacher_sidebar{
+.teacher_sidebar {
     display: flex;
     flex-direction: column;
     width: 13rem;
     height: 100%;
 }
 
-.teacher_container a{
+.teacher_sidebar a {
+    background: var(--bg-clr-complementary);
+    color: #fff;
+}
+
+.teacher_container a {
     text-decoration: none;
     width: fit-content;
     border-radius: 3px;
     margin: 1.5rem .5rem;
     padding: .2rem .3rem;
-    background-color: var(--btn-bg-active);
 }
 
-.teacher_views{
-
-}
+.teacher_views {}
