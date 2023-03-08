@@ -174,16 +174,17 @@ export default function Detail() {
 
          
           
-          {userInfo.isLogged?
-            <div className={styles.studybutton}>
+          {userInfo.isLogged ?
+            <>
+            {userInfo.userRole !== "instructor"&&   <div className={styles.studybutton}>
               <Link to={`/player/${course.PK_Course}`} onClick={coursexstudent}>{<Button msj={'Empezar'} />}</Link>
-            </div>
-
+            </div>}            
+            </>
             :
             <>
-              {<div className={styles.loginbtn}>
+              {userInfo.userRole !== "instructor" && <div className={styles.loginbtn}>
                 <LoginButton />
-              </div> && userInfo.userRole !== "instructor"}
+              </div> }
             </>
           }
           <br />
