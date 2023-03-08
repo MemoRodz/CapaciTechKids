@@ -62,7 +62,8 @@ export default function Course(props) {
       <div className={styles.teach}>
         <img src={course.tblUsers.find(a => a.PK_User === course.PK_User).Image} alt="perfil" />
 
-        <h3>{course.tblUsers[0].Name}</h3>
+        <h3>{course.tblUsers.find(a => a.PK_User === course.PK_User).Name}</h3>
+        {/* <h3>{course.tblUsers[0].Name}</h3> */}
         {/* <div className={styles.btndetail}>
           <Link to={`/detail/${course.PK_Course}`}><button>Detail</button></Link>
         </div> */}
