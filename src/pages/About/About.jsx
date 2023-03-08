@@ -269,6 +269,7 @@ function About() {
             style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
             disabled={Object.keys(validate).length}
           >Enviar comentario</button>
+          
         </form>
       </div>
     </div>
