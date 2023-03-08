@@ -101,7 +101,7 @@ export default function Detail() {
           <button name="Descripcion" onClick={handleDesc}>Descripción</button>
           <button name="Reseñas" onClick={handleDesc}>Reseñas</button>
           </div>
-          
+          { !desc ? <Descripcion/> : null}
           {desc==="Descripcion"? <Descripcion/> : null}
           {desc==="Reseñas"?                            
           <div className={styles.comments}>
@@ -115,9 +115,7 @@ export default function Detail() {
                       <h3>Average Score</h3>
                     </div>
                   </div>
-                </div>
-              </div>
-                {review.map(e =>
+                  {review.map(e =>
                   <div className={styles.comment}>
                     <div className={styles.commenttop}>
                       <div className={styles.userstart}>
@@ -140,8 +138,11 @@ export default function Detail() {
                     <div className={styles.hrcomment}><hr /></div>
                   </div>
                 )}
+                </div>
               </div>
-          : null}
+                
+              </div>
+          : null }
           </div>
           
           {/* <button>M2</button>
