@@ -11,6 +11,18 @@
     border: solid 20px #FFFFFF;
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
     text-decoration: none;
+    transition: all 0.3s ease-out;
+}
+
+.estrellita {
+    color: gold;
+}
+
+.card:hover {
+    box-shadow: 2px 5px 4px grey;
+
+    transform: translateY(-5px);
+
 }
 
 a {

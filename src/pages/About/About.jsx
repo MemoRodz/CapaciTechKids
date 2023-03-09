@@ -120,20 +120,82 @@ function About() {
   return (
     <div className={styles.about}>
       <br />
-      <h1>Nosotros Somos</h1>
-      <br />
-      <h2>Mision</h2>
-      <br />
-      <h3>Concentramos nuestros esfuerzos en:<br />
+      <div className={styles.cont}>
+        <div className={styles.nosotros}>
+        <h1>Nosotros Somos</h1>
+          <br />
+          <h2>Mision</h2>
+          <br />
+          <h3>Concentramos nuestros esfuerzos en:<br />
 
-        1. Mejorar este proyecto en infraestructura educativa, para aumentar la cobertura, el acceso y la asistencia con mejores habilidades técnicas para el aprendizaje.<br />
+            1. Mejorar este proyecto en infraestructura educativa, para aumentar la cobertura, el acceso y la asistencia con mejores habilidades técnicas para el aprendizaje.<br />
 
-        2. Desarrollar proyectos que incentiven en los procesos de enseñanza y aprendizaje trabajando de la mano con los docentes para incrementar las expectativas educativas y laborales.</h3>
+            2. Desarrollar proyectos que incentiven en los procesos de enseñanza y aprendizaje trabajando de la mano con los docentes para incrementar las expectativas educativas y laborales.</h3>
 
-      <br />
-      <h2>Visión</h2>
-      <br />
-      <h3>Queremos que la próxima generación de latinoamericanos vea en la educación como un vehículo de cambio para soñar, construir y cumplir su proyecto de vida. </h3>
+          <br />
+          <h2>Visión</h2>
+          <br />
+          <h3>Queremos que la próxima generación de latinoamericanos vea en la educación como un vehículo de cambio para soñar, construir y cumplir su proyecto de vida. </h3>
+        </div>
+          <div className={styles.contactanos}>
+          <h1>Contáctanos</h1>
+          <form name='frmContactUs' onSubmit={(e) => {
+            handleSubmit(e);
+          }}>
+            <div >
+              <div >
+                <label><b>Nombre: </b></label>
+                <input
+                  id="nombre"
+                  name="nombre"
+                  minLength='3'
+                  maxLength='25'
+                  placeholder='Tu nombre.'
+                  ref={inputNombre}
+                  required
+                  value={formData.nombre}
+                  onChange={handleInputChange}
+                />
+                <p>{errors.nombre}</p>
+              </div>
+              <div >
+                <label><b>Correo electrónico: </b></label>
+                <input type="text"
+                  id="email"
+                  name="email"
+                  placeholder='Introduce un correo electrónico válido.'
+                  ref={inputEmail}
+                  required
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                <p>{errors.email}</p>
+              </div>
+            </div>
+            <div className="form-group">
+              <label><b>Mensaje: </b></label>
+              <textarea type="text"
+                id="mensaje"
+                name="mensaje"
+                rows="10"
+                cols="70"
+                placeholder='Deja tu mensaje.'
+                ref={inputMensaje}
+                required
+                value={formData.mensaje} onChange={handleInputChange}
+              />
+              <p>{formData.mensaje.length}/1500</p>
+            </div>
+            <p>{errors.mensaje}</p>
+            <button type="submit"
+              style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
+              disabled={Object.keys(validate).length}
+            >Enviar comentario</button>
+            
+          </form>
+        </div>
+      </div>
+      
       <br />
       <div className={styles.devs}>
         <div className={styles.dev}>
@@ -235,63 +297,7 @@ function About() {
         </div>
       </div>
       <hr />
-      <div className={styles.contactanos}>
-        <h1>Contáctanos</h1>
-        <form name='frmContactUs' onSubmit={(e) => {
-          handleSubmit(e);
-        }}>
-          <div >
-            <div >
-              <label><b>Nombre: </b></label>
-              <input
-                id="nombre"
-                name="nombre"
-                minLength='3'
-                maxLength='25'
-                placeholder='Tu nombre.'
-                ref={inputNombre}
-                required
-                value={formData.nombre}
-                onChange={handleInputChange}
-              />
-              <p>{errors.nombre}</p>
-            </div>
-            <div >
-              <label><b>Correo electrónico: </b></label>
-              <input type="text"
-                id="email"
-                name="email"
-                placeholder='Introduce un correo electrónico válido.'
-                ref={inputEmail}
-                required
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-              <p>{errors.email}</p>
-            </div>
-          </div>
-          <div className="form-group">
-            <label><b>Mensaje: </b></label>
-            <textarea type="text"
-              id="mensaje"
-              name="mensaje"
-              rows="10"
-              cols="70"
-              placeholder='Deja tu mensaje.'
-              ref={inputMensaje}
-              required
-              value={formData.mensaje} onChange={handleInputChange}
-            />
-            <p>{formData.mensaje.length}/1500</p>
-          </div>
-          <p>{errors.mensaje}</p>
-          <button type="submit"
-            style={{ width: "50%", margin: "0 auto", marginTop: "20px" }}
-            disabled={Object.keys(validate).length}
-          >Enviar comentario</button>
-          
-        </form>
-      </div>
+      
     </div>
   )
 }
