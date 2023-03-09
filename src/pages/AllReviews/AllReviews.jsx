@@ -38,7 +38,7 @@ export default function Reviews() {
     fetchData();
   }, [pathname]);
 
-console.log(average,review)
+// console.log(average,review)
 
   function Score() {
     let score = average
