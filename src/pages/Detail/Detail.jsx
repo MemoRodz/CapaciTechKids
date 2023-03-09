@@ -101,6 +101,8 @@ export default function Detail() {
       <div className={styles.leftandringh}>
         <div className={styles.opinions}>
           <div className={styles.buttons}>
+            
+      
 
             <button name="Descripcion" onClick={handleDesc}>Descripción</button>
             <button name="Reseñas" onClick={handleDesc}>Reseñas</button>
@@ -141,13 +143,28 @@ export default function Detail() {
                       <div className={styles.commentbotom}><h3>{e.Comment}</h3></div>
                       <div className={styles.hrcomment}><hr /></div>
                     </div>:null
+                    
                   )}
+               
+               
+         
+          
+                 
                 </div>
+                <div className={styles.buttonsito}> <Link to={`/reviews/${id}`}>Ver todas las reviews</Link> </div>
+                
               </div>
+        
 
             </div>
+            
+            
             : null}
+           
+            
         </div>
+        
+        
 
         {/* <button>M2</button>
           <button>M3</button>

@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: row;
     width: 95%;
+    justify-content: center;
 }
 
 button {
@@ -39,12 +40,12 @@ button {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 50%;
+    width: 70%;
     height: fit-content;
     padding-bottom: 2rem;
     z-index: 18;
     background: rgba(157, 204, 255, 0.3);
-    border-radius: 30px;
+    border-radius: 5%;
     margin-top: 5%;
     margin-bottom: 2rem;
 }
@@ -77,7 +78,6 @@ button {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
     
 }
 
@@ -185,10 +185,12 @@ button {
     flex-direction: column;
     margin-left: 50px;
     margin: 0 auto;
-    width: fit-content;
+    width: 100%;
     
 }
-
+.comment {
+   width: 800px;
+}
 .commenttop {
     display: flex;
     flex-direction: row;
@@ -216,27 +218,6 @@ button {
 .namestart {
     display: flex;
     flex-direction: column;
-}
-
-.buttonsito {
-    width: 200px;
-    height: 63px;
-    background: var(--bg-clr-complementary);
-    border-radius: 12px;
-    color: white;
-    margin: 50px 20px 50px 20px;
-    font-size: 20px;
-    font-weight: 700;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-   
-}
-
-.buttonsito:hover {
-    background-color: var(--bg-clr-yellow);
 }
 
 .time {
@@ -419,6 +400,13 @@ hr {
         background-image:none;
         height: 0;
         width: 0;
+    }
+    .comment {
+        width: 320px;
+
+    }
+    .comments {
+        align-items: center;
     }
     .leftandringh{
         flex-direction: column-reverse;
