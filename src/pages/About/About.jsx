@@ -216,7 +216,7 @@ function About() {
           <a href="https://github.com/Brareyesb15" target="_blank">
             <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/116505799?v=4" alt="" />
             <h1>Brandon Reyes</h1>
-            <h2>"La educación es el pasaporte hacia el futuro, porque el mañana pertenece a aquellos que se preparan hoy." <br /> Malcolm X</h2>
+            <h2>"La educación que sembramos en los niños es el camino hacia la felicidad y la realización personal que cultivarán por el resto de sus vidas."</h2>
             <br />
             <br />
             <br />
@@ -243,7 +243,7 @@ function About() {
           <a href="https://github.com/MemoRodz" target="_blank">
             <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/33233688?v=4" alt="" />
             <h1>Guillermo Rodriguez</h1>
-            <h2>"La imaginación es la Fuerza más Creativa del Universo"<br /> Albert Einstein.</h2>
+            <h2>"La imaginación es la Fuerza más Creativa del Universo."<br /> Albert Einstein.</h2>
             <br />
             <br />
             <br />
@@ -257,7 +257,7 @@ function About() {
           <a href="https://github.com/Randyvangz" target="_blank">
             <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/29136447?v=4" alt="" />
             <h1>Randy Gutierrez</h1>
-            <h2>"La función de un buen software es hacer que lo complejo aparente ser simple"</h2>
+            <h2>"La función de un buen software es hacer que lo complejo aparente ser simple."</h2>
             <br />
             <br />
             <br />
@@ -271,7 +271,7 @@ function About() {
           <a href="https://github.com/Rickymayita" target="_blank">
             <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/93308674?v=4" alt="" />
             <h1>Ricardo Maya</h1>
-            <h2>"Invirtiendo para que el futuro mejor no sea solo un sueño"</h2>
+            <h2>"Invirtiendo para que el futuro mejor no sea solo un sueño."</h2>
             <br />
             <br />
             <br />
@@ -285,7 +285,7 @@ function About() {
           <a href="https://github.com/SandroMalca" target="_blank">
             <img className={styles.imgDev} src="https://avatars.githubusercontent.com/u/116411042?s=400&u=5ccb4d11ac3b3063dffe22a812999a675931e1a5&v=4" alt="" />
             <h1>Sandro Malca</h1>
-            <h2>"Recuerda que cada habilidad que aprendás, te puede servir en el futuro"</h2>
+            <h2>"Recuerda que cada habilidad que aprendás, te puede servir en el futuro."</h2>
             <br />
             <br />
             <br />
