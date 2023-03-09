@@ -15,6 +15,14 @@
     width: 100%;
 }
 
+.courses .cursosnoencontrados{
+    margin: 0 auto;
+}
+
+.courses .cargandocourses{
+    margin: 0 auto;
+}
+
 .coursestitle{
     text-align: center;
 }
@@ -36,12 +44,43 @@
 .filters{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 20%;
     border-right: 2px solid var(--bg-clr-complementary);
-    margin-right: 10px;
+    padding-right: 10px;
 }
 
 .filters button{
     font-size: 1.35rem;
+}
+
+@media screen and (max-width: 768px) {
+    .heard img {
+        display: none;
+    }
+    .heard {
+        height: 10px;
+    }
+    .coursescontainer{
+        display:block;
+        flex-direction:initial;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .filters{
+        display: inline;
+    }
+    .filters button{
+        height: 30px;
+        font-size: 1rem;
+    }
+    .courses{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
 }
 

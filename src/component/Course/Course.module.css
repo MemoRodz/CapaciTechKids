@@ -11,13 +11,28 @@
     border: solid 20px #FFFFFF;
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
     text-decoration: none;
+    transition: all 0.3s ease-out;
+}
+
+.estrellita {
+    color: gold;
+}
+
+.card:hover {
+    box-shadow: 2px 5px 4px grey;
+
+    transform: translateY(-5px);
+
 }
 
 a {
     text-decoration: none;
 }
-a:link, a:visited,  a:hover, a:active
-{
+
+a:link,
+a:visited,
+a:hover,
+a:active {
     color: var(--font-clr-primary);
     text-decoration: none;
 }
@@ -25,7 +40,7 @@ a:link, a:visited,  a:hover, a:active
 
 
 .img {
-    object-fit:contain;
+    object-fit: contain;
 }
 
 .heard img {
@@ -35,11 +50,11 @@ a:link, a:visited,  a:hover, a:active
 }
 
 .card img {
-        /* width: 100%;
+    /* width: 100%;
         height: 300px;
         */
-        width: 100%;
-        height: 18rem;
+    width: 100%;
+    height: 18rem;
 }
 
 .coursedet {
@@ -56,7 +71,7 @@ a:link, a:visited,  a:hover, a:active
     justify-content: flex-start;
 }
 
-.similar1 h4{
+.similar1 h4 {
     margin: 0 4px;
 }
 
@@ -67,7 +82,7 @@ a:link, a:visited,  a:hover, a:active
     justify-content: flex-end;
 }
 
-.cardtit h1{
+.cardtit h1 {
     font-size: 26px;
 }
 
@@ -93,4 +108,52 @@ a:link, a:visited,  a:hover, a:active
     font-size: 20px;
     border-radius: 80px;
     border: none;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        margin-left: 0;
+        width: 90%;
+        margin: 10px;
+        background: #FFFFFF;
+        height: 25em;
+        border-radius: 30px;
+        display: block;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: solid 20px #FFFFFF;
+        filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+        text-decoration: none;
+    }
+    .card img {
+        /* width: 100%;
+        height: 300px;
+        */
+        width: 100%;
+        height: 50%;
+    }
+
+    .cardtit h1 {
+        margin: 10px;
+        font-size: 20px;
+    }
+    .teach img {
+        position: relative;
+        top: 20px;
+        left: 160px;
+        width: 50px;
+        height: 50px;
+    }
+    .similar1 h4 {
+        margin: 0 10px;
+    }
+    .teach h3{
+        font-size: 15px;
+        position: relative;
+        top: 15px;
+        right: 20px;
+        width: 50px;
+        height: 50px; 
+    }
 }

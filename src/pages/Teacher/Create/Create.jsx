@@ -5,6 +5,7 @@ import styles from "./Create.module.css";
 import { baseUrl } from "../../../models/baseUrl";
 import SubiendoImagenes from "../../../component/Upload/Upload";
 import swal from "sweetalert";
+import { useSelector } from "react-redux";
 
 export function validate(formData) {
   let errors = {};
@@ -23,28 +24,38 @@ export function validate(formData) {
 }
 
 const Create = () => {
+  const userInfo = useSelector(state => state.user)
+
   const formDataInitialState = {
     Title: "",
     Description: "",
-    Professor: "",
+    Professor: userInfo.ID,
     Duration: 30,
     Category: [],
     Active: true,
-    Image: ""
+    Image: "",
+    Videos: []
   };
   const navigate = useNavigate();
   const [cats, setCats] = useState([]);
   const [validacion, setValidacion] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [formData, setFormData] = useState(formDataInitialState);
+
+  const [videos,setVideos] = useState({
+    video : "",
+    titulo : "",
+    descripcion : ""
+  })
   const [errors, setErrors] = React.useState({
     Title: "Agrega un titulo",
     Description: "Agrega una descripcion",
-    Professor: "",
+    Professor: userInfo.ID,
     Duration: "",
     Category: [],
     Active: true,
-    Image: ""
+    Image: "",
+    Videos: []
   });
  
   const [data, setData] = useState([]);
@@ -92,6 +103,8 @@ const Create = () => {
       })
     );
 
+    
+
     if (type === "checkbox") {
       setSelectedCategories((prevCategories) =>
         checked
@@ -101,6 +114,12 @@ const Create = () => {
     } else {
       setFormData({ ...formData, [name]: value });
     }
+  }
+
+  const handleVideo = (e) => {
+    const {name,value} = e.target
+    setVideos({...videos, [name]: value 
+    });
   }
 
   useEffect(() => {
@@ -115,6 +134,20 @@ const Create = () => {
   function cambiarImagen(img) {
     setFormData({...formData, Image : img})
 }
+
+const handleAddVideo = (e) => {
+  e.preventDefault()
+  console.log("entre a handle")
+  setFormData(prevFormData => ({
+    ...prevFormData,
+    Videos: [...prevFormData.Videos, videos]
+  }))
+  setVideos({
+    video : "",
+    titulo : "",
+    descripcion : ""
+  }) 
+};
 
   return (
     <>
@@ -169,19 +202,6 @@ const Create = () => {
             </div>
           </label>
           <br />
-          <label htmlFor="Profesor">Profesor: </label>
-          <select
-            name="Professor"
-            value={formData.PK_User}
-            onChange={handleInputChange}>
-            <option value="">-- Selecciona la opción --</option>
-            {data.map((data) => (
-              <option key={data.PK_User} value={data.PK_User}>
-                {data.Name}
-              </option>
-            ))}
-          </select>
-          <br />
           <label>Categorias: </label>
           <div className={styles.cate}>
             {cats.map((category) => (
@@ -210,7 +230,45 @@ const Create = () => {
               required
             />
           </label>
-          <br />
+          <label>Videos: (puedes agregar varios videos)</label>
+          <label>
+  Nombre del video:
+  <input
+    type="text"
+    name="titulo"
+    style={{width: "500px"}}
+    value={videos.titulo}
+    onChange={handleVideo}
+  />
+</label>
+
+<label>
+  Descripción del video:
+  <textarea
+    name="descripcion"
+    value={videos.descripcion}
+    onChange={handleVideo}
+    cols="60"
+    rows="10"
+  />
+</label>
+
+<label>
+  URL del video:
+  <input
+    type="url"
+    pattern="https://.*"
+    name="video"
+    style={{width: "500px"}}
+    value={videos.video}
+    onChange={handleVideo}
+  />
+</label>
+
+
+<button type="button" onClick={(e)=>handleAddVideo(e)} > 
+  Agregar video
+</button> 
           <br />
           {validacion ? <div>{validacion}</div> : null}
           <button type="submit" disabled={Object.keys(validate).length}>Crear Curso</button>

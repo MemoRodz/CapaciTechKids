@@ -6,6 +6,8 @@ import { baseUrl } from '../../../models/baseUrl'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import ReviewForm from "../Review's form/review"
+import { useSelector } from 'react-redux';
+import Button from '../../../component/Buttons/Button/Button'
 
 function Player() {
   const { id } = useParams();
@@ -13,7 +15,13 @@ function Player() {
   const [index, setIndex] = useState(1)
   const [allViewed, setAllViewed] = useState(false) // controla si llego al ultimo video
   const [isSend, setIsSend] = useState(false) // controla si se a enviado una review
+  const userInfo = useSelector(state => state.user)
 
+  const userLecture = async (id) => {
+    console.log("me ejecuté? ")
+    const res = await axios.post(`${baseUrl}/users/userslectures?lecture=${id}&student=${userInfo.ID}`)
+    console.log(res)
+  }
   const handleNext = () => {
     setIndex(index + 1)
     if (index === actives.length - 1) setAllViewed(true)
@@ -38,6 +46,7 @@ function Player() {
           return m
         })
         setActives(newArr)
+        userLecture(actives[0].PK_Lecture)
       } catch (error) {
         console.log(error);
       }
@@ -45,10 +54,15 @@ function Player() {
     fetchData();
   }, [index])
 
+  console.log("Holaaaa", actives)
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      <div >
+    <div className={styles.conten}>
+      <div className={styles.sidebar}>
+        <div className={styles.contenido}>
+          <h1>Contenido del modulo</h1>
+        </div>
+
         {actives && actives.map((m, i) => (
           <>
             <h3 key={`${i}-video-title`}>{m.Title} {m.isActive || allViewed ?
@@ -56,14 +70,20 @@ function Player() {
               < FaLock key={`${i}-video-candado-cerrado`} />}</h3>
           </>
         ))}
-        <button onClick={handlePrev} disabled={index < 2}>Anterior</button>
-        <button onClick={handleNext} disabled={index > actives.length}>Siguiente</button>
+        <div className={styles.botenera}>
+          <button onClick={handlePrev} disabled={index < 2}>Anterior</button>
+          <button onClick={() => {
+            handleNext();
+          }} disabled={index > actives.length}>Siguiente</button>
+        </div>
       </div>
-      <div >
+      <div className={styles.repro}>
         {actives && actives.map(m => (
-          <div>
+          <div >
             {index === m.NoVideo ? (
-              <ReactPlayer controls url={m.Video} />
+              <div className={styles.playerWrapper}>
+                <ReactPlayer controls url={m.Video} />
+              </div>
             ) : null}
           </div>
         ))}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox, NativeSelect} from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
+import { baseUrl } from '../../../../models/baseUrl';
 
 function AdvUsers() {
 
@@ -11,7 +12,7 @@ function AdvUsers() {
 
   useEffect(() => {
     async function fetchAdvUsers() {
-      const response = await axios.get('http://localhost:3001/users/advusers');
+      const response = await axios.get(`${baseUrl}/users/advusers`);
       // const data = await response.json();
     //   console.log(response.data)
       setAdvUsers(response.data);
@@ -28,15 +29,15 @@ const handleSort = (column) => {
 const handleToggle = async (event, advUser) => {
   const isChecked = event.target.checked;
   const apiEndpoint = isChecked ? `/users/${advUser.PK_User}/activate` : `/users/${advUser.PK_User}/delete`;
-  await axios.get(`http://localhost:3001${apiEndpoint}`);
-  const updatedAdvUser = await axios.get('http://localhost:3001/users/advusers');
+  await axios.put(`${baseUrl}${apiEndpoint}`);
+  const updatedAdvUser = await axios.get(`${baseUrl}/users/advusers`);
   setAdvUsers(updatedAdvUser.data);
 };
 
 const handleUserType = async (event, advUser) => {
   const newUserType = event.target.value;
-  await axios.put(`http://localhost:3001/users/putusers`, { PK_User:advUser.PK_User, UserType: newUserType })
-  const updatedAdvUsers = await axios.get('http://localhost:3001/users/advUsers');
+  await axios.put(`${baseUrl}/users/putusers`, { PK_User:advUser.PK_User, UserType: newUserType })
+  const updatedAdvUsers = await axios.get(`${baseUrl}/users/advUsers`);
   setAdvUsers(updatedAdvUsers.data);
 };
 

@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { TableSortLabel } from '@mui/material';
 import axios from 'axios';
+import { baseUrl } from '../../../../models/baseUrl';
 
 function Students() {
   const [students, setStudents] = useState([]);
@@ -21,7 +22,7 @@ function Students() {
 
   useEffect(() => {
     async function fetchStudents() {
-      const response = await axios.get('http://localhost:3001/users/students');
+      const response = await axios.get(`${baseUrl}/users/students`);
       setStudents(response.data.map(student => ({ ...student, active: student.Active })));
     }
     fetchStudents();
@@ -36,15 +37,15 @@ function Students() {
   const handleToggle = async (event, student) => {
     const isChecked = event.target.checked;
     const apiEndpoint = isChecked ? `/users/${student.PK_User}/activate` : `/users/${student.PK_User}/delete`;
-  await axios.get(`http://localhost:3001${apiEndpoint}`);
-    const updatedStudents = await axios.get('http://localhost:3001/users/students');
+    await axios.put(`${baseUrl}${apiEndpoint}`);
+    const updatedStudents = await axios.get(`${baseUrl}/users/students`);
     setStudents(updatedStudents.data);
   };
 
   const handleUserType = async (event, student) => {
     const newUserType = event.target.value;
-    await axios.put(`http://localhost:3001/users/putusers`, { PK_User:student.PK_User, UserType: newUserType })
-    const updatedStudents = await axios.get('http://localhost:3001/users/students');
+    await axios.put(`${baseUrl}/users/putusers`, { PK_User:student.PK_User, UserType: newUserType })
+    const updatedStudents = await axios.get(`${baseUrl}/users/students`);
     setStudents(updatedStudents.data);
   };
 
