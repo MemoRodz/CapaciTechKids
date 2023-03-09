@@ -380,3 +380,14 @@ hr {
 .loginbtn{
     margin: 1rem 1rem;
 }
+
+@media screen and (max-width: 768px){
+    .heard {
+        padding: 0 50px;
+        background-image:none;
+        height: 70vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+}
