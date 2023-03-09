@@ -7,12 +7,12 @@ import { useParams } from 'react-router-dom';
 function Descripcion() {
     const [course, setCourse] = useState([]);
     const {id} = useParams();
-    console.log(id, "idddddddddd");
+    // console.log(id, "idddddddddd");
     useEffect(() => {
         const fetchData = async () => {
           try {
             const curso = await axios.get(`${baseUrl}/courses/detail/${id}`)          
-            console.log(curso.data,"CURSSSSOOO");
+            // console.log(curso.data,"CURSSSSOOO");
             setCourse(curso.data);
             
           } catch (error) {

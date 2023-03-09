@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export const Profile = () => {
     const user = useSelector(state => state.user) 
     const { isAuthenticated, isLoading } = useAuth0();
-    console.log(user)   
+    // console.log(user)   
 
     useEffect(() => {
         // console.log("El estado de user ha cambiado", user);
