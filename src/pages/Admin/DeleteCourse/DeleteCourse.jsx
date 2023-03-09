@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useContext } from 'react';
 import { baseUrl } from '../../../models/baseUrl'
 import { usuario } from '../../../component/Layout/Nav/Nav';
+import { Link } from 'react-router-dom';
 
 export default function DeleteCourse(props) {
   const { setAdminCourses, adminCourses } = useContext(AdminCoursesContext)
@@ -29,7 +30,8 @@ export default function DeleteCourse(props) {
   return (
     <div className={styles.card}>
       <button onClick={() => handleActivate(PK_Course)} className={styles.deleteBtn}>x</button>
-      <img className={styles.img} src={Image} alt={Image} />
+      <Link to={`../../../detail/${PK_Course}`}>  
+    <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         {/* <div className={styles.similar1}>
           <FaThLarge />
@@ -47,6 +49,7 @@ export default function DeleteCourse(props) {
         <div className={styles.btndetail}>
         </div>
       </div>
+      </Link >
     </div>
   )
 }
