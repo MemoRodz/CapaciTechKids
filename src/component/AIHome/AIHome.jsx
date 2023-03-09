@@ -6,7 +6,7 @@ export default function AIHome() {
   return (
     <div className={styles.containerdiv}>
         <Link to={'/pregunta'}>
-        <img className={styles.imagenrobot} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1678317071/CAPACITECHKIDS/images/users/banner_curses/robotprofesor_thmqcq.png" alt="" />
+        <img className={styles.imagenrobot} src="https://res.cloudinary.com/dbbmgnhqf/image/upload/v1678325979/CAPACITECHKIDS/images/users/banner_curses/robotprofesorcapacitech_qa8uw7.png" alt="" />
         </Link>
         <div>
         <div className={styles.textorobot} >En CapaciTechKids hemos creado un profesor virtual para que puedas realizarle consultas sobre cualquier tema de nuestros cursos. Él te explicará de manera didáctica y amigable, para que puedas resolver tus dudas a cualquier hora del día.</div>
