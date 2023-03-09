@@ -1,0 +1,42 @@
+.imagenrobot {
+    height: 350px;
+    transition: height 0.5s ease;
+}
+
+
+
+.imagenrobot:hover {
+    height: 360px;
+}
+
+
+.containerdiv {
+    display: flex; 
+    flex-direction: row-reverse;
+    /* justify-content: flex-end; */
+    margin-right: 150px;
+}
+
+.textorobot {
+    margin-right: 10rem;
+    margin-top: 5rem;
+    font-size: 17pt;
+    max-width: 450px;
+    margin-left: 2rem;
+}
+
+.preguntale {
+    margin-top: 20px;
+    margin-right: 10rem;
+    font-size: 30pt;
+    color: var(--font-clr-yellow);
+
+}
+
+.preguntale:hover{
+    border-bottom: solid 3px var(--font-clr-yellow);
+
+}
+.containerdiv .preguntale a:hover{
+    font-size: 30pt;
+}

@@ -71,4 +71,9 @@
     padding: 0;
     font-size: 18px;
 }
-
+@media screen and (max-width: 768px){
+    .card{
+        width: 90%;
+        margin: 5%;
+    }
+}
