@@ -26,3 +26,8 @@
     padding-top: 1.5rem;
     width: 80%;
 }
+@media screen and (max-width: 768px){
+    .opinions{
+        width: 90%;
+    }
+}
