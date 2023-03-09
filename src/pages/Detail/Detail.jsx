@@ -90,7 +90,7 @@ export default function Detail() {
   }
 
 
-  console.log("chau papa",related)
+  console.log("chau papa",review)
 
 
   return relatedLoaded ? (
