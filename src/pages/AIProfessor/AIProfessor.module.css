@@ -72,7 +72,7 @@
     cursor: pointer;
   }
   .main .result {
-    font-weight: bold;
+    font-weight: normal;
     margin-top: 40px;
   }
   
