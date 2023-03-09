@@ -26,8 +26,6 @@ export default function Course(props) {
         setCourseLoaded(true);
         const avgScr = await axios.get(`${baseUrl}/reviews/avg/related/${PK_Course}`)
         setAvgScore(Math.round(avgScr.data.average_score * 10) / 10)
-
-        console.log(avgScore)
       } catch (error) {
         console.error(error);
       }
