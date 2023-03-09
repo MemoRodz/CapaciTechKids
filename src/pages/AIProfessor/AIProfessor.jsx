@@ -31,10 +31,10 @@ export default function AIProfessor() {
       messages: [{role: "user", content: `Si la siguiente oración no pide explicación sobre algo referido a tecnología, informática o computación no la respondas. Explicame como si tuviese 12 años, de manera didáctica e infantil, acerca de ${questionInput} solo si esto refiere a algo tecnológico. Al final de tu respuesta, preguntame si puedes ayudarme en algo más, y si entendí el tema. Invitame a ver más cursos en la página. Dime que me esperas y saludame.`}],
       max_tokens: 650
     });
-    console.log(completion.data.choices[0].message);
+    // console.log(completion.data.choices[0].message);
     generatedText = completion.data.choices[0].message;
     // setGeneratedText(completion.data.choices[0].message);
-    console.log(generatedText.content)
+    // console.log(generatedText.content)
     setGeneratedText(generatedText.content)
 
     //   const response = await fetch(apiUrl, {
