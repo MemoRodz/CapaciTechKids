@@ -53,8 +53,6 @@ export default function Detail() {
 
 
   function Score() {
-
-    
     let score = average
      score = Math.round(score * 10) / 10
 

@@ -7,6 +7,7 @@ import { getAllCategories } from "../../redux/slices/categoriesSlice";
 import { setAllCourses } from '../../redux/slices/coursesSlice'
 import { baseUrl } from '../../models/baseUrl'
 import { useCourses } from "../../hooks/useCourses";
+import { coursesAdapter } from "../../utils/coursesAdapter";
 
 
 export default function Courses() {
@@ -14,7 +15,7 @@ export default function Courses() {
   const { isError, isLoading, data } = useCourses()
   useEffect(() => {
     dispatch(getAllCategories(`${baseUrl}/categories`))
-    data && dispatch(setAllCourses(data))  // dispatch(getAllCourses(`${baseUrl}/courses`)) <== esta es la implementacion vieja
+    data && dispatch(setAllCourses(coursesAdapter(data)))  // dispatch(getAllCourses(`${baseUrl}/courses`)) <== esta es la implementacion vieja
   }, [data])
 
   const arregloCourses = useSelector(state => state.courses)
