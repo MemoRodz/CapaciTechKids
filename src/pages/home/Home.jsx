@@ -4,7 +4,8 @@ import { HiOutlineDocumentText } from 'react-icons/hi'
 import { FaCalendarAlt, FaUsers } from 'react-icons/fa'
 import { LoginButton, LogoutButton, Profile } from '../../component'
 import { useAuth0 } from '@auth0/auth0-react'
-
+import { AIHome } from '../../component'
+import { CursosHome } from '../../component'
 
 function Home() {
   const { isAuthenticated, user } = useAuth0()
@@ -113,7 +114,9 @@ function Home() {
           </div>
         </div>
 
+
         <div>
+<CursosHome></CursosHome> 
           <h2 className={styles.study}>Estudiar nuevas tecnologías, es ser un<br />
             <span>CapaciTechKid!</span></h2>
           <p>Disponemos de los cursos más actualizados, que incluyen<br />
@@ -128,6 +131,9 @@ function Home() {
         </div>
 
       </div>
+
+    <AIHome></AIHome>
+    
     </>
   )
 }
