@@ -48,15 +48,15 @@ export default function ActiveCourse(props) {
   }
 
   return (
-    <div className={styles.card}>
-      <div className={styles.btnX}>
-        <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
-      <Link to={`../../../edit/detail/${PK_Course}`}>
-        {/* <button onClick={() => handleEdit(PK_Course)} className={styles.editBtn}>EDIT</button> */}
-        <button className={styles.editBtn}>EDIT</button>
-      </Link>
-      </div>
-      <Link to={`../../../detail/${PK_Course}`} style={{width: "250px"}}>
+    <Link to={`../../../detail/${PK_Course}`}>
+      <div className={styles.card}>
+        <div className={styles.btnX}>
+          <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
+          <Link to={`../../../edit/detail/${PK_Course}`}>
+            {/* <button onClick={() => handleEdit(PK_Course)} className={styles.editBtn}>EDIT</button> */}
+            <button className={styles.editBtn}>EDIT</button>
+          </Link>
+        </div>
         <img className={styles.img} src={Image} alt={Image} />
         <div className={styles.coursedet}>
           {/* <div className={styles.similar1} >
@@ -75,7 +75,7 @@ export default function ActiveCourse(props) {
           <div className={styles.btndetail}>
           </div>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }

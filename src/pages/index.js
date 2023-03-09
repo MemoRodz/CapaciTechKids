@@ -26,3 +26,4 @@ export { default as Sidebar } from './Video/Sidebar/Sidebar';
 export { default as Home } from './home/Home';
 export { default as EditCourse } from './EditCourse/EditCourse';
 export { default as AIProfessor } from  './AIProfessor/AIProfessor'
+export {default as Reviews} from "./AllReviews/AllReviews"
