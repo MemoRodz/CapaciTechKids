@@ -60,7 +60,7 @@ button {
 .opinions .buttons button {
     width: 200px;
     height: 63px;
-    background: rgba(0, 0, 0, 0.1);
+    background: var(--bg-clr-complementary);
     border-radius: 12px;
     color: white;
     margin: 0px 20px 83px 20px;
@@ -70,7 +70,7 @@ button {
 }
 
 .opinions .buttons button:hover {
-    background-color: #0583F2;
+    background-color: var(--bg-clr-yellow);
 }
 
 .startbox {
@@ -393,11 +393,61 @@ hr {
 
 @media screen and (max-width: 768px){
     .heard {
-        padding: 0 50px;
+        padding: 0;
         background-image:none;
-        height: 70vh;
+        height: 0;
+        width: 0;
+    }
+    .leftandringh{
+        flex-direction: column-reverse;
+    }
+    .opinions{
         width: 100%;
-        background-size: cover;
-        background-position: center;
+        border-radius: 5px;
+    }
+    .opinions .buttons{
+        width: 100%;
+        margin: 0;
+    }
+    .opinions .ranking{
+        width: 90%;
+    }
+    .commenttop{
+        justify-content: space-around;
+    }
+    .top{
+        width: 100%;
+    }
+    .opinions .buttons button{
+        margin: 20px;
+        background: var(--bg-clr-complementary);
+    }
+    .detail {
+        width: 100%;
+        position: inherit;
+        border-radius: 10px;
+        margin-left: 0;  
+        align-items: center;     
+    }
+    .detail img{
+        width: 320px;
+        margin-bottom: 20px;
+    }
+    .detail h1 {
+        font-size: 22px;
+    }
+    
+    .detail h2 {
+        color: #2F2F2F;
+        font-size: 18px;
+    }
+    .social{
+        margin-top: 20px;
+        align-items: center;
+    }
+    .cards{
+        display: block;
+        width: 100%;
+        align-items: center;
     }
 }
