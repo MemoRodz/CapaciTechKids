@@ -38,6 +38,9 @@
     margin-block-end: 5px;
     font-size: 50px;
 }
+.welcome:hover{
+    color:#ffffff;
+}
 
 .kids img {
     width: 600px;
@@ -48,6 +51,26 @@
     margin-top: 5px;
     margin-block-end: 5px;
     font-size: 50px;
+    /*animation: glitch 5s infinite;*/
+}
+.capaci:hover {
+    color: #ffffff;
+}
+
+@keyframes glitch {
+    0%{
+        text-shadow: #ffffff
+        0px 0px, var(--font-clr-yellow) 0px 0px;
+    }
+    50%{
+        text-shadow: #ffffff
+        -3px 0px, blue 0px 0px;
+    }
+    100%{
+        text-shadow: #ffffff
+        3px 0px, blue 0px 0px;
+    }
+    
 }
 
 .text {
@@ -140,10 +163,22 @@ p {
 .ult {
     text-align: center;
     margin-bottom: 3rem;
+    font-size: 30px;
+    border-radius: 4rem;
+    
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .ult a:visited {
     color: var(--font-clr-primary);
+}
+
+.ult:hover{
+    background: var(--font-clr-yellow);
+    color:#FFF ;
 }
 
 .stats {
@@ -247,6 +282,7 @@ p {
         width: 60px;
         height: 60px;
     }
+
     .iconcardbg svg{
         width: 30px;
     }

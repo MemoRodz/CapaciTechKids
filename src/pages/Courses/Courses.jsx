@@ -7,6 +7,7 @@ import { getAllCategories } from "../../redux/slices/categoriesSlice";
 import { setAllCourses } from '../../redux/slices/coursesSlice'
 import { baseUrl } from '../../models/baseUrl'
 import { useCourses } from "../../hooks/useCourses";
+import { coursesAdapter } from "../../utils/coursesAdapter";
 
 
 export default function Courses() {
@@ -14,11 +15,11 @@ export default function Courses() {
   const { isError, isLoading, data } = useCourses()
   useEffect(() => {
     dispatch(getAllCategories(`${baseUrl}/categories`))
-    data && dispatch(setAllCourses(data))  // dispatch(getAllCourses(`${baseUrl}/courses`)) <== esta es la implementacion vieja
+    data && dispatch(setAllCourses(coursesAdapter(data)))  // dispatch(getAllCourses(`${baseUrl}/courses`)) <== esta es la implementacion vieja
   }, [data])
 
-  const arregloCourses = useSelector(state => state.courses.filteredCourses)
- 
+  const arregloCourses = useSelector(state => state.courses)
+
 
   return (
     <>
@@ -33,10 +34,20 @@ export default function Courses() {
           <ResetFilters />
         </div>
         <div className={styles.courses}>
-          {arregloCourses && arregloCourses.map((c, i) => (
+          {isLoading ?
+            <>
+              <h2 className={styles.cargandocourses}>Cargando...</h2>
+            </> : ""
+          }
+          {arregloCourses.selectedCategory.length && !arregloCourses.filteredCourses.length ?
+            <>
+              <h2 className={styles.cursosnoencontrados}>No se encontraron cursos con esos filtros.</h2>
+            </> :
+            ""
+          }
+          {arregloCourses.filteredCourses && arregloCourses.filteredCourses.map((c, i) => (
             <Course PK_Course={c.PK_Course} />
-          )
-          )}
+          ))}
         </div>
       </div>
     </>

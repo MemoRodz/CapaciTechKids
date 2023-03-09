@@ -52,7 +52,7 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 355px;
+    width: fit-content;
 }
 
 .similar1 {
@@ -60,7 +60,7 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    width: 355px;
+    width: 100px;
 }
 
 .similar2 {
@@ -68,7 +68,7 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    width: 355px;
+    width: 150px;
 }
 
 .teach {

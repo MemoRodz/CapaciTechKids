@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useAuth0, User } from '@auth0/auth0-react';
 import styles from './Login.module.css'
+import {audience} from '../../main'
 
 export const LoginButton = () => {
     const [error, setError] = useState(null);
     const { loginWithPopup } = useAuth0()
-
-    const audience = 'https://dev-nthm3x2u4nohqdcs.us.auth0.com/api/v2/';
 
 
     const handleSignInWithPopup = async () => {

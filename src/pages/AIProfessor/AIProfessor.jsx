@@ -28,8 +28,8 @@ export default function AIProfessor() {
     event.preventDefault();
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: [{role: "user", content: `Si la siguiente oración no pide explicación sobre algo referido a tecnología e informática no la respondas. Explicame como si tuviese 12 años acerca de ${questionInput} solo si esto refiere a algo tecnológico. `}],
-      max_tokens: 300
+      messages: [{role: "user", content: `Si la siguiente oración no pide explicación sobre algo referido a tecnología, informática o computación no la respondas. Explicame como si tuviese 12 años, de manera didáctica e infantil, acerca de ${questionInput} solo si esto refiere a algo tecnológico. Al final de tu respuesta, preguntame si puedes ayudarme en algo más, y si entendí el tema. Invitame a ver más cursos en la página. Dime que me esperas y saludame.`}],
+      max_tokens: 650
     });
     console.log(completion.data.choices[0].message);
     generatedText = completion.data.choices[0].message;

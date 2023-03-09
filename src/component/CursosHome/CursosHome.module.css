@@ -1,0 +1,10 @@
+.cursospopulares {
+    font-size: 22pt;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.cardscursos {
+    display: inline-flex;
+
+}

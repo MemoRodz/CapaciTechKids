@@ -33,8 +33,8 @@
 .btn::after{
     content: '';
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     border: 2px solid var(--font-clr-yellow);
     top: -10px;
     left: 50%;
@@ -52,11 +52,11 @@
 
 .btntext{
     position: relative;
-    height: 80px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 35px;
     font-size: 24px;
     text-transform: uppercase;
     color: #fff;
