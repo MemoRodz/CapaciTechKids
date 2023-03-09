@@ -57,7 +57,15 @@
      border-radius: 30px;
      background: #fff;
      margin: 10px;
+     transition: all 0.3s ease-out;
 }
+
+.dev:hover {
+     box-shadow: 2px 5px 4px grey;
+ 
+     transform: translateY(-5px);
+ 
+ }
 
 .imgDev {
      width: fit-content;
