@@ -5,7 +5,7 @@ import { FaRegClock, FaThLarge } from "react-icons/fa";
 import { Link,  } from 'react-router-dom';
 import axios from 'axios';
 import { baseUrl } from '../../models/baseUrl';
-
+import { FaStar } from 'react-icons/fa';
 
 export default function Course(props) {
 
@@ -14,7 +14,9 @@ export default function Course(props) {
 
   const [isFav, setIsFav] = useState(false);
   const [course,setCourse] = useState({});
+  const [avgScore,setAvgScore] = useState();
   const [courseLoaded, setCourseLoaded] = useState(false)
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +24,10 @@ export default function Course(props) {
         const curso =  await axios.get(`${baseUrl}/courses/detail/${PK_Course}`)
         setCourse(curso.data);
         setCourseLoaded(true);
+        const avgScr = await axios.get(`${baseUrl}/reviews/avg/related/${PK_Course}`)
+        setAvgScore(Math.round(avgScr.data.average_score * 10) / 10)
+
+        console.log(avgScore)
       } catch (error) {
         console.error(error);
       }
@@ -38,7 +44,7 @@ export default function Course(props) {
       //dispatch(addFavorites(ch));
     }
   }
-  console.log(course)
+
 
   return courseLoaded ? (
     <div className={styles.card}>
@@ -48,11 +54,12 @@ export default function Course(props) {
 
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
-          <FaThLarge />
+          <FaThLarge /> 
           {course.tblCategories.map((category) => (
-  <h4 key={category.PK_Category}>{`${category.Name} `} </h4>
-))}
+            <h4 key={category.PK_Category}>{`${category.Name} `} </h4>
+            ))}
         </div>
+        <h3><FaStar className={styles.estrellita}/> {avgScore}</h3>
         <div className={styles.similar2}>
           <FaRegClock />
           <h4>{course.Duration} Min.</h4>
