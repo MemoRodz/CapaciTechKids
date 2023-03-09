@@ -11,6 +11,7 @@ function DetailCard({
   Duration,
   Title,
   PK_Course,
+  PK_User
 }) 
 {
   // console.log(tblCategories)
@@ -38,8 +39,8 @@ function DetailCard({
         </div>
 
         <div className={styles.teach}>
-          <img src="..\img\image 12.png" alt="perfil" />
-          <h3>{tblUsers[0].Name}</h3>
+          <img src={tblUsers.find(a => a.PK_User === PK_User).Image}alt="perfil" />
+          <h3>{tblUsers.find(a => a.PK_User ===   PK_User).Name}</h3>
         </div>
       </Link>
     </div>
