@@ -31,10 +31,10 @@ export default function DeleteCourse(props) {
       <button onClick={() => handleActivate(PK_Course)} className={styles.deleteBtn}>x</button>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
-        <div className={styles.similar1}>
+        {/* <div className={styles.similar1}>
           <FaThLarge />
-          {/* <h4>{tblCategories[0].Name}</h4> */}
-        </div>
+          <h4>{tblCategories[0].Name}</h4> 
+        </div> */}
         <div className={styles.similar2}>
           <FaRegClock />
           <h4> {Duration} Min.</h4>
