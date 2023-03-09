@@ -22,21 +22,31 @@ export default function AIProfessor() {
   
   const [questionInput, setQuestionInput] = useState("");
   const [generatedTexto, setGeneratedText] = useState();
+  const [error, setError] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
   let generatedText = ''
 
   async function onSubmit(event) {
     event.preventDefault();
-    const completion = await openai.createChatCompletion({
+    setIsLoading(true);
+    try { 
+      setGeneratedText("")
+      const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [{role: "user", content: `Si la siguiente oración no pide explicación sobre algo referido a tecnología, informática o computación no la respondas. Explicame como si tuviese 12 años, de manera didáctica e infantil, acerca de ${questionInput} solo si esto refiere a algo tecnológico. Al final de tu respuesta, preguntame si puedes ayudarme en algo más, y si entendí el tema. Invitame a ver más cursos en la página. Dime que me esperas y saludame.`}],
-      max_tokens: 650
+      max_tokens: 1200
     });
     // console.log(completion.data.choices[0].message);
     generatedText = completion.data.choices[0].message;
     // setGeneratedText(completion.data.choices[0].message);
     // console.log(generatedText.content)
     setGeneratedText(generatedText.content)
-
+  } catch (error) {
+    setError(error)
+  } finally { 
+    setIsLoading(false)
+  }
+    
     //   const response = await fetch(apiUrl, {
     //     method: "POST",
     //     headers: {
@@ -104,7 +114,7 @@ export default function AIProfessor() {
           />
           <input type="submit" value="Generar explicación" className={styles.generar} />
         </form>
-        <h3 className={styles.result}>{generatedTexto}</h3>
+        {isLoading ? <h3>¡El profe virtual está generando tu respuesta!</h3> : <h3 className={styles.result}>{generatedTexto}</h3>}
       </main>
     </div>
   );
