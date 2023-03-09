@@ -48,7 +48,7 @@ export default function Course(props) {
     <div className={styles.card}>
       <Link to={`/detail/${course.PK_Course}`}>
 
-      <img className={styles.img} src={course.Image} alt={course.Image} />
+      <img className={styles.img} src={course.Image ? course.Image : "Imagen inexistente"} alt={course.Image} />
 
       <div className={styles.coursedet}>
         <div className={styles.similar1}>
@@ -65,9 +65,9 @@ export default function Course(props) {
       </div>
       <div className={styles.cardtit}><h1>{course.Title}</h1></div>
       <div className={styles.teach}>
-        <img src={course.tblUsers.find(a => a.PK_User === course.PK_User).Image} alt="perfil" />
+        <img src={course.tblUsers.find(a => a.PK_User === course.PK_User)?.Image ?? "Imagen inexistente"} alt="perfil" />
 
-        <h3>{course.tblUsers.find(a => a.PK_User === course.PK_User).Name}</h3>
+        <h3>{course.tblUsers.find(a => a.PK_User === course.PK_User)?.Name ?? "Profesor"}</h3>
         {/* <h3>{course.tblUsers[0].Name}</h3> */}
         {/* <div className={styles.btndetail}>
           <Link to={`/detail/${course.PK_Course}`}><button>Detail</button></Link>

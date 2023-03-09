@@ -29,8 +29,9 @@ export default function ActiveCourse(props) {
 
   return (
     <div className={styles.card}>
-      <Link to={`../../../detail/${PK_Course}`}>
+
       <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
+      <Link to={`../../../detail/${PK_Course}`}>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         {/* <div className={styles.similar1}>
