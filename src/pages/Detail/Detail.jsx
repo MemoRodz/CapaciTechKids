@@ -34,7 +34,7 @@ export default function Detail() {
         const rela = await axios.get(`${baseUrl}/categories/co/${id}`)
         const avg = await axios.get(`${baseUrl}/reviews/avg/related/${id}`)
         // console.log(avg.data.Score)
-        console.log(reviews.data,"entramos a useEffect")
+        // console.log(reviews.data,"entramos a useEffect")
         setCourse(curso.data);
         setReview(reviews.data);
         setRelated(rela.data);
@@ -90,7 +90,7 @@ export default function Detail() {
   }
 
 
-  console.log("chau papa",review)
+  // console.log("chau papa",review)
 
 
   return relatedLoaded ? (

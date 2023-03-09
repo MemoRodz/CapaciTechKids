@@ -20,7 +20,7 @@ export function StudentCoursesProvider({ children }) {
         const fetchData = async () => {
             try {
                 const studCourses = await axios.get(`${baseUrl}/users/user/${usuario}`) // esta url deberia traer los courses del student pasando su userId
-                console.log("22222222222222", studCourses.data.tblCourses)
+                // console.log("22222222222222", studCourses.data.tblCourses)
                 setStudentCourses({
                     ...studentCoursesInitialState,
                     myCourses: studCourses.data.tblCourses,

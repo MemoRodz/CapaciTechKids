@@ -9,3 +9,25 @@
     font-size: 18px;
     font-family: 'Londrina Solid', cursive;
 }
+
+
+@media screen and (max-width: 768px) {
+    .btnlogout button{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        background: transparent;
+        width: 100%;
+        border: none;
+        color: black;
+        font-size: 18px;
+        font-family: 'Londrina Solid', cursive;
+        
+        margin: 0 auto;
+    } 
+    .btnlogout {
+        width: 62%;
+    }
+
+
+}
