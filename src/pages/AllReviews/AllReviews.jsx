@@ -84,7 +84,7 @@ console.log(average,review)
                       <div className={styles.commenttop}>
                         <div className={styles.userstart}>
                           <div className={styles.photo}>
-                            <img src="..\img\image 12.png" alt="perfil" />
+                            <img src={e.tbl.Image} alt="perfil" />
                           </div>
                           <div className={styles.namestart}>
                             <h1>{e.tblUser.Name}</h1>

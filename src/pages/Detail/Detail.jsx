@@ -34,6 +34,7 @@ export default function Detail() {
         const rela = await axios.get(`${baseUrl}/categories/co/${id}`)
         const avg = await axios.get(`${baseUrl}/reviews/avg/related/${id}`)
         // console.log(avg.data.Score)
+        console.log(reviews.data,"entramos a useEffect")
         setCourse(curso.data);
         setReview(reviews.data);
         setRelated(rela.data);
@@ -89,6 +90,9 @@ export default function Detail() {
   }
 
 
+  console.log("chau papa",related)
+
+
   return relatedLoaded ? (
     <div className={styles.container}>
       <div className={styles.heard}>
@@ -126,7 +130,7 @@ export default function Detail() {
                       <div className={styles.commenttop}>
                         <div className={styles.userstart}>
                           <div className={styles.photo}>
-                            <img src="..\img\image 12.png" alt="perfil" />
+                            <img src={e.tblUser.Image} alt="perfil" />
                           </div>
                           <div className={styles.namestart}>
                             <h1>{e.tblUser.Name}</h1>
