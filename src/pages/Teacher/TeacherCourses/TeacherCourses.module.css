@@ -11,13 +11,15 @@
 .teacher_sidebar{
     display: flex;
     flex-direction: column;
-    width: 13rem;
+    width: 11rem;
     height: 100%;
 }
-
-.teacher_container a{
-    text-decoration: none;
-    width: fit-content;
-    border-radius: 3px;
-    padding: .2rem .3rem;
-}
+/*
+.teacher_sidebar a{
+    margin: 10px;
+    background: var(--bg-clr-yellow);
+    font-family: 'Londrina Solid', cursive;
+    padding: 10px;
+    color: #fff;
+    border: none;
+}*/

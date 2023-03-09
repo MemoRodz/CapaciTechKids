@@ -13,7 +13,9 @@ export default function ActiveCourses() {
         <h2>Active Courses</h2>
         <div className={styles.active_courses}>
           {adminCourses.activeCourses && adminCourses.activeCourses.map((c, i) => (
+           // <Link to={`/detail/${c.PK_Course}`}>
             <ActiveCourse {...c} key={`${c.PK_Course}-active`}/>
+            //</Link>
           )
           )}
         </div>
