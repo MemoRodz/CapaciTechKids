@@ -273,7 +273,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0583F2;
+    /*background-color: #0583F2;*/
     height: 63px;
     border-radius: 12px;
     margin: 0px 20px 20px 20px;
@@ -286,7 +286,7 @@ button {
 }
 
 .studybutton:hover {
-    background: #0583f2be;
+    /*background: #0583f2be;*/
     cursor: pointer;
 }
 
