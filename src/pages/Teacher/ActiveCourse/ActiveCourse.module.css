@@ -2,7 +2,7 @@
     margin: 20px;
     background: #FFFFFF;
     width: 335px;
-    height: 500px;
+    height: 450px;
     border-radius: 20px;
     display: block;
     flex-direction: column;
@@ -11,6 +11,7 @@
     border: solid 40px #FFFFFF;
     filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
     text-decoration: none;
+    transition: all 0.3s ease-out;
 }
 
 a:visited {
@@ -22,9 +23,7 @@ a {
     display: block;
 }
 
-.cardtit {
-    width: 100px;
-}
+
 
 .heard {
     position: relative;
@@ -45,7 +44,11 @@ a {
     width: 100%;
     height: 100%;
 }
-
+.contetimg{
+    object-fit: cover;
+    width: 250px;
+    height: 150px;
+}
 .card img {
     object-fit: cover;
 }

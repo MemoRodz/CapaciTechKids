@@ -11,7 +11,7 @@
 
 
 .containerdiv {
-    display: flex; 
+    display: flex;
     flex-direction: row-reverse;
     /* justify-content: flex-end; */
     margin-right: 150px;
@@ -33,10 +33,44 @@
 
 }
 
-.preguntale:hover{
+.preguntale:hover {
     border-bottom: solid 3px var(--font-clr-yellow);
 
 }
-.containerdiv .preguntale a:hover{
+
+.containerdiv .preguntale a:hover {
     font-size: 30pt;
+}
+
+@media screen and (max-width: 768px) {
+    .containerdiv {
+        width: 90%;
+        margin: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .imagenrobot {
+        height: 100px;        
+        margin-bottom: 20px;
+    }
+
+    .textorobot {
+        margin-right: 0;
+        margin-top: 0;
+        font-size: 12pt;
+        max-width: 350px;
+        margin-left: 30;
+    }
+
+    .preguntale {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-right: 0;
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
 }

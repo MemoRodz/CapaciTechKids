@@ -54,7 +54,7 @@ function Player() {
     fetchData();
   }, [index])
 
-  console.log("Holaaaa", actives)
+  // console.log("Holaaaa", actives)
 
   return (
     <div className={styles.conten}>

@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Home, Courses, About, Donate, Dashboard, Gracias, Player, EditCourse } from './pages/index'
+import { Home, Courses, About, Donate, Dashboard, Gracias, Player, EditCourse, Reviews} from './pages/index'
 import AuthGuard from './guards/authGuard'
 import Layout from './component/Layout/Layout'
 import Detail from './pages/Detail/Detail'
@@ -31,7 +31,8 @@ function App() {
             <Route path='/donate' element={<Donate />} />
             <Route path='/gracias' element={<Gracias />} /> 
             <Route path = "/player/:id" element ={<Player />}  />
-            <Route path = "/pregunta" element ={<AIProfessor />} />        
+            <Route path = "/pregunta" element ={<AIProfessor />} />  
+            <Route path = "/reviews/:id" element ={<Reviews />} />     
 
               <Route path='/player' element={
                 <ProSidebarProvider>

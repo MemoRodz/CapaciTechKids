@@ -5,7 +5,7 @@ import { AdminCoursesContext } from '../../../context/AdminCoursesContext'
 import { baseUrl } from '../../../models/baseUrl'
 import axios from 'axios';
 import { usuario } from '../../../component/Layout/Nav/Nav';
-
+import { Link } from 'react-router-dom';
 
 export default function ActiveCourse(props) {
   const { setAdminCourses, adminCourses } = useContext(AdminCoursesContext)
@@ -29,7 +29,9 @@ export default function ActiveCourse(props) {
 
   return (
     <div className={styles.card}>
+
       <button onClick={() => handleDelete(PK_Course)} className={styles.activeBtn}>x</button>
+      <Link to={`../../../detail/${PK_Course}`}>
       <img className={styles.img} src={Image} alt={Image} />
       <div className={styles.coursedet}>
         {/* <div className={styles.similar1}>
@@ -48,6 +50,7 @@ export default function ActiveCourse(props) {
         <div className={styles.btndetail}>
         </div>
       </div>
+      </Link>
     </div>
   )
 }
